@@ -25,7 +25,7 @@ return [
     | API, giving you convenient access to each back-end using the same
     | syntax for each one. Here you may set the default queue driver.
     |
-    | Note that the phpci will not work with the "sync" or "iron" queue
+    | Note that the styleci will not work with the "sync" or "iron" queue
     | drivers. The recommended driver is "beanstalkd".
     |
     | Supported: "sync", "beanstalkd", "sqs", "iron", "redis"
