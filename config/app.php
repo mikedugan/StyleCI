@@ -162,7 +162,7 @@ return [
         'Lightgear\Asset\AssetServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'GrahamCampbell\Core\CoreServiceProvider',
-        'GrahamCampbell\Fixer\CoreServiceProvider',
+        'GrahamCampbell\Fixer\FixerServiceProvider',
         'GrahamCampbell\GitHub\GitHubServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
 
