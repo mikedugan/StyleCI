@@ -19,13 +19,13 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * This is the create files table migration class.
+ * This is the create analyses table migration class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
-class CreateFilesTable extends Migration
+class CreateAnalysesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -34,12 +34,13 @@ class CreateFilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('analyses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->char('commit_id', 40);
-            $table->string('name', 1024);
             $table->float('time');
-            $table->longText('changes');
+            $table->float('memory');
+            $table->longText('diff');
+            $table->timestamps();
         });
     }
 
@@ -50,6 +51,6 @@ class CreateFilesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('files');
+        Schema::drop('analyses');
     }
 }

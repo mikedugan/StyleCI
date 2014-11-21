@@ -19,38 +19,38 @@ namespace GrahamCampbell\StyleCI\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * This is the commit model class.
+ * This is the analysis model class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
-class Commit extends Model
+class Analysis extends Model
 {
     /**
      * A list of methods protected from mass assignment.
      *
      * @var array
      */
-    protected $guarded = ['_token', '_method'];
+    protected $guarded = ['_token', '_method', 'id'];
 
     /**
-     * Get the repo relation.
+     * Get the commit relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function repo()
+    public function commit()
     {
-        return $this->belongsTo(Repo::class);
+        return $this->belongsTo(Commit::class);
     }
 
     /**
-     * Get the analyses relation.
+     * Get the files relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function analyses()
+    public function files()
     {
-        return $this->hasMany(Analysis::class);
+        return $this->hasMany(Files::class);
     }
 }
