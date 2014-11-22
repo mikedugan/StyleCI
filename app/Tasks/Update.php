@@ -14,42 +14,32 @@
  * GNU Affero General Public License for more details.
  */
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace GrahamCampbell\StyleCI\Tasks;
+
+use GrahamCampbell\StyleCI\Models\Commit;
+use Illuminate\Contracts\Queue\Job;
 
 /**
- * This is the create files table migration class.
+ * This is the update task class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
-class CreateFilesTable extends Migration
+class Update extends AbstractTask
 {
     /**
-     * Run the migrations.
+     * Kick of the update.
+     *
+     * @param \Illuminate\Contracts\Queue\Job $job
+     * @param \GrahamCampbell\Models\Commit   $commit
      *
      * @return void
      */
-    public function up()
+    public function fire(Job $job, Commit $commit)
     {
-        Schema::create('files', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('analysis_id', 40);
-            $table->string('name', 1024);
-            $table->longText('old');
-            $table->longText('new');
-        });
-    }
+        $this->analyser->runUpdate($commit);
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('files');
+        $job->delete();
     }
 }

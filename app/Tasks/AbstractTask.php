@@ -14,45 +14,37 @@
  * GNU Affero General Public License for more details.
  */
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace GrahamCampbell\StyleCI\Tasks;
+
+use GrahamCampbell\StyleCI\Analyser;
+use GrahamCampbell\StyleCI\Models\Commit;
+use Illuminate\Contracts\Queue\Job;
 
 /**
- * This is the create analyses table migration class.
+ * This is the abstract task class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
-class CreateAnalysesTable extends Migration
+abstract class AbstractTask
 {
     /**
-     * Run the migrations.
+     * The analyser instance.
      *
-     * @return void
+     * @var \GrahamCampbell\StyleCI\Analyser
      */
-    public function up()
-    {
-        Schema::create('analyses', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->char('commit_id', 40);
-            $table->tinyInteger('status')->unsigned()->default(0);
-            $table->string('summary', 128);
-            $table->float('time');
-            $table->float('memory');
-            $table->longText('diff');
-            $table->timestamps();
-        });
-    }
+    protected $analyser;
 
     /**
-     * Reverse the migrations.
+     * Create a task instance.
+     *
+     * @param \GrahamCampbell\StyleCI\Analyser $analyser
      *
      * @return void
      */
-    public function down()
+    public function __construct(Analyser $analyser)
     {
-        Schema::drop('analyses');
+        $this->analyser = $analyser;
     }
 }

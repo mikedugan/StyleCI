@@ -14,43 +14,42 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\Models;
-
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 /**
- * This is the analysis model class.
+ * This is the create files table migration class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
-class Analysis extends Model
+class CreateFilesTable extends Migration
 {
     /**
-     * A list of methods protected from mass assignment.
+     * Run the migrations.
      *
-     * @var array
+     * @return void
      */
-    protected $guarded = ['_token', '_method', 'id'];
-
-    /**
-     * Get the commit relation.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function commit()
+    public function up()
     {
-        return $this->belongsTo(Commit::class);
+        Schema::create('files', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->char('commit_id', 40);
+            $table->string('name', 1024);
+            $table->longText('old');
+            $table->longText('new');
+        });
     }
 
     /**
-     * Get the files relation.
+     * Reverse the migrations.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return void
      */
-    public function files()
+    public function down()
     {
-        return $this->hasMany(Files::class);
+        Schema::drop('files');
     }
 }

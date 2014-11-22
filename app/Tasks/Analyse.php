@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\StyleCI\Tasks;
 
-use GrahamCampbell\StyleCI\Models\Analysis;
+use GrahamCampbell\StyleCI\Models\Commit;
 use Illuminate\Contracts\Queue\Job;
 
 /**
@@ -26,20 +26,20 @@ use Illuminate\Contracts\Queue\Job;
  * @copyright 2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
-class Analyse
+class Analyse extends AbstractTask
 {
     /**
      * Kick of the analysis.
      *
      * @param \Illuminate\Contracts\Queue\Job $job
-     * @param int                             $id
+     * @param \GrahamCampbell\Models\Commit   $commit
      *
      * @return void
      */
-    public function fire(Job $job, $id)
+    public function fire(Job $job, Commit $commit)
     {
-        $analysis = Analysis::find($id);
+        $this->analyser->runAnalysis($commit);
 
-        $this->analyser->analyse($analysis);
+        $job->delete();
     }
 }

@@ -81,17 +81,33 @@ class StyleCIServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerModelFactory();
         $this->registerGitHubStatus();
+        $this->registerAnalyser();
     }
 
     /**
-     * Register the service provider.
+     * Register the model factory class.
+     *
+     * @return void
+     */
+    protected function registerModelFactory()
+    {
+        $this->app->singleton('styleci.modelfactory', function ($app) {
+            return new Factories\ModelFactory();
+        });
+
+        $this->app->alias('styleci.modelfactory', 'GrahamCampbell\StyleCI\Factories\ModelFactory');
+    }
+
+    /**
+     * Register the github status class.
      *
      * @return void
      */
     protected function registerGitHubStatus()
     {
-        $this->singleton('styleci.status', function ($app) {
+        $this->app->singleton('styleci.status', function ($app) {
             $github = $app['github']->connection()->repos()->statuses();
             $url = asset('commits');
 
@@ -102,6 +118,24 @@ class StyleCIServiceProvider extends ServiceProvider
     }
 
     /**
+     * Register the analyser class.
+     *
+     * @return void
+     */
+    protected function registerAnalyser()
+    {
+        $this->app->singleton('styleci.analyser', function ($app) {
+            $fixer = $app['fixer'];
+            $status = $app['styleci.status'];
+            $queue = $app['queue.connection'];
+
+            return new Analyser($fixer, $status, $queue);
+        });
+
+        $this->app->alias('styleci.analyser', 'GrahamCampbell\StyleCI\GitHub\Analyser');
+    }
+
+    /**
      * Get the services provided by the provider.
      *
      * @return string[]
@@ -109,7 +143,9 @@ class StyleCIServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'styleci.status'
+            'styleci.analyser',
+            'styleci.status',
+            'styleci.modelfactory',
         ];
     }
 }

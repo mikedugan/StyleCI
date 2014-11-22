@@ -45,12 +45,60 @@ class Commit extends Model
     }
 
     /**
-     * Get the analyses relation.
+     * Get the files relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function analyses()
+    public function files()
     {
-        return $this->hasMany(Analysis::class);
+        return $this->hasMany(File::class);
+    }
+
+    /**
+     * Get the combined commit status.
+     *
+     * @return int
+     */
+    public function combinedStatus()
+    {
+        if ($this->status === '0' || $this->travis === '0') {
+            return 0;
+        }
+
+        if (($this->status === '1' || $this->status === '3') && ($this->travis === '1' || $this->travis === '3')) {
+            return 1;
+        }
+
+        return 2;
+    }
+
+    /**
+     * Get the commit summary.
+     *
+     * @return int
+     */
+    public function summary()
+    {
+        if ($this->travis === '0') {
+            $tests = 'PENDING';
+        } elseif ($this->travis === '1') {
+            $tests = 'PASSED';
+        } elseif ($this->travis === '2') {
+            $tests = 'FAILED';
+        } else {
+            $tests = 'SKIPPED';
+        }
+
+        if ($this->status === '0') {
+            $cs = 'PENDING';
+        } elseif ($this->status === '1') {
+            $cs = 'PASSED';
+        } elseif ($this->status === '2') {
+            $cs = 'FAILED';
+        } else {
+            $cs = 'SKIPPED';
+        }
+
+        return "TESTS: $tests — CS: $cs";
     }
 }

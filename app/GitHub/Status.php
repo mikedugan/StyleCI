@@ -60,12 +60,13 @@ class Status
      *
      * @param string $repo
      * @param string $commit
+     * @param string $description
      *
      * @return void
      */
-    public function pending($repo, $commit)
+    public function pending($repo, $commit, $description)
     {
-        $this->set($repo, $commit, 'pending');
+        $this->set($repo, $commit, 'pending', $description);;
     }
 
     /**
@@ -77,9 +78,9 @@ class Status
      *
      * @return void
      */
-    public function successful($repo, $commit, $description)
+    public function success($repo, $commit, $description)
     {
-        $this->set($repo, $commit, 'successful', $description);
+        $this->set($repo, $commit, 'success', $description);
     }
 
     /**
@@ -113,22 +114,23 @@ class Status
     /**
      * Set the status on the github commit.
      *
-     * @param string      $repo
-     * @param string      $commit
-     * @param string      $state
-     * @param string|null $description
+     * @param string $repo
+     * @param string $commit
+     * @param string $state
+     * @param string $description
      *
      * @return void
      */
-    protected function set($repo, $commit, $state, $description = null)
+    protected function set($repo, $commit, $state, $description)
     {
         $repo = explode('/', $repo);
 
-        $data = ['state' => $state, 'target_url' => $this->url.'/'.$commit, 'context' => 'styleci'];
-
-        if ($description) {
-            $data['description'] = $description;
-        }
+        $data = [
+            'state'       => $state,
+            'description' => $description,
+            'target_url'  => $this->url.'/'.$commit,
+            'context'     => 'continuous-integration/styleci'
+        ];
 
         $this->github->create($repo[0], $repo[1], $commit, $data);
     }

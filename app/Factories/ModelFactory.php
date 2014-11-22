@@ -44,7 +44,7 @@ class ModelFactory
             return $repo;
         }
 
-        Repo::create(['id' => $id, 'name' -> $name]);
+        Repo::create(['id' => $id, 'name' => $name]);
 
         return Repo::find($id);
     }

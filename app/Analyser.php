@@ -18,9 +18,11 @@ namespace GrahamCampbell\StyleCI;
 
 use GrahamCampbell\Fixer\Fixer;
 use GrahamCampbell\Fixer\Report;
-use GrahamCampbell\StyleCI\Gitub\Status;
-use GrahamCampbell\StyleCI\Models\Analysis;
+use GrahamCampbell\StyleCI\GitHub\Status;
 use GrahamCampbell\StyleCI\Models\Commit;
+use GrahamCampbell\StyleCI\Tasks\Analyse;
+use GrahamCampbell\StyleCI\Tasks\Update;
+use Illuminate\Contracts\Queue\Queue;
 
 /**
  * This is the analyser class.
@@ -46,104 +48,138 @@ class Analyser
     protected $status;
 
     /**
+     * The queue instance.
+     *
+     * @var \Illuminate\Contracts\Queue\Queue
+     */
+    protected $queue;
+
+    /**
      * Create a fixer instance.
      *
      * @param \GrahamCampbell\Fixer\Fixer          $fixer
      * @param \GrahamCampbell\StyleCI\Gitub\Status $status
+     * @param \Illuminate\Contracts\Queue\Queue    $queue
      *
      * @return void
      */
-    public function __construct(Fixer $fixer, Status $status)
+    public function __construct(Fixer $fixer, Status $status, Queue $queue)
     {
         $this->fixer = $fixer;
         $this->status = $status;
+        $this->queue = $queue;
     }
 
     /**
-     * Prepare to analyse a commit.
-     *
-     * Returns the id of the new analysis.
+     * Queue the analysis of a commit.
      *
      * @param \GrahamCampbell\StyleCI\Models\Commit $commit
      *
      * @return int
      */
-    public function prepare(Commit $commit)
+    public function prepareAnalysis(Commit $commit)
     {
-        $analysis = $commit->analyses()->create([]);
+        $this->status->pending($commit->repo->name, $commit->id, $commit->summary());
 
-        $this->status->pending($commit->repo->name, $commit->id);
-
-        return $analysis->id;
+        $this->queue->push(Analyse::class, $commit);
     }
 
     /**
      * Analyse a commit.
      *
-     * @param \GrahamCampbell\StyleCI\Models\Analyse $analysis
+     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
      *
      * @return void
      */
-    public function analyse(Analysis $analysis)
+    public function runAnalysis(Commit $commit)
     {
-        $commit = $analysis->commit;
         $repo = $commit->repo;
 
         $report = $this->fixer->analyse($repo->name, $commit->id);
 
-        $this->saveReport($report, $analysis);
-        $this->saveFiles($report, $analysis);
+        $this->saveReport($report, $commit);
+        $this->saveFiles($report, $commit);
 
-        if ($report->successful()) {
-            $this->status->success($repo->name, $commit->id, $analysis->summary);
-        } else {
-            $this->status->failure($repo->name, $commit->id, $analysis->summary);
+        $this->runUpdate($commit);
+        $this->prepareUpdate($commit);
+    }
+
+    /**
+     * Queue a status update.
+     *
+     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
+     *
+     * @return int
+     */
+    public function prepareUpdate(Commit $commit)
+    {
+        $this->queue->push(Update::class, $commit);
+    }
+
+    /**
+     * Run a status update.
+     *
+     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
+     *
+     * @return int
+     */
+    public function runUpdate(Commit $commit)
+    {
+        switch ($commit->combinedStatus()) {
+            case 0:
+                $this->status->pending($commit->repo->name, $commit->id, $commit->summary());
+                break;
+            case 1:
+                $this->status->success($commit->repo->name, $commit->id, $commit->summary());
+                break;
+            case 2:
+                $this->status->failure($commit->repo->name, $commit->id, $commit->summary());
+                break;
         }
     }
 
     /**
      * Save the main report to the database.
      *
-     * @param \GrahamCampbell\Fixer\Report           $report
-     * @param \GrahamCampbell\StyleCI\Models\Analyse $analysis
+     * @param \GrahamCampbell\Fixer\Report          $report
+     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
      *
      * @return void
      */
-    protected function saveReport(Report $report, Analysis $analysis)
+    protected function saveReport(Report $report, Commit $commit)
     {
-        $analysis->summary = $report->summary();
-        $analysis->time = $report->time();
-        $analysis->memory = $report->memory();
-        $analysis->diff = $report->diff();
+        $commit->time = $report->time();
+        $commit->memory = $report->memory();
+        $commit->diff = $report->diff();
 
         if ($report->successful()) {
-            $analysis->status = 1;
+            $commit->status = 1;
         } else {
-            $analysis->status = 2;
+            $commit->status = 2;
         }
 
-        $analysis->save();
+        $commit->save();
     }
 
     /**
      * Save the file reports to the database.
      *
-     * @param \GrahamCampbell\Fixer\Report           $report
-     * @param \GrahamCampbell\StyleCI\Models\Analyse $analysis
+     * @param \GrahamCampbell\Fixer\Report          $report
+     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
      *
      * @return void
      */
-    protected function saveFiles(Report $report, Analysis $analysis)
+    protected function saveFiles(Report $report, Commit $commit)
     {
-        $id = $analysis->id;
-        $files = $analysis->files();
+        $id = $commit->id;
+        $files = $commit->files();
 
-        foreach ($this->report->files() as $file) {
+        foreach ($report->files() as $file) {
             $files->create([
-                'analysis_id' => $id,
-                'name'        => $file->getName(),
-                'old'         => $file->getOldBlob()->getContent(),
-                'new'         => $file->getNewBlob()->getContent(),
+                'commit_id' => $id,
+                'name'      => $file->getName(),
+                // 'old'       => $file->getOldBlob()->getContent(),
+                // 'new'       => $file->getNewBlob()->getContent(),
             ]);
         }
     }

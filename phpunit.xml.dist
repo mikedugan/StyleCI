@@ -14,7 +14,7 @@
          verbose="true"
 >
     <testsuites>
-        <testsuite name="Bootatrap CMS Test Suite">
+        <testsuite name="StyleCI Test Suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>

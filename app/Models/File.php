@@ -42,12 +42,12 @@ class File extends Model
     public $timestamps = false;
 
     /**
-     * Get the analysis relation.
+     * Get the commit relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function analysis()
+    public function commit()
     {
-        return $this->belongsTo(Analysis::class);
+        return $this->belongsTo(Commit::class);
     }
 }

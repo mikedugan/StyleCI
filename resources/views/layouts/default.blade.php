@@ -9,7 +9,6 @@
 </head>
 <body>
 <div id="wrap">
-@navigation
 <div class="container">
 @section('top')
 @show

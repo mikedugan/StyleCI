@@ -25,6 +25,18 @@
 |
 */
 
-$router->get('/', ['as' => 'base', function () {
-    return 'hello';
-}, ]);
+$router->get('/', function () {
+    return view('index');
+});
+
+$router->post('github-callback', 'GitHubController@handle');
+
+
+
+$router->get('commits/{commit}', function (GrahamCampbell\StyleCI\Models\Commit $commit) {
+    return view('commit', compact('commit'));
+});
+
+$router->get('commits/{commit}/diff', function (GrahamCampbell\StyleCI\Models\Commit $commit) {
+    return Response::make($commit->diff)->header('Content-Type', 'text/plain; charset=UTF-8');
+});
