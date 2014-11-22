@@ -81,7 +81,24 @@ class StyleCIServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->registerGitHubStatus();
+    }
+
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    protected function registerGitHubStatus()
+    {
+        $this->singleton('styleci.status', function ($app) {
+            $github = $app['github']->connection()->repos()->statuses();
+            $url = asset('commits');
+
+            return new GitHub\Status($github, $url);
+        });
+
+        $this->app->alias('styleci.status', 'GrahamCampbell\StyleCI\GitHub\Status');
     }
 
     /**
@@ -92,7 +109,7 @@ class StyleCIServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            //
+            'styleci.status'
         ];
     }
 }

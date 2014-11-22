@@ -38,8 +38,8 @@ class CreateFilesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('analysis_id', 40);
             $table->string('name', 1024);
-            $table->float('time');
-            $table->longText('changes');
+            $table->longText('old');
+            $table->longText('new');
         });
     }
 
