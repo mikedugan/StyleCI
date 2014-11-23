@@ -29,7 +29,7 @@
         @elseif ($commit->combinedStatus() === 2)
         <p style="color:red">
         @else
-        <p>
+        <p style="color:grey">
         @endif
             <strong>{{ $commit->summary() }}</strong>
         </p>

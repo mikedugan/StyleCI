@@ -13,6 +13,14 @@ Commit - {{ $commit->message }}
 @stop
 
 @section('content')
-<p class="lead">Status: {{ $commit->summary() }}</p>
+@if ($commit->combinedStatus() === 1)
+<p class="lead" style="color:green">
+@elseif ($commit->combinedStatus() === 2)
+<p class="lead" style="color:red">
+@else
+<p class="lead" style="color:grey">
+@endif
+    Status: {{ $commit->summary() }}
+</p>
 <hr>
 @stop
