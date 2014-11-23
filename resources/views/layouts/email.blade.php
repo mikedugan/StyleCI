@@ -10,7 +10,7 @@
 <br>
 <p>
 Thank you, <br>
-The Support Team
+StyleCI
 </p>
 </body>
 </html>

@@ -85,11 +85,9 @@ class GitHubController extends Controller
         $repo = $this->factory->repo($input['repository']['full_name'])->id;
         $commit = $this->factory->commit($input['head_commit']['id'], $repo);
 
-        if ($input['ref'] === 'refs/heads/master') {
-            $commit->main = 1;
-        }
-
+        $commit->ref = $input['ref'];
         $commit->message = $input['head_commit']['message'];
+        $commit->email = $input['head_commit']['committer']['email'];
         $commit->save();
 
         $this->analyser->prepareAnalysis($commit);

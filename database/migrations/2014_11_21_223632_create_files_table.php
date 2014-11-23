@@ -38,8 +38,6 @@ class CreateFilesTable extends Migration
             $table->bigIncrements('id');
             $table->char('commit_id', 40);
             $table->string('name', 1024);
-            $table->longText('old');
-            $table->longText('new');
         });
     }
 

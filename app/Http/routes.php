@@ -31,7 +31,22 @@ $router->get('/', function () {
 
 $router->post('github-callback', 'GitHubController@handle');
 
+$router->get('repo/{account}/{repository}', function ($account, $repository) {
+    return Redirect::to('repos/'.sha1("$account/$repository"));
+});
 
+
+$router->get('repos', function () {
+    $repos = GrahamCampbell\StyleCI\Models\Repo::all();
+
+    return view('repos', compact('repos'));
+});
+
+$router->get('repos/{repo}', function (GrahamCampbell\StyleCI\Models\Repo $repo) {
+    $commits = $repo->commits()->where('ref', 'refs/heads/master')->get();
+
+    return view('repo', compact('repo', 'commits'));
+});
 
 $router->get('commits/{commit}', function (GrahamCampbell\StyleCI\Models\Commit $commit) {
     return view('commit', compact('commit'));

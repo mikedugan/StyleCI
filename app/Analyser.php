@@ -22,6 +22,7 @@ use GrahamCampbell\StyleCI\GitHub\Status;
 use GrahamCampbell\StyleCI\Models\Commit;
 use GrahamCampbell\StyleCI\Tasks\Analyse;
 use GrahamCampbell\StyleCI\Tasks\Update;
+use Illuminate\Contracts\Mail\MailQueue as Mailer;
 use Illuminate\Contracts\Queue\Queue;
 
 /**
@@ -55,19 +56,28 @@ class Analyser
     protected $queue;
 
     /**
+     * The mailer instance.
+     *
+     * @var \Illuminate\Contracts\Mail\MailQueue
+     */
+    protected $mailer;
+
+    /**
      * Create a fixer instance.
      *
      * @param \GrahamCampbell\Fixer\Fixer          $fixer
      * @param \GrahamCampbell\StyleCI\Gitub\Status $status
      * @param \Illuminate\Contracts\Queue\Queue    $queue
+     * @param \Illuminate\Contracts\Mail\MailQueue $mailer
      *
      * @return void
      */
-    public function __construct(Fixer $fixer, Status $status, Queue $queue)
+    public function __construct(Fixer $fixer, Status $status, Queue $queue, Mailer $mailer)
     {
         $this->fixer = $fixer;
         $this->status = $status;
         $this->queue = $queue;
+        $this->mailer = $mailer;
     }
 
     /**
@@ -99,6 +109,8 @@ class Analyser
 
         $this->saveReport($report, $commit);
         $this->saveFiles($report, $commit);
+
+        $this->queueEmail($commit);
 
         $this->runUpdate($commit);
         $this->prepareUpdate($commit);
@@ -178,9 +190,31 @@ class Analyser
             $files->create([
                 'commit_id' => $id,
                 'name'      => $file->getName(),
-                // 'old'       => $file->getOldBlob()->getContent(),
-                // 'new'       => $file->getNewBlob()->getContent(),
             ]);
+        }
+    }
+
+    /**
+     * Queue sending an email to the committer if required.
+     *
+     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
+     *
+     * @return void
+     */
+    protected function queueEmail(Commit $commit)
+    {
+        log($commit->status);
+        if ($commit->status === '2' || $commit->status === 2) {
+            $mail = [
+                'repo'    => $commit->repo->name,
+                'commit'  => $commit->message,
+                'link'    => asset('commits/'.$commit->id),
+                'email'   => $commit->email,
+                'subject' => 'Failed Analysis',
+            ];
+            $this->mailer->queue('emails.failed', $mail, function($message) use ($mail) {
+                $message->to($mail['email'])->subject($mail['subject']);
+            });
         }
     }
 }

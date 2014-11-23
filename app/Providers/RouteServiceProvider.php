@@ -42,6 +42,7 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot($router);
 
         $router->model('commit', 'GrahamCampbell\StyleCI\Models\Commit');
+        $router->model('repo', 'GrahamCampbell\StyleCI\Models\Repo');
     }
 
     /**

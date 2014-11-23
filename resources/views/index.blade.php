@@ -10,7 +10,7 @@ Landing
         <h1>StyleCI</h1>
         <h3>Coding Style Continuous Integration Service</h3>
         <br>
-        <a href="https://github.com/GrahamCampbell/StyleCI" class="btn btn-dark btn-lg">Find Out More</a>
+        <a href="{{ asset('repos') }}" class="btn btn-dark btn-lg">Get Started</a>
     </div>
 </header>
 @stop

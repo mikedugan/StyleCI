@@ -37,8 +37,9 @@ class CreateCommitsTable extends Migration
         Schema::create('commits', function (Blueprint $table) {
             $table->char('id', 40)->primary();
             $table->char('repo_id', 40);
-            $table->text('message');
-            $table->tinyInteger('main')->unsigned()->default(0);
+            $table->string('ref', 128);
+            $table->string('message', 128);
+            $table->string('email', 128);
             $table->tinyInteger('status')->unsigned()->default(0);
             $table->tinyInteger('travis')->unsigned()->default(0);
             $table->float('time');
