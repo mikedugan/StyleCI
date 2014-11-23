@@ -93,7 +93,7 @@ class StyleCIServiceProvider extends ServiceProvider
      */
     protected function registerModelFactory()
     {
-        $this->app->singleton('styleci.modelfactory', function ($app) {
+        $this->app->singleton('styleci.modelfactory', function () {
             return new Factories\ModelFactory();
         });
 
