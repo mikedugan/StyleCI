@@ -86,7 +86,7 @@ class GitHubController extends Controller
         $commit = $this->factory->commit($input['head_commit']['id'], $repo);
 
         $commit->ref = $input['ref'];
-        $commit->message = $input['head_commit']['message'];
+        $commit->message = substr(strtok(strtok($input['head_commit']['message'], "\n"), "\r"), 0, 127);
         $commit->email = $input['head_commit']['committer']['email'];
         $commit->save();
 
