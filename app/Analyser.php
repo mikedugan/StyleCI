@@ -112,7 +112,6 @@ class Analyser
 
         $this->queueEmail($commit);
 
-        $this->runUpdate($commit);
         $this->prepareUpdate($commit);
     }
 
