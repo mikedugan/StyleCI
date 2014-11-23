@@ -37,13 +37,13 @@ $router->get('repo/{account}/{repository}', function ($account, $repository) {
 
 
 $router->get('repos', function () {
-    $repos = GrahamCampbell\StyleCI\Models\Repo::all();
+    $repos = GrahamCampbell\StyleCI\Models\Repo::orderBy('name', 'asc')->take(50)->get();
 
     return view('repos', compact('repos'));
 });
 
 $router->get('repos/{repo}', function (GrahamCampbell\StyleCI\Models\Repo $repo) {
-    $commits = $repo->commits()->where('ref', 'refs/heads/master')->get();
+    $commits = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->take(50)->get();
 
     return view('repo', compact('repo', 'commits'));
 });

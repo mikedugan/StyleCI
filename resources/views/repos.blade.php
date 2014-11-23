@@ -24,7 +24,7 @@ Repos
 </div>
 @foreach($repos as $repo)
     <h3>{{ $repo->name }}</h3>
-    @if ($commit = $repo->commits()->where('ref', 'refs/heads/master')->first())
+    @if ($commit = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->first())
         @if ($commit->combinedStatus() === 1)
         <p style="color:green">
         @elseif ($commit->combinedStatus() === 2)
