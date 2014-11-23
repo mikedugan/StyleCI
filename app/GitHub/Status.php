@@ -66,7 +66,7 @@ class Status
      */
     public function pending($repo, $commit, $description)
     {
-        $this->set($repo, $commit, 'pending', $description);;
+        $this->set($repo, $commit, 'pending', $description);
     }
 
     /**
@@ -129,7 +129,7 @@ class Status
             'state'       => $state,
             'description' => $description,
             'target_url'  => $this->url.'/'.$commit,
-            'context'     => 'continuous-integration/styleci'
+            'context'     => 'continuous-integration/styleci',
         ];
 
         $this->github->create($repo[0], $repo[1], $commit, $data);

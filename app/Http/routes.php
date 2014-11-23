@@ -35,7 +35,6 @@ $router->get('repo/{account}/{repository}', function ($account, $repository) {
     return Redirect::to('repos/'.sha1("$account/$repository"));
 });
 
-
 $router->get('repos', function () {
     $repos = GrahamCampbell\StyleCI\Models\Repo::orderBy('name', 'asc')->take(50)->get();
 

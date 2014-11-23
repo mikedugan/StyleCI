@@ -17,8 +17,6 @@
 namespace GrahamCampbell\StyleCI\Tasks;
 
 use GrahamCampbell\StyleCI\Analyser;
-use GrahamCampbell\StyleCI\Models\Commit;
-use Illuminate\Contracts\Queue\Job;
 
 /**
  * This is the abstract task class.

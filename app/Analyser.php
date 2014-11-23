@@ -212,7 +212,7 @@ class Analyser
                 'email'   => $commit->email,
                 'subject' => 'Failed Analysis',
             ];
-            $this->mailer->queue('emails.failed', $mail, function($message) use ($mail) {
+            $this->mailer->queue('emails.failed', $mail, function ($message) use ($mail) {
                 $message->to($mail['email'])->subject($mail['subject']);
             });
         }
