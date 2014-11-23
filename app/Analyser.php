@@ -85,7 +85,7 @@ class Analyser
      *
      * @param \GrahamCampbell\StyleCI\Models\Commit $commit
      *
-     * @return int
+     * @return void
      */
     public function prepareAnalysis(Commit $commit)
     {
@@ -121,7 +121,7 @@ class Analyser
      *
      * @param \GrahamCampbell\StyleCI\Models\Commit $commit
      *
-     * @return int
+     * @return void
      */
     public function prepareUpdate(Commit $commit)
     {
@@ -133,7 +133,7 @@ class Analyser
      *
      * @param \GrahamCampbell\StyleCI\Models\Commit $commit
      *
-     * @return int
+     * @return void
      */
     public function runUpdate(Commit $commit)
     {
