@@ -31,8 +31,8 @@ class Update extends AbstractTask
     /**
      * Kick of the update.
      *
-     * @param \Illuminate\Contracts\Queue\Job $job
-     * @param \GrahamCampbell\Models\Commit   $commit
+     * @param \Illuminate\Contracts\Queue\Job       $job
+     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
      *
      * @return void
      */

@@ -31,8 +31,8 @@ class Analyse extends AbstractTask
     /**
      * Kick of the analysis.
      *
-     * @param \Illuminate\Contracts\Queue\Job $job
-     * @param \GrahamCampbell\Models\Commit   $commit
+     * @param \Illuminate\Contracts\Queue\Job       $job
+     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
      *
      * @return void
      */

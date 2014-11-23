@@ -44,7 +44,7 @@ class Analyser
     /**
      * The status instance.
      *
-     * @var \GrahamCampbell\StyleCI\Gitub\Status
+     * @var \GrahamCampbell\StyleCI\GitHub\Status
      */
     protected $status;
 
@@ -65,10 +65,10 @@ class Analyser
     /**
      * Create a fixer instance.
      *
-     * @param \GrahamCampbell\Fixer\Fixer          $fixer
-     * @param \GrahamCampbell\StyleCI\Gitub\Status $status
-     * @param \Illuminate\Contracts\Queue\Queue    $queue
-     * @param \Illuminate\Contracts\Mail\MailQueue $mailer
+     * @param \GrahamCampbell\Fixer\Fixer           $fixer
+     * @param \GrahamCampbell\StyleCI\GitHub\Status $status
+     * @param \Illuminate\Contracts\Queue\Queue     $queue
+     * @param \Illuminate\Contracts\Mail\MailQueue  $mailer
      *
      * @return void
      */

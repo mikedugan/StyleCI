@@ -50,8 +50,8 @@ class StyleCIServiceProvider extends ServiceProvider
     /**
      * Setup the assets.
      *
-     * @param \Lightgear\Asset $asset
-     * @param bool             $debug
+     * @param \Lightgear\Asset\Asset $asset
+     * @param bool                   $debug
      *
      * @return void
      */
