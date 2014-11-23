@@ -16,14 +16,14 @@ StyleCI was created by, and is maintained by [Graham Campbell](https://github.co
 
 ## Documentation
 
-This project is at a very early stage, and there is no documentation as yet.
+This project is at a very early stage, and there is no documentation as yet. StyleCI This is currently being used to analyse all my open source Laravel repos, so check it out at https://styleci.grahamjcampbell.co.uk/.
 
 
 ## License
 
 GNU AFFERO GENERAL PUBLIC LICENSE
 
-StyleCI Is A PHP CMS Powered By Laravel 5 And Sentry
+StyleCI Is A PHP Coding Style Continuous Integration Service
 
 Copyright (C) 2014  Graham Campbell
 
