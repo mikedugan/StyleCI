@@ -25,10 +25,10 @@ return [
     | API, giving you convenient access to each back-end using the same
     | syntax for each one. Here you may set the default queue driver.
     |
-    | Note that the styleci will not work with the "sync" or "iron" queue
-    | drivers. The recommended driver is "beanstalkd".
+    | Note that the styleci will not work with the "null", "sync", or "iron"
+    | queue drivers. The recommended driver is "beanstalkd".
     |
-    | Supported: "sync", "beanstalkd", "sqs", "iron", "redis"
+    | Supported: "null", "sync", "beanstalkd", "sqs", "iron", "redis"
     |
     */
 
