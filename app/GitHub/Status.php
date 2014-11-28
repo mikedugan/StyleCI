@@ -123,7 +123,7 @@ class Status
      */
     protected function set($repo, $commit, $state, $description)
     {
-        $repo = explode('/', $repo);
+        $args = explode('/', $repo);
 
         $data = [
             'state'       => $state,
@@ -132,6 +132,6 @@ class Status
             'context'     => 'continuous-integration/styleci',
         ];
 
-        $this->github->create($repo[0], $repo[1], $commit, $data);
+        $this->github->create($args[0], $args[1], $commit, $data);
     }
 }
