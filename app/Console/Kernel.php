@@ -25,5 +25,8 @@ class Kernel extends ConsoleKernel
      *
      * @var array
      */
-    protected $commands = [];
+    protected $commands = [
+        Commands\AnalyseAllCommand::class,
+        Commands\AnalyseRepoCommand::class,
+    ];
 }
