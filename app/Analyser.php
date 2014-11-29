@@ -105,9 +105,7 @@ class Analyser
     {
         $repo = $commit->repo;
 
-        $cache = $this->getCache($commit);
-
-        $report = $this->fixer->analyse($repo->name, $commit->id, $cache);
+        $report = $this->fixer->analyse($repo->name, $commit->id);
 
         $this->saveReport($report, $commit);
         $this->saveFiles($report, $commit);
@@ -149,22 +147,6 @@ class Analyser
                 $this->status->failure($commit->repo->name, $commit->id, $commit->summary());
                 break;
         }
-    }
-
-    /**
-     * Get the cache path
-     *
-     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
-     *
-     * @return void
-     */
-    protected function getCache(Commit $commit)
-    {
-        $path = $this->fixer->getPath();
-        $repo = $commit->repo->id;
-        $branch = sha1($commit->ref);
-
-        return $path.'/cache/'.$repo.'/'.$branch;
     }
 
     /**

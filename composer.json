@@ -13,10 +13,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/GrahamCampbell/asset"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/php-cs-fixer"
         }
     ],
     "require": {
