@@ -51,14 +51,12 @@ class AnalyseRepoCommand extends Command
     {
         $repo = $this->argument('repo');
 
-        $this->comment('Queuing the analysis of "'.$repo.'".');
+        $this->comment('Getting the list of branches for "'.$repo.'".');
 
-        $args = explode('/', $repo);
-
-        $branches = $this->laravel['github']->connection()->repos()->branches($args[0], $args[1]);
+        $branches = $this->laravel['styleci.branches']->get($repo);
 
         foreach ($branches as $branch) {
-            $commit = $this->getCommit($repo, $branch['commit']['sha']);
+            $commit = $this->getCommit($repo, $branch['commit']);
             $this->laravel['styleci.analyser']->prepareAnalysis($commit);
             $this->info('Analysis of the "'.$branch['name'].'" branch has been scheduled.');
         }

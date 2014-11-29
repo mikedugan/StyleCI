@@ -82,6 +82,7 @@ class StyleCIServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerModelFactory();
+        $this->registerGitHubBranches();
         $this->registerGitHubStatus();
         $this->registerAnalyser();
     }
@@ -98,6 +99,22 @@ class StyleCIServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('styleci.modelfactory', 'GrahamCampbell\StyleCI\Factories\ModelFactory');
+    }
+
+    /**
+     * Register the github branches class.
+     *
+     * @return void
+     */
+    protected function registerGitHubBranches()
+    {
+        $this->app->singleton('styleci.branches', function ($app) {
+            $github = $app['github']->connection()->repos();
+
+            return new GitHub\Branches($github);
+        });
+
+        $this->app->alias('styleci.branches', 'GrahamCampbell\StyleCI\GitHub\Branches');
     }
 
     /**
@@ -145,6 +162,7 @@ class StyleCIServiceProvider extends ServiceProvider
     {
         return [
             'styleci.analyser',
+            'styleci.branches',
             'styleci.status',
             'styleci.modelfactory',
         ];
