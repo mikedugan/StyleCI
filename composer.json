@@ -27,7 +27,7 @@
         "graham-campbell/htmlmin": "~3.0",
         "pda/pheanstalk": "~3.0",
         "fideloper/proxy": "~2.1",
-        "barryvdh/laravel-debugbar": "1.8.*,>1.8.3",
+        "barryvdh/laravel-debugbar": "1.8.*",
         "maximebf/debugbar": "1.10.*,>1.10.1"
     },
     "require-dev": {
