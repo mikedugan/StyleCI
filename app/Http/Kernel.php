@@ -18,12 +18,19 @@ namespace GrahamCampbell\StyleCI\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
+/**
+ * This is the http kernel class.
+ *
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ */
 class Kernel extends HttpKernel
 {
     /**
      * The application's global HTTP middleware stack.
      *
-     * @var array
+     * @var string[]
      */
     protected $middleware = [
         'GrahamCampbell\StyleCI\Http\Middleware\CheckForMaintenanceMode',
@@ -37,7 +44,7 @@ class Kernel extends HttpKernel
     /**
      * The application's route middleware.
      *
-     * @var array
+     * @var string[]
      */
     protected $routeMiddleware = [];
 }

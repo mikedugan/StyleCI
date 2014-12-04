@@ -18,12 +18,19 @@ namespace GrahamCampbell\StyleCI\Console;
 
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
+/**
+ * This is the console kernel class.
+ *
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ */
 class Kernel extends ConsoleKernel
 {
     /**
      * The Artisan commands provided by your application.
      *
-     * @var array
+     * @var string[]
      */
     protected $commands = [
         Commands\AnalyseAllCommand::class,
