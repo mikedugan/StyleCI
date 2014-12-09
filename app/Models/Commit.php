@@ -76,6 +76,8 @@ class Commit extends Model
                 return 'PASSED';
             case 2:
                 return 'FAILED';
+            case 3:
+                return 'SKIPPED';
             default:
                 return 'PENDING';
         }
@@ -93,6 +95,8 @@ class Commit extends Model
                 return 'The StyleCI checks passed';
             case 2:
                 return 'The StyleCI checks failed';
+            case 3:
+                return 'The StyleCI checks were skipped';
             default:
                 return 'The StyleCI checks are pending';
         }

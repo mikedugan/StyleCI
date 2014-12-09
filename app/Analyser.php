@@ -137,14 +137,17 @@ class Analyser
     public function runUpdate(Commit $commit)
     {
         switch ($commit->status()) {
-            case 0:
-                $this->status->pending($commit->repo->name, $commit->id, $commit->description());
-                break;
             case 1:
                 $this->status->success($commit->repo->name, $commit->id, $commit->description());
                 break;
             case 2:
                 $this->status->failure($commit->repo->name, $commit->id, $commit->description());
+                break;
+            case 3:
+                $this->status->success($commit->repo->name, $commit->id, $commit->description());
+                break;
+            default:
+                $this->status->pending($commit->repo->name, $commit->id, $commit->description());
                 break;
         }
     }
