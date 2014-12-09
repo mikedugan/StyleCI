@@ -55,50 +55,46 @@ class Commit extends Model
     }
 
     /**
-     * Get the combined commit status.
+     * Get the commit status code.
      *
      * @return int
      */
-    public function combinedStatus()
+    public function status()
     {
-        if ($this->status === '0' || $this->travis === '0') {
-            return 0;
-        }
-
-        if (($this->status === '1' || $this->status === '3') && ($this->travis === '1' || $this->travis === '3')) {
-            return 1;
-        }
-
-        return 2;
+        return (int) $this->status;
     }
 
     /**
-     * Get the commit summary.
+     * Get the commit status summary.
      *
-     * @return int
+     * @return string
      */
     public function summary()
     {
-        if ($this->travis === '0') {
-            $tests = 'PENDING';
-        } elseif ($this->travis === '1') {
-            $tests = 'PASSED';
-        } elseif ($this->travis === '2') {
-            $tests = 'FAILED';
-        } else {
-            $tests = 'SKIPPED';
+        switch ($this->status()) {
+            case 1:
+                return 'PASSED';
+            case 2:
+                return 'FAILED';
+            default:
+                return 'PENDING';
         }
+    }
 
-        if ($this->status === '0') {
-            $cs = 'PENDING';
-        } elseif ($this->status === '1') {
-            $cs = 'PASSED';
-        } elseif ($this->status === '2') {
-            $cs = 'FAILED';
-        } else {
-            $cs = 'SKIPPED';
+    /**
+     * Get the commit status description.
+     *
+     * @return string
+     */
+    public function description()
+    {
+        switch ($this->status()) {
+            case 1:
+                return 'The StyleCI checks passed';
+            case 2:
+                return 'The StyleCI checks failed';
+            default:
+                return 'The StyleCI checks are pending';
         }
-
-        return "TESTS: $tests — CS: $cs";
     }
 }

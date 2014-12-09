@@ -41,7 +41,6 @@ class CreateCommitsTable extends Migration
             $table->string('message', 128);
             $table->string('email', 128);
             $table->tinyInteger('status')->unsigned()->default(0);
-            $table->tinyInteger('travis')->unsigned()->default(0);
             $table->float('time');
             $table->float('memory');
             $table->longText('diff');

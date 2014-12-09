@@ -24,12 +24,12 @@
 </div>
 @foreach($commits as $commit)
     <h3>{{ $commit->message }}</h3>
-        @if ($commit->combinedStatus() === 1)
-        <p style="color:green">
-        @elseif ($commit->combinedStatus() === 2)
-        <p style="color:red">
+        @if ($commit->status() === 1)
+        <p class="lead" style="color:green">
+        @elseif ($commit->status() === 2)
+        <p class="lead" style="color:red">
         @else
-        <p style="color:grey">
+        <p class="lead" style="color:grey">
         @endif
             <strong>{{ $commit->summary() }}</strong>
         </p>

@@ -129,7 +129,7 @@ class Status
             'state'       => $state,
             'description' => $description,
             'target_url'  => $this->url.'/'.$commit,
-            'context'     => 'continuous-integration/styleci',
+            'context'     => 'ci/style',
         ];
 
         $this->github->create($args[0], $args[1], $commit, $data);

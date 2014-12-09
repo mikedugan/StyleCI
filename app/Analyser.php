@@ -89,7 +89,7 @@ class Analyser
      */
     public function prepareAnalysis(Commit $commit)
     {
-        $this->status->pending($commit->repo->name, $commit->id, $commit->summary());
+        $this->status->pending($commit->repo->name, $commit->id, $commit->description());
 
         $this->queue->push(Analyse::class, $commit);
     }
@@ -136,15 +136,15 @@ class Analyser
      */
     public function runUpdate(Commit $commit)
     {
-        switch ($commit->combinedStatus()) {
+        switch ($commit->status()) {
             case 0:
-                $this->status->pending($commit->repo->name, $commit->id, $commit->summary());
+                $this->status->pending($commit->repo->name, $commit->id, $commit->description());
                 break;
             case 1:
-                $this->status->success($commit->repo->name, $commit->id, $commit->summary());
+                $this->status->success($commit->repo->name, $commit->id, $commit->description());
                 break;
             case 2:
-                $this->status->failure($commit->repo->name, $commit->id, $commit->summary());
+                $this->status->failure($commit->repo->name, $commit->id, $commit->description());
                 break;
         }
     }
@@ -202,8 +202,7 @@ class Analyser
      */
     protected function queueEmail(Commit $commit)
     {
-        log($commit->status);
-        if ($commit->status === '2' || $commit->status === 2) {
+        if ($commit->status() === 2) {
             $mail = [
                 'repo'    => $commit->repo->name,
                 'commit'  => $commit->message,

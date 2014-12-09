@@ -69,10 +69,6 @@ class GitHubController extends Controller
             return $this->handlePullRequest($request->input());
         }
 
-        if ($request->header('X-GitHub-Event') === 'status') {
-            return $this->handleStatus($request->input());
-        }
-
         if ($request->header('X-GitHub-Event') === 'ping') {
             return $this->handlePing();
         }
@@ -108,32 +104,6 @@ class GitHubController extends Controller
         }
 
         return new JsonResponse(['message' => 'StyleCI has successfully recorded the pull request context.'], 200, [], JSON_PRETTY_PRINT);
-    }
-
-    protected function handleStatus(array $input)
-    {
-        if ($input['context'] !== 'continuous-integration/travis-ci') {
-            return new JsonResponse(['message' => 'StyleCI has recorded the change, but determined there is nothing for it to do.'], 200, [], JSON_PRETTY_PRINT);
-        }
-
-        $repo = $this->factory->repo($input['repository']['full_name'])->id;
-        $commit = $this->factory->commit($input['commit']['sha'], $repo);
-
-        if ($input['context'] === 'continuous-integration/travis-ci') {
-            if ($input['state'] === 'pending') {
-                $commit->travis = 0;
-            } elseif ($input['state'] === 'success') {
-                $commit->travis = 1;
-            } else {
-                $commit->travis = 2;
-            }
-        }
-
-        $commit->save();
-
-        $this->analyser->prepareUpdate($commit);
-
-        return new JsonResponse(['message' => 'StyleCI has recorded the change, and has scheduled analysis of the change.'], 202, [], JSON_PRETTY_PRINT);
     }
 
     protected function handlePing()
