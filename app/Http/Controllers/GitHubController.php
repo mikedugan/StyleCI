@@ -81,9 +81,11 @@ class GitHubController extends Controller
         $repo = $this->factory->repo($input['repository']['full_name'])->id;
         $commit = $this->factory->commit($input['head_commit']['id'], $repo);
 
-        $commit->ref = $input['ref'];
+        if (empty($commit->ref)) {
+            $commit->ref = $input['ref'];
+        }
+
         $commit->message = substr(strtok(strtok($input['head_commit']['message'], "\n"), "\r"), 0, 127);
-        $commit->email = $input['head_commit']['committer']['email'];
         $commit->save();
 
         $this->analyser->prepareAnalysis($commit);
@@ -93,17 +95,24 @@ class GitHubController extends Controller
 
     protected function handlePullRequest(array $input)
     {
-        if ($input['action'] === 'opened' && $input['pull_request']['head']['repo']['full_name'] !== $input['pull_request']['base']['repo']['full_name']) {
-            $repo = $this->factory->repo($input['repository']['full_name'])->id;
-            $commit = $this->factory->commit($input['pull_request']['head']['sha'], $repo);
+        if (($input['action'] === 'opened' || $input['action'] === 'reopened') && $input['pull_request']['head']['repo']['full_name'] !== $input['pull_request']['base']['repo']['full_name']) {
+            $repo = $this->factory->repo($input['pull_request']['base']['repo']['full_name'])->id;
+            $fork = $this->factory->fork($input['pull_request']['head']['repo']['full_name'], $repo)->id;
+            $commit = $this->factory->commit($input['pull_request']['head']['sha'], $repo, $fork);
 
-            $commit->status = 3;
+            if (empty($commit->ref)) {
+                $commit->ref = $input['pull_request']['head']['ref'];
+            }
+
+            $commit->message = substr('Pull Request: '.strtok(strtok($input['pull_request']['title'], "\n"), "\r"), 0, 127);
             $commit->save();
 
-            $this->analyser->prepareUpdate($commit);
+            $this->analyser->prepareAnalysis($commit);
+
+            return new JsonResponse(['message' => 'StyleCI has successfully scheduled the analysis of this event.'], 202, [], JSON_PRETTY_PRINT);
         }
 
-        return new JsonResponse(['message' => 'StyleCI has successfully recorded the pull request context.'], 200, [], JSON_PRETTY_PRINT);
+        return new JsonResponse(['message' => 'StyleCI has determined that no action is required in this case.'], 200, [], JSON_PRETTY_PRINT);
     }
 
     protected function handlePing()

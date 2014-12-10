@@ -22,7 +22,7 @@ use GrahamCampbell\StyleCI\GitHub\Status;
 use GrahamCampbell\StyleCI\Models\Commit;
 use GrahamCampbell\StyleCI\Tasks\Analyse;
 use GrahamCampbell\StyleCI\Tasks\Update;
-use Illuminate\Contracts\Mail\MailQueue as Mailer;
+use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Queue\Queue;
 
 /**
@@ -58,7 +58,7 @@ class Analyser
     /**
      * The mailer instance.
      *
-     * @var \Illuminate\Contracts\Mail\MailQueue
+     * @var \Illuminate\Contracts\Mail\Mailer
      */
     protected $mailer;
 
@@ -68,7 +68,7 @@ class Analyser
      * @param \GrahamCampbell\Fixer\Fixer           $fixer
      * @param \GrahamCampbell\StyleCI\GitHub\Status $status
      * @param \Illuminate\Contracts\Queue\Queue     $queue
-     * @param \Illuminate\Contracts\Mail\MailQueue  $mailer
+     * @param \Illuminate\Contracts\Mail\Mailer     $mailer
      *
      * @return void
      */
@@ -89,6 +89,9 @@ class Analyser
      */
     public function prepareAnalysis(Commit $commit)
     {
+        $commit->status = 0;
+        $commit->save();
+
         $this->status->pending($commit->repo->name, $commit->id, $commit->description());
 
         $this->queue->push(Analyse::class, $commit);
@@ -103,54 +106,15 @@ class Analyser
      */
     public function runAnalysis(Commit $commit)
     {
-        $repo = $commit->repo;
-
-        $report = $this->fixer->analyse($repo->name, $commit->id);
+        $report = $this->fixer->analyse($commit->name(), $commit->id);
 
         $this->saveReport($report, $commit);
         $this->saveFiles($report, $commit);
 
-        $this->queueEmail($commit);
-
-        $this->prepareUpdate($commit);
+        $this->pushStatus($commit);
+        // $this->sendEmails($commit);
     }
 
-    /**
-     * Queue a status update.
-     *
-     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
-     *
-     * @return void
-     */
-    public function prepareUpdate(Commit $commit)
-    {
-        $this->queue->push(Update::class, $commit);
-    }
-
-    /**
-     * Run a status update.
-     *
-     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
-     *
-     * @return void
-     */
-    public function runUpdate(Commit $commit)
-    {
-        switch ($commit->status()) {
-            case 1:
-                $this->status->success($commit->repo->name, $commit->id, $commit->description());
-                break;
-            case 2:
-                $this->status->failure($commit->repo->name, $commit->id, $commit->description());
-                break;
-            case 3:
-                $this->status->success($commit->repo->name, $commit->id, $commit->description());
-                break;
-            default:
-                $this->status->pending($commit->repo->name, $commit->id, $commit->description());
-                break;
-        }
-    }
 
     /**
      * Save the main report to the database.
@@ -197,23 +161,45 @@ class Analyser
     }
 
     /**
-     * Queue sending an email to the committer if required.
+     * Push the latest status to github.
      *
      * @param \GrahamCampbell\StyleCI\Models\Commit $commit
      *
      * @return void
      */
-    protected function queueEmail(Commit $commit)
+    public function pushStatus(Commit $commit)
+    {
+        switch ($commit->status()) {
+            case 1:
+                $this->status->success($commit->repo->name, $commit->id, $commit->description());
+                break;
+            case 2:
+                $this->status->failure($commit->repo->name, $commit->id, $commit->description());
+                break;
+            default:
+                $this->status->pending($commit->repo->name, $commit->id, $commit->description());
+                break;
+        }
+    }
+
+    /**
+     * Send an any emails that may be required.
+     *
+     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
+     *
+     * @return void
+     */
+    protected function sendEmails(Commit $commit)
     {
         if ($commit->status() === 2) {
             $mail = [
                 'repo'    => $commit->repo->name,
                 'commit'  => $commit->message,
                 'link'    => asset('commits/'.$commit->id),
-                'email'   => $commit->email,
+                'email'   => 'graham@mineuk.com',
                 'subject' => 'Failed Analysis',
             ];
-            $this->mailer->queue('emails.failed', $mail, function ($message) use ($mail) {
+            $this->mailer->send('emails.failed', $mail, function ($message) use ($mail) {
                 $message->to($mail['email'])->subject($mail['subject']);
             });
         }

@@ -13,7 +13,7 @@ Commit - {{ $commit->message }}
 @stop
 
 @section('content')
-@if ($commit->status() === 1 || $commit->status() === 3)
+@if ($commit->status() === 1)
 <p class="lead" style="color:green">
 @elseif ($commit->status() === 2)
 <p class="lead" style="color:red">

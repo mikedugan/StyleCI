@@ -45,6 +45,16 @@ class Commit extends Model
     }
 
     /**
+     * Get the fork relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function fork()
+    {
+        return $this->belongsTo(Fork::class);
+    }
+
+    /**
      * Get the files relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -76,8 +86,6 @@ class Commit extends Model
                 return 'PASSED';
             case 2:
                 return 'FAILED';
-            case 3:
-                return 'SKIPPED';
             default:
                 return 'PENDING';
         }
@@ -95,10 +103,22 @@ class Commit extends Model
                 return 'The StyleCI checks passed';
             case 2:
                 return 'The StyleCI checks failed';
-            case 3:
-                return 'The StyleCI checks were skipped';
             default:
                 return 'The StyleCI checks are pending';
+        }
+    }
+
+    /**
+     * Get the commit's repo name.
+     *
+     * @return string
+     */
+    public function name()
+    {
+        if (empty($this->fork_id)) {
+            return $this->repo->name;
+        } else {
+            return $this->fork->name;
         }
     }
 }
