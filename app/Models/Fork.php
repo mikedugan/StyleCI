@@ -19,13 +19,13 @@ namespace GrahamCampbell\StyleCI\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * This is the repo model class.
+ * This is the fork model class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
-class Repo extends Model
+class Fork extends Model
 {
     /**
      * A list of methods protected from mass assignment.
@@ -35,22 +35,12 @@ class Repo extends Model
     protected $guarded = ['_token', '_method'];
 
     /**
-     * Get the commits relation.
+     * Get the repo relation.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function commits()
+    public function repo()
     {
-        return $this->hasMany(Commit::class);
-    }
-
-    /**
-     * Get the forks relation.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function forks()
-    {
-        return $this->hasMany(Fork::class);
+        return $this->belongsTo(Repo::class);
     }
 }

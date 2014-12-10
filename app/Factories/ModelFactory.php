@@ -18,6 +18,7 @@ namespace GrahamCampbell\StyleCI\Factories;
 
 use Exception;
 use GrahamCampbell\StyleCI\Models\Commit;
+use GrahamCampbell\StyleCI\Models\Fork;
 use GrahamCampbell\StyleCI\Models\Repo;
 
 /**
@@ -50,13 +51,40 @@ class ModelFactory
     }
 
     /**
+     * Make a fork model.
+     *
+     * @param string      $name
+     * @param string|null $repo
+     *
+     * @return \GrahamCampbell\StyleCI\Models\Fork
+     */
+    public function fork($name, $repo = null)
+    {
+        $id = sha1($name);
+
+        if ($fork = Fork::find($id)) {
+            return $fork;
+        }
+
+        if (!$repo) {
+            throw new Exception('The fork has not been attached to a repo yet.');
+        }
+
+        Fork::create(['id' => $id, 'repo_id' => $repo, 'name' => $name]);
+
+        return Fork::find($id);
+    }
+
+    /**
      * Make a commit model.
      *
-     * @param string $id
+     * @param string      $id
+     * @param string|null $repo
+     * @param string|null $fork
      *
      * @return \GrahamCampbell\StyleCI\Models\Commit
      */
-    public function commit($id, $repo = null)
+    public function commit($id, $repo = null, $fork = null)
     {
         if ($commit = Commit::find($id)) {
             return $commit;
@@ -66,7 +94,11 @@ class ModelFactory
             throw new Exception('The commit has not been attached to a repo yet.');
         }
 
-        Commit::create(['id' => $id, 'repo_id' => $repo]);
+        if ($fork) {
+            Commit::create(['id' => $id, 'repo_id' => $repo, 'fork_id' => $fork]);
+        } else {
+            Commit::create(['id' => $id, 'repo_id' => $repo]);
+        }
 
         return Commit::find($id);
     }

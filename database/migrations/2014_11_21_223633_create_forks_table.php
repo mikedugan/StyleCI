@@ -19,13 +19,13 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * This is the create commits table migration class.
+ * This is the create forks table migration class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
-class CreateCommitsTable extends Migration
+class CreateForksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -34,16 +34,10 @@ class CreateCommitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('commits', function (Blueprint $table) {
+        Schema::create('forks', function (Blueprint $table) {
             $table->char('id', 40)->primary();
             $table->char('repo_id', 40);
-            $table->char('fork_id', 40)->nullable();
-            $table->string('ref', 128);
-            $table->string('message', 128);
-            $table->tinyInteger('status')->unsigned()->default(0);
-            $table->float('time');
-            $table->float('memory');
-            $table->longText('diff');
+            $table->string('name', 128)->unique();
             $table->timestamps();
         });
     }
@@ -55,6 +49,6 @@ class CreateCommitsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('commits');
+        Schema::drop('forks');
     }
 }
