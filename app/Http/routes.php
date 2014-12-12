@@ -55,7 +55,7 @@ $router->get('commits/{commit}/diff', function (GrahamCampbell\StyleCI\Models\Co
     return Response::make($commit->diff)->header('Content-Type', 'text/plain; charset=UTF-8');
 });
 
-$router->group(['prefix' => 'api'], function($router) {
+$router->group(['prefix' => 'api'], function ($router) {
     $router->get('repo/{account}/{repository}', function ($account, $repository) {
         if ($repo = GrahamCampbell\StyleCI\Models\Repo::find(sha1("$account/$repository"))) {
             if ($commit = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->first()) {
