@@ -70,7 +70,7 @@ class AnalyseAllCommand extends Command
         $branches = $this->laravel['styleci.branches']->get($repo->name);
 
         foreach ($branches as $branch) {
-            $commit = $this->getCommit($repo->id, $branch['commit']);
+            $commit = $this->getCommit($branch['name'], $repo->id, $branch['commit']);
             $this->laravel['styleci.analyser']->prepareAnalysis($commit);
             $this->info('Analysis of the "'.$branch['name'].'" branch has been scheduled.');
         }
@@ -79,14 +79,19 @@ class AnalyseAllCommand extends Command
     /**
      * Get the commit model.
      *
+     * @param string $branch
      * @param string $repo
      * @param string $commit
      *
      * @return \GrahamCampbell\StyleCI\Models\Commit
      */
-    protected function getCommit($repo, $commit)
+    protected function getCommit($branch, $repo, $commit)
     {
         $commit = $this->laravel['styleci.modelfactory']->commit($commit, $repo);
+
+        if (empty($commit->ref)) {
+            $commit->ref = "refs/heads/$branch";
+        }
 
         $commit->status = 0;
         $commit->save();
