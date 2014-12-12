@@ -78,19 +78,23 @@ class GitHubController extends Controller
 
     protected function handlePush(array $input)
     {
-        $repo = $this->factory->repo($input['repository']['full_name'])->id;
-        $commit = $this->factory->commit($input['head_commit']['id'], $repo);
+        if ($input['head_commit']) {
+            $repo = $this->factory->repo($input['repository']['full_name'])->id;
+            $commit = $this->factory->commit($input['head_commit']['id'], $repo);
 
-        if (empty($commit->ref)) {
-            $commit->ref = $input['ref'];
+            if (empty($commit->ref)) {
+                $commit->ref = $input['ref'];
+            }
+
+            $commit->message = substr(strtok(strtok($input['head_commit']['message'], "\n"), "\r"), 0, 127);
+            $commit->save();
+
+            $this->analyser->prepareAnalysis($commit);
+
+            return new JsonResponse(['message' => 'StyleCI has successfully scheduled the analysis of this event.'], 202, [], JSON_PRETTY_PRINT);
         }
 
-        $commit->message = substr(strtok(strtok($input['head_commit']['message'], "\n"), "\r"), 0, 127);
-        $commit->save();
-
-        $this->analyser->prepareAnalysis($commit);
-
-        return new JsonResponse(['message' => 'StyleCI has successfully scheduled the analysis of this event.'], 202, [], JSON_PRETTY_PRINT);
+        return new JsonResponse(['message' => 'StyleCI has determined that no action is required in this case.'], 200, [], JSON_PRETTY_PRINT);
     }
 
     protected function handlePullRequest(array $input)

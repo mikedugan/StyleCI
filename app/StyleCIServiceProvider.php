@@ -146,11 +146,12 @@ class StyleCIServiceProvider extends ServiceProvider
             $status = $app['styleci.status'];
             $queue = $app['queue.connection'];
             $mailer = $app['mailer'];
+            $address = $app['config']['mail']['destination'];
 
-            return new Analyser($fixer, $status, $queue, $mailer);
+            return new Analyser($fixer, $status, $queue, $mailer, $address);
         });
 
-        $this->app->alias('styleci.analyser', 'GrahamCampbell\StyleCI\GitHub\Analyser');
+        $this->app->alias('styleci.analyser', 'GrahamCampbell\StyleCI\Analyser');
     }
 
     /**

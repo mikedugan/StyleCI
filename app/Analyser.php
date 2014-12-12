@@ -63,21 +63,30 @@ class Analyser
     protected $mailer;
 
     /**
+     * The destination email address.
+     *
+     * @var string
+     */
+    protected $address;
+
+    /**
      * Create a fixer instance.
      *
      * @param \GrahamCampbell\Fixer\Fixer           $fixer
      * @param \GrahamCampbell\StyleCI\GitHub\Status $status
      * @param \Illuminate\Contracts\Queue\Queue     $queue
      * @param \Illuminate\Contracts\Mail\Mailer     $mailer
+     * @param string                                $address
      *
      * @return void
      */
-    public function __construct(Fixer $fixer, Status $status, Queue $queue, Mailer $mailer)
+    public function __construct(Fixer $fixer, Status $status, Queue $queue, Mailer $mailer, $address)
     {
         $this->fixer = $fixer;
         $this->status = $status;
         $this->queue = $queue;
         $this->mailer = $mailer;
+        $this->address = $address;
     }
 
     /**
@@ -112,7 +121,7 @@ class Analyser
         $this->saveFiles($report, $commit);
 
         $this->pushStatus($commit);
-        // $this->sendEmails($commit);
+        $this->sendEmails($commit);
     }
 
 
@@ -196,7 +205,7 @@ class Analyser
                 'repo'    => $commit->repo->name,
                 'commit'  => $commit->message,
                 'link'    => asset('commits/'.$commit->id),
-                'email'   => 'graham@mineuk.com',
+                'email'   => $this->address,
                 'subject' => 'Failed Analysis',
             ];
             $this->mailer->send('emails.failed', $mail, function ($message) use ($mail) {
