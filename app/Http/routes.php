@@ -54,3 +54,17 @@ $router->get('commits/{commit}', function (GrahamCampbell\StyleCI\Models\Commit 
 $router->get('commits/{commit}/diff', function (GrahamCampbell\StyleCI\Models\Commit $commit) {
     return Response::make($commit->diff)->header('Content-Type', 'text/plain; charset=UTF-8');
 });
+
+$router->group(['prefix' => 'api'], function($router) {
+    $router->get('repo/{account}/{repository}', function ($account, $repository) {
+        if ($repo = GrahamCampbell\StyleCI\Models\Repo::find(sha1("$account/$repository"))) {
+            if ($commit = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->first()) {
+                return new Illuminate\Http\JsonResponse(['message' => $commit->description().'.', 'status' => $commit->status()], 200, [], JSON_PRETTY_PRINT);
+            } else {
+                return new Illuminate\Http\JsonResponse(['message' => 'StyleCI has not analysed the master branch of the requested repository yet.'], 400, [], JSON_PRETTY_PRINT);
+            }
+        } else {
+            return new Illuminate\Http\JsonResponse(['message' => 'StyleCI does not have the requested repository on record.'], 404, [], JSON_PRETTY_PRINT);
+        }
+    });
+});
