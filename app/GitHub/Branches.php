@@ -62,7 +62,7 @@ class Branches
         $branches = [];
 
         foreach ($raw as $branch) {
-            if ($branch['name'] !== 'gh-pages') {
+            if ((strpos($branch['name'], 'gh-pages') === false)) {
                 $branches[] = ['name' => $branch['name'], 'commit' => $branch['commit']['sha']];
             }
         }

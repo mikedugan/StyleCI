@@ -78,7 +78,7 @@ class GitHubController extends Controller
 
     protected function handlePush(array $input)
     {
-        if ($input['head_commit']) {
+        if ($input['head_commit'] && strpos($input['ref']) === false) {
             $repo = $this->factory->repo($input['repository']['full_name'])->id;
             $commit = $this->factory->commit($input['head_commit']['id'], $repo);
 
@@ -99,7 +99,7 @@ class GitHubController extends Controller
 
     protected function handlePullRequest(array $input)
     {
-        if (($input['action'] === 'opened' || $input['action'] === 'reopened') && $input['pull_request']['head']['repo']['full_name'] !== $input['pull_request']['base']['repo']['full_name']) {
+        if (($input['action'] === 'opened' || $input['action'] === 'reopened') && $input['pull_request']['head']['repo']['full_name'] !== $input['pull_request']['base']['repo']['full_name'] && strpos(['pull_request']['head']['ref']) === false) {
             $repo = $this->factory->repo($input['pull_request']['base']['repo']['full_name'])->id;
             $fork = $this->factory->fork($input['pull_request']['head']['repo']['full_name'], $repo)->id;
             $commit = $this->factory->commit($input['pull_request']['head']['sha'], $repo, $fork);
