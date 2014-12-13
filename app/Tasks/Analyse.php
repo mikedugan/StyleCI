@@ -27,7 +27,7 @@ use StyleCI\StyleCI\Models\Commit;
  * @copyright 2014 Graham Campbell
  * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
-class Analyse extends AbstractTask
+class Analyse
 {
     /**
      * The analyser instance.
