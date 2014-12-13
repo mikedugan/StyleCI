@@ -17,6 +17,7 @@
 namespace StyleCI\StyleCI\Tasks;
 
 use Illuminate\Contracts\Queue\Job;
+use StyleCI\StyleCI\Analyser;
 use StyleCI\StyleCI\Models\Commit;
 
 /**
@@ -28,6 +29,25 @@ use StyleCI\StyleCI\Models\Commit;
  */
 class Analyse extends AbstractTask
 {
+    /**
+     * The analyser instance.
+     *
+     * @var \StyleCI\StyleCI\Analyser
+     */
+    protected $analyser;
+
+    /**
+     * Create a task instance.
+     *
+     * @param \StyleCI\StyleCI\Analyser $analyser
+     *
+     * @return void
+     */
+    public function __construct(Analyser $analyser)
+    {
+        $this->analyser = $analyser;
+    }
+
     /**
      * Kick of the analysis.
      *
