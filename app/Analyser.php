@@ -18,6 +18,7 @@ namespace StyleCI\StyleCI;
 
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Queue\Queue;
+use Illuminate\Mail\Message;
 use StyleCI\Fixer\Fixer;
 use StyleCI\Fixer\Report;
 use StyleCI\StyleCI\GitHub\Status;
@@ -206,7 +207,7 @@ class Analyser
                 'email'   => $this->address,
                 'subject' => 'Failed Analysis',
             ];
-            $this->mailer->send('emails.failed', $mail, function ($message) use ($mail) {
+            $this->mailer->send('emails.failed', $mail, function (Message $message) use ($mail) {
                 $message->to($mail['email'])->subject($mail['subject']);
             });
         }
