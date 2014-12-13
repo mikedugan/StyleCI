@@ -263,16 +263,16 @@
         },
         {
             "name": "fabpot/php-cs-fixer",
-            "version": "v1.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "7aa4cff18c037935d07c27281a01fd4248a002c1"
+                "reference": "0f7876b362b6f30ba7a525eb1ddf154de8220ba7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/7aa4cff18c037935d07c27281a01fd4248a002c1",
-                "reference": "7aa4cff18c037935d07c27281a01fd4248a002c1",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/0f7876b362b6f30ba7a525eb1ddf154de8220ba7",
+                "reference": "0f7876b362b6f30ba7a525eb1ddf154de8220ba7",
                 "shasum": ""
             },
             "require": {
@@ -285,13 +285,16 @@
                 "symfony/process": "~2.3",
                 "symfony/stopwatch": "~2.5"
             },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
             "bin": [
                 "php-cs-fixer"
             ],
             "type": "application",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -305,12 +308,16 @@
             ],
             "authors": [
                 {
+                    "name": "Dariusz Rumiński",
+                    "email": "dariusz.ruminski@gmail.com"
+                },
+                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-11-30 13:11:14"
+            "time": "2014-12-13 11:12:58"
         },
         {
             "name": "fideloper/proxy",
@@ -1003,16 +1010,16 @@
         },
         {
             "name": "knplabs/github-api",
-            "version": "1.3.1",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/php-github-api.git",
-                "reference": "fc2bd5531d221f1f9e7d49238a680e50570bf60b"
+                "reference": "eac0ecce6faac7cdfccc8aff3b21902765df3368"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/fc2bd5531d221f1f9e7d49238a680e50570bf60b",
-                "reference": "fc2bd5531d221f1f9e7d49238a680e50570bf60b",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/eac0ecce6faac7cdfccc8aff3b21902765df3368",
+                "reference": "eac0ecce6faac7cdfccc8aff3b21902765df3368",
                 "shasum": ""
             },
             "require": {
@@ -1060,7 +1067,7 @@
                 "gist",
                 "github"
             ],
-            "time": "2014-09-23 05:58:10"
+            "time": "2014-12-13 22:04:00"
         },
         {
             "name": "laravel/framework",
@@ -1908,16 +1915,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "6887e70a28383b39430047b4361530c978d681f7"
+                "reference": "308f05381a6b506e6aefe83ec8b9884fe21ef157"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/6887e70a28383b39430047b4361530c978d681f7",
-                "reference": "6887e70a28383b39430047b4361530c978d681f7",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/308f05381a6b506e6aefe83ec8b9884fe21ef157",
+                "reference": "308f05381a6b506e6aefe83ec8b9884fe21ef157",
                 "shasum": ""
             },
             "require": {
-                "fabpot/php-cs-fixer": "1.2.*",
+                "fabpot/php-cs-fixer": "1.4.*",
                 "gitonomy/gitlib": "~1.0",
                 "illuminate/contracts": "~5.0",
                 "illuminate/support": "~5.0",
@@ -1959,7 +1966,7 @@
                 "laravel",
                 "report"
             ],
-            "time": "2014-12-13 21:50:05"
+            "time": "2014-12-13 22:54:33"
         },
         {
             "name": "swiftmailer/swiftmailer",
