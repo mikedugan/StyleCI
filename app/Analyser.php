@@ -16,13 +16,13 @@
 
 namespace StyleCI\StyleCI;
 
+use Illuminate\Contracts\Mail\Mailer;
+use Illuminate\Contracts\Queue\Queue;
 use StyleCI\Fixer\Fixer;
 use StyleCI\Fixer\Report;
 use StyleCI\StyleCI\GitHub\Status;
 use StyleCI\StyleCI\Models\Commit;
 use StyleCI\StyleCI\Tasks\Analyse;
-use Illuminate\Contracts\Mail\Mailer;
-use Illuminate\Contracts\Queue\Queue;
 
 /**
  * This is the analyser class.
@@ -122,7 +122,6 @@ class Analyser
         $this->pushStatus($commit);
         $this->sendEmails($commit);
     }
-
 
     /**
      * Save the main report to the database.
