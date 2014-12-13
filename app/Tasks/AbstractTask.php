@@ -14,30 +14,30 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\Tasks;
+namespace StyleCI\StyleCI\Tasks;
 
-use GrahamCampbell\StyleCI\Analyser;
+use StyleCI\StyleCI\Analyser;
 
 /**
  * This is the abstract task class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 abstract class AbstractTask
 {
     /**
      * The analyser instance.
      *
-     * @var \GrahamCampbell\StyleCI\Analyser
+     * @var \StyleCI\StyleCI\Analyser
      */
     protected $analyser;
 
     /**
      * Create a task instance.
      *
-     * @param \GrahamCampbell\StyleCI\Analyser $analyser
+     * @param \StyleCI\StyleCI\Analyser $analyser
      *
      * @return void
      */

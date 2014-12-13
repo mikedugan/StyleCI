@@ -36,28 +36,28 @@ $router->get('repo/{account}/{repository}', function ($account, $repository) {
 });
 
 $router->get('repos', function () {
-    $repos = GrahamCampbell\StyleCI\Models\Repo::orderBy('name', 'asc')->take(50)->get();
+    $repos = StyleCI\StyleCI\Models\Repo::orderBy('name', 'asc')->take(50)->get();
 
     return view('repos', compact('repos'));
 });
 
-$router->get('repos/{repo}', function (GrahamCampbell\StyleCI\Models\Repo $repo) {
+$router->get('repos/{repo}', function (StyleCI\StyleCI\Models\Repo $repo) {
     $commits = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->take(50)->get();
 
     return view('repo', compact('repo', 'commits'));
 });
 
-$router->get('commits/{commit}', function (GrahamCampbell\StyleCI\Models\Commit $commit) {
+$router->get('commits/{commit}', function (StyleCI\StyleCI\Models\Commit $commit) {
     return view('commit', compact('commit'));
 });
 
-$router->get('commits/{commit}/diff', function (GrahamCampbell\StyleCI\Models\Commit $commit) {
+$router->get('commits/{commit}/diff', function (StyleCI\StyleCI\Models\Commit $commit) {
     return Response::make($commit->diff)->header('Content-Type', 'text/plain; charset=UTF-8');
 });
 
 $router->group(['prefix' => 'api'], function ($router) {
     $router->get('repo/{account}/{repository}', function ($account, $repository) {
-        if ($repo = GrahamCampbell\StyleCI\Models\Repo::find(sha1("$account/$repository"))) {
+        if ($repo = StyleCI\StyleCI\Models\Repo::find(sha1("$account/$repository"))) {
             if ($commit = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->first()) {
                 return new Illuminate\Http\JsonResponse(['message' => $commit->description().'.', 'status' => $commit->status()], 200, [], JSON_PRETTY_PRINT);
             } else {

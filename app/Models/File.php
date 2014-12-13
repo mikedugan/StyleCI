@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\Models;
+namespace StyleCI\StyleCI\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class File extends Model
 {

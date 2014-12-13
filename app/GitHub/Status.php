@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\GitHub;
+namespace StyleCI\StyleCI\GitHub;
 
 use Github\Api\Repository\Statuses as GitHub;
 
@@ -23,7 +23,7 @@ use Github\Api\Repository\Statuses as GitHub;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class Status
 {

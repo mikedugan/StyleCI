@@ -128,8 +128,8 @@ return [
          * Application Service Providers...
          */
         'GrahamCampbell\Exceptions\ExceptionsServiceProvider',
-        'GrahamCampbell\StyleCI\Providers\EventServiceProvider',
-        'GrahamCampbell\StyleCI\Providers\RouteServiceProvider',
+        'StyleCI\StyleCI\Providers\EventServiceProvider',
+        'StyleCI\StyleCI\Providers\RouteServiceProvider',
 
         /*
          * Laravel Framework Service Providers...
@@ -162,14 +162,14 @@ return [
         'Lightgear\Asset\AssetServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'GrahamCampbell\Core\CoreServiceProvider',
-        'GrahamCampbell\Fixer\FixerServiceProvider',
         'GrahamCampbell\GitHub\GitHubServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
 
         /*
-         * StyleCI Provider...
+         * StyleCI Providers...
          */
-        'GrahamCampbell\StyleCI\StyleCIServiceProvider',
+        'StyleCI\Fixer\FixerServiceProvider',
+        'StyleCI\StyleCI\StyleCIServiceProvider',
 
         /*
          * Debugbar Provider...
@@ -211,7 +211,6 @@ return [
         'Cache'       => 'Illuminate\Support\Facades\Cache',
         'Config'      => 'Illuminate\Support\Facades\Config',
         'Cookie'      => 'Illuminate\Support\Facades\Cookie',
-        'Credentials' => 'GrahamCampbell\Credentials\Facades\Credentials',
         'Crypt'       => 'Illuminate\Support\Facades\Crypt',
         'DB'          => 'Illuminate\Support\Facades\DB',
         'Event'       => 'Illuminate\Support\Facades\Event',

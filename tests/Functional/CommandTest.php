@@ -14,16 +14,16 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\Tests\StyleCI\Functional;
+namespace StyleCI\Tests\StyleCI\Functional;
 
-use GrahamCampbell\Tests\StyleCI\AbstractTestCase;
+use StyleCI\Tests\StyleCI\AbstractTestCase;
 
 /**
  * This is the command test class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class CommandTest extends AbstractTestCase
 {

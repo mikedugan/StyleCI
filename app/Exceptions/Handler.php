@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\Exceptions;
+namespace StyleCI\StyleCI\Exceptions;
 
 use GrahamCampbell\Exceptions\ExceptionHandler;
 
@@ -23,7 +23,7 @@ use GrahamCampbell\Exceptions\ExceptionHandler;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class Handler extends ExceptionHandler
 {

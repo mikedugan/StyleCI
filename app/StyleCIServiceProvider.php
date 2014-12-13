@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI;
+namespace StyleCI\StyleCI;
 
 use Illuminate\Support\ServiceProvider;
 use Lightgear\Asset\Asset;
@@ -24,7 +24,7 @@ use Lightgear\Asset\Asset;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class StyleCIServiceProvider extends ServiceProvider
 {
@@ -42,7 +42,7 @@ class StyleCIServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('graham-campbell/styleci', 'graham-campbell/styleci', __DIR__);
+        $this->package('styleci/styleci', 'styleci/styleci', __DIR__);
 
         $this->setupAssets($this->app['asset'], $this->app['config']['laravel-debugbar::enabled']);
     }
@@ -98,7 +98,7 @@ class StyleCIServiceProvider extends ServiceProvider
             return new Factories\ModelFactory();
         });
 
-        $this->app->alias('styleci.modelfactory', 'GrahamCampbell\StyleCI\Factories\ModelFactory');
+        $this->app->alias('styleci.modelfactory', 'StyleCI\StyleCI\Factories\ModelFactory');
     }
 
     /**
@@ -114,7 +114,7 @@ class StyleCIServiceProvider extends ServiceProvider
             return new GitHub\Branches($github);
         });
 
-        $this->app->alias('styleci.branches', 'GrahamCampbell\StyleCI\GitHub\Branches');
+        $this->app->alias('styleci.branches', 'StyleCI\StyleCI\GitHub\Branches');
     }
 
     /**
@@ -131,7 +131,7 @@ class StyleCIServiceProvider extends ServiceProvider
             return new GitHub\Status($github, $url);
         });
 
-        $this->app->alias('styleci.status', 'GrahamCampbell\StyleCI\GitHub\Status');
+        $this->app->alias('styleci.status', 'StyleCI\StyleCI\GitHub\Status');
     }
 
     /**
@@ -151,7 +151,7 @@ class StyleCIServiceProvider extends ServiceProvider
             return new Analyser($fixer, $status, $queue, $mailer, $address);
         });
 
-        $this->app->alias('styleci.analyser', 'GrahamCampbell\StyleCI\Analyser');
+        $this->app->alias('styleci.analyser', 'StyleCI\StyleCI\Analyser');
     }
 
     /**

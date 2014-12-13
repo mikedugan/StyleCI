@@ -14,9 +14,9 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\Console\Commands;
+namespace StyleCI\StyleCI\Console\Commands;
 
-use GrahamCampbell\StyleCI\Models\Repo;
+use StyleCI\StyleCI\Models\Repo;
 use Illuminate\Console\Command;
 
 /**
@@ -24,7 +24,7 @@ use Illuminate\Console\Command;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class AnalyseAllCommand extends Command
 {
@@ -59,7 +59,7 @@ class AnalyseAllCommand extends Command
     /**
      * Analyse all the branches on a repo.
      *
-     * @param \GrahamCampbell\StyleCI\Models\Repo $repo
+     * @param \StyleCI\StyleCI\Models\Repo $repo
      *
      * @return void
      */
@@ -83,7 +83,7 @@ class AnalyseAllCommand extends Command
      * @param string $repo
      * @param string $commit
      *
-     * @return \GrahamCampbell\StyleCI\Models\Commit
+     * @return \StyleCI\StyleCI\Models\Commit
      */
     protected function getCommit($branch, $repo, $commit)
     {

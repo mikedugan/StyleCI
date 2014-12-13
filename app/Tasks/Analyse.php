@@ -14,9 +14,9 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\Tasks;
+namespace StyleCI\StyleCI\Tasks;
 
-use GrahamCampbell\StyleCI\Models\Commit;
+use StyleCI\StyleCI\Models\Commit;
 use Illuminate\Contracts\Queue\Job;
 
 /**
@@ -24,7 +24,7 @@ use Illuminate\Contracts\Queue\Job;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class Analyse extends AbstractTask
 {
@@ -32,7 +32,7 @@ class Analyse extends AbstractTask
      * Kick of the analysis.
      *
      * @param \Illuminate\Contracts\Queue\Job       $job
-     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
+     * @param \StyleCI\StyleCI\Models\Commit $commit
      *
      * @return void
      */

@@ -38,11 +38,11 @@ $app = new Illuminate\Foundation\Application(realpath(__DIR__.'/..'));
 |
 */
 
-$app->singleton('Illuminate\Contracts\Http\Kernel', 'GrahamCampbell\StyleCI\Http\Kernel');
+$app->singleton('Illuminate\Contracts\Http\Kernel', 'StyleCI\StyleCI\Http\Kernel');
 
-$app->singleton('Illuminate\Contracts\Console\Kernel', 'GrahamCampbell\StyleCI\Console\Kernel');
+$app->singleton('Illuminate\Contracts\Console\Kernel', 'StyleCI\StyleCI\Console\Kernel');
 
-$app->singleton('Illuminate\Contracts\Debug\ExceptionHandler', 'GrahamCampbell\StyleCI\Exceptions\Handler');
+$app->singleton('Illuminate\Contracts\Debug\ExceptionHandler', 'StyleCI\StyleCI\Exceptions\Handler');
 
 /*
 |--------------------------------------------------------------------------

@@ -14,10 +14,10 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\Http\Controllers;
+namespace StyleCI\StyleCI\Http\Controllers;
 
-use GrahamCampbell\StyleCI\Analyser;
-use GrahamCampbell\StyleCI\Factories\ModelFactory;
+use StyleCI\StyleCI\Analyser;
+use StyleCI\StyleCI\Factories\ModelFactory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -27,29 +27,29 @@ use Illuminate\Routing\Controller;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class GitHubController extends Controller
 {
     /**
      * The analyser instance.
      *
-     * @var \GrahamCampbell\StyleCI\Analyser
+     * @var \StyleCI\StyleCI\Analyser
      */
     protected $analyser;
 
     /**
      * The model factory instance.
      *
-     * @var \GrahamCampbell\StyleCI\Factories\ModelFactory
+     * @var \StyleCI\StyleCI\Factories\ModelFactory
      */
     protected $factory;
 
     /**
      * Create a new github controller instance.
      *
-     * @param \GrahamCampbell\StyleCI\Analyser               $analyser
-     * @param \GrahamCampbell\StyleCI\Factories\ModelFactory $factory
+     * @param \StyleCI\StyleCI\Analyser               $analyser
+     * @param \StyleCI\StyleCI\Factories\ModelFactory $factory
      *
      * @return void
      */

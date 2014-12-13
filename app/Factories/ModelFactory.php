@@ -14,19 +14,19 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\Factories;
+namespace StyleCI\StyleCI\Factories;
 
 use Exception;
-use GrahamCampbell\StyleCI\Models\Commit;
-use GrahamCampbell\StyleCI\Models\Fork;
-use GrahamCampbell\StyleCI\Models\Repo;
+use StyleCI\StyleCI\Models\Commit;
+use StyleCI\StyleCI\Models\Fork;
+use StyleCI\StyleCI\Models\Repo;
 
 /**
  * This is the model factory class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class ModelFactory
 {
@@ -35,7 +35,7 @@ class ModelFactory
      *
      * @param string $name
      *
-     * @return \GrahamCampbell\StyleCI\Models\Repo
+     * @return \StyleCI\StyleCI\Models\Repo
      */
     public function repo($name)
     {
@@ -56,7 +56,7 @@ class ModelFactory
      * @param string      $name
      * @param string|null $repo
      *
-     * @return \GrahamCampbell\StyleCI\Models\Fork
+     * @return \StyleCI\StyleCI\Models\Fork
      */
     public function fork($name, $repo = null)
     {
@@ -82,7 +82,7 @@ class ModelFactory
      * @param string|null $repo
      * @param string|null $fork
      *
-     * @return \GrahamCampbell\StyleCI\Models\Commit
+     * @return \StyleCI\StyleCI\Models\Commit
      */
     public function commit($id, $repo = null, $fork = null)
     {

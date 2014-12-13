@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\Console;
+namespace StyleCI\StyleCI\Console;
 
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -23,7 +23,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class Kernel extends ConsoleKernel
 {

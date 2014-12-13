@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\Providers;
+namespace StyleCI\StyleCI\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
@@ -28,7 +28,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'GrahamCampbell\StyleCI\Http\Controllers';
+    protected $namespace = 'StyleCI\StyleCI\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -41,8 +41,8 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot($router);
 
-        $router->model('commit', 'GrahamCampbell\StyleCI\Models\Commit');
-        $router->model('repo', 'GrahamCampbell\StyleCI\Models\Repo');
+        $router->model('commit', 'StyleCI\StyleCI\Models\Commit');
+        $router->model('repo', 'StyleCI\StyleCI\Models\Repo');
     }
 
     /**

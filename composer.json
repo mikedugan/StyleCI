@@ -1,5 +1,5 @@
 {
-    "name": "graham-campbell/styleci",
+    "name": "styleci/styleci",
     "description": "StyleCI Is A PHP Coding Style Continuous Integration Service",
     "keywords": ["laravel", "framework", "styleci", "ci", "cs", "coding standard", "StyleCI", "StyleCI", "Graham Campbell", "GrahamCampbell"],
     "license": "AGPL-3.0",
@@ -22,9 +22,9 @@
         "lightgear/asset": "1.5.*",
         "graham-campbell/exceptions": "0.1.*",
         "graham-campbell/core": "~2.0",
-        "graham-campbell/fixer": "0.1.*",
         "graham-campbell/github": "~2.0",
         "graham-campbell/htmlmin": "~3.0",
+        "styleci/fixer": "0.1.*",
         "pda/pheanstalk": "~3.0",
         "fideloper/proxy": "~2.1",
         "barryvdh/laravel-debugbar": "1.8.*",
@@ -42,12 +42,12 @@
             "database"
         ],
         "psr-4": {
-            "GrahamCampbell\\StyleCI\\": "app/"
+            "StyleCI\\StyleCI\\": "app/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "GrahamCampbell\\Tests\\StyleCI\\": "tests/"
+            "StyleCI\\Tests\\StyleCI\\": "tests/"
         }
     },
     "scripts": {

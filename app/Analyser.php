@@ -14,14 +14,14 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI;
+namespace StyleCI\StyleCI;
 
-use GrahamCampbell\Fixer\Fixer;
-use GrahamCampbell\Fixer\Report;
-use GrahamCampbell\StyleCI\GitHub\Status;
-use GrahamCampbell\StyleCI\Models\Commit;
-use GrahamCampbell\StyleCI\Tasks\Analyse;
-use GrahamCampbell\StyleCI\Tasks\Update;
+use StyleCI\Fixer\Fixer;
+use StyleCI\Fixer\Report;
+use StyleCI\StyleCI\GitHub\Status;
+use StyleCI\StyleCI\Models\Commit;
+use StyleCI\StyleCI\Tasks\Analyse;
+use StyleCI\StyleCI\Tasks\Update;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Queue\Queue;
 
@@ -30,21 +30,21 @@ use Illuminate\Contracts\Queue\Queue;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class Analyser
 {
     /**
      * The fixer instance.
      *
-     * @var \GrahamCampbell\Fixer\Fixer
+     * @var \StyleCI\Fixer\Fixer
      */
     protected $fixer;
 
     /**
      * The status instance.
      *
-     * @var \GrahamCampbell\StyleCI\GitHub\Status
+     * @var \StyleCI\StyleCI\GitHub\Status
      */
     protected $status;
 
@@ -72,8 +72,8 @@ class Analyser
     /**
      * Create a fixer instance.
      *
-     * @param \GrahamCampbell\Fixer\Fixer           $fixer
-     * @param \GrahamCampbell\StyleCI\GitHub\Status $status
+     * @param \StyleCI\Fixer\Fixer           $fixer
+     * @param \StyleCI\StyleCI\GitHub\Status $status
      * @param \Illuminate\Contracts\Queue\Queue     $queue
      * @param \Illuminate\Contracts\Mail\Mailer     $mailer
      * @param string                                $address
@@ -92,7 +92,7 @@ class Analyser
     /**
      * Queue the analysis of a commit.
      *
-     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
+     * @param \StyleCI\StyleCI\Models\Commit $commit
      *
      * @return void
      */
@@ -109,7 +109,7 @@ class Analyser
     /**
      * Analyse a commit.
      *
-     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
+     * @param \StyleCI\StyleCI\Models\Commit $commit
      *
      * @return void
      */
@@ -128,8 +128,8 @@ class Analyser
     /**
      * Save the main report to the database.
      *
-     * @param \GrahamCampbell\Fixer\Report          $report
-     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
+     * @param \StyleCI\Fixer\Report          $report
+     * @param \StyleCI\StyleCI\Models\Commit $commit
      *
      * @return void
      */
@@ -151,8 +151,8 @@ class Analyser
     /**
      * Save the file reports to the database.
      *
-     * @param \GrahamCampbell\Fixer\Report          $report
-     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
+     * @param \StyleCI\Fixer\Report          $report
+     * @param \StyleCI\StyleCI\Models\Commit $commit
      *
      * @return void
      */
@@ -172,7 +172,7 @@ class Analyser
     /**
      * Push the latest status to github.
      *
-     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
+     * @param \StyleCI\StyleCI\Models\Commit $commit
      *
      * @return void
      */
@@ -194,7 +194,7 @@ class Analyser
     /**
      * Send an any emails that may be required.
      *
-     * @param \GrahamCampbell\StyleCI\Models\Commit $commit
+     * @param \StyleCI\StyleCI\Models\Commit $commit
      *
      * @return void
      */

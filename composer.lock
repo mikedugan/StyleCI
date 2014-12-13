@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "720f598e5dd31048f218a6297cf91b23",
+    "hash": "a205d74c22d2c02138def7f31cf4f47f",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -594,68 +594,6 @@
             "time": "2014-12-04 19:57:34"
         },
         {
-            "name": "graham-campbell/fixer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Fixer.git",
-                "reference": "f7047c6762ffba12962830a067f1d4498d142ae3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Fixer/zipball/f7047c6762ffba12962830a067f1d4498d142ae3",
-                "reference": "f7047c6762ffba12962830a067f1d4498d142ae3",
-                "shasum": ""
-            },
-            "require": {
-                "fabpot/php-cs-fixer": "1.2.*",
-                "gitonomy/gitlib": "~1.0",
-                "illuminate/contracts": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.5.0",
-                "symfony/filesystem": "~2.3"
-            },
-            "require-dev": {
-                "graham-campbell/testbench": "~2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GrahamCampbell\\Fixer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@mineuk.com"
-                }
-            ],
-            "description": "Fixer Is A Code Style Report Builder",
-            "keywords": [
-                "Graham Campbell",
-                "GrahamCampbell",
-                "Laravel Fixer",
-                "Laravel-Fixer",
-                "api",
-                "cs",
-                "fixer",
-                "fixer report",
-                "framework",
-                "laravel",
-                "report"
-            ],
-            "time": "2014-11-30 08:44:32"
-        },
-        {
             "name": "graham-campbell/github",
             "version": "dev-master",
             "source": {
@@ -1134,7 +1072,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/fa1ad0fa950cc30f306729b6ea851cec9ddded16",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/edd48d8d92692335ad0488c3402cd2d7eb7fcf10",
                 "reference": "fa1ad0fa950cc30f306729b6ea851cec9ddded16",
                 "shasum": ""
             },
@@ -1238,7 +1176,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-12-04 19:32:27"
+            "time": "2014-12-11 17:15:21"
         },
         {
             "name": "leafo/lessphp",
@@ -1287,12 +1225,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "b59998778b7771fea7637a3192e028e8f974204e"
+                "reference": "c92e3c836be5dcfbe57a6219e9585d944e0b5ae2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b59998778b7771fea7637a3192e028e8f974204e",
-                "reference": "b59998778b7771fea7637a3192e028e8f974204e",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c92e3c836be5dcfbe57a6219e9585d944e0b5ae2",
+                "reference": "c92e3c836be5dcfbe57a6219e9585d944e0b5ae2",
                 "shasum": ""
             },
             "require": {
@@ -1311,7 +1249,6 @@
                 "phpunit/phpunit": "~4.0",
                 "predis/predis": "~1.0",
                 "rackspace/php-opencloud": "~1.11",
-                "sabre/dav": "~2.0",
                 "tedivm/stash": "~0.12.0"
             },
             "suggest": {
@@ -1321,6 +1258,8 @@
                 "ext-fileinfo": "Required for MimeType",
                 "guzzlehttp/guzzle": "Allows you to use http files (reading only)",
                 "league/event": "Required for EventableFilesystem",
+                "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
+                "league/flysystem-webdav": "Allows you to use WebDAV storage",
                 "phpseclib/phpseclib": "Allows SFTP server storage",
                 "predis/predis": "Allows you to use Predis for caching",
                 "rackspace/php-opencloud": "Allows you to use Rackspace Cloud Files",
@@ -1366,7 +1305,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2014-12-04 19:27:05"
+            "time": "2014-12-09 15:48:33"
         },
         {
             "name": "lightgear/asset",
@@ -1964,17 +1903,76 @@
             "time": "2014-08-15 10:29:00"
         },
         {
-            "name": "swiftmailer/swiftmailer",
-            "version": "v5.3.0",
+            "name": "styleci/fixer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "b86b927dfefdb56ab0b22d1350033d9a38e9f205"
+                "url": "https://github.com/StyleCI/Fixer.git",
+                "reference": "6887e70a28383b39430047b4361530c978d681f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/b86b927dfefdb56ab0b22d1350033d9a38e9f205",
-                "reference": "b86b927dfefdb56ab0b22d1350033d9a38e9f205",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/6887e70a28383b39430047b4361530c978d681f7",
+                "reference": "6887e70a28383b39430047b4361530c978d681f7",
+                "shasum": ""
+            },
+            "require": {
+                "fabpot/php-cs-fixer": "1.2.*",
+                "gitonomy/gitlib": "~1.0",
+                "illuminate/contracts": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.0",
+                "symfony/filesystem": "~2.3"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "StyleCI\\Fixer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@mineuk.com"
+                }
+            ],
+            "description": "StyleCI Fixer Is A Code Style Report Builder",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "StyleCI",
+                "cs",
+                "fixer",
+                "framework",
+                "laravel",
+                "report"
+            ],
+            "time": "2014-12-13 21:50:05"
+        },
+        {
+            "name": "swiftmailer/swiftmailer",
+            "version": "v5.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swiftmailer/swiftmailer.git",
+                "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
+                "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
                 "shasum": ""
             },
             "require": {
@@ -2013,7 +2011,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-10-04 05:53:18"
+            "time": "2014-12-05 14:17:14"
         },
         {
             "name": "symfony/console",
@@ -2744,16 +2742,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v1.0.9",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "56c252d48dce336da97926591aed71805203815b"
+                "reference": "732d2adb7d916c9593b9d58c3b0d9ebefead07aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/56c252d48dce336da97926591aed71805203815b",
-                "reference": "56c252d48dce336da97926591aed71805203815b",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/732d2adb7d916c9593b9d58c3b0d9ebefead07aa",
+                "reference": "732d2adb7d916c9593b9d58c3b0d9ebefead07aa",
                 "shasum": ""
             },
             "require": {
@@ -2791,7 +2789,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2014-10-16 14:50:21"
+            "time": "2014-12-05 15:19:21"
         }
     ],
     "packages-dev": [
@@ -3012,30 +3010,38 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.4.3",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "0368bc031976126e5d36d37d2c56155092b6575b"
+                "reference": "71140662c0a954602e81271667b6e03d9f53ea34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0368bc031976126e5d36d37d2c56155092b6575b",
-                "reference": "0368bc031976126e5d36d37d2c56155092b6575b",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/71140662c0a954602e81271667b6e03d9f53ea34",
+                "reference": "71140662c0a954602e81271667b6e03d9f53ea34",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "~2.4",
+                "doctrine/common": ">=2.4,<2.6-dev",
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*",
-                "symfony/console": "~2.0"
+                "phpunit/phpunit": "4.*",
+                "symfony/console": "2.*"
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
             },
+            "bin": [
+                "bin/doctrine-dbal"
+            ],
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\DBAL\\": "lib/"
@@ -3071,7 +3077,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-10-16 11:56:49"
+            "time": "2014-12-04 21:57:15"
         },
         {
             "name": "doctrine/inflector",
@@ -3323,7 +3329,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/a48283d9918791d79dc749cddc53a70979796752",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/d04c5be7db837c03fe64d2936a54f56b9d3f10f7",
                 "reference": "a48283d9918791d79dc749cddc53a70979796752",
                 "shasum": ""
             },
@@ -3372,7 +3378,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2014-12-04 02:54:12"
+            "time": "2014-12-09 05:51:50"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3623,16 +3629,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.3.5",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2dab9d593997db4abcf58d0daf798eb4e9cecfe1"
+                "reference": "bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2dab9d593997db4abcf58d0daf798eb4e9cecfe1",
-                "reference": "2dab9d593997db4abcf58d0daf798eb4e9cecfe1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0",
+                "reference": "bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0",
                 "shasum": ""
             },
             "require": {
@@ -3649,8 +3655,9 @@
                 "phpunit/phpunit-mock-objects": "~2.3",
                 "sebastian/comparator": "~1.0",
                 "sebastian/diff": "~1.1",
-                "sebastian/environment": "~1.0",
+                "sebastian/environment": "~1.1",
                 "sebastian/exporter": "~1.0",
+                "sebastian/global-state": "~1.0",
                 "sebastian/version": "~1.0",
                 "symfony/yaml": "~2.0"
             },
@@ -3663,7 +3670,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3.x-dev"
+                    "dev-master": "4.4.x-dev"
                 }
             },
             "autoload": {
@@ -3672,10 +3679,6 @@
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                "",
-                "../../symfony/yaml/"
-            ],
             "license": [
                 "BSD-3-Clause"
             ],
@@ -3687,13 +3690,13 @@
                 }
             ],
             "description": "The PHP Unit Testing framework.",
-            "homepage": "http://www.phpunit.de/",
+            "homepage": "https://phpunit.de/",
             "keywords": [
                 "phpunit",
                 "testing",
                 "xunit"
             ],
-            "time": "2014-11-11 10:11:09"
+            "time": "2014-12-05 06:49:03"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3928,6 +3931,57 @@
                 "exporter"
             ],
             "time": "2014-09-10 00:51:36"
+        },
+        {
+            "name": "sebastian/global-state",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/global-state.git",
+                "reference": "c7428acdb62ece0a45e6306f1ae85e1c05b09c01"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/c7428acdb62ece0a45e6306f1ae85e1c05b09c01",
+                "reference": "c7428acdb62ece0a45e6306f1ae85e1c05b09c01",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.2"
+            },
+            "suggest": {
+                "ext-uopz": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                }
+            ],
+            "description": "Snapshotting of global state",
+            "homepage": "http://www.github.com/sebastianbergmann/global-state",
+            "keywords": [
+                "global state"
+            ],
+            "time": "2014-10-06 09:23:50"
         },
         {
             "name": "sebastian/version",

@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\Tests\StyleCI;
+namespace StyleCI\Tests\StyleCI;
 
 use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
 
@@ -23,7 +23,7 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class ServiceProviderTest extends AbstractTestCase
 {

@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\Tests\StyleCI;
+namespace StyleCI\Tests\StyleCI;
 
 use GrahamCampbell\TestBench\AbstractAppTestCase;
 
@@ -23,7 +23,7 @@ use GrahamCampbell\TestBench\AbstractAppTestCase;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 abstract class AbstractTestCase extends AbstractAppTestCase
 {
@@ -36,6 +36,6 @@ abstract class AbstractTestCase extends AbstractAppTestCase
      */
     protected function getServiceProviderClass($app)
     {
-        return 'GrahamCampbell\StyleCI\StyleCIServiceProvider';
+        return 'StyleCI\StyleCI\StyleCIServiceProvider';
     }
 }

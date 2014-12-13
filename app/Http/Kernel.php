@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\StyleCI\Http;
+namespace StyleCI\StyleCI\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -23,7 +23,7 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/StyleCI/blob/master/LICENSE.md> AGPL 3.0
+ * @license   <https://github.com/StyleCI/StyleCI/blob/master/LICENSE.md> AGPL 3.0
  */
 class Kernel extends HttpKernel
 {
@@ -33,7 +33,7 @@ class Kernel extends HttpKernel
      * @var string[]
      */
     protected $middleware = [
-        'GrahamCampbell\StyleCI\Http\Middleware\CheckForMaintenanceMode',
+        'StyleCI\StyleCI\Http\Middleware\CheckForMaintenanceMode',
         'Illuminate\Cookie\Middleware\EncryptCookies',
         'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
         'Illuminate\Session\Middleware\StartSession',
