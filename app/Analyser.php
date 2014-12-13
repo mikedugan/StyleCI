@@ -21,7 +21,6 @@ use StyleCI\Fixer\Report;
 use StyleCI\StyleCI\GitHub\Status;
 use StyleCI\StyleCI\Models\Commit;
 use StyleCI\StyleCI\Tasks\Analyse;
-use StyleCI\StyleCI\Tasks\Update;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Queue\Queue;
 
