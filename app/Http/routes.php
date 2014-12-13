@@ -14,6 +14,8 @@
  * GNU Affero General Public License for more details.
  */
 
+use Illuminate\Contracts\Routing\Registrar;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -55,7 +57,7 @@ $router->get('commits/{commit}/diff', function (StyleCI\StyleCI\Models\Commit $c
     return Response::make($commit->diff)->header('Content-Type', 'text/plain; charset=UTF-8');
 });
 
-$router->group(['prefix' => 'api'], function ($router) {
+$router->group(['prefix' => 'api'], function (Registrar $router) {
     $router->get('repo/{account}/{repository}', function ($account, $repository) {
         if ($repo = StyleCI\StyleCI\Models\Repo::find(sha1("$account/$repository"))) {
             if ($commit = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->first()) {
