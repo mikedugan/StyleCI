@@ -16,8 +16,8 @@
 
 namespace StyleCI\StyleCI\Tasks;
 
-use StyleCI\StyleCI\Models\Commit;
 use Illuminate\Contracts\Queue\Job;
+use StyleCI\StyleCI\Models\Commit;
 
 /**
  * This is the update task class.
@@ -31,8 +31,8 @@ class Update extends AbstractTask
     /**
      * Kick of the update.
      *
-     * @param \Illuminate\Contracts\Queue\Job       $job
-     * @param \StyleCI\StyleCI\Models\Commit $commit
+     * @param \Illuminate\Contracts\Queue\Job $job
+     * @param \StyleCI\StyleCI\Models\Commit  $commit
      *
      * @return void
      */

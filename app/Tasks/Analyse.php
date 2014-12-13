@@ -16,8 +16,8 @@
 
 namespace StyleCI\StyleCI\Tasks;
 
-use StyleCI\StyleCI\Models\Commit;
 use Illuminate\Contracts\Queue\Job;
+use StyleCI\StyleCI\Models\Commit;
 
 /**
  * This is the analyse task class.
@@ -31,8 +31,8 @@ class Analyse extends AbstractTask
     /**
      * Kick of the analysis.
      *
-     * @param \Illuminate\Contracts\Queue\Job       $job
-     * @param \StyleCI\StyleCI\Models\Commit $commit
+     * @param \Illuminate\Contracts\Queue\Job $job
+     * @param \StyleCI\StyleCI\Models\Commit  $commit
      *
      * @return void
      */

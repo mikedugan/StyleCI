@@ -16,8 +16,8 @@
 
 namespace StyleCI\StyleCI\Console\Commands;
 
-use StyleCI\StyleCI\Models\Repo;
 use Illuminate\Console\Command;
+use StyleCI\StyleCI\Models\Repo;
 
 /**
  * This is the analyse all command class.

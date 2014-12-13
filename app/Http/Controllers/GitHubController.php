@@ -16,11 +16,11 @@
 
 namespace StyleCI\StyleCI\Http\Controllers;
 
-use StyleCI\StyleCI\Analyser;
-use StyleCI\StyleCI\Factories\ModelFactory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use StyleCI\StyleCI\Analyser;
+use StyleCI\StyleCI\Factories\ModelFactory;
 
 /**
  * This is the github controller class.
