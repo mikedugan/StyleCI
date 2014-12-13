@@ -72,11 +72,11 @@ class Analyser
     /**
      * Create a fixer instance.
      *
-     * @param \StyleCI\Fixer\Fixer           $fixer
-     * @param \StyleCI\StyleCI\GitHub\Status $status
-     * @param \Illuminate\Contracts\Queue\Queue     $queue
-     * @param \Illuminate\Contracts\Mail\Mailer     $mailer
-     * @param string                                $address
+     * @param \StyleCI\Fixer\Fixer              $fixer
+     * @param \StyleCI\StyleCI\GitHub\Status    $status
+     * @param \Illuminate\Contracts\Queue\Queue $queue
+     * @param \Illuminate\Contracts\Mail\Mailer $mailer
+     * @param string                            $address
      *
      * @return void
      */
