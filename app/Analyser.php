@@ -201,14 +201,16 @@ class Analyser
     {
         if ($commit->status() === 2) {
             $mail = [
-                'repo'    => $commit->repo->name,
-                'commit'  => $commit->message,
-                'link'    => asset('commits/'.$commit->id),
-                'email'   => $this->address,
-                'subject' => 'Failed Analysis',
+                'repo'       => $commit->repo->name,
+                'commit'     => $commit->message,
+                'link'       => asset('commits/'.$commit->id),
+                'email'      => $this->address,
+                'subject'    => 'Failed Analysis',
+                'attachment' => [$commit->diff, $commit->id.'.diff'],
             ];
             $this->mailer->send('emails.failed', $mail, function (Message $message) use ($mail) {
                 $message->to($mail['email'])->subject($mail['subject']);
+                $message->attachData($mail['attachment'][0], $mail['attachment'][1]);
             });
         }
     }
