@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a205d74c22d2c02138def7f31cf4f47f",
+    "hash": "2962d1ff0873f2951335a0641383b6aa",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1910,12 +1910,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "c386f052901336db6ea87042e2897861449370ba"
+                "reference": "173e3757679b66039c1c07f539707d0ab336ae78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/c386f052901336db6ea87042e2897861449370ba",
-                "reference": "c386f052901336db6ea87042e2897861449370ba",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/173e3757679b66039c1c07f539707d0ab336ae78",
+                "reference": "173e3757679b66039c1c07f539707d0ab336ae78",
                 "shasum": ""
             },
             "require": {
@@ -1961,7 +1961,7 @@
                 "laravel",
                 "report"
             ],
-            "time": "2014-12-20 15:37:14"
+            "time": "2014-12-20 16:10:13"
         },
         {
             "name": "swiftmailer/swiftmailer",
