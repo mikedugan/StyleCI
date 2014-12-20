@@ -143,16 +143,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633"
+                "reference": "d63108433190110c0ceb8be6460dda6f78348950"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/6a6bec0670bb6e71a263b08bc1b98ea242928633",
-                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/d63108433190110c0ceb8be6460dda6f78348950",
+                "reference": "d63108433190110c0ceb8be6460dda6f78348950",
                 "shasum": ""
             },
             "require": {
@@ -207,7 +207,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2014-09-25 16:45:30"
+            "time": "2014-12-18 18:30:08"
         },
         {
             "name": "doctrine/lexer",
@@ -263,16 +263,16 @@
         },
         {
             "name": "fabpot/php-cs-fixer",
-            "version": "dev-master",
+            "version": "1.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "0f7876b362b6f30ba7a525eb1ddf154de8220ba7"
+                "reference": "030cd8a61ea38c5c8d75d118a870964271f03253"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/0f7876b362b6f30ba7a525eb1ddf154de8220ba7",
-                "reference": "0f7876b362b6f30ba7a525eb1ddf154de8220ba7",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/030cd8a61ea38c5c8d75d118a870964271f03253",
+                "reference": "030cd8a61ea38c5c8d75d118a870964271f03253",
                 "shasum": ""
             },
             "require": {
@@ -286,17 +286,12 @@
                 "symfony/stopwatch": "~2.5"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master"
+                "satooshi/php-coveralls": "0.7.*@dev"
             },
             "bin": [
                 "php-cs-fixer"
             ],
             "type": "application",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\CS\\": "Symfony/CS/"
@@ -317,7 +312,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-12-13 11:12:58"
+            "time": "2014-12-20 13:29:12"
         },
         {
             "name": "fideloper/proxy",
@@ -1232,12 +1227,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "c92e3c836be5dcfbe57a6219e9585d944e0b5ae2"
+                "reference": "1b6c3f41b29671ca2dff32c179156ea2d26cc249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c92e3c836be5dcfbe57a6219e9585d944e0b5ae2",
-                "reference": "c92e3c836be5dcfbe57a6219e9585d944e0b5ae2",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/1b6c3f41b29671ca2dff32c179156ea2d26cc249",
+                "reference": "1b6c3f41b29671ca2dff32c179156ea2d26cc249",
                 "shasum": ""
             },
             "require": {
@@ -1252,7 +1247,7 @@
                 "league/phpunit-coverage-listener": "~1.1",
                 "mockery/mockery": "~0.9",
                 "phpseclib/phpseclib": "~0.3.5",
-                "phpspec/phpspec": "~2.0",
+                "phpspec/phpspec": "~2.0.0",
                 "phpunit/phpunit": "~4.0",
                 "predis/predis": "~1.0",
                 "rackspace/php-opencloud": "~1.11",
@@ -1312,7 +1307,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2014-12-09 15:48:33"
+            "time": "2014-12-16 18:08:21"
         },
         {
             "name": "lightgear/asset",
@@ -1360,16 +1355,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "dev-master",
+            "version": "v1.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "4b8ba47e583564b1bec89e84a1b8820ae187b53b"
+                "reference": "4971283c1fa8da051e97d1fa62e053d49259f7ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/4b8ba47e583564b1bec89e84a1b8820ae187b53b",
-                "reference": "4b8ba47e583564b1bec89e84a1b8820ae187b53b",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/4971283c1fa8da051e97d1fa62e053d49259f7ef",
+                "reference": "4971283c1fa8da051e97d1fa62e053d49259f7ef",
                 "shasum": ""
             },
             "require": {
@@ -1412,7 +1407,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2014-12-04 08:05:26"
+            "time": "2014-12-17 08:39:39"
         },
         {
             "name": "monolog/monolog",
@@ -1915,12 +1910,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "308f05381a6b506e6aefe83ec8b9884fe21ef157"
+                "reference": "c386f052901336db6ea87042e2897861449370ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/308f05381a6b506e6aefe83ec8b9884fe21ef157",
-                "reference": "308f05381a6b506e6aefe83ec8b9884fe21ef157",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/c386f052901336db6ea87042e2897861449370ba",
+                "reference": "c386f052901336db6ea87042e2897861449370ba",
                 "shasum": ""
             },
             "require": {
@@ -1966,7 +1961,7 @@
                 "laravel",
                 "report"
             ],
-            "time": "2014-12-13 22:54:33"
+            "time": "2014-12-20 15:37:14"
         },
         {
             "name": "swiftmailer/swiftmailer",
