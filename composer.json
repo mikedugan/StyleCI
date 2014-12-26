@@ -33,17 +33,12 @@
         "graham-campbell/github": "~2.0",
         "graham-campbell/htmlmin": "~3.0",
         "styleci/fixer": "0.1.*",
-        "pda/pheanstalk": "~3.0",
         "fideloper/proxy": "2.1.1",
         "barryvdh/laravel-debugbar": "1.8.4",
         "maximebf/debugbar": "1.10.2"
     },
     "require-dev": {
-        "graham-campbell/testbench": "~2.0",
-        "doctrine/dbal": "~2.4"
-    },
-    "suggest": {
-        "doctrine/dbal": "Allow renaming columns and dropping SQLite columns."
+        "graham-campbell/testbench": "~2.0"
     },
     "autoload": {
         "classmap": [
