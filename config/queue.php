@@ -64,6 +64,7 @@ return [
             'table'  => 'jobs',
             'queue'  => 'default',
             'expire' => 60,
+        ],
 
         'sqs' => [
             'driver' => 'sqs',
