@@ -34,10 +34,10 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         'StyleCI\StyleCI\Http\Middleware\CheckForMaintenanceMode',
-        'Illuminate\Cookie\Middleware\EncryptCookies',
-        'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
-        'Illuminate\Session\Middleware\StartSession',
-        'Illuminate\View\Middleware\ShareErrorsFromSession',
+        // 'Illuminate\Cookie\Middleware\EncryptCookies',
+        // 'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
+        // 'Illuminate\Session\Middleware\StartSession',
+        // 'Illuminate\View\Middleware\ShareErrorsFromSession',
         // 'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
     ];
 
