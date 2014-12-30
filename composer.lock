@@ -664,12 +664,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-HTMLMin.git",
-                "reference": "73982265f1a1e6550e29df21e0ee5f34ff5707cb"
+                "reference": "06ddac4f13a65834cbc134a27ff67ccdb62f7296"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/73982265f1a1e6550e29df21e0ee5f34ff5707cb",
-                "reference": "73982265f1a1e6550e29df21e0ee5f34ff5707cb",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/06ddac4f13a65834cbc134a27ff67ccdb62f7296",
+                "reference": "06ddac4f13a65834cbc134a27ff67ccdb62f7296",
                 "shasum": ""
             },
             "require": {
@@ -718,7 +718,7 @@
                 "laravel",
                 "minifier"
             ],
-            "time": "2014-12-24 16:36:16"
+            "time": "2014-12-30 19:03:14"
         },
         {
             "name": "graham-campbell/manager",
@@ -1864,12 +1864,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "8e8076bedd65635542612a12db5eefa4f9ef69ff"
+                "reference": "c99705b02b76d09d6fbc1734421ef4ef8207d943"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/8e8076bedd65635542612a12db5eefa4f9ef69ff",
-                "reference": "8e8076bedd65635542612a12db5eefa4f9ef69ff",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/c99705b02b76d09d6fbc1734421ef4ef8207d943",
+                "reference": "c99705b02b76d09d6fbc1734421ef4ef8207d943",
                 "shasum": ""
             },
             "require": {
@@ -1915,7 +1915,7 @@
                 "laravel",
                 "report"
             ],
-            "time": "2014-12-30 17:55:41"
+            "time": "2014-12-30 18:13:12"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2809,12 +2809,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "be668024ec4615ba3c9dd8097c12915e6c92eead"
+                "reference": "f84efd32ed8eb06d0655cd3a6e1cab18f418c3d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/be668024ec4615ba3c9dd8097c12915e6c92eead",
-                "reference": "be668024ec4615ba3c9dd8097c12915e6c92eead",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/f84efd32ed8eb06d0655cd3a6e1cab18f418c3d5",
+                "reference": "f84efd32ed8eb06d0655cd3a6e1cab18f418c3d5",
                 "shasum": ""
             },
             "require": {
@@ -2857,7 +2857,7 @@
                 "laravel",
                 "testing"
             ],
-            "time": "2014-12-23 16:52:12"
+            "time": "2014-12-30 19:06:54"
         },
         {
             "name": "mockery/mockery",
