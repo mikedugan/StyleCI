@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6c145f4c4b4457c56148fab901a88f8b",
+    "hash": "d4255274a96efe2d3632764e8642c59c",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -266,13 +266,13 @@
             "version": "1.5.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "3d1f1e9f420b50d5e0690452fb865c6ce99f4e91"
+                "url": "https://github.com/StyleCI/PHP-CS-Fixer.git",
+                "reference": "ddbbca9bddb9107cbfc6d52f020548fb3932dc80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/3d1f1e9f420b50d5e0690452fb865c6ce99f4e91",
-                "reference": "3d1f1e9f420b50d5e0690452fb865c6ce99f4e91",
+                "url": "https://api.github.com/repos/StyleCI/PHP-CS-Fixer/zipball/ddbbca9bddb9107cbfc6d52f020548fb3932dc80",
+                "reference": "ddbbca9bddb9107cbfc6d52f020548fb3932dc80",
                 "shasum": ""
             },
             "require": {
@@ -297,22 +297,24 @@
                     "Symfony\\CS\\": "Symfony/CS/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "Dariusz Rumiński",
-                    "email": "dariusz.ruminski@gmail.com"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Dariusz Rumiński",
+                    "email": "dariusz.ruminski@gmail.com"
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-12-22 16:30:52"
+            "support": {
+                "source": "https://github.com/StyleCI/PHP-CS-Fixer/tree/1.5"
+            },
+            "time": "2014-12-30 17:50:10"
         },
         {
             "name": "fideloper/proxy",
@@ -1413,16 +1415,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa"
+                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
+                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
                 "shasum": ""
             },
             "require": {
@@ -1436,7 +1438,7 @@
                 "aws/aws-sdk-php": "~2.4, >2.4.8",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
-                "phpunit/phpunit": "~3.7.0",
+                "phpunit/phpunit": "~4.0",
                 "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*",
                 "videlalvaro/php-amqplib": "~2.4"
@@ -1455,7 +1457,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11.x-dev"
+                    "dev-master": "1.12.x-dev"
                 }
             },
             "autoload": {
@@ -1481,7 +1483,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-09-30 13:30:58"
+            "time": "2014-12-29 21:29:35"
         },
         {
             "name": "mrclay/minify",
@@ -1862,12 +1864,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "a808cffb803819dc96178a1e40893c1243456ee2"
+                "reference": "8e8076bedd65635542612a12db5eefa4f9ef69ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/a808cffb803819dc96178a1e40893c1243456ee2",
-                "reference": "a808cffb803819dc96178a1e40893c1243456ee2",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/8e8076bedd65635542612a12db5eefa4f9ef69ff",
+                "reference": "8e8076bedd65635542612a12db5eefa4f9ef69ff",
                 "shasum": ""
             },
             "require": {
@@ -1913,7 +1915,7 @@
                 "laravel",
                 "report"
             ],
-            "time": "2014-12-23 13:18:37"
+            "time": "2014-12-30 17:55:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3235,16 +3237,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.4.0",
+            "version": "4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0"
+                "reference": "6a5e49a86ce5e33b8d0657abe145057fc513543a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0",
-                "reference": "bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6a5e49a86ce5e33b8d0657abe145057fc513543a",
+                "reference": "6a5e49a86ce5e33b8d0657abe145057fc513543a",
                 "shasum": ""
             },
             "require": {
@@ -3302,7 +3304,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-12-05 06:49:03"
+            "time": "2014-12-28 07:57:05"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

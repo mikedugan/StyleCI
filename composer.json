@@ -21,6 +21,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/StyleCI/framework"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StyleCI/PHP-CS-Fixer"
         }
     ],
     "require": {
