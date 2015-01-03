@@ -9,7 +9,7 @@ StyleCI was created by, and is maintained by [Graham Campbell](https://github.co
 <a href="https://travis-ci.org/StyleCI/StyleCI"><img src="https://img.shields.io/travis/StyleCI/StyleCI/master.svg?style=flat-square" alt="Build Status"></img></a>
 <a href="https://scrutinizer-ci.com/g/StyleCI/StyleCI/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/StyleCI/StyleCI.svg?style=flat-square" alt="Coverage Status"></img></a>
 <a href="https://scrutinizer-ci.com/g/StyleCI/StyleCI"><img src="https://img.shields.io/scrutinizer/g/StyleCI/StyleCI.svg?style=flat-square" alt="Quality Score"></img></a>
-<a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL%203.0-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
 <a href="https://github.com/StyleCI/StyleCI/releases"><img src="https://img.shields.io/github/release/StyleCI/StyleCI.svg?style=flat-square" alt="Latest Version"></img></a>
 </p>
 
@@ -21,21 +21,4 @@ This project is at a very early stage, and there is no documentation as yet. Sty
 
 ## License
 
-GNU AFFERO GENERAL PUBLIC LICENSE
-
-StyleCI Is A PHP Coding Style Continuous Integration Service
-
-Copyright (C) 2014-2015 Graham Campbell
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+StyleCI is licensed under [The MIT License (MIT)](LICENSE).
