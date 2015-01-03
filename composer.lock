@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d27f24b07fd097a6b12f5f4de1b9db0d",
+    "hash": "420131ee511ac8375fe871f62836382b",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -879,13 +879,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/illuminate/html.git",
-                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
+                "url": "https://github.com/GrahamCampbell/html.git",
+                "reference": "b04be9a84be0d6f7552b281ad6b9e2795218fe56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
-                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "url": "https://api.github.com/repos/GrahamCampbell/html/zipball/b04be9a84be0d6f7552b281ad6b9e2795218fe56",
+                "reference": "b04be9a84be0d6f7552b281ad6b9e2795218fe56",
                 "shasum": ""
             },
             "require": {
@@ -908,7 +908,6 @@
                     "helpers.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -918,7 +917,10 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2015-01-01 16:31:18"
+            "support": {
+                "source": "https://github.com/GrahamCampbell/html/tree/master"
+            },
+            "time": "2014-10-16 14:38:30"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1864,12 +1866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "e6cb39f8dceafdca1a435b89a18e2ef7efffe7a1"
+                "reference": "220259c238f3989ab1de848e54114a71c5385282"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/e6cb39f8dceafdca1a435b89a18e2ef7efffe7a1",
-                "reference": "e6cb39f8dceafdca1a435b89a18e2ef7efffe7a1",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/220259c238f3989ab1de848e54114a71c5385282",
+                "reference": "220259c238f3989ab1de848e54114a71c5385282",
                 "shasum": ""
             },
             "require": {
@@ -1915,7 +1917,7 @@
                 "laravel",
                 "report"
             ],
-            "time": "2015-01-03 19:15:41"
+            "time": "2015-01-03 19:58:26"
         },
         {
             "name": "swiftmailer/swiftmailer",
