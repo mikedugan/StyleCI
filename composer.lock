@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d4255274a96efe2d3632764e8642c59c",
+    "hash": "d8d2ad9b830a69756efb2e1c24e11ad5",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -263,16 +263,16 @@
         },
         {
             "name": "fabpot/php-cs-fixer",
-            "version": "1.5.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/PHP-CS-Fixer.git",
-                "reference": "ddbbca9bddb9107cbfc6d52f020548fb3932dc80"
+                "reference": "94d964fa5462a87bfd013335b16245c1f91e1107"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/PHP-CS-Fixer/zipball/ddbbca9bddb9107cbfc6d52f020548fb3932dc80",
-                "reference": "ddbbca9bddb9107cbfc6d52f020548fb3932dc80",
+                "url": "https://api.github.com/repos/StyleCI/PHP-CS-Fixer/zipball/94d964fa5462a87bfd013335b16245c1f91e1107",
+                "reference": "94d964fa5462a87bfd013335b16245c1f91e1107",
                 "shasum": ""
             },
             "require": {
@@ -292,6 +292,11 @@
                 "php-cs-fixer"
             ],
             "type": "application",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\CS\\": "Symfony/CS/"
@@ -312,9 +317,9 @@
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
             "support": {
-                "source": "https://github.com/StyleCI/PHP-CS-Fixer/tree/1.5"
+                "source": "https://github.com/StyleCI/PHP-CS-Fixer/tree/master"
             },
-            "time": "2014-12-30 17:50:10"
+            "time": "2015-01-03 19:01:35"
         },
         {
             "name": "fideloper/proxy",
@@ -481,12 +486,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "a2a57c849915419451a8ef3de693b7dfa9eb80be"
+                "reference": "cc58f3a88961bba3ac37d7cf574befcca14f6f2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/a2a57c849915419451a8ef3de693b7dfa9eb80be",
-                "reference": "a2a57c849915419451a8ef3de693b7dfa9eb80be",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/cc58f3a88961bba3ac37d7cf574befcca14f6f2d",
+                "reference": "cc58f3a88961bba3ac37d7cf574befcca14f6f2d",
                 "shasum": ""
             },
             "require": {
@@ -512,7 +517,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -532,7 +537,7 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2014-12-24 00:50:30"
+            "time": "2015-01-02 17:37:26"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -540,12 +545,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Exceptions.git",
-                "reference": "aae97b9634432ea4239a62ca677de2423b6811a3"
+                "reference": "42f98da80fc9a7caf1df036647f3966c4a0d5ad3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/aae97b9634432ea4239a62ca677de2423b6811a3",
-                "reference": "aae97b9634432ea4239a62ca677de2423b6811a3",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/42f98da80fc9a7caf1df036647f3966c4a0d5ad3",
+                "reference": "42f98da80fc9a7caf1df036647f3966c4a0d5ad3",
                 "shasum": ""
             },
             "require": {
@@ -573,7 +578,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -595,7 +600,7 @@
                 "laravel",
                 "whoops"
             ],
-            "time": "2014-12-23 17:06:49"
+            "time": "2015-01-02 17:49:15"
         },
         {
             "name": "graham-campbell/github",
@@ -875,12 +880,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/html.git",
-                "reference": "b04be9a84be0d6f7552b281ad6b9e2795218fe56"
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/html/zipball/b04be9a84be0d6f7552b281ad6b9e2795218fe56",
-                "reference": "b04be9a84be0d6f7552b281ad6b9e2795218fe56",
+                "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
                 "shasum": ""
             },
             "require": {
@@ -913,7 +918,7 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-10-16 14:38:30"
+            "time": "2015-01-01 16:31:18"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1231,12 +1236,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "e63bbefb51e49a78a732c5a920240c6e8c08d641"
+                "reference": "cfa08d0aa5ef861ed7614b2b8d9ca88465d150e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e63bbefb51e49a78a732c5a920240c6e8c08d641",
-                "reference": "e63bbefb51e49a78a732c5a920240c6e8c08d641",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/cfa08d0aa5ef861ed7614b2b8d9ca88465d150e0",
+                "reference": "cfa08d0aa5ef861ed7614b2b8d9ca88465d150e0",
                 "shasum": ""
             },
             "require": {
@@ -1311,19 +1316,19 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2014-12-22 16:32:36"
+            "time": "2015-01-01 21:01:25"
         },
         {
             "name": "lightgear/asset",
             "version": "1.5.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GrahamCampbell/asset.git",
+                "url": "https://github.com/BootstrapCMS/asset.git",
                 "reference": "e76bec3e06d4f6ff88c83d494101d6331f9d329f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/asset/zipball/e76bec3e06d4f6ff88c83d494101d6331f9d329f",
+                "url": "https://api.github.com/repos/BootstrapCMS/asset/zipball/e76bec3e06d4f6ff88c83d494101d6331f9d329f",
                 "reference": "e76bec3e06d4f6ff88c83d494101d6331f9d329f",
                 "shasum": ""
             },
@@ -1353,7 +1358,7 @@
             ],
             "description": "Easy asset Management for Laravel",
             "support": {
-                "source": "https://github.com/GrahamCampbell/asset/tree/1.5.1"
+                "source": "https://github.com/BootstrapCMS/asset/tree/1.5.1"
             },
             "time": "2014-10-28 15:58:38"
         },
@@ -1715,16 +1720,16 @@
         },
         {
             "name": "predis/predis",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "d4be306d0aca28b5633b96adef03b29fea569c2f"
+                "reference": "7a170b3d8123c556597b4fbdb88631f99de180c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/d4be306d0aca28b5633b96adef03b29fea569c2f",
-                "reference": "d4be306d0aca28b5633b96adef03b29fea569c2f",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/7a170b3d8123c556597b4fbdb88631f99de180c2",
+                "reference": "7a170b3d8123c556597b4fbdb88631f99de180c2",
                 "shasum": ""
             },
             "require": {
@@ -1738,11 +1743,6 @@
                 "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Predis\\": "src/"
@@ -1766,7 +1766,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-08-01 09:59:50"
+            "time": "2015-01-02 12:51:34"
         },
         {
             "name": "psr/log",
@@ -1864,12 +1864,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "c99705b02b76d09d6fbc1734421ef4ef8207d943"
+                "reference": "9665a89b14cad09248350d99214e891eff5c2c75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/c99705b02b76d09d6fbc1734421ef4ef8207d943",
-                "reference": "c99705b02b76d09d6fbc1734421ef4ef8207d943",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/9665a89b14cad09248350d99214e891eff5c2c75",
+                "reference": "9665a89b14cad09248350d99214e891eff5c2c75",
                 "shasum": ""
             },
             "require": {
@@ -1915,7 +1915,7 @@
                 "laravel",
                 "report"
             ],
-            "time": "2014-12-30 18:13:12"
+            "time": "2015-01-03 19:02:08"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2809,12 +2809,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "f84efd32ed8eb06d0655cd3a6e1cab18f418c3d5"
+                "reference": "817987f0bebf73c00a40163cb365bca8f8889955"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/f84efd32ed8eb06d0655cd3a6e1cab18f418c3d5",
-                "reference": "f84efd32ed8eb06d0655cd3a6e1cab18f418c3d5",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/817987f0bebf73c00a40163cb365bca8f8889955",
+                "reference": "817987f0bebf73c00a40163cb365bca8f8889955",
                 "shasum": ""
             },
             "require": {
@@ -2838,7 +2838,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -2857,7 +2857,7 @@
                 "laravel",
                 "testing"
             ],
-            "time": "2014-12-30 19:06:54"
+            "time": "2015-01-02 16:15:28"
         },
         {
             "name": "mockery/mockery",
@@ -3593,16 +3593,16 @@
         },
         {
             "name": "sebastian/version",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/version.git",
-                "reference": "b6e1f0cf6b9e1ec409a0d3e2f2a5fb0998e36b43"
+                "reference": "a77d9123f8e809db3fbdea15038c27a95da4058b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/b6e1f0cf6b9e1ec409a0d3e2f2a5fb0998e36b43",
-                "reference": "b6e1f0cf6b9e1ec409a0d3e2f2a5fb0998e36b43",
+                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/a77d9123f8e809db3fbdea15038c27a95da4058b",
+                "reference": "a77d9123f8e809db3fbdea15038c27a95da4058b",
                 "shasum": ""
             },
             "type": "library",
@@ -3624,7 +3624,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2014-03-07 15:35:33"
+            "time": "2014-12-15 14:25:24"
         },
         {
             "name": "symfony/yaml",
