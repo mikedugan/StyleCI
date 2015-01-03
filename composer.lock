@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d8d2ad9b830a69756efb2e1c24e11ad5",
+    "hash": "d27f24b07fd097a6b12f5f4de1b9db0d",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1864,12 +1864,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "9665a89b14cad09248350d99214e891eff5c2c75"
+                "reference": "e6cb39f8dceafdca1a435b89a18e2ef7efffe7a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/9665a89b14cad09248350d99214e891eff5c2c75",
-                "reference": "9665a89b14cad09248350d99214e891eff5c2c75",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/e6cb39f8dceafdca1a435b89a18e2ef7efffe7a1",
+                "reference": "e6cb39f8dceafdca1a435b89a18e2ef7efffe7a1",
                 "shasum": ""
             },
             "require": {
@@ -1896,7 +1896,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "AGPL-3.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1915,7 +1915,7 @@
                 "laravel",
                 "report"
             ],
-            "time": "2015-01-03 19:02:08"
+            "time": "2015-01-03 19:15:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
