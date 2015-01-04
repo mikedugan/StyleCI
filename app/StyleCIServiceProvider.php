@@ -12,7 +12,6 @@
 namespace StyleCI\StyleCI;
 
 use Illuminate\Support\ServiceProvider;
-use Lightgear\Asset\Asset;
 
 /**
  * This is the styleci service provider class.
@@ -36,35 +35,6 @@ class StyleCIServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->package('styleci/styleci', 'styleci/styleci', __DIR__);
-
-        $this->setupAssets($this->app['asset'], $this->app['config']['laravel-debugbar::enabled']);
-    }
-
-    /**
-     * Setup the assets.
-     *
-     * @param \Lightgear\Asset\Asset $asset
-     * @param bool                   $debug
-     *
-     * @return void
-     */
-    protected function setupAssets(Asset $asset, $debug = false)
-    {
-        $styles = ['css/styleci-main.css'];
-
-        if ($debug) {
-            $styles[] = 'maximebf\debugbar\src\DebugBar\Resources\vendor\highlightjs\styles\github.css';
-        }
-
-        $asset->registerStyles($styles, '', 'main');
-
-        $scripts = ['js/styleci-main.js'];
-
-        if ($debug) {
-            $scripts[] = 'maximebf\debugbar\src\DebugBar\Resources\vendor\highlightjs\highlight.pack.js';
-        }
-
-        $asset->registerScripts($scripts, '', 'main');
     }
 
     /**

@@ -12,10 +12,6 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/BootstrapCMS/asset"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/GrahamCampbell/html"
         },
         {
@@ -35,15 +31,12 @@
         "php": ">=5.5.0",
         "laravel/framework": "5.0.*",
         "illuminate/html": "5.0.*",
-        "lightgear/asset": "1.5.*",
         "graham-campbell/exceptions": "0.1.*",
         "graham-campbell/core": "~2.0",
         "graham-campbell/github": "~2.0",
         "graham-campbell/htmlmin": "~3.0",
         "styleci/fixer": "0.1.*",
-        "fideloper/proxy": "2.1.1",
-        "barryvdh/laravel-debugbar": "1.8.4",
-        "maximebf/debugbar": "1.10.2"
+        "fideloper/proxy": "2.1.1"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0"

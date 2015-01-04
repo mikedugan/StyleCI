@@ -4,62 +4,8 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "420131ee511ac8375fe871f62836382b",
+    "hash": "8cd2c9b4b9ff98dbac0cdddfa7b0a7e9",
     "packages": [
-        {
-            "name": "barryvdh/laravel-debugbar",
-            "version": "v1.8.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "410e98739c58ccd1b9ad2f49afd77a8d40144515"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/410e98739c58ccd1b9ad2f49afd77a8d40144515",
-                "reference": "410e98739c58ccd1b9ad2f49afd77a8d40144515",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "4.*|5.0.*",
-                "maximebf/debugbar": "~1.10.1",
-                "php": ">=5.3.0",
-                "symfony/finder": "~2.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.8-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Barryvdh\\Debugbar\\": "src/"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Barry vd. Heuvel",
-                    "email": "barryvdh@gmail.com"
-                }
-            ],
-            "description": "PHP Debugbar integration for Laravel",
-            "keywords": [
-                "debug",
-                "debugbar",
-                "laravel",
-                "profiler",
-                "webprofiler"
-            ],
-            "time": "2014-12-04 12:14:32"
-        },
         {
             "name": "classpreloader/classpreloader",
             "version": "1.0.2",
@@ -1192,47 +1138,6 @@
             "time": "2014-12-26 19:26:51"
         },
         {
-            "name": "leafo/lessphp",
-            "version": "v0.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/leafo/lessphp.git",
-                "reference": "0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/leafo/lessphp/zipball/0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283",
-                "reference": "0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.4.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "lessc.inc.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Leaf Corcoran",
-                    "email": "leafot@gmail.com",
-                    "homepage": "http://leafo.net"
-                }
-            ],
-            "description": "lessphp is a compiler for LESS written in PHP.",
-            "homepage": "http://leafo.net/lessphp/",
-            "time": "2014-11-24 18:39:20"
-        },
-        {
             "name": "league/flysystem",
             "version": "dev-master",
             "source": {
@@ -1319,106 +1224,6 @@
                 "storage"
             ],
             "time": "2015-01-01 21:01:25"
-        },
-        {
-            "name": "lightgear/asset",
-            "version": "1.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/BootstrapCMS/asset.git",
-                "reference": "e76bec3e06d4f6ff88c83d494101d6331f9d329f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/asset/zipball/e76bec3e06d4f6ff88c83d494101d6331f9d329f",
-                "reference": "e76bec3e06d4f6ff88c83d494101d6331f9d329f",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "~5.0",
-                "illuminate/contracts": "~5.0",
-                "illuminate/support": "~5.0",
-                "leafo/lessphp": "~0.4",
-                "mrclay/minify": "~2.2",
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Lightgear\\Asset": "src/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Donato Rotunno",
-                    "email": "ralf57@gmail.com"
-                },
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@mineuk.com"
-                }
-            ],
-            "description": "Easy asset Management for Laravel",
-            "support": {
-                "source": "https://github.com/BootstrapCMS/asset/tree/1.5.1"
-            },
-            "time": "2014-10-28 15:58:38"
-        },
-        {
-            "name": "maximebf/debugbar",
-            "version": "v1.10.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "4971283c1fa8da051e97d1fa62e053d49259f7ef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/4971283c1fa8da051e97d1fa62e053d49259f7ef",
-                "reference": "4971283c1fa8da051e97d1fa62e053d49259f7ef",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "psr/log": "~1.0",
-                "symfony/var-dumper": "~2.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "suggest": {
-                "kriswallsmith/assetic": "The best way to manage assets",
-                "monolog/monolog": "Log using Monolog",
-                "predis/predis": "Redis storage"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.10-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "DebugBar": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Maxime Bouroumeau-Fuseau",
-                    "email": "maxime.bouroumeau@gmail.com",
-                    "homepage": "http://maximebf.com"
-                }
-            ],
-            "description": "Debug bar in the browser for php application",
-            "homepage": "https://github.com/maximebf/php-debugbar",
-            "keywords": [
-                "debug"
-            ],
-            "time": "2014-12-17 08:39:39"
         },
         {
             "name": "monolog/monolog",
@@ -2644,59 +2449,6 @@
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
             "time": "2014-12-02 20:19:20"
-        },
-        {
-            "name": "symfony/var-dumper",
-            "version": "v2.6.1",
-            "target-dir": "Symfony/Component/VarDumper",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "8f3ee04faeca3b8418229b2efbfc8b2b8625b8aa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/8f3ee04faeca3b8418229b2efbfc8b2b8625b8aa",
-                "reference": "8f3ee04faeca3b8418229b2efbfc8b2b8625b8aa",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "suggest": {
-                "ext-symfony_debug": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.6-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "Resources/functions/dump.php"
-                ],
-                "psr-0": {
-                    "Symfony\\Component\\VarDumper\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                }
-            ],
-            "description": "Symfony mechanism for exploring and dumping PHP variables",
-            "homepage": "http://symfony.com",
-            "keywords": [
-                "debug",
-                "dump"
-            ],
-            "time": "2014-11-18 10:08:24"
         },
         {
             "name": "vlucas/phpdotenv",

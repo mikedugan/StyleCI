@@ -154,7 +154,6 @@ return [
         /*
          * Package Service Providers...
          */
-        'Lightgear\Asset\AssetServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'GrahamCampbell\Core\CoreServiceProvider',
         'GrahamCampbell\GitHub\GitHubServiceProvider',
@@ -165,11 +164,6 @@ return [
          */
         'StyleCI\Fixer\FixerServiceProvider',
         'StyleCI\StyleCI\StyleCIServiceProvider',
-
-        /*
-         * Debugbar Provider...
-         */
-        'Barryvdh\Debugbar\ServiceProvider',
 
     ],
 
@@ -230,7 +224,6 @@ return [
         'URL'         => 'Illuminate\Support\Facades\URL',
         'Validator'   => 'Illuminate\Support\Facades\Validator',
         'View'        => 'Illuminate\Support\Facades\View',
-        'Asset'       => 'Lightgear\Asset\Facades\Asset',
 
     ],
 
