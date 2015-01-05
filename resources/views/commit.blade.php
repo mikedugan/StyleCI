@@ -23,4 +23,8 @@ Commit - {{ $commit->message }}
     {{ $commit->description() }}
 </p>
 <hr>
+@if ($commit->status() === 2)
+<a class="btn btn-default" href="{{ asset('commits/' . $commit->id . '/diff/download') }}">Download patch</a>
+<a class="btn btn-default" href="{{ asset('commits/' . $commit->id . '/diff') }}">See diff</a>
+@endif
 @stop

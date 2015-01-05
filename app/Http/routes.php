@@ -52,6 +52,12 @@ $router->get('commits/{commit}/diff', function (StyleCI\StyleCI\Models\Commit $c
     return Response::make($commit->diff)->header('Content-Type', 'text/plain; charset=UTF-8');
 });
 
+$router->get('commits/{commit}/diff/download', function (StyleCI\StyleCI\Models\Commit $commit) {
+    return Response::make($commit->diff)
+        ->header('Content-Type', 'text/plain; charset=UTF-8')
+        ->header('Content-Disposition', 'attachment; filename=patch.txt');
+});
+
 $router->group(['prefix' => 'api'], function (Registrar $router) {
     $router->get('repo/{account}/{repository}', function ($account, $repository) {
         if ($repo = StyleCI\StyleCI\Models\Repo::find(sha1("$account/$repository"))) {
