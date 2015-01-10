@@ -434,12 +434,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "cc58f3a88961bba3ac37d7cf574befcca14f6f2d"
+                "reference": "4dd0dfa2c60d2aa87ae83af22a1a6dbb81b76172"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/cc58f3a88961bba3ac37d7cf574befcca14f6f2d",
-                "reference": "cc58f3a88961bba3ac37d7cf574befcca14f6f2d",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/4dd0dfa2c60d2aa87ae83af22a1a6dbb81b76172",
+                "reference": "4dd0dfa2c60d2aa87ae83af22a1a6dbb81b76172",
                 "shasum": ""
             },
             "require": {
@@ -485,7 +485,7 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2015-01-02 17:37:26"
+            "time": "2015-01-10 14:35:18"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -1145,12 +1145,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "84ed39a44f117f7fed74c41e4e60dc47954edc47"
+                "reference": "9383c1dce17e10bbb5ea17b0237259410ebd6aef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/84ed39a44f117f7fed74c41e4e60dc47954edc47",
-                "reference": "84ed39a44f117f7fed74c41e4e60dc47954edc47",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/9383c1dce17e10bbb5ea17b0237259410ebd6aef",
+                "reference": "9383c1dce17e10bbb5ea17b0237259410ebd6aef",
                 "shasum": ""
             },
             "require": {
@@ -1225,7 +1225,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-01-07 15:26:54"
+            "time": "2015-01-08 09:17:34"
         },
         {
             "name": "monolog/monolog",
@@ -1673,21 +1673,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "220259c238f3989ab1de848e54114a71c5385282"
+                "reference": "ca3d9a26e37ed05fb1f0e82d29d5cb86ba9dd8c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/220259c238f3989ab1de848e54114a71c5385282",
-                "reference": "220259c238f3989ab1de848e54114a71c5385282",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/ca3d9a26e37ed05fb1f0e82d29d5cb86ba9dd8c0",
+                "reference": "ca3d9a26e37ed05fb1f0e82d29d5cb86ba9dd8c0",
                 "shasum": ""
             },
             "require": {
                 "fabpot/php-cs-fixer": "1.5.*",
-                "gitonomy/gitlib": "~1.0",
                 "illuminate/contracts": "~5.0",
                 "illuminate/support": "~5.0",
                 "php": ">=5.5.0",
-                "symfony/filesystem": "~2.3"
+                "styleci/git": "0.1.*"
             },
             "require-dev": {
                 "graham-campbell/testbench": "~2.0"
@@ -1724,7 +1723,65 @@
                 "laravel",
                 "report"
             ],
-            "time": "2015-01-03 19:58:26"
+            "time": "2015-01-10 23:19:25"
+        },
+        {
+            "name": "styleci/git",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/StyleCI/Git.git",
+                "reference": "cea18a38ce7755ad58549a0c183a8ac0da620b17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/StyleCI/Git/zipball/cea18a38ce7755ad58549a0c183a8ac0da620b17",
+                "reference": "cea18a38ce7755ad58549a0c183a8ac0da620b17",
+                "shasum": ""
+            },
+            "require": {
+                "gitonomy/gitlib": "~1.0",
+                "illuminate/contracts": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.0",
+                "symfony/filesystem": "~2.3"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "StyleCI\\Git\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@mineuk.com"
+                }
+            ],
+            "description": "StyleCI Git A Git Repository Manager",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "StyleCI",
+                "framework",
+                "git",
+                "laravel",
+                "repo",
+                "repository"
+            ],
+            "time": "2015-01-10 23:16:26"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2570,12 +2627,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "554353e5f74cf297dd913bd4a820288939a12850"
+                "reference": "5eb8459dd206eb83768416779f2c31437b773e91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/554353e5f74cf297dd913bd4a820288939a12850",
-                "reference": "554353e5f74cf297dd913bd4a820288939a12850",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/5eb8459dd206eb83768416779f2c31437b773e91",
+                "reference": "5eb8459dd206eb83768416779f2c31437b773e91",
                 "shasum": ""
             },
             "require": {
@@ -2618,7 +2675,7 @@
                 "laravel",
                 "testing"
             ],
-            "time": "2015-01-04 15:02:53"
+            "time": "2015-01-09 21:00:23"
         },
         {
             "name": "mockery/mockery",
@@ -2660,7 +2717,7 @@
             ],
             "authors": [
                 {
-                    "name": "Pádraic Brady",
+                    "name": "Padraic Brady",
                     "email": "padraic.brady@gmail.com",
                     "homepage": "http://blog.astrumfutura.com"
                 },
