@@ -1731,12 +1731,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Git.git",
-                "reference": "cea18a38ce7755ad58549a0c183a8ac0da620b17"
+                "reference": "d1fc3696254345f0050f44fb0a0339954c33e04a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Git/zipball/cea18a38ce7755ad58549a0c183a8ac0da620b17",
-                "reference": "cea18a38ce7755ad58549a0c183a8ac0da620b17",
+                "url": "https://api.github.com/repos/StyleCI/Git/zipball/d1fc3696254345f0050f44fb0a0339954c33e04a",
+                "reference": "d1fc3696254345f0050f44fb0a0339954c33e04a",
                 "shasum": ""
             },
             "require": {
@@ -1781,7 +1781,7 @@
                 "repo",
                 "repository"
             ],
-            "time": "2015-01-10 23:16:26"
+            "time": "2015-01-11 00:42:03"
         },
         {
             "name": "swiftmailer/swiftmailer",
