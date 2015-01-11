@@ -434,12 +434,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "4dd0dfa2c60d2aa87ae83af22a1a6dbb81b76172"
+                "reference": "8238e5feff43cecf259ad13f2f3d18de301d1fd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/4dd0dfa2c60d2aa87ae83af22a1a6dbb81b76172",
-                "reference": "4dd0dfa2c60d2aa87ae83af22a1a6dbb81b76172",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/8238e5feff43cecf259ad13f2f3d18de301d1fd8",
+                "reference": "8238e5feff43cecf259ad13f2f3d18de301d1fd8",
                 "shasum": ""
             },
             "require": {
@@ -485,7 +485,7 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2015-01-10 14:35:18"
+            "time": "2015-01-11 16:21:15"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -556,12 +556,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-GitHub.git",
-                "reference": "0b4f80016bd24b6d177aae591ccd7b4f48235bf0"
+                "reference": "2f1d31364e7b4b17c3b8b263af7de2c708e3b725"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-GitHub/zipball/0b4f80016bd24b6d177aae591ccd7b4f48235bf0",
-                "reference": "0b4f80016bd24b6d177aae591ccd7b4f48235bf0",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-GitHub/zipball/2f1d31364e7b4b17c3b8b263af7de2c708e3b725",
+                "reference": "2f1d31364e7b4b17c3b8b263af7de2c708e3b725",
                 "shasum": ""
             },
             "require": {
@@ -587,7 +587,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -609,7 +609,7 @@
                 "laravel",
                 "php-github-api"
             ],
-            "time": "2014-12-24 00:29:02"
+            "time": "2015-01-11 18:06:45"
         },
         {
             "name": "graham-campbell/htmlmin",
@@ -679,12 +679,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
-                "reference": "e46ab00cf79fce8bc6c9f180095b3ffeb00c596b"
+                "reference": "81f9a0974fc9111d62d737bc8ce2e053114f0578"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/e46ab00cf79fce8bc6c9f180095b3ffeb00c596b",
-                "reference": "e46ab00cf79fce8bc6c9f180095b3ffeb00c596b",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/81f9a0974fc9111d62d737bc8ce2e053114f0578",
+                "reference": "81f9a0974fc9111d62d737bc8ce2e053114f0578",
                 "shasum": ""
             },
             "require": {
@@ -708,7 +708,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -728,7 +728,7 @@
                 "laravel",
                 "manager"
             ],
-            "time": "2014-12-24 00:00:11"
+            "time": "2015-01-11 17:46:51"
         },
         {
             "name": "guzzle/guzzle",
@@ -1145,12 +1145,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "9383c1dce17e10bbb5ea17b0237259410ebd6aef"
+                "reference": "59f43cc2624145ea2f091ce10ddaf389a4296d86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/9383c1dce17e10bbb5ea17b0237259410ebd6aef",
-                "reference": "9383c1dce17e10bbb5ea17b0237259410ebd6aef",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/59f43cc2624145ea2f091ce10ddaf389a4296d86",
+                "reference": "59f43cc2624145ea2f091ce10ddaf389a4296d86",
                 "shasum": ""
             },
             "require": {
@@ -1172,18 +1172,17 @@
                 "tedivm/stash": "~0.12.0"
             },
             "suggest": {
-                "aws/aws-sdk-php": "Allows you to use AWS S3 storage",
-                "barracuda/copy": "Allows you to use Copy.com storage",
-                "dropbox/dropbox-sdk": "Allows you to use Dropbox storage",
                 "ext-fileinfo": "Required for MimeType",
-                "guzzlehttp/guzzle": "Allows you to use http files (reading only)",
                 "league/event": "Required for EventableFilesystem",
+                "league/flysystem-aws-s3-v2": "Use S3 storage with AWS SDK v2",
+                "league/flysystem-aws-s3-v3": "Use S3 storage with AWS SDK v3",
                 "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
+                "league/flysystem-copy": "Allows you to use Copy.com storage",
+                "league/flysystem-dropbox": "Use Dropbox storage",
+                "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
                 "league/flysystem-webdav": "Allows you to use WebDAV storage",
                 "phpseclib/phpseclib": "Allows SFTP server storage",
                 "predis/predis": "Allows you to use Predis for caching",
-                "rackspace/php-opencloud": "Allows you to use Rackspace Cloud Files",
-                "sabre/dav": "Enables WebDav support",
                 "tedivm/stash": "Allows you to use Stash as cache implementation"
             },
             "type": "library",
@@ -1225,7 +1224,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-01-08 09:17:34"
+            "time": "2015-01-11 15:40:33"
         },
         {
             "name": "monolog/monolog",
@@ -1473,16 +1472,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.26",
+            "version": "v1.1.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tchwork/utf8.git",
-                "reference": "6b8e46603b49ee87ad6bceb314da94cc04ffcdce"
+                "reference": "f26cc98847add84cb27c5d77e2e0dff715944ac6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tchwork/utf8/zipball/6b8e46603b49ee87ad6bceb314da94cc04ffcdce",
-                "reference": "6b8e46603b49ee87ad6bceb314da94cc04ffcdce",
+                "url": "https://api.github.com/repos/tchwork/utf8/zipball/f26cc98847add84cb27c5d77e2e0dff715944ac6",
+                "reference": "f26cc98847add84cb27c5d77e2e0dff715944ac6",
                 "shasum": ""
             },
             "require": {
@@ -1495,11 +1494,6 @@
                 "ext-mbstring": "Use Mbstring for best performance"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Patchwork": "class/",
@@ -1525,7 +1519,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2014-11-08 10:13:25"
+            "time": "2015-01-11 12:41:11"
         },
         {
             "name": "predis/predis",
@@ -1731,12 +1725,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Git.git",
-                "reference": "d1fc3696254345f0050f44fb0a0339954c33e04a"
+                "reference": "d5286d8145e54ffd41740cd0e4473730db07298e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Git/zipball/d1fc3696254345f0050f44fb0a0339954c33e04a",
-                "reference": "d1fc3696254345f0050f44fb0a0339954c33e04a",
+                "url": "https://api.github.com/repos/StyleCI/Git/zipball/d5286d8145e54ffd41740cd0e4473730db07298e",
+                "reference": "d5286d8145e54ffd41740cd0e4473730db07298e",
                 "shasum": ""
             },
             "require": {
@@ -1781,7 +1775,7 @@
                 "repo",
                 "repository"
             ],
-            "time": "2015-01-11 00:42:03"
+            "time": "2015-01-11 00:56:07"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2627,12 +2621,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "5eb8459dd206eb83768416779f2c31437b773e91"
+                "reference": "7114a4acb6c94207a2c12534f84f8aa5a6b00d60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/5eb8459dd206eb83768416779f2c31437b773e91",
-                "reference": "5eb8459dd206eb83768416779f2c31437b773e91",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/7114a4acb6c94207a2c12534f84f8aa5a6b00d60",
+                "reference": "7114a4acb6c94207a2c12534f84f8aa5a6b00d60",
                 "shasum": ""
             },
             "require": {
@@ -2675,7 +2669,7 @@
                 "laravel",
                 "testing"
             ],
-            "time": "2015-01-09 21:00:23"
+            "time": "2015-01-11 16:18:51"
         },
         {
             "name": "mockery/mockery",
