@@ -52,6 +52,13 @@ class GitHubController extends Controller
         $this->factory = $factory;
     }
 
+    /**
+     * Handles the request made to StyleCI by the GitHub API.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function handle(Request $request)
     {
         if ($request->header('X-GitHub-Event') === 'push') {
@@ -69,6 +76,13 @@ class GitHubController extends Controller
         return $this->handleOther();
     }
 
+    /**
+     * Handle pushing of a branch.
+     *
+     * @param array $input
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     protected function handlePush(array $input)
     {
         if ($input['head_commit'] && strpos($input['ref'], 'gh-pages') === false) {
@@ -90,6 +104,13 @@ class GitHubController extends Controller
         return new JsonResponse(['message' => 'StyleCI has determined that no action is required in this case.'], 200, [], JSON_PRETTY_PRINT);
     }
 
+    /**
+     * Handle opening of a pull request.
+     *
+     * @param array $input
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     protected function handlePullRequest(array $input)
     {
         if (($input['action'] === 'opened' || $input['action'] === 'reopened' || $input['action'] === 'synchronize') && $input['pull_request']['head']['repo']['full_name'] !== $input['pull_request']['base']['repo']['full_name'] && strpos($input['pull_request']['head']['ref'], 'gh-pages') === false) {
@@ -112,11 +133,21 @@ class GitHubController extends Controller
         return new JsonResponse(['message' => 'StyleCI has determined that no action is required in this case.'], 200, [], JSON_PRETTY_PRINT);
     }
 
+    /**
+     * Handle GitHub setup ping.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     protected function handlePing()
     {
         return new JsonResponse(['message' => 'StyleCI successfully received your ping.'], 200, [], JSON_PRETTY_PRINT);
     }
 
+    /**
+     * Handle any other kind of input.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     protected function handleOther()
     {
         return new JsonResponse(['message' => 'StyleCI does not support this type of event.'], 400, [], JSON_PRETTY_PRINT);
