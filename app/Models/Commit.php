@@ -144,6 +144,11 @@ class Commit extends Model
             $time .= "{$seconds} sec";
         }
 
+        if ($seconds == 0 && $minutes == 0) {
+            $seconds = str_replace('0.', '', $this->time);
+            $time = "{$seconds} sec";
+        }
+
         return $time;
     }
 }

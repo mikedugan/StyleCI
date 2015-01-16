@@ -18,7 +18,6 @@
     <table class="table">
         <tr>
             <th>Commit</th>
-            <th>Branch</th>
             <th>Time</th>
             <th>Status</th>
             <th></th>
@@ -38,7 +37,6 @@
                 <br>
                 <small>{{ $commit->created_at->diffForHumans() }}</small>
             </td>
-            <td>{{ $commit->ref }}</td>
             <td><small>{{ $commit->excecutedTime() }}</small></td>
             <td>
                 @if ($commit->status() === 1)
@@ -52,7 +50,9 @@
                 </p>
             </td>
             <td align="right">
-                <a href="{{ route('commit_path', $commit->id) }}"><span class="badge-id">{{ $commit->shorthandId() }}</span></a>
+                <a href="https://github.com/{{ $repo->name }}/commit/{{ $commit->id }}">
+                    <span class="badge-id">{{ $commit->shorthandId() }}</span>
+                </a>
                 <a class="btn btn-sm btn-default" href="{{ route('commit_path', $commit->id) }}">Show Details</a>
             </td>
         </tr>
