@@ -1,8 +1,8 @@
 .badge-id {
-	@extend .badge;
-	background-color: #f8f8f8;
-	color: $styleci-primary;
-	border-radius: 2px;
-	padding: 6px;
-	border: 1px solid $styleci-divider;
+    @extend .badge;
+    background-color: #f8f8f8;
+    color: $styleci-primary;
+    border-radius: 2px;
+    padding: 6px;
+    border: 1px solid $styleci-divider;
 }

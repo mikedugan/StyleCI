@@ -1,51 +1,51 @@
 @import "./vendor/bower_components/SyntaxHighlighter/compass/shCoreDefault";
 
 .syntaxhighlighter .toolbar {
-	display: none !important;
-	background-color: $styleci-dark-primary !important;
+    display: none !important;
+    background-color: $styleci-dark-primary !important;
 }
 
 .syntaxhighlighter table .container:before {
-	display: none !important;
+    display: none !important;
 }
 
 .syntaxhighlighter table td.code .line {
-	padding: 2px 1em !important;
+    padding: 2px 1em !important;
 }
 
 .syntaxhighlighter table td.gutter .line {
-	padding: 2px .5em 2px 1em !important;
+    padding: 2px .5em 2px 1em !important;
 }
 
 .syntaxhighlighter .gutter .line {
-	border-right: 2px solid $styleci-light !important;
+    border-right: 2px solid $styleci-light !important;
 }
 
 .syntaxhighlighter code {
-	padding: 3px 0 !important;
+    padding: 3px 0 !important;
 }
 
 .syntaxhighlighter .plain,
 .syntaxhighlighter .plain a,
 .syntaxhighlighter .toolbar a:hover {
-	color: $styleci-primary !important;
+    color: $styleci-primary !important;
 }
 
 .syntaxhighlighter .color1,
 .syntaxhighlighter .color1 a {
-	color: darken($styleci-light, 8.5%) !important;
+    color: darken($styleci-light, 8.5%) !important;
 }
 
 .syntaxhighlighter .color2,
 .syntaxhighlighter .color2 a,
 .syntaxhighlighter .comments,
 .syntaxhighlighter .comments a {
-	color: $styleci-dark-primary !important;
-	background-color: #ffecec !important;
+    color: $styleci-dark-primary !important;
+    background-color: #ffecec !important;
 }
 
 .syntaxhighlighter .string,
 .syntaxhighlighter .string a {
-	color: $styleci-dark-primary !important;
-	background-color: #eaffea !important;
+    color: $styleci-dark-primary !important;
+    background-color: #eaffea !important;
 }
