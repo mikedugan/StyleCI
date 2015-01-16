@@ -32,7 +32,7 @@ Landing
 }
 
 .header {
-	padding-top: 100px;
+    padding-top: 100px;
     display: table;
     position: relative;
     width: 100%;
