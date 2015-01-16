@@ -8,10 +8,11 @@
 @include('partials.header')
 </head>
 <body>
-<div id="wrap">
-<div class="container">
+@include('partials.navbar')
 @section('top')
 @show
+<div id="wrap">
+<div class="container">
 @include('partials.notifications')
 @section('content')
 @show

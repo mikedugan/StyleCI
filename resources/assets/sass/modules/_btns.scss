@@ -1,0 +1,25 @@
+.btn-dark {
+    border-radius: 0;
+    color: #fff;
+    background-color: $styleci-primary;
+}
+
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active {
+    color: #fff;
+    background-color: $styleci-dark-primary;
+}
+
+.btn-light {
+    border-radius: 0;
+    color: #333;
+    background-color: $styleci-light;
+}
+
+.btn-light:hover,
+.btn-light:focus,
+.btn-light:active {
+    color: #333;
+    background-color: darken($styleci-light, 6.5%);
+}

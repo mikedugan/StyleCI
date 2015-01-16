@@ -114,4 +114,36 @@ class Commit extends Model
             return $this->fork->name;
         }
     }
+
+    /**
+     * Get the commit's repo shorthand id.
+     *
+     * @return string
+     */
+    public function shorthandId()
+    {
+        return substr($this->id, 0, 6);
+    }
+
+    /**
+     * Get the commit's style check executed time.
+     *
+     * @return string
+     */
+    public function excecutedTime()
+    {
+        $time = '';
+        $minutes = floor($this->time / 60);
+        $seconds = $this->time % 60;
+
+        if ($minutes > 0) {
+            $time .= "{$minutes} min ";
+        }
+
+        if ($seconds > 0) {
+            $time .= "{$seconds} sec";
+        }
+
+        return $time;
+    }
 }

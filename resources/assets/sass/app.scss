@@ -1,6 +1,20 @@
+// Import core
+@import "palette";
+
 // Import modules
 @import "modules/bootstrap";
 @import "modules/icons";
+@import "modules/btns";
+@import "modules/badges";
+@import "modules/syntax";
+
+// Import partials
+@import "partials/navbar";
+@import "partials/page-heading";
+
+// Import pages
+@import "pages/repos";
+@import "pages/commit";
 
 // General
 @import "global";

@@ -32,7 +32,7 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'homestead',
+            'database'  => 'styleci',
             'username'  => 'homestead',
             'password'  => 'secret',
             'charset'   => 'utf8',
