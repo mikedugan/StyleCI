@@ -25,26 +25,26 @@
 	padding: 3px 0 !important;
 }
 
-.syntaxhighlighter .plain, 
-.syntaxhighlighter .plain a, 
+.syntaxhighlighter .plain,
+.syntaxhighlighter .plain a,
 .syntaxhighlighter .toolbar a:hover {
 	color: $styleci-primary !important;
 }
 
-.syntaxhighlighter .color1, 
+.syntaxhighlighter .color1,
 .syntaxhighlighter .color1 a {
 	color: darken($styleci-light, 8.5%) !important;
 }
 
-.syntaxhighlighter .color2, 
+.syntaxhighlighter .color2,
 .syntaxhighlighter .color2 a,
-.syntaxhighlighter .comments, 
+.syntaxhighlighter .comments,
 .syntaxhighlighter .comments a {
 	color: $styleci-dark-primary !important;
 	background-color: #ffecec !important;
 }
 
-.syntaxhighlighter .string, 
+.syntaxhighlighter .string,
 .syntaxhighlighter .string a {
 	color: $styleci-dark-primary !important;
 	background-color: #eaffea !important;
