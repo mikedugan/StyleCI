@@ -22,9 +22,9 @@ use Illuminate\Contracts\Routing\Registrar;
 |
 */
 
-$router->get('/', function () {
+$router->get('/', ['as' => 'home', function () {
     return view('index');
-});
+}]);
 
 $router->post('github-callback', 'GitHubController@handle');
 
@@ -32,31 +32,31 @@ $router->get('repo/{account}/{repository}', function ($account, $repository) {
     return Redirect::to('repos/'.sha1("$account/$repository"));
 });
 
-$router->get('repos', function () {
+$router->get('repos', ['as' => 'repos_path', function () {
     $repos = StyleCI\StyleCI\Models\Repo::orderBy('name', 'asc')->take(50)->get();
 
     return view('repos', compact('repos'));
-});
+}]);
 
-$router->get('repos/{repo}', function (StyleCI\StyleCI\Models\Repo $repo) {
+$router->get('repos/{repo}', ['as' => 'repo_path', function (StyleCI\StyleCI\Models\Repo $repo) {
     $commits = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->take(50)->get();
 
     return view('repo', compact('repo', 'commits'));
-});
+}]);
 
-$router->get('commits/{commit}', function (StyleCI\StyleCI\Models\Commit $commit) {
+$router->get('commits/{commit}', ['as' => 'commit_path', function (StyleCI\StyleCI\Models\Commit $commit) {
     return view('commit', compact('commit'));
-});
+}]);
 
-$router->get('commits/{commit}/diff', function (StyleCI\StyleCI\Models\Commit $commit) {
+$router->get('commits/{commit}/diff', ['as' => 'commit_diff_path', function (StyleCI\StyleCI\Models\Commit $commit) {
     return Response::make($commit->diff)->header('Content-Type', 'text/plain; charset=UTF-8');
-});
+}]);
 
-$router->get('commits/{commit}/diff/download', function (StyleCI\StyleCI\Models\Commit $commit) {
+$router->get('commits/{commit}/diff/download', ['as' => 'commit_download_path', function (StyleCI\StyleCI\Models\Commit $commit) {
     return Response::make($commit->diff)
         ->header('Content-Type', 'text/plain; charset=UTF-8')
         ->header('Content-Disposition', 'attachment; filename=patch.txt');
-});
+}]);
 
 $router->group(['prefix' => 'api'], function (Registrar $router) {
     $router->get('repo/{account}/{repository}', function ($account, $repository) {
