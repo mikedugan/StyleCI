@@ -71,7 +71,7 @@ class AnalyseRepoCommand extends Command
         $commit = $this->laravel['styleci.modelfactory']->commit($commit, $repo);
 
         if (empty($commit->message)) {
-            $commit->message = "Manually run analysis";
+            $commit->message = 'Manually run analysis';
         }
 
         if (empty($commit->ref)) {
