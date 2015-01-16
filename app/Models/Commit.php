@@ -136,15 +136,15 @@ class Commit extends Model
 
         // display the time to 1 dp if less than 10 secs
         if ($time < 10) {
-            return round($time, 1).' sec';
+            return number_format(round($time, 1), 1).' sec';
         }
 
         // display the time to nearest second if less than 2 min
         if ($time < 120) {
-            return round($time, 0).' sec';
+            return number_format(round($time, 0)).' sec';
         }
 
         // display the time to nearest minute otherwise
-        return round($time / 60, 0).' min';
+        return number_format(round($time / 60, 0)).' min';
     }
 }
