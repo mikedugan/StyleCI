@@ -132,23 +132,19 @@ class Commit extends Model
      */
     public function excecutedTime()
     {
-        $time = '';
-        $minutes = floor($this->time / 60);
-        $seconds = $this->time % 60;
+        $time = (float) $this->time;
 
-        if ($minutes > 0) {
-            $time .= "{$minutes} min ";
+        // display the time to 1 dp if less than 10 secs
+        if ($time < 10) {
+            return round($time, 1).' sec';
         }
 
-        if ($seconds > 0) {
-            $time .= "{$seconds} sec";
+        // display the time to nearest second if less than 2 min
+        if ($time < 120) {
+            return round($time, 0).' sec';
         }
 
-        if ($seconds == 0 && $minutes == 0) {
-            $seconds = str_replace('0.', '', $this->time);
-            $time = "{$seconds} sec";
-        }
-
-        return $time;
+        // display the time to nearest minute otherwise
+        return round($time / 60, 0).' min';
     }
 }
