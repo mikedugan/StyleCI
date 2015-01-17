@@ -11,7 +11,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ route('repos_path') }}">Repositories</a></li>
+                <li><a href="{{ route('list-repos') }}">Repositories</a></li>
             </ul>
             {{-- <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Login <span class="sr-only">(current)</span></a></li>

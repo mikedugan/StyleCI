@@ -9,40 +9,13 @@
  * file that was distributed with this source code.
  */
 
-use Illuminate\Contracts\Routing\Registrar;
+$router->get('/', ['as' => 'home', 'uses' => 'HomeController@handle']);
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+$router->post('github-callback', ['as' => 'github-callback', 'uses' => 'GitHubController@handle']);
 
-$router->get('/', ['as' => 'home', function () {
-    return view('index');
-}]);
-
-$router->post('github-callback', 'GitHubController@handle');
-
-$router->get('repo/{account}/{repository}', function ($account, $repository) {
-    return Redirect::to('repos/'.sha1("$account/$repository"));
-});
-
-$router->get('repos', ['as' => 'repos_path', function () {
-    $repos = StyleCI\StyleCI\Models\Repo::orderBy('name', 'asc')->take(50)->get();
-
-    return view('repos', compact('repos'));
-}]);
-
-$router->get('repos/{repo}', ['as' => 'repo_path', function (StyleCI\StyleCI\Models\Repo $repo) {
-    $commits = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->take(50)->get();
-
-    return view('repo', compact('repo', 'commits'));
-}]);
+$router->get('repo/{account}/{repository}', ['as' => 'repo-redirect', 'uses' => 'RepoController@handleRedirect']);
+$router->get('repos', ['as' => 'list-repos', 'uses' => 'RepoController@handleList']);
+$router->get('repos/{repo}', ['as' => 'show-repo', 'uses' => 'RepoController@handleShow']);
 
 $router->get('commits/{commit}', ['as' => 'commit_path', function (StyleCI\StyleCI\Models\Commit $commit) {
     return view('commit', compact('commit'));
@@ -58,7 +31,7 @@ $router->get('commits/{commit}/diff/download', ['as' => 'commit_download_path', 
         ->header('Content-Disposition', 'attachment; filename=patch.txt');
 }]);
 
-$router->group(['prefix' => 'api'], function (Registrar $router) {
+$router->group(['prefix' => 'api'], function (Illuminate\Contracts\Routing\Registrar $router) {
     $router->get('repo/{account}/{repository}', function ($account, $repository) {
         if ($repo = StyleCI\StyleCI\Models\Repo::find(sha1("$account/$repository"))) {
             if ($commit = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->first()) {
