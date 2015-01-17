@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'debug' => false,
+    'debug' => env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => env('APP_URL', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------
@@ -87,7 +87,7 @@ return [
     |
     */
 
-    'key' => 'YourSecretKey!!!',
+    'key' => env('APP_KEY', 'YourSecretKey!!!'),
 
     'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -119,18 +119,10 @@ return [
 
     'providers' => [
 
-        /*
-         * Application Service Providers...
-         */
         'GrahamCampbell\Exceptions\ExceptionsServiceProvider',
-        'StyleCI\StyleCI\Providers\EventServiceProvider',
-        'StyleCI\StyleCI\Providers\RouteServiceProvider',
-
-        /*
-         * Laravel Framework Service Providers...
-         */
         'Illuminate\Foundation\Providers\ArtisanServiceProvider',
         'Illuminate\Auth\AuthServiceProvider',
+        'Illuminate\Bus\BusServiceProvider',
         'Illuminate\Cache\CacheServiceProvider',
         'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
         'Illuminate\Routing\ControllerServiceProvider',
@@ -140,9 +132,9 @@ return [
         'Illuminate\Filesystem\FilesystemServiceProvider',
         'Illuminate\Foundation\Providers\FoundationServiceProvider',
         'Illuminate\Hashing\HashServiceProvider',
-        'Illuminate\Html\HtmlServiceProvider',
         'Illuminate\Mail\MailServiceProvider',
         'Illuminate\Pagination\PaginationServiceProvider',
+        'Illuminate\Pipeline\PipelineServiceProvider',
         'Illuminate\Queue\QueueServiceProvider',
         'Illuminate\Redis\RedisServiceProvider',
         'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
@@ -150,35 +142,16 @@ return [
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
-
-        /*
-         * Package Service Providers...
-         */
-        'Fideloper\Proxy\ProxyServiceProvider',
         'GrahamCampbell\Core\CoreServiceProvider',
         'GrahamCampbell\GitHub\GitHubServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
-
-        /*
-         * StyleCI Providers...
-         */
         'StyleCI\Fixer\FixerServiceProvider',
-        'StyleCI\StyleCI\StyleCIServiceProvider',
+        'StyleCI\StyleCI\Providers\AppServiceProvider',
+        'StyleCI\StyleCI\Providers\BusServiceProvider',
+        'StyleCI\StyleCI\Providers\EventServiceProvider',
+        'StyleCI\StyleCI\Providers\RouteServiceProvider',
 
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Service Provider Manifest
-    |--------------------------------------------------------------------------
-    |
-    | The service provider manifest is used by Laravel to lazy load service
-    | providers which are not needed for each request, as well to keep a
-    | list of all of the services. Here, you may set its storage spot.
-    |
-    */
-
-    'manifest' => storage_path().'/framework',
 
     /*
     |--------------------------------------------------------------------------
@@ -193,37 +166,36 @@ return [
 
     'aliases' => [
 
-        'App'         => 'Illuminate\Support\Facades\App',
-        'Artisan'     => 'Illuminate\Support\Facades\Artisan',
-        'Auth'        => 'Illuminate\Support\Facades\Auth',
-        'Blade'       => 'Illuminate\Support\Facades\Blade',
-        'Cache'       => 'Illuminate\Support\Facades\Cache',
-        'Config'      => 'Illuminate\Support\Facades\Config',
-        'Cookie'      => 'Illuminate\Support\Facades\Cookie',
-        'Crypt'       => 'Illuminate\Support\Facades\Crypt',
-        'DB'          => 'Illuminate\Support\Facades\DB',
-        'Event'       => 'Illuminate\Support\Facades\Event',
-        'File'        => 'Illuminate\Support\Facades\File',
-        'Form'        => 'Illuminate\Html\FormFacade',
-        'Hash'        => 'Illuminate\Support\Facades\Hash',
-        'HTML'        => 'Illuminate\Html\HtmlFacade',
-        'Input'       => 'Illuminate\Support\Facades\Input',
-        'Lang'        => 'Illuminate\Support\Facades\Lang',
-        'Log'         => 'Illuminate\Support\Facades\Log',
-        'Mail'        => 'Illuminate\Support\Facades\Mail',
-        'Paginator'   => 'Illuminate\Support\Facades\Paginator',
-        'Password'    => 'Illuminate\Support\Facades\Password',
-        'Queue'       => 'Illuminate\Support\Facades\Queue',
-        'Redirect'    => 'Illuminate\Support\Facades\Redirect',
-        'Redis'       => 'Illuminate\Support\Facades\Redis',
-        'Request'     => 'Illuminate\Support\Facades\Request',
-        'Response'    => 'Illuminate\Support\Facades\Response',
-        'Route'       => 'Illuminate\Support\Facades\Route',
-        'Schema'      => 'Illuminate\Support\Facades\Schema',
-        'Session'     => 'Illuminate\Support\Facades\Session',
-        'URL'         => 'Illuminate\Support\Facades\URL',
-        'Validator'   => 'Illuminate\Support\Facades\Validator',
-        'View'        => 'Illuminate\Support\Facades\View',
+        'App'       => 'Illuminate\Support\Facades\App',
+        'Artisan'   => 'Illuminate\Support\Facades\Artisan',
+        'Auth'      => 'Illuminate\Support\Facades\Auth',
+        'Blade'     => 'Illuminate\Support\Facades\Blade',
+        'Cache'     => 'Illuminate\Support\Facades\Cache',
+        'Config'    => 'Illuminate\Support\Facades\Config',
+        'Cookie'    => 'Illuminate\Support\Facades\Cookie',
+        'Crypt'     => 'Illuminate\Support\Facades\Crypt',
+        'DB'        => 'Illuminate\Support\Facades\DB',
+        'Event'     => 'Illuminate\Support\Facades\Event',
+        'File'      => 'Illuminate\Support\Facades\File',
+        'Form'      => 'Illuminate\Html\FormFacade',
+        'Hash'      => 'Illuminate\Support\Facades\Hash',
+        'Input'     => 'Illuminate\Support\Facades\Input',
+        'Lang'      => 'Illuminate\Support\Facades\Lang',
+        'Log'       => 'Illuminate\Support\Facades\Log',
+        'Mail'      => 'Illuminate\Support\Facades\Mail',
+        'Paginator' => 'Illuminate\Support\Facades\Paginator',
+        'Password'  => 'Illuminate\Support\Facades\Password',
+        'Queue'     => 'Illuminate\Support\Facades\Queue',
+        'Redirect'  => 'Illuminate\Support\Facades\Redirect',
+        'Redis'     => 'Illuminate\Support\Facades\Redis',
+        'Request'   => 'Illuminate\Support\Facades\Request',
+        'Response'  => 'Illuminate\Support\Facades\Response',
+        'Route'     => 'Illuminate\Support\Facades\Route',
+        'Schema'    => 'Illuminate\Support\Facades\Schema',
+        'Session'   => 'Illuminate\Support\Facades\Session',
+        'URL'       => 'Illuminate\Support\Facades\URL',
+        'Validator' => 'Illuminate\Support\Facades\Validator',
+        'View'      => 'Illuminate\Support\Facades\View',
 
     ],
 

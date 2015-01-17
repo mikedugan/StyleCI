@@ -20,7 +20,7 @@
 |
 */
 
-$app = new Illuminate\Foundation\Application(realpath(__DIR__.'/..'));
+$app = new Illuminate\Foundation\Application(realpath(__DIR__.'/../'));
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +38,8 @@ $app->singleton('Illuminate\Contracts\Http\Kernel', 'StyleCI\StyleCI\Http\Kernel
 $app->singleton('Illuminate\Contracts\Console\Kernel', 'StyleCI\StyleCI\Console\Kernel');
 
 $app->singleton('Illuminate\Contracts\Debug\ExceptionHandler', 'StyleCI\StyleCI\Exceptions\Handler');
+
+$app->singleton('Illuminate\Foundation\Bootstrap\LoadConfiguration', 'Orchestra\Config\Bootstrap\LoadConfiguration');
 
 /*
 |--------------------------------------------------------------------------

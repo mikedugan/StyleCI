@@ -40,7 +40,7 @@ class AnalyseAllCommand extends Command
      *
      * @return void
      */
-    public function fire()
+    public function handle()
     {
         $repos = Repo::orderBy('name', 'asc')->get();
 

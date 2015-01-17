@@ -12,31 +12,18 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/html"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/testbench"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/StyleCI/framework"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/StyleCI/PHP-CS-Fixer"
         }
     ],
     "require": {
         "php": ">=5.5.0",
         "laravel/framework": "5.0.*",
-        "illuminate/html": "5.0.*",
+        "orchestra/config": "~3.0",
         "graham-campbell/exceptions": "0.1.*",
         "graham-campbell/core": "~2.0",
         "graham-campbell/github": "~2.0",
         "graham-campbell/htmlmin": "~3.0",
-        "styleci/fixer": "0.1.*",
-        "fideloper/proxy": "2.1.1"
+        "styleci/fixer": "0.1.*"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0"
@@ -57,8 +44,6 @@
     "scripts": {
         "post-install-cmd": [
             "php artisan clear-compiled",
-            "php artisan route:scan",
-            "php artisan event:scan",
             "php artisan optimize --force"
         ],
         "pre-update-cmd": [
@@ -66,8 +51,6 @@
         ],
         "post-update-cmd": [
             "php artisan clear-compiled",
-            "php artisan route:scan",
-            "php artisan event:scan",
             "php artisan optimize --force"
         ],
         "post-create-project-cmd": [
