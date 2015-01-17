@@ -20,7 +20,7 @@ use StyleCI\StyleCI\Models\Commit;
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class AnalyseCommitCommand implements ShouldBeQueued;
+class AnalyseCommitCommand implements ShouldBeQueued
 {
     use SerializesModels;
 
