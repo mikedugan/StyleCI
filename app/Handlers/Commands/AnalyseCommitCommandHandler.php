@@ -9,23 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace StyleCI\StyleCI;
+namespace StyleCI\StyleCI\Handlers\Commands;
 
-use Illuminate\Contracts\Mail\Mailer;
-use Illuminate\Contracts\Queue\Queue;
-use Illuminate\Mail\Message;
 use StyleCI\Fixer\Fixer;
 use StyleCI\Fixer\Report;
+use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
 use StyleCI\StyleCI\GitHub\Status;
 use StyleCI\StyleCI\Models\Commit;
-use StyleCI\StyleCI\Tasks\Analyse;
 
 /**
- * This is the analyser class.
+ * This is the analyse commit command handler.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class Analyser
+class AnalyseCommitCommandHandler
 {
     /**
      * The fixer instance.
@@ -42,79 +39,36 @@ class Analyser
     protected $status;
 
     /**
-     * The queue instance.
-     *
-     * @var \Illuminate\Contracts\Queue\Queue
-     */
-    protected $queue;
-
-    /**
-     * The mailer instance.
-     *
-     * @var \Illuminate\Contracts\Mail\Mailer
-     */
-    protected $mailer;
-
-    /**
-     * The destination email address.
-     *
-     * @var string
-     */
-    protected $address;
-
-    /**
      * Create a fixer instance.
      *
-     * @param \StyleCI\Fixer\Fixer              $fixer
-     * @param \StyleCI\StyleCI\GitHub\Status    $status
-     * @param \Illuminate\Contracts\Queue\Queue $queue
-     * @param \Illuminate\Contracts\Mail\Mailer $mailer
-     * @param string                            $address
+     * @param \StyleCI\Fixer\Fixer           $fixer
+     * @param \StyleCI\StyleCI\GitHub\Status $status
      *
      * @return void
      */
-    public function __construct(Fixer $fixer, Status $status, Queue $queue, Mailer $mailer, $address)
+    public function __construct(Fixer $fixer, Status $status)
     {
         $this->fixer = $fixer;
         $this->status = $status;
-        $this->queue = $queue;
-        $this->mailer = $mailer;
-        $this->address = $address;
     }
 
     /**
-     * Queue the analysis of a commit.
+     * Handle the command.
      *
-     * @param \StyleCI\StyleCI\Models\Commit $commit
-     *
-     * @return void
-     */
-    public function prepareAnalysis(Commit $commit)
-    {
-        $commit->status = 0;
-        $commit->save();
-
-        $this->status->pending($commit->repo->name, $commit->id, $commit->description());
-
-        $this->queue->push(Analyse::class, $commit);
-    }
-
-    /**
-     * Analyse a commit.
-     *
-     * @param \StyleCI\StyleCI\Models\Commit $commit
+     * @param \StyleCI\StyleCI\Commands\AnalyseCommitCommand $command
      *
      * @return void
      */
-    public function runAnalysis(Commit $commit)
+    public function handle(AnalyseCommitCommand $command)
     {
+        $commit = $command->getCommit();
+
         $report = $this->fixer->analyse($commit->name(), $commit->id);
 
         $this->saveReport($report, $commit);
         $this->saveFiles($report, $commit);
 
         $this->pushStatus($commit);
-        $this->sendEmails($commit);
     }
 
     /**
@@ -180,31 +134,6 @@ class Analyser
             default:
                 $this->status->pending($commit->repo->name, $commit->id, $commit->description());
                 break;
-        }
-    }
-
-    /**
-     * Send an any emails that may be required.
-     *
-     * @param \StyleCI\StyleCI\Models\Commit $commit
-     *
-     * @return void
-     */
-    protected function sendEmails(Commit $commit)
-    {
-        if ($commit->status() === 2) {
-            $mail = [
-                'repo'       => $commit->repo->name,
-                'commit'     => $commit->message,
-                'link'       => asset('commits/'.$commit->id),
-                'email'      => $this->address,
-                'subject'    => 'Failed Analysis',
-                'attachment' => [$commit->diff, $commit->id.'.diff'],
-            ];
-            $this->mailer->send('emails.failed', $mail, function (Message $message) use ($mail) {
-                $message->to($mail['email'])->subject($mail['subject']);
-                $message->attachData($mail['attachment'][0], $mail['attachment'][1]);
-            });
         }
     }
 }
