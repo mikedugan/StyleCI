@@ -1679,12 +1679,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "ee722711e4198c89ec27a01d1eec6effe6fc8428"
+                "reference": "76094e7faff7e348bfa9e7cb4739907d8b2ed261"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/ee722711e4198c89ec27a01d1eec6effe6fc8428",
-                "reference": "ee722711e4198c89ec27a01d1eec6effe6fc8428",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/76094e7faff7e348bfa9e7cb4739907d8b2ed261",
+                "reference": "76094e7faff7e348bfa9e7cb4739907d8b2ed261",
                 "shasum": ""
             },
             "require": {
@@ -1730,7 +1730,7 @@
                 "laravel",
                 "report"
             ],
-            "time": "2015-01-17 13:00:25"
+            "time": "2015-01-17 15:44:13"
         },
         {
             "name": "styleci/git",
@@ -2687,12 +2687,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "9c3165539535c7a0c709bc0afba43e31a932ad99"
+                "reference": "a085998cc1a4c7991d420d43cca91543f91b2b0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/9c3165539535c7a0c709bc0afba43e31a932ad99",
-                "reference": "9c3165539535c7a0c709bc0afba43e31a932ad99",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/a085998cc1a4c7991d420d43cca91543f91b2b0c",
+                "reference": "a085998cc1a4c7991d420d43cca91543f91b2b0c",
                 "shasum": ""
             },
             "require": {
@@ -2735,7 +2735,7 @@
                 "laravel",
                 "testing"
             ],
-            "time": "2015-01-17 11:08:14"
+            "time": "2015-01-17 15:15:18"
         },
         {
             "name": "mockery/mockery",
