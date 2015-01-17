@@ -9,34 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace StyleCI\StyleCI;
+namespace StyleCI\StyleCI\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
 /**
- * This is the styleci service provider class.
+ * This is the app service provider class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class StyleCIServiceProvider extends ServiceProvider
+class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
-    /**
-     * Bootstrap the application events.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->package('styleci/styleci', 'styleci/styleci', __DIR__);
-    }
-
     /**
      * Register the service provider.
      *

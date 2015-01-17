@@ -14,6 +14,11 @@ namespace StyleCI\StyleCI\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 
+/**
+ * This is the route service provider class.
+ *
+ * @author Graham Campbell <graham@mineuk.com>
+ */
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -26,7 +31,7 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace = 'StyleCI\StyleCI\Http\Controllers';
 
     /**
-     * Define your route model bindings, pattern filters, etc.
+     * Define the route model bindings, pattern filters, etc.
      *
      * @param \Illuminate\Routing\Router $router
      *

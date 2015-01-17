@@ -13,7 +13,6 @@ namespace StyleCI\StyleCI\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use StyleCI\StyleCI\Analyser;
 use StyleCI\StyleCI\Factories\ModelFactory;
 
@@ -22,7 +21,7 @@ use StyleCI\StyleCI\Factories\ModelFactory;
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class GitHubController extends Controller
+class GitHubController extends AbstractController
 {
     /**
      * The analyser instance.

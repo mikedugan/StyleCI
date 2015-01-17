@@ -46,7 +46,6 @@ return [
     | Of course, examples of configuring each database platform that is
     | supported by Laravel is shown below to make development simple.
     |
-    |
     | All database work in Laravel is done through the PHP PDO facilities
     | so make sure you have the driver for your particular database of
     | choice installed on your machine before you begin development.
@@ -63,21 +62,22 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'database'  => 'forge',
-            'username'  => 'forge',
-            'password'  => '',
+            'host'      => env('DB_HOST', 'localhost'),
+            'database'  => env('DB_DATABASE', 'forge'),
+            'username'  => env('DB_USERNAME', 'forge'),
+            'password'  => env('DB_PASSWORD', ''),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
+            'strict'    => false,
         ],
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => 'localhost',
-            'database' => 'forge',
-            'username' => 'forge',
-            'password' => '',
+            'host'     => env('DB_HOST', 'localhost'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
@@ -85,10 +85,10 @@ return [
 
         'sqlsrv' => [
             'driver'   => 'sqlsrv',
-            'host'     => 'localhost',
-            'database' => 'database',
-            'username' => 'root',
-            'password' => '',
+            'host'     => env('DB_HOST', 'localhost'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'prefix'   => '',
         ],
 
