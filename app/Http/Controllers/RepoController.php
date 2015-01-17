@@ -42,9 +42,9 @@ class RepoController extends AbstractController
      */
     public function handleList()
     {
-	    $repos = Repo::orderBy('name', 'asc')->take(50)->get();
+        $repos = Repo::orderBy('name', 'asc')->take(50)->get();
 
-	    return View::make('repos', compact('repos'));
+        return View::make('repos', compact('repos'));
     }
 
     /**
@@ -56,8 +56,8 @@ class RepoController extends AbstractController
      */
     public function handleShow(Repo $repo)
     {
-	    $commits = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->take(50)->get();
+        $commits = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->take(50)->get();
 
-	    return View::make('repo', compact('repo', 'commits'));
+        return View::make('repo', compact('repo', 'commits'));
     }
 }
