@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'default' => 'database',
+    'default' => env('QUEUE_DRIVER', 'database'),
 
     /*
     |--------------------------------------------------------------------------
@@ -51,14 +51,14 @@ return [
             'driver' => 'beanstalkd',
             'host'   => 'localhost',
             'queue'  => 'default',
-            'ttr'    => 60,
+            'ttr'    => 86400,
         ],
 
         'database' => [
             'driver' => 'database',
             'table'  => 'jobs',
             'queue'  => 'default',
-            'expire' => 60,
+            'expire' => 86400,
         ],
 
         'sqs' => [
@@ -81,7 +81,7 @@ return [
         'redis' => [
             'driver' => 'redis',
             'queue'  => 'default',
-            'expire' => 60,
+            'expire' => 86400,
         ],
 
     ],

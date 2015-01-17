@@ -66,7 +66,7 @@ return [
     |
     */
 
-    'files' => storage_path().'/framework/sessions',
+    'files' => storage_path('framework/sessions'),
 
     /*
     |--------------------------------------------------------------------------
@@ -118,7 +118,7 @@ return [
     |
     */
 
-    'cookie' => 'laravel_session',
+    'cookie' => 'styleci_session',
 
     /*
     |--------------------------------------------------------------------------
