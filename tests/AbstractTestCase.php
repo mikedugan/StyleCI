@@ -29,6 +29,6 @@ abstract class AbstractTestCase extends AbstractAppTestCase
      */
     protected function getServiceProviderClass($app)
     {
-        return 'StyleCI\StyleCI\StyleCIServiceProvider';
+        return 'StyleCI\StyleCI\Providers\AppServiceProvider';
     }
 }
