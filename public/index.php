@@ -8,13 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-<?php
-/**
- * Laravel - A PHP Framework For Web Artisans
- *
- * @package  Laravel
- * @author   Taylor Otwell <taylorotwell@gmail.com>
- */
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +50,12 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 */
 
 $kernel = $app->make('Illuminate\Contracts\Http\Kernel');
-$request = Illuminate\Http\Request::capture()
+$request = Illuminate\Http\Request::capture();
+$response = $kernel->handle($request);
+
+$response->send();
+$kernel->terminate($request, $response);
+Illuminate\Http\Request::capture()
 $response = $kernel->handle($request);
 
 $response->send();
