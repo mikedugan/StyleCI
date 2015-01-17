@@ -133,7 +133,7 @@ class Commit extends Model
     public function excecutedTime()
     {
         // if analysis is pending, then we don't have a time yet
-        if ($this->status() === 3) {
+        if ($this->status() === 0) {
             return '-';
         }
 
