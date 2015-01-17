@@ -132,6 +132,11 @@ class Commit extends Model
      */
     public function excecutedTime()
     {
+        // if analysis is pending, then we don't have a time yet
+        if ($this->status() === 3) {
+            return '-';
+        }
+
         $time = (float) $this->time;
 
         // display the time to 1 dp if less than 10 secs
