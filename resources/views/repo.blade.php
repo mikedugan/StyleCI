@@ -14,51 +14,51 @@
 @stop
 
 @section('content')
-<div class="table-responsive">
-    <table class="table">
-        <tr>
-            <th>Commit</th>
-            <th>Time</th>
-            <th>Status</th>
-            <th></th>
-        </tr>
+<div class="repo-table">
+    <div class="row hidden-xs">
+        <div class="col-sm-6">
+            <strong>Commit</strong>
+        </div>
+        <div class="col-sm-1">
+            <strong>Time</strong>
+        </div>
+        <div class="col-sm-1">
+            <strong>Status</strong>
+        </div>
+        <div class="col-sm-4">
+
+        </div>
+    </div>
     @forelse($commits as $commit)
-        <tr
-        @if ($commit->status() === 1)
-        class="success"
-        @elseif ($commit->status() === 2)
-        class="danger"
-        @else
-        class="active"
-        @endif
-        >
-            <td>
-                <strong>{{ $commit->message }}</strong>
-                <br>
-                <small>{{ $commit->created_at->diffForHumans() }}</small>
-            </td>
-            <td><small>{{ $commit->excecutedTime() }}</small></td>
-            <td>
-                @if ($commit->status() === 1)
-                <p style="color:green">
-                @elseif ($commit->status() === 2)
-                <p style="color:red">
-                @else
-                <p style="color:grey">
-                @endif
-                <strong>{{ $commit->summary() }}</strong>
-                </p>
-            </td>
-            <td align="right">
-                <a href="https://github.com/{{ $repo->name }}/commit/{{ $commit->id }}">
-                    <span class="badge-id">{{ $commit->shorthandId() }}</span>
-                </a>
-                <a class="btn btn-sm btn-default" href="{{ route('commit_path', $commit->id) }}">Show Details</a>
-            </td>
-        </tr>
+    <div class="row @if($commit->status() === 1) bg-success @elseif ($commit->status() === 2) bg-danger @else bg-active @endif">
+        <div class="col-sm-6">
+            <strong>{{ $commit->message }}</strong>
+            <br>
+            <small>{{ $commit->created_at->diffForHumans() }}</small>
+        </div>
+        <div class="col-sm-1">
+            <small>{{ $commit->excecutedTime() }}</small>
+        </div>
+        <div class="col-sm-1">
+            @if ($commit->status() === 1)
+            <p style="color:green">
+            @elseif ($commit->status() === 2)
+            <p style="color:red">
+            @else
+            <p style="color:grey">
+            @endif
+            <strong>{{ $commit->summary() }}</strong>
+            </p>
+        </div>
+        <div class="col-sm-4 repo-buttons">
+            <a class="badge-id" href="https://github.com/{{ $repo->name }}/commit/{{ $commit->id }}">
+                {{ $commit->shorthandId() }}
+            </a>
+            <a class="btn btn-sm btn-default" href="{{ route('commit_path', $commit->id) }}">Show Details</a>
+        </div>
+    </div>
     @empty
         <p class="lead">We haven't analysed anything yet.</p>
     @endforelse
-    </table>
 </div>
 @stop

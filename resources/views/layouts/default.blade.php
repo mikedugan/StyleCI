@@ -5,10 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>{{ Config::get('graham-campbell/core::name') }} - @section('title')
 @show</title>
-<div id="wrap">
 @include('partials.header')
 </head>
 <body>
+<div id="wrap">
 @include('partials.navbar')
 @section('top')
 @show

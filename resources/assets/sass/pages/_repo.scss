@@ -1,0 +1,12 @@
+.repo-table {
+    .row {
+        padding: 5px 0;
+        border-bottom: 1px solid $styleci-light;
+    }
+}
+
+@media (min-width: 768px) {
+    .repo-buttons {
+        text-align: right;
+    }
+}
