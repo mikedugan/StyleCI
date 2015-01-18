@@ -13,7 +13,7 @@ namespace StyleCI\StyleCI\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use StyleCI\StyleCI\Analyser;
+use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
 use StyleCI\StyleCI\Factories\ModelFactory;
 
 /**
@@ -24,13 +24,6 @@ use StyleCI\StyleCI\Factories\ModelFactory;
 class GitHubController extends AbstractController
 {
     /**
-     * The analyser instance.
-     *
-     * @var \StyleCI\StyleCI\Analyser
-     */
-    protected $analyser;
-
-    /**
      * The model factory instance.
      *
      * @var \StyleCI\StyleCI\Factories\ModelFactory
@@ -40,14 +33,12 @@ class GitHubController extends AbstractController
     /**
      * Create a new github controller instance.
      *
-     * @param \StyleCI\StyleCI\Analyser               $analyser
      * @param \StyleCI\StyleCI\Factories\ModelFactory $factory
      *
      * @return void
      */
-    public function __construct(Analyser $analyser, ModelFactory $factory)
+    public function __construct(ModelFactory $factory)
     {
-        $this->analyser = $analyser;
         $this->factory = $factory;
     }
 
@@ -93,9 +84,10 @@ class GitHubController extends AbstractController
             }
 
             $commit->message = substr(strtok(strtok($input['head_commit']['message'], "\n"), "\r"), 0, 127);
+            $commit->status = 0;
             $commit->save();
 
-            $this->analyser->prepareAnalysis($commit);
+            $this->dispatch(new AnalyseCommitCommand($commit));
 
             return new JsonResponse(['message' => 'StyleCI has successfully scheduled the analysis of this event.'], 202, [], JSON_PRETTY_PRINT);
         }
@@ -122,9 +114,10 @@ class GitHubController extends AbstractController
             }
 
             $commit->message = substr('Pull Request: '.strtok(strtok($input['pull_request']['title'], "\n"), "\r"), 0, 127);
+            $commit->status = 0;
             $commit->save();
 
-            $this->analyser->prepareAnalysis($commit);
+            $this->dispatch(new AnalyseCommitCommand($commit));
 
             return new JsonResponse(['message' => 'StyleCI has successfully scheduled the analysis of this event.'], 202, [], JSON_PRETTY_PRINT);
         }

@@ -12,7 +12,6 @@
 namespace StyleCI\StyleCI\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use StyleCI\StyleCI\Analyser;
 use StyleCI\StyleCI\Factories\ModelFactory;
 use StyleCI\StyleCI\GitHub\Branches;
 use StyleCI\StyleCI\GitHub\Status;
@@ -34,7 +33,6 @@ class AppServiceProvider extends ServiceProvider
         $this->registerModelFactory();
         $this->registerGitHubBranches();
         $this->registerGitHubStatus();
-        $this->registerAnalyser();
     }
 
     /**
@@ -85,26 +83,6 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the analyser class.
-     *
-     * @return void
-     */
-    protected function registerAnalyser()
-    {
-        $this->app->singleton('styleci.analyser', function ($app) {
-            $fixer = $app['fixer'];
-            $status = $app['styleci.status'];
-            $queue = $app['queue.connection'];
-            $mailer = $app['mailer'];
-            $address = $app['config']['mail']['destination'];
-
-            return new Analyser($fixer, $status, $queue, $mailer, $address);
-        });
-
-        $this->app->alias('styleci.analyser', 'StyleCI\StyleCI\Analyser');
-    }
-
-    /**
      * Get the services provided by the provider.
      *
      * @return string[]
@@ -112,7 +90,6 @@ class AppServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'styleci.analyser',
             'styleci.branches',
             'styleci.status',
             'styleci.modelfactory',
