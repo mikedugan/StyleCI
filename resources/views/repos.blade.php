@@ -29,7 +29,7 @@ Repos
             <strong>{{ $commit->summary() }}</strong>
         </p>
         </div>
-        <div class="col-sm-4 text-right list-vcenter">
+        <div class="col-sm-4 list-vcenter">
             <a class="btn btn-primary" href="{{ route('show-repo', $repo->id) }}"><i class="fa fa-history"></i> Show Commits</a>
         </div>
     @else

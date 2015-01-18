@@ -29,7 +29,7 @@ Commit - {{ $commit->message }}
         <div class="col-sm-8">
             <h2>{{ $commit->message }}</h2>
             {{ $commit->created_at->diffForHumans() }}
-            <h4>{{ $commit->id }}</h4>
+            <h5>{{ $commit->id }}</h5>
         </div>
         <div class="col-sm-4">
             @if ($commit->status() === 2)
