@@ -11,8 +11,8 @@
 
 namespace StyleCI\StyleCI\Handlers\Commands;
 
-use StyleCI\Fixer\Fixer;
 use StyleCI\Fixer\Report;
+use StyleCI\Fixer\ReportBuilder;
 use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
 use StyleCI\StyleCI\GitHub\Status;
 use StyleCI\StyleCI\Models\Commit;
@@ -25,11 +25,11 @@ use StyleCI\StyleCI\Models\Commit;
 class AnalyseCommitCommandHandler
 {
     /**
-     * The fixer instance.
+     * The report builder instance.
      *
-     * @var \StyleCI\Fixer\Fixer
+     * @var \StyleCI\Fixer\ReportBuilder
      */
-    protected $fixer;
+    protected $builder;
 
     /**
      * The status instance.
@@ -39,16 +39,16 @@ class AnalyseCommitCommandHandler
     protected $status;
 
     /**
-     * Create a fixer instance.
+     * Create a new analyse commit command handler instance.
      *
-     * @param \StyleCI\Fixer\Fixer           $fixer
+     * @param \StyleCI\Fixer\ReportBuilder   $builder
      * @param \StyleCI\StyleCI\GitHub\Status $status
      *
      * @return void
      */
-    public function __construct(Fixer $fixer, Status $status)
+    public function __construct(ReportBuilder $builder, Status $status)
     {
-        $this->fixer = $fixer;
+        $this->builder = $builder;
         $this->status = $status;
     }
 
@@ -63,7 +63,7 @@ class AnalyseCommitCommandHandler
     {
         $commit = $command->getCommit();
 
-        $report = $this->fixer->analyse($commit->name(), $commit->id);
+        $report = $this->builder->analyse($commit->name(), $commit->id);
 
         $this->saveReport($report, $commit);
 
