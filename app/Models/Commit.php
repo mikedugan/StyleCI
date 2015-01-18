@@ -48,16 +48,6 @@ class Commit extends Model
     }
 
     /**
-     * Get the files relation.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function files()
-    {
-        return $this->hasMany(File::class);
-    }
-
-    /**
      * Get the commit status code.
      *
      * @return int

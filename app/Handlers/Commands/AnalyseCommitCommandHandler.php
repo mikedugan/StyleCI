@@ -66,7 +66,6 @@ class AnalyseCommitCommandHandler
         $report = $this->fixer->analyse($commit->name(), $commit->id);
 
         $this->saveReport($report, $commit);
-        $this->saveFiles($report, $commit);
 
         $this->pushStatus($commit);
     }
@@ -92,27 +91,6 @@ class AnalyseCommitCommandHandler
         }
 
         $commit->save();
-    }
-
-    /**
-     * Save the file reports to the database.
-     *
-     * @param \StyleCI\Fixer\Report          $report
-     * @param \StyleCI\StyleCI\Models\Commit $commit
-     *
-     * @return void
-     */
-    protected function saveFiles(Report $report, Commit $commit)
-    {
-        $id = $commit->id;
-        $files = $commit->files();
-
-        foreach ($report->files() as $file) {
-            $files->create([
-                'commit_id' => $id,
-                'name'      => $file->getName(),
-            ]);
-        }
     }
 
     /**
