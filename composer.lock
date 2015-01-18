@@ -1055,7 +1055,7 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.0-alpha",
+            "version": "1.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
@@ -1388,12 +1388,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/config.git",
-                "reference": "5ef5e6d4469b9bbeeaebf8240e10d9f54ab7b2b7"
+                "reference": "e2ea4c8e50295a5d9df951601ede2ee3830b3940"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/config/zipball/5ef5e6d4469b9bbeeaebf8240e10d9f54ab7b2b7",
-                "reference": "5ef5e6d4469b9bbeeaebf8240e10d9f54ab7b2b7",
+                "url": "https://api.github.com/repos/orchestral/config/zipball/e2ea4c8e50295a5d9df951601ede2ee3830b3940",
+                "reference": "e2ea4c8e50295a5d9df951601ede2ee3830b3940",
                 "shasum": ""
             },
             "require": {
@@ -1429,7 +1429,7 @@
                 }
             ],
             "description": "Configuration Component for Laravel and Orchestra Platform",
-            "time": "2015-01-18 12:11:55"
+            "time": "2015-01-18 16:28:30"
         },
         {
             "name": "orchestra/contracts",
@@ -1437,12 +1437,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/contracts.git",
-                "reference": "a1da7cc204b64a0d04e00cee5815540d79792fdc"
+                "reference": "c4eb146cae92d366ba06a24eb54898732ef7919d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/contracts/zipball/a1da7cc204b64a0d04e00cee5815540d79792fdc",
-                "reference": "a1da7cc204b64a0d04e00cee5815540d79792fdc",
+                "url": "https://api.github.com/repos/orchestral/contracts/zipball/c4eb146cae92d366ba06a24eb54898732ef7919d",
+                "reference": "c4eb146cae92d366ba06a24eb54898732ef7919d",
                 "shasum": ""
             },
             "require": {
@@ -1472,7 +1472,7 @@
                 }
             ],
             "description": "Contracts for Orchestra Platform",
-            "time": "2015-01-12 12:04:44"
+            "time": "2015-01-18 12:58:01"
         },
         {
             "name": "orchestra/support-providers",
