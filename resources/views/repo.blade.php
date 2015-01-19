@@ -14,6 +14,7 @@
 @stop
 
 @section('content')
+@if($commits->count() > 0)
 <div class="repo-table">
     <div class="row hidden-xs">
         <div class="col-sm-6">
@@ -29,7 +30,7 @@
 
         </div>
     </div>
-    @forelse($commits as $commit)
+    @foreach($commits as $commit)
     <div class="row @if($commit->status() === 1) bg-success @elseif ($commit->status() === 2) bg-danger @else bg-active @endif">
         <div class="col-sm-6">
             <strong>{{ $commit->message }}</strong>
@@ -57,8 +58,9 @@
             <a class="btn btn-sm btn-default" href="{{ route('commit_path', $commit->id) }}">Show Details</a>
         </div>
     </div>
-    @empty
-        <p class="lead">We haven't analysed anything yet.</p>
-    @endforelse
+    @endforeach
 </div>
+@else
+<p class="lead">We haven't analysed anything yet.</p>
+@endif
 @stop
