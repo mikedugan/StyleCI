@@ -9,27 +9,45 @@
  * file that was distributed with this source code.
  */
 
-$router->get('/', ['as' => 'home', 'uses' => 'HomeController@handle']);
+$router->get('/', [
+    'as'   => 'home',
+    'uses' => 'HomeController@handle',
+]);
 
-$router->post('github-callback', ['as' => 'github-callback', 'uses' => 'GitHubController@handle']);
+$router->post('github-callback', [
+    'as'   => 'github-callback',
+    'uses' => 'GitHubController@handle',
+]);
 
-$router->get('repo/{account}/{repository}', ['as' => 'repo-redirect', 'uses' => 'RepoController@handleRedirect']);
-$router->get('repos', ['as' => 'list-repos', 'uses' => 'RepoController@handleList']);
-$router->get('repos/{repo}', ['as' => 'show-repo', 'uses' => 'RepoController@handleShow']);
+$router->get('repo/{account}/{repository}', [
+    'as'   => 'repo-redirect',
+    'uses' => 'RepoController@handleRedirect'
+]);
 
-$router->get('commits/{commit}', ['as' => 'commit_path', function (StyleCI\StyleCI\Models\Commit $commit) {
-    return view('commit', compact('commit'));
-}]);
+$router->get('repos', [
+    'as'   => 'list-repos',
+    'uses' => 'RepoController@handleList'
+]);
 
-$router->get('commits/{commit}/diff', ['as' => 'commit_diff_path', function (StyleCI\StyleCI\Models\Commit $commit) {
-    return Response::make($commit->diff)->header('Content-Type', 'text/plain; charset=UTF-8');
-}]);
+$router->get('repos/{repo}', [
+    'as'   => 'show-repo',
+    'uses' => 'RepoController@handleShow'
+]);
 
-$router->get('commits/{commit}/diff/download', ['as' => 'commit_download_path', function (StyleCI\StyleCI\Models\Commit $commit) {
-    return Response::make($commit->diff)
-        ->header('Content-Type', 'text/plain; charset=UTF-8')
-        ->header('Content-Disposition', 'attachment; filename=patch.txt');
-}]);
+$router->get('commits/{commit}', [
+    'as'   => 'commit_path',
+    'uses' => 'CommitController@handleShow'
+]);
+
+$router->get('commits/{commit}/diff', [
+    'as'   => 'commit_diff_path',
+    'uses' => 'CommitController@handleDiff',
+]);
+
+$router->get('commits/{commit}/diff/download', [
+    'as'   => 'commit_download_path',
+    'uses' => 'CommitController@handleDiffDownload',
+]);
 
 $router->group(['prefix' => 'api'], function (Illuminate\Contracts\Routing\Registrar $router) {
     $router->get('repo/{account}/{repository}', function ($account, $repository) {
