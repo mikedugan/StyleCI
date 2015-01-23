@@ -940,12 +940,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "641b8a09fc7043b7d8ac5c66c7d99137c59b44d5"
+                "reference": "638806a6efaa37b2470133d3be1e8d6945d859ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/641b8a09fc7043b7d8ac5c66c7d99137c59b44d5",
-                "reference": "641b8a09fc7043b7d8ac5c66c7d99137c59b44d5",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/638806a6efaa37b2470133d3be1e8d6945d859ca",
+                "reference": "638806a6efaa37b2470133d3be1e8d6945d859ca",
                 "shasum": ""
             },
             "require": {
@@ -1010,6 +1010,8 @@
             "require-dev": {
                 "aws/aws-sdk-php": "~2.7",
                 "iron-io/iron_mq": "~1.5",
+                "league/flysystem-aws-s3-v2": "~1.0",
+                "league/flysystem-rackspace": "~1.0",
                 "mockery/mockery": "~0.9",
                 "pda/pheanstalk": "~3.0",
                 "phpunit/phpunit": "~4.0"
@@ -1051,20 +1053,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-01-18 09:36:46"
+            "time": "2015-01-23 14:49:33"
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.0-alpha1",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "c0afa9513c0e555a607652cb56f81bd991f295f3"
+                "reference": "efa1d394bb45b0984a863854c608c607b9c2a9a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c0afa9513c0e555a607652cb56f81bd991f295f3",
-                "reference": "c0afa9513c0e555a607652cb56f81bd991f295f3",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/efa1d394bb45b0984a863854c608c607b9c2a9a4",
+                "reference": "efa1d394bb45b0984a863854c608c607b9c2a9a4",
                 "shasum": ""
             },
             "require": {
@@ -1082,22 +1084,23 @@
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
-                "league/event": "Required for EventableFilesystem",
                 "league/flysystem-aws-s3-v2": "Use S3 storage with AWS SDK v2",
                 "league/flysystem-aws-s3-v3": "Use S3 storage with AWS SDK v3",
                 "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
                 "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
                 "league/flysystem-copy": "Allows you to use Copy.com storage",
                 "league/flysystem-dropbox": "Use Dropbox storage",
+                "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
                 "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
                 "league/flysystem-sftp": "Allows SFTP server storage via phpseclib",
                 "league/flysystem-webdav": "Allows you to use WebDAV storage",
+                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter",
                 "predis/predis": "Allows you to use Predis for caching"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -1133,7 +1136,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-01-18 00:19:19"
+            "time": "2015-01-23 09:43:34"
         },
         {
             "name": "monolog/monolog",
@@ -1388,12 +1391,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/config.git",
-                "reference": "e2ea4c8e50295a5d9df951601ede2ee3830b3940"
+                "reference": "5faebba24bb60fce6315e954fc7787174ce74476"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/config/zipball/e2ea4c8e50295a5d9df951601ede2ee3830b3940",
-                "reference": "e2ea4c8e50295a5d9df951601ede2ee3830b3940",
+                "url": "https://api.github.com/repos/orchestral/config/zipball/5faebba24bb60fce6315e954fc7787174ce74476",
+                "reference": "5faebba24bb60fce6315e954fc7787174ce74476",
                 "shasum": ""
             },
             "require": {
@@ -1429,7 +1432,7 @@
                 }
             ],
             "description": "Configuration Component for Laravel and Orchestra Platform",
-            "time": "2015-01-18 16:28:30"
+            "time": "2015-01-19 02:09:18"
         },
         {
             "name": "orchestra/contracts",
@@ -2804,12 +2807,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "358cc3f1d72ba157a35bec99c8d334790f34ffc5"
+                "reference": "f568f98bbe66fc2823a5392a6862d60b25e242d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/358cc3f1d72ba157a35bec99c8d334790f34ffc5",
-                "reference": "358cc3f1d72ba157a35bec99c8d334790f34ffc5",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/f568f98bbe66fc2823a5392a6862d60b25e242d9",
+                "reference": "f568f98bbe66fc2823a5392a6862d60b25e242d9",
                 "shasum": ""
             },
             "require": {
@@ -2857,7 +2860,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2015-01-16 01:10:20"
+            "time": "2015-01-23 03:08:41"
         },
         {
             "name": "phpunit/php-code-coverage",

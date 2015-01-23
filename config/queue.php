@@ -23,7 +23,7 @@ return [
     | Note that the styleci will not work with the "null", "sync", or "iron"
     | queue drivers. The recommended driver is "beanstalkd".
     |
-    | Supported: "null", "sync", "database", beanstalkd",
+    | Supported: "null", "sync", "database", "beanstalkd",
     |            "sqs", "iron", "redis"
     |
     */

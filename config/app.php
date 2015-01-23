@@ -87,7 +87,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'YourSecretKey!!!'),
+    'key' => env('APP_KEY', 'SomeRandomString'),
 
     'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -170,6 +170,7 @@ return [
         'Artisan'   => 'Illuminate\Support\Facades\Artisan',
         'Auth'      => 'Illuminate\Support\Facades\Auth',
         'Blade'     => 'Illuminate\Support\Facades\Blade',
+        'Bus'       => 'Illuminate\Support\Facades\Bus',
         'Cache'     => 'Illuminate\Support\Facades\Cache',
         'Config'    => 'Illuminate\Support\Facades\Config',
         'Cookie'    => 'Illuminate\Support\Facades\Cookie',
@@ -183,7 +184,6 @@ return [
         'Lang'      => 'Illuminate\Support\Facades\Lang',
         'Log'       => 'Illuminate\Support\Facades\Log',
         'Mail'      => 'Illuminate\Support\Facades\Mail',
-        'Paginator' => 'Illuminate\Support\Facades\Paginator',
         'Password'  => 'Illuminate\Support\Facades\Password',
         'Queue'     => 'Illuminate\Support\Facades\Queue',
         'Redirect'  => 'Illuminate\Support\Facades\Redirect',
