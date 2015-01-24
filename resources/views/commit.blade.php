@@ -7,7 +7,7 @@ Commit - {{ $commit->message }}
 @section('top')
 <div class="page-heading">
     <div class="container">
-        <h1>Commit Analysis</h1>
+        <h1>{{ $commit->repo->name }} &mdash; Commit Analysis</h1>
         <p>Here you can see the results of the analysed commit.</p>
     </div>
 </div>
