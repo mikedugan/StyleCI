@@ -1,13 +1,10 @@
 {
-  "name": "Cachet",
-  "dependencies": {
-    "bootstrap-sass-official": "~3.3.1",
-    "font-awesome": "~4.2.0",
-    "animate-sass": "~0.6.2",
-    "jquery-timeago": "~1.4.1",
-    "SyntaxHighlighter": "~3.0.83"
-  },
-  "resolutions": {
-    "jquery": "~2.1.1"
-  }
+    "name": "StyleCI",
+    "dependencies": {
+        "bootstrap-sass-official": "~3.3.3",
+        "font-awesome": "~4.3.0",
+        "animate-sass": "~0.6.2",
+        "jquery-timeago": "~1.4.1",
+        "SyntaxHighlighter": "3.0.83"
+    }
 }

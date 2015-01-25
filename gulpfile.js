@@ -13,5 +13,5 @@ elixir(function(mix) {
             'resources/assets/js/**/*.js',
         ], './', 'public/dist/js/app.js')
         .version(['dist/css/app.css', 'dist/js/app.js'])
-        .publish("vendor/bower_components/font-awesome/fonts/", "public/fonts/");
+        .copy("vendor/bower_components/font-awesome/fonts/", "public/fonts/");
 });
