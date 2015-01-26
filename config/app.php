@@ -142,14 +142,18 @@ return [
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
+        'Laravel\Socialite\SocialiteServiceProvider',
         'GrahamCampbell\Core\CoreServiceProvider',
         'GrahamCampbell\GitHub\GitHubServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
+        'GrahamCampbell\Security\SecurityServiceProvider',
+        'GrahamCampbell\Binput\BinputServiceProvider',
         'StyleCI\Fixer\FixerServiceProvider',
         'StyleCI\StyleCI\Providers\AppServiceProvider',
         'StyleCI\StyleCI\Providers\BusServiceProvider',
         'StyleCI\StyleCI\Providers\EventServiceProvider',
         'StyleCI\StyleCI\Providers\RouteServiceProvider',
+        'StyleCI\StyleCI\Providers\ComposerServiceProvider',
 
     ],
 

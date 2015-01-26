@@ -13,12 +13,18 @@
         {
             "type": "vcs",
             "url": "https://github.com/StyleCI/PHP-CS-Fixer"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StyleCI/socialite"
         }
     ],
     "require": {
         "php": ">=5.5.0",
         "laravel/framework": "5.0.*",
+        "laravel/socialite": "~3.0",
         "orchestra/config": "3.0.*",
+        "graham-campbell/binput": "~3.0",
         "graham-campbell/exceptions": "0.1.*",
         "graham-campbell/core": "~2.0",
         "graham-campbell/github": "~2.0",

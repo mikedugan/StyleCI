@@ -62,3 +62,38 @@ $router->group(['prefix' => 'api'], function (Illuminate\Contracts\Routing\Regis
         }
     });
 });
+
+$router->get('auth/login', [
+    'as'   => 'auth_login_path',
+    'uses' => 'AuthController@handleShowLogin',
+]);
+
+$router->post('auth/login', [
+    'as'   => 'auth_login_path',
+    'uses' => 'AuthController@handleLogin',
+]);
+
+$router->get('auth/logout', [
+    'as'   => 'auth_logout_path',
+    'uses' => 'AuthController@handleLogout',
+]);
+
+$router->get('auth/signup', [
+    'as'   => 'auth_signup_path',
+    'uses' => 'AuthController@handleShowSignup',
+]);
+
+$router->post('auth/signup', [
+    'as'   => 'auth_signup_path',
+    'uses' => 'AuthController@handleSignup',
+]);
+
+$router->get('auth/connect/{provider}', [
+    'as'   => 'auth_connect_path',
+    'uses' => 'AuthController@handleRedirect',
+]);
+
+$router->get('auth/{provider}/callback', [
+    'as'   => 'auth_callback_path',
+    'uses' => 'AuthController@handleCallback',
+]);
