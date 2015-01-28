@@ -13,9 +13,16 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ route('list-repos') }}">Repositories</a></li>
             </ul>
-            {{-- <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Login <span class="sr-only">(current)</span></a></li>
-            </ul> --}}
+            @if($loggedUser)
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">{{ $loggedUser->name }}</a></li>
+                <li><a href="{{ route('auth_logout_path') }}">Logout <span class="sr-only">(current)</span></a></li>
+            </ul>
+            @else
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ route('auth_login_path') }}">Login <span class="sr-only">(current)</span></a></li>
+            </ul>
+            @endif
         </div>
     </div>
 </nav>

@@ -12,8 +12,8 @@
 @include('partials.navbar')
 @section('top')
 @show
-<div class="container">
 @include('partials.notifications')
+<div class="container">
 @section('content')
 @show
 @include('partials.footer')

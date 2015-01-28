@@ -12,7 +12,11 @@
     <?php if ($type === 'error') $type = 'danger'; ?>
     <div class="alert alert-{{ $type }} styleci-alert">
         <a class="close" data-dismiss="alert">×</a>
+        @if (is_array($message))
+        {!! implode(', ', $message) !!}
+        @else
         {!! $message !!}
+        @endif
     </div>
     @endif
 @endforeach

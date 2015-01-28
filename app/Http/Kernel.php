@@ -27,11 +27,10 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         'StyleCI\StyleCI\Http\Middleware\CheckForMaintenanceMode',
-        // 'Illuminate\Cookie\Middleware\EncryptCookies',
-        // 'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
-        // 'Illuminate\Session\Middleware\StartSession',
-        // 'Illuminate\View\Middleware\ShareErrorsFromSession',
-        // 'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
+        'Illuminate\Cookie\Middleware\EncryptCookies',
+        'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
+        'Illuminate\Session\Middleware\StartSession',
+        'Illuminate\View\Middleware\ShareErrorsFromSession',
     ];
 
     /**
@@ -39,5 +38,9 @@ class Kernel extends HttpKernel
      *
      * @var string[]
      */
-    protected $routeMiddleware = [];
+    protected $routeMiddleware = [
+        'csrf'  => 'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
+        'auth'  => 'StyleCI\StyleCI\Http\Middleware\Authenticate',
+        'guest' => 'StyleCI\StyleCI\Http\Middleware\RedirectIfAuthenticated',
+    ];
 }

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "74abd6ffa08194d086b8ac046d4deab4",
+    "hash": "5d678d0eb3b1a49af722b93c8acd5234",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -383,30 +383,91 @@
             "time": "2014-11-30 01:11:05"
         },
         {
+            "name": "graham-campbell/binput",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Binput.git",
+                "reference": "ad7704779bdd4e3b4e63714accc953b05b58ce65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Binput/zipball/ad7704779bdd4e3b4e63714accc953b05b58ce65",
+                "reference": "ad7704779bdd4e3b4e63714accc953b05b58ce65",
+                "shasum": ""
+            },
+            "require": {
+                "graham-campbell/security": "3.0.*",
+                "illuminate/http": "5.0.*",
+                "illuminate/support": "5.0.*",
+                "orchestra/support-providers": "3.0.*",
+                "php": ">=5.4.7"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Binput\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@mineuk.com"
+                }
+            ],
+            "description": "Binput Is An Input Protector For Laravel 5",
+            "keywords": [
+                "Binput",
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Binput",
+                "Laravel-Binput",
+                "better",
+                "better input",
+                "framework",
+                "input",
+                "laravel",
+                "security"
+            ],
+            "time": "2015-01-25 15:35:37"
+        },
+        {
             "name": "graham-campbell/core",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "b841f79d8c12124732387c863cebef15ccd77bc0"
+                "reference": "1acdb2a7848846e7e9d4a10b66887f408f610c8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/b841f79d8c12124732387c863cebef15ccd77bc0",
-                "reference": "b841f79d8c12124732387c863cebef15ccd77bc0",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/1acdb2a7848846e7e9d4a10b66887f408f610c8e",
+                "reference": "1acdb2a7848846e7e9d4a10b66887f408f610c8e",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "5.0.*",
-                "illuminate/contracts": "5.0.*",
-                "illuminate/support": "5.0.*",
-                "orchestra/config": "3.0.*",
-                "orchestra/support-providers": "3.0.*",
+                "illuminate/console": "~5.0",
+                "illuminate/contracts": "~5.0",
+                "illuminate/support": "~5.0",
+                "orchestra/config": "~3.0",
+                "orchestra/support-providers": "~3.0",
                 "php": ">=5.4.7"
             },
             "require-dev": {
                 "graham-campbell/testbench": "~2.0",
-                "illuminate/html": "5.0.*"
+                "illuminate/html": "~5.0"
             },
             "type": "library",
             "extra": {
@@ -441,7 +502,7 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2015-01-25 15:34:36"
+            "time": "2015-01-17 13:04:28"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -449,23 +510,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Exceptions.git",
-                "reference": "c877c5f09ba49ef25558162938bd00d4f3e6d62e"
+                "reference": "1c000698c813c129d59077169d6deba79ec12a81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/c877c5f09ba49ef25558162938bd00d4f3e6d62e",
-                "reference": "c877c5f09ba49ef25558162938bd00d4f3e6d62e",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/1c000698c813c129d59077169d6deba79ec12a81",
+                "reference": "1c000698c813c129d59077169d6deba79ec12a81",
                 "shasum": ""
             },
             "require": {
                 "filp/whoops": "~1.1",
-                "illuminate/contracts": "5.0.*",
-                "illuminate/support": "5.0.*",
-                "orchestra/support-providers": "3.0.*",
+                "illuminate/contracts": "~5.0",
+                "illuminate/support": "~5.0",
+                "orchestra/support-providers": "~3.0",
                 "php": ">=5.5.0",
                 "psr/log": "~1.0",
-                "symfony/debug": "2.6.*",
-                "symfony/http-foundation": "2.6.*"
+                "symfony/debug": "~2.6",
+                "symfony/http-foundation": "~2.6"
             },
             "require-dev": {
                 "graham-campbell/testbench": "~2.0"
@@ -505,7 +566,7 @@
                 "laravel",
                 "whoops"
             ],
-            "time": "2015-01-25 15:34:47"
+            "time": "2015-01-17 11:51:58"
         },
         {
             "name": "graham-campbell/github",
@@ -513,21 +574,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-GitHub.git",
-                "reference": "96b1c323ebdc45cf77a1c31a400802e475af977f"
+                "reference": "d8736914411819b5a258105b3d9bb75b851d2b40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-GitHub/zipball/96b1c323ebdc45cf77a1c31a400802e475af977f",
-                "reference": "96b1c323ebdc45cf77a1c31a400802e475af977f",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-GitHub/zipball/d8736914411819b5a258105b3d9bb75b851d2b40",
+                "reference": "d8736914411819b5a258105b3d9bb75b851d2b40",
                 "shasum": ""
             },
             "require": {
                 "graham-campbell/manager": "~2.0",
-                "illuminate/contracts": "5.0.*",
-                "illuminate/support": "5.0.*",
+                "illuminate/contracts": "~5.0",
+                "illuminate/support": "~5.0",
                 "knplabs/github-api": "~1.3",
-                "orchestra/config": "3.0.*",
-                "orchestra/support-providers": "3.0.*",
+                "orchestra/config": "~3.0",
+                "orchestra/support-providers": "~3.0",
                 "php": ">=5.4.7"
             },
             "require-dev": {
@@ -568,7 +629,7 @@
                 "laravel",
                 "php-github-api"
             ],
-            "time": "2015-01-25 15:36:32"
+            "time": "2015-01-17 12:54:23"
         },
         {
             "name": "graham-campbell/htmlmin",
@@ -576,23 +637,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-HTMLMin.git",
-                "reference": "6165770e43e028bc969b5d1a78b3a4aa8e873ea6"
+                "reference": "58b06ca2d1d1ccad52654945fd0f8e12dea2ebec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/6165770e43e028bc969b5d1a78b3a4aa8e873ea6",
-                "reference": "6165770e43e028bc969b5d1a78b3a4aa8e873ea6",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/58b06ca2d1d1ccad52654945fd0f8e12dea2ebec",
+                "reference": "58b06ca2d1d1ccad52654945fd0f8e12dea2ebec",
                 "shasum": ""
             },
             "require": {
-                "illuminate/filesystem": "5.0.*",
-                "illuminate/http": "5.0.*",
-                "illuminate/routing": "5.0.*",
-                "illuminate/support": "5.0.*",
-                "illuminate/view": "5.0.*",
+                "illuminate/filesystem": "~5.0",
+                "illuminate/http": "~5.0",
+                "illuminate/routing": "~5.0",
+                "illuminate/support": "~5.0",
+                "illuminate/view": "~5.0",
                 "mrclay/minify": "~2.2",
-                "orchestra/config": "3.0.*",
-                "orchestra/support-providers": "3.0.*",
+                "orchestra/config": "~3.0",
+                "orchestra/support-providers": "~3.0",
                 "php": ">=5.4.7"
             },
             "require-dev": {
@@ -632,7 +693,7 @@
                 "laravel",
                 "minifier"
             ],
-            "time": "2015-01-25 15:35:05"
+            "time": "2015-01-17 12:29:47"
         },
         {
             "name": "graham-campbell/manager",
@@ -640,17 +701,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
-                "reference": "b713d83937f4849d2518020cc58a0a696e67778a"
+                "reference": "dd8cfb9a301fb2272626da7bbdc2cebcbd80eee2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/b713d83937f4849d2518020cc58a0a696e67778a",
-                "reference": "b713d83937f4849d2518020cc58a0a696e67778a",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/dd8cfb9a301fb2272626da7bbdc2cebcbd80eee2",
+                "reference": "dd8cfb9a301fb2272626da7bbdc2cebcbd80eee2",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "5.0.*",
-                "illuminate/support": "5.0.*",
+                "illuminate/contracts": "~5.0",
+                "illuminate/support": "~5.0",
                 "php": ">=5.4.7"
             },
             "require-dev": {
@@ -689,7 +750,64 @@
                 "laravel",
                 "manager"
             ],
-            "time": "2015-01-25 15:35:55"
+            "time": "2015-01-17 12:33:57"
+        },
+        {
+            "name": "graham-campbell/security",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Security.git",
+                "reference": "8ad2afee9c21861609d71c522929efc4cd22dcdf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/8ad2afee9c21861609d71c522929efc4cd22dcdf",
+                "reference": "8ad2afee9c21861609d71c522929efc4cd22dcdf",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.0.*",
+                "orchestra/config": "3.0.*",
+                "orchestra/support-providers": "3.0.*",
+                "php": ">=5.4.7"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Security\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@mineuk.com"
+                }
+            ],
+            "description": "Security Is A Port Of The Security Class From Codeigniter 3 For Laravel 5",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Security",
+                "Laravel-Security",
+                "codeigniter",
+                "framework",
+                "laravel",
+                "security"
+            ],
+            "time": "2015-01-25 15:35:25"
         },
         {
             "name": "guzzle/guzzle",
@@ -782,6 +900,124 @@
                 "web service"
             ],
             "time": "2014-08-11 04:32:36"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "4.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "66fd916e9f9130bc22c51450476823391cb2f67c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/66fd916e9f9130bc22c51450476823391cb2f67c",
+                "reference": "66fd916e9f9130bc22c51450476823391cb2f67c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/streams": "~2.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "~4.0",
+                "psr/log": "~1.0"
+            },
+            "suggest": {
+                "ext-curl": "Guzzle will use specific adapters if cURL is present"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2014-10-05 19:29:14"
+        },
+        {
+            "name": "guzzlehttp/streams",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/streams.git",
+                "reference": "f91b721d73f0e561410903b3b3c90a5d0e40b534"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/streams/zipball/f91b721d73f0e561410903b3b3c90a5d0e40b534",
+                "reference": "f91b721d73f0e561410903b3b3c90a5d0e40b534",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Stream\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Provides a simple abstraction over streams of data (Guzzle 4+)",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "stream"
+            ],
+            "time": "2014-08-17 21:15:53"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -940,12 +1176,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "86c1d50e4b464bd13c2815db41ecb25729b65577"
+                "reference": "641b8a09fc7043b7d8ac5c66c7d99137c59b44d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/86c1d50e4b464bd13c2815db41ecb25729b65577",
-                "reference": "86c1d50e4b464bd13c2815db41ecb25729b65577",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/641b8a09fc7043b7d8ac5c66c7d99137c59b44d5",
+                "reference": "641b8a09fc7043b7d8ac5c66c7d99137c59b44d5",
                 "shasum": ""
             },
             "require": {
@@ -1010,8 +1246,6 @@
             "require-dev": {
                 "aws/aws-sdk-php": "~2.7",
                 "iron-io/iron_mq": "~1.5",
-                "league/flysystem-aws-s3-v2": "~1.0",
-                "league/flysystem-rackspace": "~1.0",
                 "mockery/mockery": "~0.9",
                 "pda/pheanstalk": "~3.0",
                 "phpunit/phpunit": "~4.0"
@@ -1053,7 +1287,63 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-01-25 03:07:57"
+            "time": "2015-01-18 09:36:46"
+        },
+        {
+            "name": "laravel/socialite",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/StyleCI/socialite.git",
+                "reference": "920be349d48d1d0fdc1809c968a50d26060142f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/StyleCI/socialite/zipball/920be349d48d1d0fdc1809c968a50d26060142f8",
+                "reference": "920be349d48d1d0fdc1809c968a50d26060142f8",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~4.0",
+                "illuminate/contracts": "~5.0",
+                "illuminate/http": "~5.0",
+                "illuminate/support": "~5.0",
+                "league/oauth1-client": "~1.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Socialite\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "Laravel wrapper around OAuth 1 & OAuth 2 libraries.",
+            "keywords": [
+                "laravel",
+                "oauth"
+            ],
+            "support": {
+                "source": "https://github.com/StyleCI/socialite/tree/master"
+            },
+            "time": "2015-01-26 21:14:59"
         },
         {
             "name": "league/flysystem",
@@ -1137,6 +1427,68 @@
                 "storage"
             ],
             "time": "2015-01-23 09:43:34"
+        },
+        {
+            "name": "league/oauth1-client",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth1-client.git",
+                "reference": "b84587641c438aa68cc524fb622431b501b49f65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/b84587641c438aa68cc524fb622431b501b49f65",
+                "reference": "b84587641c438aa68cc524fb622431b501b49f65",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/guzzle": "3.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.7.2",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth1\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Corlett",
+                    "email": "bencorlett@me.com",
+                    "homepage": "http://www.webcomm.com.au",
+                    "role": "Developer"
+                }
+            ],
+            "description": "OAuth 1.0 Client Library",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization",
+                "bitbucket",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth1",
+                "single sign on",
+                "trello",
+                "tumblr",
+                "twitter"
+            ],
+            "time": "2015-01-16 00:50:08"
         },
         {
             "name": "monolog/monolog",
@@ -1736,21 +2088,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Git.git",
-                "reference": "03dcb28d1146dd859062f52af0f65437839b9c83"
+                "reference": "028a315cf7928379e270cbf2c1dac5e7432c36b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Git/zipball/03dcb28d1146dd859062f52af0f65437839b9c83",
-                "reference": "03dcb28d1146dd859062f52af0f65437839b9c83",
+                "url": "https://api.github.com/repos/StyleCI/Git/zipball/028a315cf7928379e270cbf2c1dac5e7432c36b4",
+                "reference": "028a315cf7928379e270cbf2c1dac5e7432c36b4",
                 "shasum": ""
             },
             "require": {
                 "gitonomy/gitlib": "~1.0",
+                "illuminate/contracts": "~5.0",
+                "illuminate/support": "~5.0",
                 "php": ">=5.5.0",
                 "symfony/filesystem": "~2.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.4"
+                "graham-campbell/testbench": "~2.0"
             },
             "type": "library",
             "extra": {
@@ -1773,16 +2127,18 @@
                     "email": "graham@mineuk.com"
                 }
             ],
-            "description": "StyleCI Git Is A Git Repository Manager",
+            "description": "StyleCI Git A Git Repository Manager",
             "keywords": [
                 "Graham Campbell",
                 "GrahamCampbell",
                 "StyleCI",
+                "framework",
                 "git",
+                "laravel",
                 "repo",
                 "repository"
             ],
-            "time": "2015-01-25 16:02:58"
+            "time": "2015-01-17 12:59:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2803,12 +3159,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "95a379a8d69bcb44cd5db0d3db4c9a22805c3654"
+                "reference": "358cc3f1d72ba157a35bec99c8d334790f34ffc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/95a379a8d69bcb44cd5db0d3db4c9a22805c3654",
-                "reference": "95a379a8d69bcb44cd5db0d3db4c9a22805c3654",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/358cc3f1d72ba157a35bec99c8d334790f34ffc5",
+                "reference": "358cc3f1d72ba157a35bec99c8d334790f34ffc5",
                 "shasum": ""
             },
             "require": {
@@ -2856,7 +3212,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2015-01-24 02:52:08"
+            "time": "2015-01-16 01:10:20"
         },
         {
             "name": "phpunit/php-code-coverage",
