@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bee0240f39c9608f99391ea30c8de631",
+    "hash": "b094b70435c96d07c543730e93cf99e6",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -3012,22 +3012,20 @@
         },
         {
             "name": "graham-campbell/testbench",
-            "version": "v2.0.0-beta1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "36ea1308349ede096eb4a7313b8c973853d7a546"
+                "reference": "81e00f9b4b85c5dbc4b469374f5601bdc144dbbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/36ea1308349ede096eb4a7313b8c973853d7a546",
-                "reference": "36ea1308349ede096eb4a7313b8c973853d7a546",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/81e00f9b4b85c5dbc4b469374f5601bdc144dbbb",
+                "reference": "81e00f9b4b85c5dbc4b469374f5601bdc144dbbb",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "5.0.*",
                 "mockery/mockery": "~0.9.3",
-                "orchestra/config": "3.0.*",
                 "orchestra/testbench": "3.0.*",
                 "php": ">=5.4.7",
                 "phpunit/phpunit": "~4.4"
@@ -3064,7 +3062,7 @@
                 "laravel",
                 "testing"
             ],
-            "time": "2015-01-25 18:05:51"
+            "time": "2015-01-28 20:55:13"
         },
         {
             "name": "mockery/mockery",
@@ -3131,98 +3129,6 @@
                 "testing"
             ],
             "time": "2014-12-22 10:06:19"
-        },
-        {
-            "name": "orchestra/config",
-            "version": "v3.0.0-BETA1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/orchestral/config.git",
-                "reference": "5faebba24bb60fce6315e954fc7787174ce74476"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/config/zipball/5faebba24bb60fce6315e954fc7787174ce74476",
-                "reference": "5faebba24bb60fce6315e954fc7787174ce74476",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/filesystem": "5.0.*",
-                "orchestra/contracts": "3.0.*",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Orchestra\\Config\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mior Muhammad Zaki",
-                    "email": "crynobone@gmail.com",
-                    "homepage": "https://github.com/crynobone"
-                },
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com",
-                    "homepage": "https://github.com/taylorotwell"
-                }
-            ],
-            "description": "Configuration Component for Laravel and Orchestra Platform",
-            "time": "2015-01-19 02:09:18"
-        },
-        {
-            "name": "orchestra/contracts",
-            "version": "v3.0.0-BETA1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/orchestral/contracts.git",
-                "reference": "c4eb146cae92d366ba06a24eb54898732ef7919d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/contracts/zipball/c4eb146cae92d366ba06a24eb54898732ef7919d",
-                "reference": "c4eb146cae92d366ba06a24eb54898732ef7919d",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "5.0.*",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Orchestra\\Contracts\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mior Muhammad Zaki",
-                    "email": "crynobone@gmail.com",
-                    "homepage": "https://github.com/crynobone"
-                }
-            ],
-            "description": "Contracts for Orchestra Platform",
-            "time": "2015-01-18 12:58:01"
         },
         {
             "name": "orchestra/testbench",
@@ -4025,7 +3931,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "graham-campbell/testbench": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
