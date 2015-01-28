@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Laravel HTMLMin.
+ * This file is part of StyleCI.
  *
  * (c) Graham Campbell <graham@mineuk.com>
  *

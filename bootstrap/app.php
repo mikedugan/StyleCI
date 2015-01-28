@@ -39,8 +39,6 @@ $app->singleton('Illuminate\Contracts\Console\Kernel', 'StyleCI\StyleCI\Console\
 
 $app->singleton('Illuminate\Contracts\Debug\ExceptionHandler', 'StyleCI\StyleCI\Exceptions\Handler');
 
-$app->singleton('Illuminate\Foundation\Bootstrap\LoadConfiguration', 'Orchestra\Config\Bootstrap\LoadConfiguration');
-
 /*
 |--------------------------------------------------------------------------
 | Return The Application
