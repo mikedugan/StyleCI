@@ -228,12 +228,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/PHP-CS-Fixer.git",
-                "reference": "845dc905a4e9a337d7c0d76f1e01fbe83b473daf"
+                "reference": "0721e25c7c70592fe902a84051c57d0141418fc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/PHP-CS-Fixer/zipball/845dc905a4e9a337d7c0d76f1e01fbe83b473daf",
-                "reference": "845dc905a4e9a337d7c0d76f1e01fbe83b473daf",
+                "url": "https://api.github.com/repos/StyleCI/PHP-CS-Fixer/zipball/0721e25c7c70592fe902a84051c57d0141418fc3",
+                "reference": "0721e25c7c70592fe902a84051c57d0141418fc3",
                 "shasum": ""
             },
             "require": {
@@ -280,7 +280,7 @@
             "support": {
                 "source": "https://github.com/StyleCI/PHP-CS-Fixer/tree/master"
             },
-            "time": "2015-01-16 20:42:14"
+            "time": "2015-01-29 21:06:44"
         },
         {
             "name": "filp/whoops",
@@ -461,12 +461,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "4ecd5b088a6e2c444a5a4c96562658e485717a9d"
+                "reference": "5b7a94c09442acb0eaef4bfb1ad1f849f4cefa95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/4ecd5b088a6e2c444a5a4c96562658e485717a9d",
-                "reference": "4ecd5b088a6e2c444a5a4c96562658e485717a9d",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/5b7a94c09442acb0eaef4bfb1ad1f849f4cefa95",
+                "reference": "5b7a94c09442acb0eaef4bfb1ad1f849f4cefa95",
                 "shasum": ""
             },
             "require": {
@@ -512,7 +512,7 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2015-01-28 21:22:04"
+            "time": "2015-01-29 18:38:06"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -583,12 +583,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-GitHub.git",
-                "reference": "5171067a6e98482f5abed6f9f3339981cf951c34"
+                "reference": "15a8b7295c78f712a5c844b20056e017e13fe9cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-GitHub/zipball/5171067a6e98482f5abed6f9f3339981cf951c34",
-                "reference": "5171067a6e98482f5abed6f9f3339981cf951c34",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-GitHub/zipball/15a8b7295c78f712a5c844b20056e017e13fe9cd",
+                "reference": "15a8b7295c78f712a5c844b20056e017e13fe9cd",
                 "shasum": ""
             },
             "require": {
@@ -636,7 +636,7 @@
                 "laravel",
                 "php-github-api"
             ],
-            "time": "2015-01-28 22:51:32"
+            "time": "2015-01-29 18:49:33"
         },
         {
             "name": "graham-campbell/htmlmin",
@@ -644,12 +644,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-HTMLMin.git",
-                "reference": "d5fc3cd607e66a1428e0f09bebcf7e48a2e962fd"
+                "reference": "a5ad9a41d6e93a687f87e8fd950564b5983d82c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/d5fc3cd607e66a1428e0f09bebcf7e48a2e962fd",
-                "reference": "d5fc3cd607e66a1428e0f09bebcf7e48a2e962fd",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/a5ad9a41d6e93a687f87e8fd950564b5983d82c4",
+                "reference": "a5ad9a41d6e93a687f87e8fd950564b5983d82c4",
                 "shasum": ""
             },
             "require": {
@@ -699,7 +699,7 @@
                 "laravel",
                 "minifier"
             ],
-            "time": "2015-01-28 21:44:29"
+            "time": "2015-01-29 18:40:22"
         },
         {
             "name": "graham-campbell/manager",
@@ -764,12 +764,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Security.git",
-                "reference": "4cd1594f0b72667d1a977d7ad75c5d133c0684bc"
+                "reference": "6ea7b9b61faa4dcbec98a1ad8af80149b220f6b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/4cd1594f0b72667d1a977d7ad75c5d133c0684bc",
-                "reference": "4cd1594f0b72667d1a977d7ad75c5d133c0684bc",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/6ea7b9b61faa4dcbec98a1ad8af80149b220f6b9",
+                "reference": "6ea7b9b61faa4dcbec98a1ad8af80149b220f6b9",
                 "shasum": ""
             },
             "require": {
@@ -812,7 +812,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2015-01-28 22:08:30"
+            "time": "2015-01-29 18:41:06"
         },
         {
             "name": "guzzle/guzzle",
@@ -1277,12 +1277,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "4001019dc17c569ddb15cc61f66eed7c6b79b21a"
+                "reference": "74584d0d60dcfe389eaee317dbd102b64b246ced"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/4001019dc17c569ddb15cc61f66eed7c6b79b21a",
-                "reference": "4001019dc17c569ddb15cc61f66eed7c6b79b21a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/74584d0d60dcfe389eaee317dbd102b64b246ced",
+                "reference": "74584d0d60dcfe389eaee317dbd102b64b246ced",
                 "shasum": ""
             },
             "require": {
@@ -1394,7 +1394,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-01-28 20:03:26"
+            "time": "2015-01-29 18:51:27"
         },
         {
             "name": "laravel/socialite",
@@ -2011,12 +2011,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "11b306825c371740f8467273259a414f59889b3d"
+                "reference": "aa6ab2a8272d478b8d47dec55b38d95d29872e6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/11b306825c371740f8467273259a414f59889b3d",
-                "reference": "11b306825c371740f8467273259a414f59889b3d",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/aa6ab2a8272d478b8d47dec55b38d95d29872e6d",
+                "reference": "aa6ab2a8272d478b8d47dec55b38d95d29872e6d",
                 "shasum": ""
             },
             "require": {
@@ -2025,13 +2025,10 @@
                 "styleci/git": "0.1.*"
             },
             "require-dev": {
-                "graham-campbell/testbench": "~2.0",
-                "orchestra/support-providers": "~3.0"
+                "graham-campbell/testbench": "dev-master"
             },
             "suggest": {
-                "illuminate/support": "Enables Laravel support (~5.0).",
-                "orchestra/config": "Enables Laravel support (~3.0).",
-                "orchestra/support-providers": "Enables Laravel support (~3.0)."
+                "illuminate/support": "Enables Laravel support (~5.0)."
             },
             "type": "library",
             "extra": {
@@ -2063,7 +2060,7 @@
                 "fixer",
                 "report"
             ],
-            "time": "2015-01-25 23:40:34"
+            "time": "2015-01-29 20:50:34"
         },
         {
             "name": "styleci/git",
@@ -3564,25 +3561,25 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "c484a80f97573ab934e37826dba0135a3301b26a"
+                "reference": "1dd8869519a225f7f2b9eb663e225298fade819e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/c484a80f97573ab934e37826dba0135a3301b26a",
-                "reference": "c484a80f97573ab934e37826dba0135a3301b26a",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1dd8869519a225f7f2b9eb663e225298fade819e",
+                "reference": "1dd8869519a225f7f2b9eb663e225298fade819e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "sebastian/diff": "~1.1",
-                "sebastian/exporter": "~1.0"
+                "sebastian/diff": "~1.2",
+                "sebastian/exporter": "~1.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.1"
+                "phpunit/phpunit": "~4.4"
             },
             "type": "library",
             "extra": {
@@ -3624,7 +3621,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2014-11-16 21:32:38"
+            "time": "2015-01-29 16:28:08"
         },
         {
             "name": "sebastian/environment",
@@ -3678,16 +3675,16 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "35ab8d385eef068186c83e23ae83c96b0288b3ee"
+                "reference": "84839970d05254c73cde183a721c7af13aede943"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/35ab8d385eef068186c83e23ae83c96b0288b3ee",
-                "reference": "35ab8d385eef068186c83e23ae83c96b0288b3ee",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/84839970d05254c73cde183a721c7af13aede943",
+                "reference": "84839970d05254c73cde183a721c7af13aede943",
                 "shasum": ""
             },
             "require": {
@@ -3700,7 +3697,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -3740,7 +3737,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2015-01-24 09:57:24"
+            "time": "2015-01-27 07:23:06"
         },
         {
             "name": "sebastian/global-state",
