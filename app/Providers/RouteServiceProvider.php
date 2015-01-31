@@ -11,7 +11,7 @@
 
 namespace StyleCI\StyleCI\Providers;
 
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Routing\Router;
 
 /**
@@ -19,7 +19,7 @@ use Illuminate\Routing\Router;
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class RouteServiceProvider extends ServiceProvider
+class RouteServiceProvider extends RouteServiceProvider
 {
     /**
      * This namespace is applied to the controller routes in your routes file.

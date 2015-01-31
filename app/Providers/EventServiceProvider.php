@@ -11,14 +11,14 @@
 
 namespace StyleCI\StyleCI\Providers;
 
-use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 
 /**
  * This is the event service provider class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class EventServiceProvider extends ServiceProvider
+class EventServiceProvider extends EventServiceProvider
 {
     /**
      * The event handler mappings for the application.
