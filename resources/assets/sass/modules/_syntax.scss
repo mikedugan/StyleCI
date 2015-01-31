@@ -1,13 +1,12 @@
-@import "./vendor/bower_components/SyntaxHighlighter/compass/shCoreDefault";
+$gutter_border_color:			$styleci-light !default;
+$gutter_border:					3px solid $gutter_border_color !default;
 
-.syntaxhighlighter .toolbar {
-    display: none !important;
-    background-color: $styleci-dark-primary !important;
-}
+$code_plain:					black !default;
+$code_functions:				$styleci-dark-primary !default;
+$code_color2:					$styleci-dark-primary !default;
+$code_color3:					$styleci-dark-primary !default;
 
-.syntaxhighlighter table .container:before {
-    display: none !important;
-}
+@import "./vendor/bower_components/SyntaxHighlighter/src/sass/shCoreDefault";
 
 .syntaxhighlighter table td.code .line {
     padding: 2px 1em !important;
@@ -17,35 +16,18 @@
     padding: 2px .5em 2px 1em !important;
 }
 
-.syntaxhighlighter .gutter .line {
-    border-right: 2px solid $styleci-light !important;
-}
-
 .syntaxhighlighter code {
     padding: 3px 0 !important;
 }
 
-.syntaxhighlighter .plain,
-.syntaxhighlighter .plain a,
-.syntaxhighlighter .toolbar a:hover {
-    color: $styleci-primary !important;
-}
-
-.syntaxhighlighter .color1,
-.syntaxhighlighter .color1 a {
-    color: darken($styleci-light, 8.5%) !important;
-}
-
-.syntaxhighlighter .color2,
-.syntaxhighlighter .color2 a,
-.syntaxhighlighter .comments,
-.syntaxhighlighter .comments a {
-    color: $styleci-dark-primary !important;
-    background-color: #ffecec !important;
-}
-
 .syntaxhighlighter .string,
 .syntaxhighlighter .string a {
-    color: $styleci-dark-primary !important;
+    color: $code_color2 !important;
     background-color: #eaffea !important;
+}
+
+.syntaxhighlighter .color3,
+.syntaxhighlighter .color3 a {
+    color: $code_color3 !important;
+    background-color: #ffecec !important;
 }
