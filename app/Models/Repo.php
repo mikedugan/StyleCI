@@ -47,4 +47,14 @@ class Repo extends Model
     {
         return $this->hasMany(Fork::class);
     }
+
+    /**
+     * Get the service relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
 }

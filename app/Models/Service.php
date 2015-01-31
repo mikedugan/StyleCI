@@ -36,4 +36,14 @@ class Service extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Get the repos relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function repos()
+    {
+        return $this->hasMany(Repo::class);
+    }
 }
