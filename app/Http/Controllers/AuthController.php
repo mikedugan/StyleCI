@@ -11,12 +11,8 @@
 
 namespace StyleCI\StyleCI\Http\Controllers;
 
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\View;
-use InvalidArgumentException;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use StyleCI\StyleCI\Commands\CreateServiceCommand;
 use StyleCI\StyleCI\Commands\SignupCommand;
@@ -26,6 +22,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * This is the auth controller class.
  *
+ * @author Graham Campbell <graham@mineuk.com>
  * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
 class AuthController extends AbstractController
@@ -41,6 +38,8 @@ class AuthController extends AbstractController
      * Create a new authentication controller instance.
      *
      * @param \Illuminate\Contracts\Auth\Guard $auth
+     *
+     * @return void
      */
     public function __construct(Guard $auth)
     {
@@ -50,22 +49,17 @@ class AuthController extends AbstractController
     }
 
     /**
-     * Connect to a provider using OAuth.
+     * Connect to the GitHub provider using OAuth.
      *
      * @param \Laravel\Socialite\Contracts\Factory $socialite
-     * @param string                               $provider
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function handleLogin(Socialite $socialite, $provider)
+    public function handleLogin(Socialite $socialite)
     {
-        if ($provider !== 'github') {
-            throw new NotFoundHttpException('Only login with github is supported.');
-        }
-
-        $response = $socialite->driver($provider);
+        $response = $socialite->driver('github');
 
         $response->scopes([
             'user:email',
@@ -81,20 +75,19 @@ class AuthController extends AbstractController
      * Get the user access token to save notifications.
      *
      * @param \Laravel\Socialite\Contracts\Factory $socialite
-     * @param string                               $provider
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleCallback(Socialite $socialite, $provider)
+    public function handleCallback(Socialite $socialite)
     {
-        $socialiteUser = $socialite->driver($provider)->user();
+        $socialiteUser = $socialite->driver('github')->user();
 
-        $service = Service::where('uid', '=', $socialiteUser->id)->where('provider', '=', $provider)->first();
+        $service = Service::where('uid', '=', $socialiteUser->id)->first();
 
         // if the service doesn't exist yet, we need to create it
         if (!$service) {
             $user = $this->dispatch(new SignupCommand($socialiteUser->name, $socialiteUser->email));
-            $service = $this->dispatch(new CreateServiceCommand($socialiteUser, $user, $provider));
+            $service = $this->dispatch(new CreateServiceCommand($socialiteUser, $user));
         }
 
         $this->auth->login($service->user, true);

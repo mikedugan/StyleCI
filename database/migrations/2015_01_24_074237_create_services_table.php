@@ -31,12 +31,11 @@ class CreateServicesTable extends Migration
             $table->increments('id');
             $table->string('user_id');
             $table->string('uid');
-            $table->string('provider');
-            $table->string('oauth2_access_token')->nullable();
+            $table->string('access_token');
             $table->timestamps();
 
             $table->index('user_id');
-            $table->unique(['provider', 'uid']);
+            $table->unique(['uid']);
         });
     }
 

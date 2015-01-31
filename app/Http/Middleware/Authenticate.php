@@ -12,13 +12,13 @@
 namespace StyleCI\StyleCI\Http\Middleware;
 
 use Closure;
-use Exception;
 use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
  * This is the authenticate middleware class.
  *
+ * @author Graham Campbell <graham@mineuk.com>
  * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
 class Authenticate
@@ -48,18 +48,14 @@ class Authenticate
      * @param \Illuminate\Http\Request $request
      * @param \Closure                 $next
      *
-     * @throws \Exception
+     * @throws \Symfony\Component\HttpKernel\Exception\HttpException
      *
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
         if ($this->auth->guest()) {
-            if ($request->ajax()) {
-                throw new Exception('Unauthorized');
-            } else {
-                return Redirect::guest('auth/login');
-            }
+            throw new HttpException(401);
         }
 
         return $next($request);

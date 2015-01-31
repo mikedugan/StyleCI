@@ -16,22 +16,22 @@ $router->get('/', [
 ]);
 
 $router->post('github-callback', [
-    'as'   => 'github-callback',
+    'as'   => 'webhook_callback',
     'uses' => 'GitHubController@handle',
 ]);
 
 $router->get('repo/{account}/{repository}', [
-    'as'   => 'repo-redirect',
+    'as'   => 'redirect_path',
     'uses' => 'RepoController@handleRedirect'
 ]);
 
 $router->get('repos', [
-    'as'   => 'list-repos',
+    'as'   => 'repos_path',
     'uses' => 'RepoController@handleList'
 ]);
 
 $router->get('repos/{repo}', [
-    'as'   => 'show-repo',
+    'as'   => 'repo_path',
     'uses' => 'RepoController@handleShow'
 ]);
 
@@ -64,12 +64,12 @@ $router->group(['prefix' => 'api'], function (Illuminate\Contracts\Routing\Regis
     });
 });
 
-$router->get('auth/connect/{provider}', [
-    'as'   => 'auth_connect_path',
+$router->get('auth/login', [
+    'as'   => 'auth_login_path',
     'uses' => 'AuthController@handleLogin',
 ]);
 
-$router->get('auth/{provider}/callback', [
+$router->get('auth/github-callback', [
     'as'   => 'auth_callback_path',
     'uses' => 'AuthController@handleCallback',
 ]);
@@ -77,4 +77,9 @@ $router->get('auth/{provider}/callback', [
 $router->get('auth/logout', [
     'as'   => 'auth_logout_path',
     'uses' => 'AuthController@handleLogout',
+]);
+
+$router->get('account', [
+    'as'   => 'account_path',
+    'uses' => 'AccountController@handleShow',
 ]);

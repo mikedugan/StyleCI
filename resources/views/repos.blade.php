@@ -30,7 +30,7 @@ Repos
         </p>
         </div>
         <div class="col-sm-4 list-vcenter">
-            <a class="btn btn-primary" href="{{ route('show-repo', $repo->id) }}"><i class="fa fa-history"></i> Show Commits</a>
+            <a class="btn btn-primary" href="{{ route('repo_path', $repo->id) }}"><i class="fa fa-history"></i> Show Commits</a>
         </div>
     @else
         <p><strong>No commits have been pushed to the master yet.</strong></p>

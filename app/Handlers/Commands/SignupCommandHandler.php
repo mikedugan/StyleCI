@@ -31,10 +31,11 @@ class SignupCommandHandler
     public function handle(SignupCommand $command)
     {
         $user = new User();
-        $user->email = $command->email;
-        $user->password = $command->password;
-        $user->name = $command->name;
-        $user->api_key = User::generateApiKey();
+
+        $user->name = $command->getName();
+        $user->email = $command->getEmail();
+        $user->api_key = str_random(20);
+
         $user->save();
 
         return $user;

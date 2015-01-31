@@ -17,44 +17,56 @@ use StyleCI\StyleCI\Models\User;
 /**
  * This is the create service command class.
  *
+ * @author Graham Campbell <graham@mineuk.com>
  * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
 class CreateServiceCommand
 {
     /**
-     * Socialite user instance.
+     * The socialite user.
      *
      * @var \Laravel\Socialite\Contracts\User
      */
-    public $socialiteUser;
+    protected $socialiteUser;
 
     /**
-     * User instance.
+     * The styleci user.
      *
      * @var \StyleCI\StyleCI\Models\User
      */
-    public $user;
+    protected $user;
 
     /**
-     * Socialite user instance.
-     *
-     * @var string
-     */
-    public $provider;
-
-    /**
-     * Create a new command instance.
+     * Create a new create service command instance.
      *
      * @param \Laravel\Socialite\Contracts\User $socialiteUser
      * @param \StyleCI\StyleCI\Models\User      $user
-     * @param string                            $provider
      *
      * @return void
      */
-    public function __construct(SocialiteUser $socialiteUser, User $user, $provider)
+    public function __construct(SocialiteUser $socialiteUser, User $user)
     {
         $this->socialiteUser = $socialiteUser;
         $this->user = $user;
-        $this->provider = $provider;
+    }
+
+    /**
+     * Get the socialite user.
+     *
+     * @return \Laravel\Socialite\Contracts\User
+     */
+    public function getSocialiteUser()
+    {
+        return $this->socialiteUser;
+    }
+
+    /**
+     * Get the styleci user.
+     *
+     * @return \StyleCI\StyleCI\Models\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

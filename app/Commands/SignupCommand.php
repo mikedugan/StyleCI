@@ -14,26 +14,30 @@ namespace StyleCI\StyleCI\Commands;
 /**
  * This is the sign up command class.
  *
+ * @author Graham Campbell <graham@mineuk.com>
  * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
 class SignupCommand
 {
     /**
-     * User name.
+     * The user name.
      *
      * @var string
      */
-    public $name;
+    protected $name;
 
     /**
-     * User email.
+     * The user email address.
      *
      * @var string
      */
-    public $email;
+    protected $email;
 
     /**
-     * Create a new command instance.
+     * Create a new signup command instance.
+     *
+     * @param string $name
+     * @param string $email
      *
      * @return void
      */
@@ -41,5 +45,25 @@ class SignupCommand
     {
         $this->name = $name;
         $this->email = $email;
+    }
+
+    /**
+     * Get the user name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get the email address.
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }

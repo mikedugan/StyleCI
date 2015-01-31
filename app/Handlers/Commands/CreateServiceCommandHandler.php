@@ -17,6 +17,7 @@ use StyleCI\StyleCI\Models\Service;
 /**
  * This is the create service command handler class.
  *
+ * @author Graham Campbell <graham@mineuk.com>
  * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
 class CreateServiceCommandHandler
@@ -24,20 +25,17 @@ class CreateServiceCommandHandler
     /**
      * Handle the create service command.
      *
-     * @param \StyleCI\StyleCI\Commands\CreateServiceCommand;
+     * @param \StyleCI\StyleCI\Commands\CreateServiceCommand $command
      *
      * @return \StyleCI\StyleCI\Models\Service
      */
     public function handle(CreateServiceCommand $command)
     {
         $service = new Service();
-        $service->uid = $command->socialiteUser->id;
-        $service->user_id = $command->user->id;
-        $service->provider = $command->provider;
 
-        if ($command->provider === 'github') {
-            $service->oauth2_access_token = $command->socialiteUser->token;
-        }
+        $service->uid = $command->getSocialiteUser()->id;
+        $service->user_id = $command->getUser()->id;
+        $service->access_token = $command->getSocialiteUser()->token;
 
         $service->save();
 
