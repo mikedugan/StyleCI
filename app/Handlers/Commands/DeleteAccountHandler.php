@@ -35,11 +35,11 @@ class DeleteAccountCommandHandler
     {
         $user = $command->getUser();
 
-        foreach ($user->repos as $repo) {
-            $this->dispatch(new DeleteRepoCommand($repo));
-        }
-
         foreach ($user->services as $service) {
+            foreach ($service->repos as $repo) {
+                $this->dispatch(new DeleteRepoCommand($repo));
+            }
+
             $service->delete();
         }
 
