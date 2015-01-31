@@ -35,7 +35,7 @@ class CreateServiceCommandHandler
 
         $service->uid = $command->getSocialiteUser()->id;
         $service->user_id = $command->getUser()->id;
-        $service->access_token = $command->getSocialiteUser()->token;
+        $service->token = $command->getSocialiteUser()->token;
 
         $service->save();
 

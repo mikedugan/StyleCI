@@ -11,24 +11,25 @@
 
 namespace StyleCI\StyleCI\Handlers\Commands;
 
-use StyleCI\StyleCI\Commands\SignupCommand;
+use StyleCI\StyleCI\Commands\CreateAccountCommand;
 use StyleCI\StyleCI\Models\User;
 
 /**
- * This is the sign up command handler class.
+ * This is the create account command handler class.
  *
+ * @author Graham Campbell <graham@mineuk.com>
  * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
-class SignupCommandHandler
+class CreateAccountCommandHandler
 {
     /**
-     * Handle the signup command.
+     * Handle the create account command.
      *
-     * @param \StyleCI\StyleCI\Commands\SignupCommand;
+     * @param \StyleCI\StyleCI\Commands\CreateAccountCommand;
      *
      * @return \StyleCI\StyleCI\Models\User
      */
-    public function handle(SignupCommand $command)
+    public function handle(CreateAccountCommand $command)
     {
         $user = new User();
 

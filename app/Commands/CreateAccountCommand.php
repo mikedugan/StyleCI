@@ -12,12 +12,12 @@
 namespace StyleCI\StyleCI\Commands;
 
 /**
- * This is the sign up command class.
+ * This is the create account command class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
-class SignupCommand
+class CreateAccountCommand
 {
     /**
      * The user name.
@@ -34,7 +34,7 @@ class SignupCommand
     protected $email;
 
     /**
-     * Create a new signup command instance.
+     * Create a new create account command instance.
      *
      * @param string $name
      * @param string $email

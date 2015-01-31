@@ -28,14 +28,13 @@ class CreateServicesTable extends Migration
     public function up()
     {
         Schema::create('services', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('user_id');
-            $table->string('uid');
-            $table->string('access_token');
+            $table->string('uid')->unique();
+            $table->string('token');
             $table->timestamps();
 
             $table->index('user_id');
-            $table->unique(['uid']);
         });
     }
 

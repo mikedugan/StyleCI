@@ -15,7 +15,7 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use StyleCI\StyleCI\Commands\CreateServiceCommand;
-use StyleCI\StyleCI\Commands\SignupCommand;
+use StyleCI\StyleCI\Commands\CreateAccountCommand;
 use StyleCI\StyleCI\Models\Service;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -86,7 +86,7 @@ class AuthController extends AbstractController
 
         // if the service doesn't exist yet, we need to create it
         if (!$service) {
-            $user = $this->dispatch(new SignupCommand($socialiteUser->name, $socialiteUser->email));
+            $user = $this->dispatch(new CreateAccountCommand($socialiteUser->name, $socialiteUser->email));
             $service = $this->dispatch(new CreateServiceCommand($socialiteUser, $user));
         }
 
