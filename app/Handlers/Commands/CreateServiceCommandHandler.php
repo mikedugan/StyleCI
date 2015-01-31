@@ -34,12 +34,11 @@ class CreateServiceCommandHandler
         $service->uid = $command->socialiteUser->id;
         $service->user_id = $command->user->id;
         $service->provider = $command->provider;
-        if ($command->provider == 'github') {
+
+        if ($command->provider === 'github') {
             $service->oauth2_access_token = $command->socialiteUser->token;
-        } elseif ($command->provider == 'bitbucket') {
-            $service->oauth1_token_identifier = $command->socialiteUser->token;
-            $service->oauth1_token_secret = $command->socialiteUser->tokenSecret;
         }
+
         $service->save();
 
         return $service;
