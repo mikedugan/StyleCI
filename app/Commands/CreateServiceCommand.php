@@ -46,7 +46,7 @@ class CreateServiceCommand
      * Create a new command instance.
      *
      * @param \Laravel\Socialite\Contracts\User $socialiteUser
-     * @param StyleCI\StyleCI\Models\User       $user
+     * @param \StyleCI\StyleCI\Models\User      $user
      * @param string                            $provider
      *
      * @return void
