@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Hash;
 /**
  * This is the user model class.
  *
+ * @author Graham Campbell <graham@mineuk.com>
  * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
@@ -66,5 +67,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public static function generateApiKey()
     {
         return str_random(20);
+    }
+
+    /**
+     * Get the services relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function services()
+    {
+        return $this->hasMany(Service::class);
     }
 }
