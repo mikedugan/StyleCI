@@ -46,9 +46,9 @@ Commit - {{ $commit->message }}
     </div>
     @if ($commit->status() === 2)
     <hr>
-<pre class="brush: diff">
-{{ $commit->diff }}
-</pre>
+    <pre class="brush: diff">
+        {{ $commit->diff }}
+    </pre>
     @endif
 </div>
 @stop
