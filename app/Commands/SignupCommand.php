@@ -33,21 +33,13 @@ class SignupCommand
     public $email;
 
     /**
-     * User password.
-     *
-     * @var string
-     */
-    public $password;
-
-    /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct($name, $email, $password)
+    public function __construct($name, $email)
     {
         $this->name = $name;
         $this->email = $email;
-        $this->password = $password;
     }
 }

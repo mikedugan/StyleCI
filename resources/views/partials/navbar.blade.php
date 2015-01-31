@@ -20,7 +20,7 @@
             </ul>
             @else
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('auth_login_path') }}">Login <span class="sr-only">(current)</span></a></li>
+                <li><a href="{{ route('auth_connect_path', 'github') }}">Login <span class="sr-only">(current)</span></a></li>
             </ul>
             @endif
         </div>
