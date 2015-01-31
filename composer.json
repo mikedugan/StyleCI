@@ -27,6 +27,7 @@
         "php": ">=5.5.0",
         "laravel/framework": "5.0.*",
         "laravel/socialite": "~3.0",
+        "guzzlehttp/guzzle": "~5.0",
         "graham-campbell/binput": "~3.0",
         "graham-campbell/exceptions": "0.1.*",
         "graham-campbell/core": "~2.0",
