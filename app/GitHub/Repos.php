@@ -12,6 +12,7 @@
 
 namespace StyleCI\StyleCI\GitHub;
 
+use Github\ResultPager;
 use StyleCI\StyleCI\Models\Repo;
 use StyleCI\StyleCI\Models\User;
 
@@ -50,7 +51,10 @@ class Repos
      */
     public function get(User $user)
     {
-        $repos = $this->factory->make($user)->me()->repositories();
+        $client = $this->factory->make($user);
+        $paginator = new ResultPager($client);
+
+        $repos = $paginator->fetchAll($client->me(), 'repositories');
 
         $list = [];
 

@@ -12,6 +12,7 @@
 
 namespace StyleCI\StyleCI\GitHub;
 
+use Github\ResultPager;
 use StyleCI\StyleCI\Model\Repo;
 
 /**
@@ -49,9 +50,10 @@ class Branches
      */
     public function get(Repo $repo)
     {
-        $args = explode('/', $repo->name);
+        $client = $this->factory->make($repo);
+        $paginator = new ResultPager($client);
 
-        $raw = $this->factory->make($repo)->repos()->branches($args[0], $args[1]);
+        $raw = $paginator->fetchAll($client->repos(), 'branches', explode('/', $repo->name));
 
         $branches = [];
 

@@ -12,6 +12,7 @@
 
 namespace StyleCI\StyleCI\GitHub;
 
+use Github\ResultPager;
 use Stringy\StaticStringy;
 use StyleCI\StyleCI\Models\Repo;
 
@@ -77,9 +78,11 @@ class Hooks
     {
         $url = route('home'); // we want to remove all hooks containing the base url
         $args = explode('/', $repo->name);
-        $hooks = $this->factory->make($repo)->repo()->hooks();
+        $client = $this->factory->make($repo);
+        $hooks = $client->repo()->hooks();
+        $paginator = new ResultPager($client);
 
-        foreach ($hooks->all($args[0], $args[1]) as $hook) {
+        foreach ($paginator->fetchAll($hooks, 'all', $args) as $hook) {
             if ($hook['name'] !== 'web' || StaticStringy::contains($hook['config']['url'], $url, false) !== true) {
                 continue;
             }
