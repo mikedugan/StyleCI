@@ -24,6 +24,16 @@ use StyleCI\StyleCI\Models\Repo;
 class RepoController extends AbstractController
 {
     /**
+     * Create a new account controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => 'handleList']);
+    }
+
+    /**
      * Handles the request to a raw repo link.
      *
      * @param string $account

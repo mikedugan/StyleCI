@@ -10,7 +10,7 @@ Landing
         <h1>StyleCI</h1>
         <h3>Coding Style Continuous Integration Service</h3>
         <br>
-        <a href="{{ asset('repos') }}" class="btn btn-dark btn-lg">Get Started</a>
+        <a href="@if($loggedUser) {{ route('repos_path') }} @else {{ route('auth_login_path') }} @endif" class="btn btn-dark btn-lg">Get Started</a>
     </div>
 </header>
 @stop

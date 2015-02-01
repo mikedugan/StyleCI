@@ -86,7 +86,7 @@ class AuthController extends AbstractController
 
         $this->auth->login($user, true);
 
-        return Redirect::route('home');
+        return Redirect::route('repos_path');
     }
 
     /**

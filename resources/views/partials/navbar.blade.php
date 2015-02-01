@@ -11,7 +11,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ route('repos_path') }}">Repositories</a></li>
+                <li><a href="@if($loggedUser) {{ route('repos_path') }} @else {{ route('auth_login_path') }} @endif">Repositories</a></li>
             </ul>
             @if($loggedUser)
             <ul class="nav navbar-nav navbar-right">
