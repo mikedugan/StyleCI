@@ -24,7 +24,7 @@ class DisableRepoCommand
     /**
      * The repository to delete.
      *
-     * @var string
+     * @var \StyleCI\StyleCI\Models\Repo
      */
     protected $repo;
 
@@ -43,7 +43,7 @@ class DisableRepoCommand
     /**
      * Get the repository to delete.
      *
-     * @return string
+     * @return \StyleCI\StyleCI\Models\Repo
      */
     public function getRepo()
     {
