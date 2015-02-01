@@ -18,6 +18,7 @@ use StyleCI\StyleCI\GitHub\ClientFactory;
 use StyleCI\StyleCI\GitHub\Hooks;
 use StyleCI\StyleCI\GitHub\Repos;
 use StyleCI\StyleCI\GitHub\Status;
+use StyleCI\StyleCI\Http\Middleware\Authenticate;
 
 /**
  * This is the app service provider class.
@@ -38,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
         $this->registerGitHubHooks();
         $this->registerGitHubRepos();
         $this->registerGitHubStatus();
+        $this->registerAuthenticate();
     }
 
     /**
@@ -119,6 +121,21 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('styleci.status', 'StyleCI\StyleCI\GitHub\Status');
+    }
+
+    /**
+     * Register the auth middleware.
+     *
+     * @return void
+     */
+    protected function registerAuthenticate()
+    {
+        $this->app->singleton('StyleCI\StyleCI\Http\Middleware\Authenticate', function ($app) {
+            $auth = $app['auth.driver'];
+            $allowed = $app->config->get('styleci.allowed', []);
+
+            return new Authenticate($auth, $allowed);
+        });
     }
 
     /**

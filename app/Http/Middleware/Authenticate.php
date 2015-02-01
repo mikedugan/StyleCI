@@ -32,15 +32,24 @@ class Authenticate
     protected $auth;
 
     /**
+     * The allowed user ids.
+     *
+     * @var array
+     */
+    protected $allowed;
+
+    /**
      * Create a new filter instance.
      *
      * @param \Illuminate\Contracts\Auth\Guard $auth
+     * @param array                            $allowed
      *
      * @return void
      */
-    public function __construct(Guard $auth)
+    public function __construct(Guard $auth, array $allowed)
     {
         $this->auth = $auth;
+        $this->allowed = $allowed;
     }
 
     /**
@@ -57,6 +66,10 @@ class Authenticate
     {
         if ($this->auth->guest()) {
             throw new HttpException(401);
+        }
+
+        if (count($this->allowed) > 0 && !in_array($this->auth->user()->id, $this->allowed)) {
+            throw new HttpException(403, 'You are not whitelisted.');
         }
 
         return $next($request);
