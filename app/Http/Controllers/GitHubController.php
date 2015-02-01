@@ -15,7 +15,6 @@ namespace StyleCI\StyleCI\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
-use StyleCI\StyleCI\Factories\ModelFactory;
 
 /**
  * This is the github controller class.
@@ -24,25 +23,6 @@ use StyleCI\StyleCI\Factories\ModelFactory;
  */
 class GitHubController extends AbstractController
 {
-    /**
-     * The model factory instance.
-     *
-     * @var \StyleCI\StyleCI\Factories\ModelFactory
-     */
-    protected $factory;
-
-    /**
-     * Create a new github controller instance.
-     *
-     * @param \StyleCI\StyleCI\Factories\ModelFactory $factory
-     *
-     * @return void
-     */
-    public function __construct(ModelFactory $factory)
-    {
-        $this->factory = $factory;
-    }
-
     /**
      * Handles the request made to StyleCI by the GitHub API.
      *
@@ -77,8 +57,14 @@ class GitHubController extends AbstractController
     protected function handlePush(array $input)
     {
         if ($input['head_commit'] && strpos($input['ref'], 'gh-pages') === false) {
-            $repo = $this->factory->repo($input['repository']['full_name'])->id;
-            $commit = $this->factory->commit($input['head_commit']['id'], $repo);
+            $repo = Repo::find(sha1($input['repository']['full_name']));
+
+            if (!$repo) {
+                return new JsonResponse(['message' => 'StyleCI cannot analyse this repo because it\'s not enabled on our system.'], 403, [], JSON_PRETTY_PRINT);
+            }
+
+            $commitId = $input['head_commit']['id'];
+            $commit = Commit::findOrNew($commitId, ['id' => $commitId, 'repo_id' => $repo->id]);
 
             if (empty($commit->ref)) {
                 $commit->ref = $input['ref'];
@@ -99,6 +85,10 @@ class GitHubController extends AbstractController
     /**
      * Handle opening of a pull request.
      *
+     * Here's we analysing all new commits pushed a pull request ONLY from
+     * repos that are not the original. Commits pushed to the original will be
+     * analaysed via the push hook instead.
+     *
      * @param array $input
      *
      * @return \Illuminate\Http\JsonResponse
@@ -106,9 +96,18 @@ class GitHubController extends AbstractController
     protected function handlePullRequest(array $input)
     {
         if (($input['action'] === 'opened' || $input['action'] === 'reopened' || $input['action'] === 'synchronize') && $input['pull_request']['head']['repo']['full_name'] !== $input['pull_request']['base']['repo']['full_name'] && strpos($input['pull_request']['head']['ref'], 'gh-pages') === false) {
-            $repo = $this->factory->repo($input['pull_request']['base']['repo']['full_name'])->id;
-            $fork = $this->factory->fork($input['pull_request']['head']['repo']['full_name'], $repo)->id;
-            $commit = $this->factory->commit($input['pull_request']['head']['sha'], $repo, $fork);
+            $repo = Repo::find(sha1($input['pull_request']['base']['repo']['full_name']));
+
+            if (!$repo) {
+                return new JsonResponse(['message' => 'StyleCI cannot analyse this repo because it\'s not enabled on our system.'], 403, [], JSON_PRETTY_PRINT);
+            }
+
+            $forkName = $input['pull_request']['head']['repo']['full_name'];
+            $forkId = sha1($forkName);
+            Fork::findOrNew($forkId, ['id' => $forkId, 'repo_id' => $repo->id, 'name' => $forkName]);
+
+            $commitId = $input['pull_request']['head']['sha'];
+            $commit = Commit::findOrNew($commitId, ['id' => $commitId, 'repo_id' => $repo->id, 'fork_id' => $fork->id]);
 
             if (empty($commit->ref)) {
                 $commit->ref = $input['pull_request']['head']['ref'];

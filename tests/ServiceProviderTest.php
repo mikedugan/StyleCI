@@ -23,11 +23,6 @@ class ServiceProviderTest extends AbstractTestCase
 {
     use ServiceProviderTestCaseTrait;
 
-    public function testModelFactoryIsInjectable()
-    {
-        $this->assertIsInjectable('StyleCI\StyleCI\Factories\ModelFactory');
-    }
-
     public function testClientFactoryIsInjectable()
     {
         $this->assertIsInjectable('StyleCI\StyleCI\GitHub\ClientFactory');

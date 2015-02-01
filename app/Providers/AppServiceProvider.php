@@ -13,7 +13,6 @@
 namespace StyleCI\StyleCI\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use StyleCI\StyleCI\Factories\ModelFactory;
 use StyleCI\StyleCI\GitHub\Branches;
 use StyleCI\StyleCI\GitHub\ClientFactory;
 use StyleCI\StyleCI\GitHub\Status;
@@ -32,24 +31,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerModelFactory();
         $this->registerGitHubClientFactory();
         $this->registerGitHubBranches();
         $this->registerGitHubStatus();
-    }
-
-    /**
-     * Register the model factory class.
-     *
-     * @return void
-     */
-    protected function registerModelFactory()
-    {
-        $this->app->singleton('styleci.modelfactory', function () {
-            return new ModelFactory();
-        });
-
-        $this->app->alias('styleci.modelfactory', 'StyleCI\StyleCI\Factories\ModelFactory');
     }
 
     /**
@@ -111,7 +95,6 @@ class AppServiceProvider extends ServiceProvider
         return [
             'styleci.status',
             'styleci.branches',
-            'styleci.modelfactory',
             'styleci.clientfactory',
         ];
     }
