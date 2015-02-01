@@ -1,13 +1,14 @@
 <?php
 
 /*
-* This file is part of StyleCI.
-*
-* (c) Graham Campbell <graham@mineuk.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of StyleCI.
+ *
+ * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Joseph Cohen <joseph.cohen@dinkbit.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace StyleCI\StyleCI\Handlers\Commands;
 
@@ -29,18 +30,14 @@ class DeleteAccountCommandHandler
      *
      * @param \StyleCI\StyleCI\Commands\DeleteAccountCommand;
      *
-     * @return \StyleCI\StyleCI\Models\User
+     * @return void
      */
     public function handle(DeleteAccountCommand $command)
     {
         $user = $command->getUser();
 
-        foreach ($user->services as $service) {
-            foreach ($service->repos as $repo) {
-                $this->dispatch(new DeleteRepoCommand($repo));
-            }
-
-            $service->delete();
+        foreach ($user->repos as $repo) {
+            $this->dispatch(new DeleteRepoCommand($repo));
         }
 
         $user->delete();

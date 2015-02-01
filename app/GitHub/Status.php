@@ -12,7 +12,7 @@
 
 namespace StyleCI\StyleCI\GitHub;
 
-use Github\Api\Repository\Statuses as GitHub;
+use StyleCI\StyleCI\Model\Commit;
 
 /**
  * This is the github status class.
@@ -22,11 +22,11 @@ use Github\Api\Repository\Statuses as GitHub;
 class Status
 {
     /**
-     * The github statuses instance.
+     * The github client factory instance.
      *
-     * @var \Github\Api\Repository\Statuses
+     * @var \StyleCI\StyleCI\GitHub\ClientFactory
      */
-    protected $github;
+    protected $factory;
 
     /**
      * The target url.
@@ -38,94 +38,55 @@ class Status
     /**
      * Create a github status instance.
      *
-     * @param \Github\Api\Repository\Statuses $github
-     * @param string                          $url
+     * @param \StyleCI\StyleCI\GitHub\ClientFactory $factory
+     * @param string                                $url
      *
      * @return void
      */
-    public function __construct(GitHub $github, $url)
+    public function __construct(ClientFactory $factory, $url)
     {
-        $this->github = $github;
+        $this->factory = $factory;
         $this->url = $url;
     }
 
     /**
-     * Mark the status as pending.
+     * Push the status on the github commit.
      *
-     * @param string $repo
-     * @param string $commit
-     * @param string $description
+     * @param \StyleCI\StyleCI\Model\Commit $commit
      *
      * @return void
      */
-    public function pending($repo, $commit, $description)
+    protected function push(Commit $commit)
     {
-        $this->set($repo, $commit, 'pending', $description);
-    }
+        $repo = $commit->repo;
 
-    /**
-     * Mark the status as successful.
-     *
-     * @param string $repo
-     * @param string $commit
-     * @param string $description
-     *
-     * @return void
-     */
-    public function success($repo, $commit, $description)
-    {
-        $this->set($repo, $commit, 'success', $description);
-    }
-
-    /**
-     * Mark the status as errored.
-     *
-     * @param string $repo
-     * @param string $commit
-     * @param string $description
-     *
-     * @return void
-     */
-    public function error($repo, $commit, $description)
-    {
-        $this->set($repo, $commit, 'error', $description);
-    }
-
-    /**
-     * Mark the status as failed.
-     *
-     * @param string $repo
-     * @param string $commit
-     * @param string $description
-     *
-     * @return void
-     */
-    public function failure($repo, $commit, $description)
-    {
-        $this->set($repo, $commit, 'failure', $description);
-    }
-
-    /**
-     * Set the status on the github commit.
-     *
-     * @param string $repo
-     * @param string $commit
-     * @param string $state
-     * @param string $description
-     *
-     * @return void
-     */
-    protected function set($repo, $commit, $state, $description)
-    {
-        $args = explode('/', $repo);
+        $args = explode('/', $repo->name);
 
         $data = [
-            'state'       => $state,
-            'description' => $description,
-            'target_url'  => $this->url.'/'.$commit,
+            'state'       => $this->getState($commit->status()),
+            'description' => $commit->description(),
+            'target_url'  => $this->url.'/'.$commit->id,
             'context'     => 'StyleCI',
         ];
 
-        $this->github->create($args[0], $args[1], $commit, $data);
+        $this->factory->make($repo)->repos()->statuses()->create($args[0], $args[1], $commit->id, $data);
+    }
+
+    /**
+     * Get the state of the commit by from its status integer.
+     *
+     * @param int $status
+     *
+     * @return string
+     */
+    protected function getState($status)
+    {
+        switch ($status) {
+            case 1:
+                return 'success';
+            case 2:
+                return 'failure';
+            default:
+                return 'pending';
     }
 }

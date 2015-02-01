@@ -12,7 +12,7 @@
 
 namespace StyleCI\StyleCI\GitHub;
 
-use Github\Api\Repo as GitHub;
+use StyleCI\StyleCI\Model\Repo;
 
 /**
  * This is the github branches class.
@@ -22,36 +22,36 @@ use Github\Api\Repo as GitHub;
 class Branches
 {
     /**
-     * The github repo instance.
+     * The github client factory instance.
      *
-     * @var \Github\Api\Repo
+     * @var \StyleCI\StyleCI\GitHub\ClientFactory
      */
-    protected $github;
+    protected $factory;
 
     /**
      * Create a github branches instance.
      *
-     * @param \Github\Api\Repo $github
+     * @param \StyleCI\StyleCI\GitHub\ClientFactory $factory
      *
      * @return void
      */
-    public function __construct(GitHub $github)
+    public function __construct(ClientFactory $factory)
     {
-        $this->github = $github;
+        $this->factory = $factory;
     }
 
     /**
      * Get the branches from a github repo.
      *
-     * @param string $repo
+     * @param \StyleCI\StyleCI\Model\Repo $repo
      *
      * @return array
      */
-    public function get($repo)
+    public function get(Repo $repo)
     {
-        $args = explode('/', $repo);
+        $args = explode('/', $repo->name);
 
-        $raw = $this->github->branches($args[0], $args[1]);
+        $raw = $this->factory->make($repo)->repos()->branches($args[0], $args[1]);
 
         $branches = [];
 

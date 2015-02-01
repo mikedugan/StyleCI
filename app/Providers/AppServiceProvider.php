@@ -15,6 +15,7 @@ namespace StyleCI\StyleCI\Providers;
 use Illuminate\Support\ServiceProvider;
 use StyleCI\StyleCI\Factories\ModelFactory;
 use StyleCI\StyleCI\GitHub\Branches;
+use StyleCI\StyleCI\GitHub\ClientFactory;
 use StyleCI\StyleCI\GitHub\Status;
 
 /**
@@ -32,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerModelFactory();
+        $this->registerGitHubClientFactory();
         $this->registerGitHubBranches();
         $this->registerGitHubStatus();
     }
@@ -51,6 +53,22 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
+     * Register the github client factory class.
+     *
+     * @return void
+     */
+    protected function registerGitHubClientFactory()
+    {
+        $this->app->singleton('styleci.clientfactory', function ($app) {
+            $factory = $app['github.factory'];
+
+            return new ClientFactory($factory);
+        });
+
+        $this->app->alias('styleci.clientfactory', 'StyleCI\StyleCI\GitHub\ClientFactory');
+    }
+
+    /**
      * Register the github branches class.
      *
      * @return void
@@ -58,9 +76,9 @@ class AppServiceProvider extends ServiceProvider
     protected function registerGitHubBranches()
     {
         $this->app->singleton('styleci.branches', function ($app) {
-            $github = $app['github']->connection()->repos();
+            $factory = $app['styleci.clientfactory'];
 
-            return new Branches($github);
+            return new Branches($factory);
         });
 
         $this->app->alias('styleci.branches', 'StyleCI\StyleCI\GitHub\Branches');
@@ -74,10 +92,10 @@ class AppServiceProvider extends ServiceProvider
     protected function registerGitHubStatus()
     {
         $this->app->singleton('styleci.status', function ($app) {
-            $github = $app['github']->connection()->repos()->statuses();
+            $factory = $app['styleci.clientfactory'];
             $url = asset('commits');
 
-            return new Status($github, $url);
+            return new Status($factory, $url);
         });
 
         $this->app->alias('styleci.status', 'StyleCI\StyleCI\GitHub\Status');
@@ -91,9 +109,10 @@ class AppServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'styleci.branches',
             'styleci.status',
+            'styleci.branches',
             'styleci.modelfactory',
+            'styleci.clientfactory',
         ];
     }
 }

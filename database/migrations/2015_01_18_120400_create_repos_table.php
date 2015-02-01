@@ -30,11 +30,11 @@ class CreateReposTable extends Migration
     {
         Schema::create('repos', function (Blueprint $table) {
             $table->char('id', 40)->primary();
-            $table->string('service_id');
+            $table->string('user_id');
             $table->string('name', 128)->unique();
             $table->timestamps();
 
-            $table->index('service_id');
+            $table->index('user_id');
         });
     }
 

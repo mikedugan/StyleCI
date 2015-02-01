@@ -49,12 +49,12 @@ class Repo extends Model
     }
 
     /**
-     * Get the service relation.
+     * Get the user relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function service()
+    public function user()
     {
-        return $this->belongsTo(Service::class);
+        return $this->belongsTo(User::class);
     }
 }

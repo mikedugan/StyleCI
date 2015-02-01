@@ -1,22 +1,22 @@
 <?php
 
 /*
-* This file is part of StyleCI.
-*
-* (c) Graham Campbell <graham@mineuk.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of StyleCI.
+ *
+ * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Joseph Cohen <joseph.cohen@dinkbit.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace StyleCI\StyleCI\Http\Controllers;
 
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Contracts\Factory as Socialite;
-use StyleCI\StyleCI\Commands\CreateServiceCommand;
-use StyleCI\StyleCI\Commands\CreateAccountCommand;
-use StyleCI\StyleCI\Models\Service;
+use StyleCI\StyleCI\Commands\LoginCommand;
+use StyleCI\StyleCI\Models\User;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -82,15 +82,9 @@ class AuthController extends AbstractController
     {
         $socialiteUser = $socialite->driver('github')->user();
 
-        $service = Service::where('uid', '=', $socialiteUser->id)->first();
+        $user = $this->dispatch(new LoginCommand($socialiteUser->name, $socialiteUser->email, $socialiteUser->id, $socialiteUser->token));
 
-        // if the service doesn't exist yet, we need to create it
-        if (!$service) {
-            $user = $this->dispatch(new CreateAccountCommand($socialiteUser->name, $socialiteUser->email));
-            $service = $this->dispatch(new CreateServiceCommand($socialiteUser, $user));
-        }
-
-        $this->auth->login($service->user, true);
+        $this->auth->login($user, true);
 
         return Redirect::route('home');
     }

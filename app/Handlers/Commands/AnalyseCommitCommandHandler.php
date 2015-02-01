@@ -68,7 +68,7 @@ class AnalyseCommitCommandHandler
 
         $this->saveReport($report, $commit);
 
-        $this->pushStatus($commit);
+        $this->status->push($commit);
     }
 
     /**
@@ -92,27 +92,5 @@ class AnalyseCommitCommandHandler
         }
 
         $commit->save();
-    }
-
-    /**
-     * Push the latest status to github.
-     *
-     * @param \StyleCI\StyleCI\Models\Commit $commit
-     *
-     * @return void
-     */
-    public function pushStatus(Commit $commit)
-    {
-        switch ($commit->status()) {
-            case 1:
-                $this->status->success($commit->repo->name, $commit->id, $commit->description());
-                break;
-            case 2:
-                $this->status->failure($commit->repo->name, $commit->id, $commit->description());
-                break;
-            default:
-                $this->status->pending($commit->repo->name, $commit->id, $commit->description());
-                break;
-        }
     }
 }

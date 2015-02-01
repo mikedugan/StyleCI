@@ -15,6 +15,7 @@ namespace StyleCI\StyleCI\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
+use StyleCI\StyleCI\Models\Repo;
 use Symfony\Component\Console\Input\InputArgument;
 
 /**
@@ -24,7 +25,7 @@ use Symfony\Component\Console\Input\InputArgument;
  */
 class AnalyseRepoCommand extends Command
 {
-    use DispatchesCommands;
+    use DispatchesCommands, GetCommitTrait;
 
     /**
      * The console command name.
@@ -47,46 +48,17 @@ class AnalyseRepoCommand extends Command
      */
     public function handle()
     {
-        $repo = $this->argument('repo');
+        $repo = Repo::findOrFail(sha1($this->argument('repo')));
 
-        $this->comment('Getting the list of branches for "'.$repo.'".');
+        $this->comment('Getting the list of branches for "'.$repo->name.'".');
 
         $branches = $this->laravel['styleci.branches']->get($repo);
 
         foreach ($branches as $branch) {
-            $commit = $this->getCommit($branch['name'], $repo, $branch['commit']);
+            $commit = $this->getCommit($branch['name'], $repo->id, $branch['commit']);
             $this->dispatch(new AnalyseCommitCommand($commit));
             $this->info('Analysis of the "'.$branch['name'].'" branch has been scheduled.');
         }
-    }
-
-    /**
-     * Get the commit model.
-     *
-     * @param string $branch
-     * @param string $repo
-     * @param string $commit
-     *
-     * @return \StyleCI\StyleCI\Models\Commit
-     */
-    protected function getCommit($branch, $repo, $commit)
-    {
-        $repo = $this->laravel['styleci.modelfactory']->repo($repo)->id;
-
-        $commit = $this->laravel['styleci.modelfactory']->commit($commit, $repo);
-
-        if (empty($commit->message)) {
-            $commit->message = 'Manually run analysis';
-        }
-
-        if (empty($commit->ref)) {
-            $commit->ref = "refs/heads/$branch";
-        }
-
-        $commit->status = 0;
-        $commit->save();
-
-        return $commit;
     }
 
     /**

@@ -1,13 +1,14 @@
 <?php
 
 /*
-* This file is part of StyleCI.
-*
-* (c) Graham Campbell <graham@mineuk.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of StyleCI.
+ *
+ * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Joseph Cohen <joseph.cohen@dinkbit.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace StyleCI\StyleCI\Handlers\Commands;
 
@@ -26,7 +27,7 @@ class CreateRepoCommandHandler
      *
      * @param \StyleCI\StyleCI\Commands\CreateRepoCommand $command
      *
-     * @return \StyleCI\StyleCI\Models\Service
+     * @return void
      */
     public function handle(CreateRepoCommand $command)
     {
@@ -37,8 +38,8 @@ class CreateRepoCommandHandler
         $repo->id = sha1($name);
         $repo->name = $name;
 
-        $service->service_id = $command->getService()->id;
+        $repo->user_id = $command->getUser()->id;
 
-        $service->save();
+        $repo->save();
     }
 }

@@ -1,13 +1,14 @@
 <?php
 
 /*
-* This file is part of StyleCI.
-*
-* (c) Graham Campbell <graham@mineuk.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of StyleCI.
+ *
+ * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Joseph Cohen <joseph.cohen@dinkbit.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -32,6 +33,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('api_key')->unique();
+            $table->string('uid')->unique();
+            $table->string('access_token')->unique();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

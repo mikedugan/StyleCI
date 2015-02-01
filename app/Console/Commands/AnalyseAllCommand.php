@@ -24,7 +24,7 @@ use StyleCI\StyleCI\Models\Repo;
  */
 class AnalyseAllCommand extends Command
 {
-    use DispatchesCommands;
+    use DispatchesCommands, GetCommitTrait;
 
     /**
      * The console command name.
@@ -65,39 +65,12 @@ class AnalyseAllCommand extends Command
     {
         $this->comment('Getting the list of branches for "'.$repo->name.'".');
 
-        $branches = $this->laravel['styleci.branches']->get($repo->name);
+        $branches = $this->laravel['styleci.branches']->get($repo);
 
         foreach ($branches as $branch) {
             $commit = $this->getCommit($branch['name'], $repo->id, $branch['commit']);
             $this->dispatch(new AnalyseCommitCommand($commit));
             $this->info('Analysis of the "'.$branch['name'].'" branch has been scheduled.');
         }
-    }
-
-    /**
-     * Get the commit model.
-     *
-     * @param string $branch
-     * @param string $repo
-     * @param string $commit
-     *
-     * @return \StyleCI\StyleCI\Models\Commit
-     */
-    protected function getCommit($branch, $repo, $commit)
-    {
-        $commit = $this->laravel['styleci.modelfactory']->commit($commit, $repo);
-
-        if (empty($commit->message)) {
-            $commit->message = 'Manually run analysis';
-        }
-
-        if (empty($commit->ref)) {
-            $commit->ref = "refs/heads/$branch";
-        }
-
-        $commit->status = 0;
-        $commit->save();
-
-        return $commit;
     }
 }

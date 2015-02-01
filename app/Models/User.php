@@ -1,13 +1,14 @@
 <?php
 
 /*
-* This file is part of StyleCI.
-*
-* (c) Graham Campbell <graham@mineuk.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of StyleCI.
+ *
+ * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Joseph Cohen <joseph.cohen@dinkbit.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace StyleCI\StyleCI\Models;
 
@@ -28,13 +29,6 @@ class User extends Model implements AuthenticatableContract
     use Authenticatable;
 
     /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -46,15 +40,15 @@ class User extends Model implements AuthenticatableContract
      *
      * @var array
      */
-    protected $hidden = ['remember_token'];
+    protected $hidden = ['access_token', 'remember_token'];
 
     /**
-     * Get the services relation.
+     * Get the repos relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function services()
+    public function repos()
     {
-        return $this->hasMany(Service::class);
+        return $this->hasMany(Repo::class);
     }
 }

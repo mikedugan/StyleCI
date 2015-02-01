@@ -1,17 +1,18 @@
 <?php
 
 /*
-* This file is part of StyleCI.
-*
-* (c) Graham Campbell <graham@mineuk.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of StyleCI.
+ *
+ * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Joseph Cohen <joseph.cohen@dinkbit.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace StyleCI\StyleCI\Commands;
 
-use StyleCI\StyleCI\Models\Service;
+use StyleCI\StyleCI\Models\User;
 
 /**
  * This is the create repo command class.
@@ -28,24 +29,24 @@ class CreateRepoCommand
     protected $name;
 
     /**
-     * The associated service.
+     * The associated user.
      *
-     * @var \StyleCI\StyleCI\Models\Service
+     * @var \StyleCI\StyleCI\Models\User
      */
-    protected $service;
+    protected $user;
 
     /**
      * Create a new create repo command instance.
      *
-     * @param string                          $name
-     * @param \StyleCI\StyleCI\Models\Service $service
+     * @param string                       $name
+     * @param \StyleCI\StyleCI\Models\User $user
      *
      * @return void
      */
-    public function __construct($name, Service $service)
+    public function __construct($name, User $user)
     {
         $this->name = $name;
-        $this->service = $service;
+        $this->user = $user;
     }
 
     /**
@@ -59,12 +60,12 @@ class CreateRepoCommand
     }
 
     /**
-     * Get the associated service.
+     * Get the associated user.
      *
-     * @return \StyleCI\StyleCI\Models\Service
+     * @return \StyleCI\StyleCI\Models\User
      */
-    public function getService()
+    public function getUser()
     {
-        return $this->service;
+        return $this->user;
     }
 }
