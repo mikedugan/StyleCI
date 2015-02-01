@@ -35,7 +35,6 @@ class CreateUsersTable extends Migration
             $table->string('access_token', 40)->unique();
             $table->char('api_key', 40)->unique();
             $table->rememberToken();
-            $table->softDeletes();
             $table->timestamps();
         });
     }
