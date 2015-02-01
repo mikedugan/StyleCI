@@ -65,7 +65,7 @@ class AuthController extends AbstractController
             'user:email',
             'repo:status',
             'read:org',
-            'write:repo_hook',
+            'admin:repo_hook',
         ]);
 
         return $response->redirect();

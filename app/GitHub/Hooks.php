@@ -12,6 +12,7 @@
 
 namespace StyleCI\StyleCI\GitHub;
 
+use Stringy\StaticStringy;
 use StyleCI\StyleCI\Models\Repo;
 
 /**
@@ -49,14 +50,14 @@ class Hooks
      */
     public function enable(Repo $repo)
     {
+        $url = route('webhook_callback');
         $args = explode('/', $repo->name);
-        $callback = route('webhook_callback');
         $hooks = $this->factory->make($repo)->repo()->hooks();
 
         $events = ['pull_request','push'];
 
         $config = [
-            'url'          => $callback,
+            'url'          => $url,
             'content_type' => 'json',
             'insecure_ssl' => 0,
             'secret'       => '',
@@ -74,12 +75,12 @@ class Hooks
      */
     public function disable(Repo $repo)
     {
+        $url = route('home'); // we want to remove all hooks containing the base url
         $args = explode('/', $repo->name);
-        $callback = route('webhook_callback');
         $hooks = $this->factory->make($repo)->repo()->hooks();
 
         foreach ($hooks->all($args[0], $args[1]) as $hook) {
-            if ($hook['name'] !== 'web' || $hook['config']['url'] !== $callback) {
+            if ($hook['name'] !== 'web' || StaticStringy::contains($hook['config']['url'], $url, false) !== true) {
                 continue;
             }
 

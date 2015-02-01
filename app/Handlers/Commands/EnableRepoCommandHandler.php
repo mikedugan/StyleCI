@@ -59,6 +59,9 @@ class EnableRepoCommandHandler
 
         $repo->save();
 
+        // disable all styleci hooks before adding the new one in case any old
+        // conflicting ones are left over, then add the new webhook
+        $this->hooks->disable($repo);
         $this->hooks->enable($repo);
     }
 }

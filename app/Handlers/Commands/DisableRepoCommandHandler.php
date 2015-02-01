@@ -53,11 +53,7 @@ class DisableRepoCommandHandler
     {
         $repo = $command->getRepo();
 
-        try {
-            $this->hooks->disable($repo);
-        } catch (\Exception $e) {
-            // TODO: fix this
-        }
+        $this->hooks->disable($repo);
 
         foreach ($repo->commits as $commit) {
             $commit->delete();
