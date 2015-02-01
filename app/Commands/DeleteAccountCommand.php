@@ -37,7 +37,7 @@ class DeleteAccountCommand
      */
     public function __construct(User $iser)
     {
-        $this->user = $user
+        $this->user = $user;
     }
 
     /**
