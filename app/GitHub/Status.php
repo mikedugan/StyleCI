@@ -88,5 +88,6 @@ class Status
                 return 'failure';
             default:
                 return 'pending';
+        }
     }
 }
