@@ -20,6 +20,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/StyleCI/php-github-api"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/StyleCI/socialite"
         }
     ],
@@ -33,7 +37,8 @@
         "graham-campbell/core": "~2.0",
         "graham-campbell/github": "~2.0",
         "graham-campbell/htmlmin": "~3.0",
-        "styleci/fixer": "0.1.*"
+        "styleci/fixer": "0.1.*",
+        "knplabs/github-api": "~1.5"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0"
