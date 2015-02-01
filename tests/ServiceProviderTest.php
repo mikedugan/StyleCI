@@ -22,4 +22,24 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
 class ServiceProviderTest extends AbstractTestCase
 {
     use ServiceProviderTestCaseTrait;
+
+    public function testModelFactoryIsInjectable()
+    {
+        $this->assertIsInjectable('StyleCI\StyleCI\Factories\ModelFactory');
+    }
+
+    public function testClientFactoryIsInjectable()
+    {
+        $this->assertIsInjectable('StyleCI\StyleCI\GitHub\ClientFactory');
+    }
+
+    public function testGitHubBranchesIsInjectable()
+    {
+        $this->assertIsInjectable('StyleCI\StyleCI\GitHub\Branches');
+    }
+
+    public function testGitHubStatusIsInjectable()
+    {
+        $this->assertIsInjectable('StyleCI\StyleCI\GitHub\Status');
+    }
 }
