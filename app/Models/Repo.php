@@ -22,6 +22,13 @@ use Illuminate\Database\Eloquent\Model;
 class Repo extends Model
 {
     /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * A list of methods protected from mass assignment.
      *
      * @var array
