@@ -56,7 +56,7 @@ class Status
      *
      * @return void
      */
-    protected function push(Commit $commit)
+    public function push(Commit $commit)
     {
         $repo = $commit->repo;
 

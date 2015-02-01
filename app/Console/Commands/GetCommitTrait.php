@@ -26,13 +26,17 @@ trait GetCommitTrait
      *
      * @param string $branch
      * @param string $repo
-     * @param string $commit
+     * @param string $id
      *
      * @return \StyleCI\StyleCI\Models\Commit
      */
-    protected function getCommit($branch, $repo, $commit)
+    protected function getCommit($branch, $repo, $id)
     {
-        $commit = Commit::findOrNew($commit, ['id' => $commit, 'repo_id' => $repo]);
+        $commit = Commit::Find($id);
+
+        if (!$commit) {
+            $commit = new Commit(['id' => $id, 'repo_id' => $repo]);
+        }
 
         if (empty($commit->message)) {
             $commit->message = 'Manually run analysis';

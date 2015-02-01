@@ -15,6 +15,9 @@ namespace StyleCI\StyleCI\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
+use StyleCI\StyleCI\Models\Commit;
+use StyleCI\StyleCI\Models\Fork;
+use StyleCI\StyleCI\Models\Repo;
 
 /**
  * This is the github controller class.
@@ -64,7 +67,11 @@ class GitHubController extends AbstractController
             }
 
             $commitId = $input['head_commit']['id'];
-            $commit = Commit::findOrNew($commitId, ['id' => $commitId, 'repo_id' => $repo->id]);
+            $commit = Commit::find($commitId);
+
+            if (!$commit) {
+                $commit = new Commit(['id' => $commitId, 'repo_id' => $repo->id]);
+            }
 
             if (empty($commit->ref)) {
                 $commit->ref = $input['ref'];
@@ -104,10 +111,18 @@ class GitHubController extends AbstractController
 
             $forkId = $input['pull_request']['head']['repo']['id'];
             $forkName = $input['pull_request']['head']['repo']['full_name'];
-            Fork::findOrNew($forkId, ['id' => $forkId, 'repo_id' => $repo->id, 'name' => $forkName]);
+            $fork = Fork::find($forkId);
+
+            if (!$fork) {
+                $fork = new Fork(['id' => $forkId, 'repo_id' => $repo->id, 'name' => $forkName]);
+            }
 
             $commitId = $input['pull_request']['head']['sha'];
-            $commit = Commit::findOrNew($commitId, ['id' => $commitId, 'repo_id' => $repo->id, 'fork_id' => $fork->id]);
+            $commit = Commit::find($commitId);
+
+            if (!$commit) {
+                $commit = new Commit(['id' => $commitId, 'repo_id' => $repo->id, 'fork_id' => $fork->id]);
+            }
 
             if (empty($commit->ref)) {
                 $commit->ref = $input['pull_request']['head']['ref'];
