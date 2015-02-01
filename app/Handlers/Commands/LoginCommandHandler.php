@@ -26,7 +26,7 @@ class LoginCommandHandler
     /**
      * Handle the login command.
      *
-     * @param \StyleCI\StyleCI\Commands\LoginCommand;
+     * @param \StyleCI\StyleCI\Commands\LoginCommand $command
      *
      * @return \StyleCI\StyleCI\Models\User
      */

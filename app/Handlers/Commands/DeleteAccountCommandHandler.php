@@ -28,7 +28,7 @@ class DeleteAccountCommandHandler
     /**
      * Handle the delete account command.
      *
-     * @param \StyleCI\StyleCI\Commands\DeleteAccountCommand;
+     * @param \StyleCI\StyleCI\Commands\DeleteAccountCommand $command
      *
      * @return void
      */
