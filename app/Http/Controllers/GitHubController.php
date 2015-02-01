@@ -57,7 +57,7 @@ class GitHubController extends AbstractController
     protected function handlePush(array $input)
     {
         if ($input['head_commit'] && strpos($input['ref'], 'gh-pages') === false) {
-            $repo = Repo::find(sha1($input['repository']['full_name']));
+            $repo = Repo::find($input['repository']['id']);
 
             if (!$repo) {
                 return new JsonResponse(['message' => 'StyleCI cannot analyse this repo because it\'s not enabled on our system.'], 403, [], JSON_PRETTY_PRINT);
@@ -96,14 +96,14 @@ class GitHubController extends AbstractController
     protected function handlePullRequest(array $input)
     {
         if (($input['action'] === 'opened' || $input['action'] === 'reopened' || $input['action'] === 'synchronize') && $input['pull_request']['head']['repo']['full_name'] !== $input['pull_request']['base']['repo']['full_name'] && strpos($input['pull_request']['head']['ref'], 'gh-pages') === false) {
-            $repo = Repo::find(sha1($input['pull_request']['base']['repo']['full_name']));
+            $repo = Repo::find($input['pull_request']['base']['repo']['id']);
 
             if (!$repo) {
                 return new JsonResponse(['message' => 'StyleCI cannot analyse this repo because it\'s not enabled on our system.'], 403, [], JSON_PRETTY_PRINT);
             }
 
+            $forkId = $input['pull_request']['head']['repo']['id'];
             $forkName = $input['pull_request']['head']['repo']['full_name'];
-            $forkId = sha1($forkName);
             Fork::findOrNew($forkId, ['id' => $forkId, 'repo_id' => $repo->id, 'name' => $forkName]);
 
             $commitId = $input['pull_request']['head']['sha'];

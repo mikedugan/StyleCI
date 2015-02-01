@@ -20,11 +20,6 @@ $router->post('github-callback', [
     'uses' => 'GitHubController@handle',
 ]);
 
-$router->get('repo/{account}/{repository}', [
-    'as'   => 'redirect_path',
-    'uses' => 'RepoController@handleRedirect'
-]);
-
 $router->get('repos', [
     'as'   => 'repos_path',
     'uses' => 'RepoController@handleList'
@@ -52,6 +47,7 @@ $router->get('commits/{commit}/diff/download', [
 
 $router->group(['prefix' => 'api'], function (Illuminate\Contracts\Routing\Registrar $router) {
     $router->get('repo/{account}/{repository}', function ($account, $repository) {
+        // TODO: Update this to actually work...
         if ($repo = StyleCI\StyleCI\Models\Repo::find(sha1("$account/$repository"))) {
             if ($commit = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->first()) {
                 return new Illuminate\Http\JsonResponse(['message' => $commit->description().'.', 'status' => $commit->status()], 200, [], JSON_PRETTY_PRINT);
@@ -82,4 +78,14 @@ $router->get('auth/logout', [
 $router->get('account', [
     'as'   => 'account_path',
     'uses' => 'AccountController@handleShow',
+]);
+
+$router->get('account/enable/{id}', [
+    'as'   => 'enable_repo_path',
+    'uses' => 'AccountController@handleEnable',
+]);
+
+$router->get('account/disable/{repo}', [
+    'as'   => 'disable_repo_path',
+    'uses' => 'AccountController@handleDisable',
 ]);

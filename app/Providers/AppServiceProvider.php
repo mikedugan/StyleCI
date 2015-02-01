@@ -15,6 +15,7 @@ namespace StyleCI\StyleCI\Providers;
 use Illuminate\Support\ServiceProvider;
 use StyleCI\StyleCI\GitHub\Branches;
 use StyleCI\StyleCI\GitHub\ClientFactory;
+use StyleCI\StyleCI\GitHub\Repos;
 use StyleCI\StyleCI\GitHub\Status;
 
 /**
@@ -33,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->registerGitHubClientFactory();
         $this->registerGitHubBranches();
+        $this->registerGitHubRepos();
         $this->registerGitHubStatus();
     }
 
@@ -69,6 +71,22 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
+     * Register the github repos class.
+     *
+     * @return void
+     */
+    protected function registerGitHubRepos()
+    {
+        $this->app->singleton('styleci.repos', function ($app) {
+            $factory = $app['styleci.clientfactory'];
+
+            return new Repos($factory);
+        });
+
+        $this->app->alias('styleci.repos', 'StyleCI\StyleCI\GitHub\Repos');
+    }
+
+    /**
      * Register the github status class.
      *
      * @return void
@@ -93,6 +111,7 @@ class AppServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
+            'styleci.repos',
             'styleci.status',
             'styleci.branches',
             'styleci.clientfactory',

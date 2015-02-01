@@ -28,7 +28,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class AuthController extends AbstractController
 {
     /**
-     * The Guard implementation.
+     * The authentication guard instance.
      *
      * @var \Illuminate\Contracts\Auth\Guard
      */

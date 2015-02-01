@@ -12,6 +12,8 @@
 
 namespace StyleCI\StyleCI\Commands;
 
+use StyleCI\StyleCI\Models\Repo;
+
 /**
  * This is the disable repo command class.
  *
@@ -29,7 +31,7 @@ class DisableRepoCommand
     /**
      * Create a new disable repo command instance.
      *
-     * @param string $name
+     * @param \StyleCI\StyleCI\Models\Repo $repo
      *
      * @return void
      */

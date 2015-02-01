@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\URL;
 class RedirectIfAuthenticated
 {
     /**
-     * The Guard implementation.
+     * The authentication guard instance.
      *
      * @var \Illuminate\Contracts\Auth\Guard
      */

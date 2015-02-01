@@ -29,8 +29,8 @@ class CreateForksTable extends Migration
     public function up()
     {
         Schema::create('forks', function (Blueprint $table) {
-            $table->char('id', 40)->primary();
-            $table->char('repo_id', 40);
+            $table->bigInteger('id')->unsigned()->primary();
+            $table->bigInteger('repo_id')->unsigned();
             $table->string('name', 128)->unique();
             $table->timestamps();
         });

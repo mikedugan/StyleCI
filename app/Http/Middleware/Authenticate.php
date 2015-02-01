@@ -25,7 +25,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 class Authenticate
 {
     /**
-     * The Guard implementation.
+     * The authentication guard instance.
      *
      * @var \Illuminate\Contracts\Auth\Guard
      */

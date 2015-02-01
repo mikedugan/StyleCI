@@ -30,8 +30,8 @@ class CreateCommitsTable extends Migration
     {
         Schema::create('commits', function (Blueprint $table) {
             $table->char('id', 40)->primary();
-            $table->char('repo_id', 40);
-            $table->char('fork_id', 40)->nullable();
+            $table->bigInteger('repo_id')->unsigned();
+            $table->bigInteger('fork_id')->unsigned()->nullable();
             $table->string('ref', 128);
             $table->string('message', 128);
             $table->tinyInteger('status')->unsigned()->default(0);

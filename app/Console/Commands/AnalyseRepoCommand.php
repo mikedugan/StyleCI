@@ -48,7 +48,7 @@ class AnalyseRepoCommand extends Command
      */
     public function handle()
     {
-        $repo = Repo::findOrFail(sha1($this->argument('repo')));
+        $repo = Repo::where('name', $this->argument('repo'))->firstOrFail();
 
         $this->comment('Getting the list of branches for "'.$repo->name.'".');
 

@@ -22,6 +22,13 @@ use StyleCI\StyleCI\Models\User;
 class EnableRepoCommand
 {
     /**
+     * The repository id.
+     *
+     * @var int
+     */
+    protected $id;
+
+    /**
      * The repository name.
      *
      * @var string
@@ -38,15 +45,27 @@ class EnableRepoCommand
     /**
      * Create a new enable repo command instance.
      *
+     * @param int                          $id
      * @param string                       $name
      * @param \StyleCI\StyleCI\Models\User $user
      *
      * @return void
      */
-    public function __construct($name, User $user)
+    public function __construct($id, $name, User $user)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->user = $user;
+    }
+
+    /**
+     * Get the repository id.
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

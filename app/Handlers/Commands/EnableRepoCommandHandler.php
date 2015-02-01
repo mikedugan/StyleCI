@@ -33,11 +33,8 @@ class EnableRepoCommandHandler
     {
         $repo = new Repo();
 
-        $name = $command->getName();
-
-        $repo->id = sha1($name);
-        $repo->name = $name;
-
+        $repo->id = $command->getId();
+        $repo->name = $command->getName();
         $repo->user_id = $command->getUser()->id;
 
         $repo->save();

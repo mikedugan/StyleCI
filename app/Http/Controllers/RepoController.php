@@ -34,19 +34,6 @@ class RepoController extends AbstractController
     }
 
     /**
-     * Handles the request to a raw repo link.
-     *
-     * @param string $account
-     * @param string $repository
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function handleRedirect($account, $repository)
-    {
-        return Redirect::to('repos/'.sha1("$account/$repository"));
-    }
-
-    /**
      * Handles the request to list the repos.
      *
      * @return \Illuminate\View\View
