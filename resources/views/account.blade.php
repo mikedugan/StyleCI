@@ -7,7 +7,7 @@ Your Account
 @section('top')
 <div class="page-heading">
     <div class="container">
-        <h1>Your Account &mdash; {{ $loggedUser->name }}</h1>
+        <h1>Your Account</h1>
         <p>Here you can manage your StyleCI account.</p>
     </div>
 </div>

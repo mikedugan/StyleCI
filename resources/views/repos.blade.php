@@ -8,7 +8,7 @@ Repos
 <div class="page-heading">
     <div class="container">
         <h1>Analysed Repos</h1>
-        <p>Here you can see all our analysed repos.</p>
+        <p>Here you can see all your analysed repos.</p>
     </div>
 </div>
 @stop
@@ -39,6 +39,7 @@ Repos
 </div>
 <hr>
 @empty
-We haven't analysed anything yet.
+<p class="lead">We haven't analysed anything yet.</p>
+<p>You can enable repos on your <a href="{{ route('account_path') }}">account page</a>.</p>
 @endforelse
 @stop
