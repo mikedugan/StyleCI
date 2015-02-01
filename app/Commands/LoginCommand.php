@@ -21,6 +21,13 @@ namespace StyleCI\StyleCI\Commands;
 class LoginCommand
 {
     /**
+     * The user's id.
+     *
+     * @var string
+     */
+    protected $id;
+
+    /**
      * The user's name.
      *
      * @var string
@@ -35,13 +42,6 @@ class LoginCommand
     protected $email;
 
     /**
-     * The user's uid.
-     *
-     * @var string
-     */
-    protected $uid;
-
-    /**
      * The user's access token.
      *
      * @var string
@@ -51,19 +51,29 @@ class LoginCommand
     /**
      * Create a new login command instance.
      *
+     * @param string $id
      * @param string $name
      * @param string $email
-     * @param string $uid
      * @param string $token
      *
      * @return void
      */
-    public function __construct($name, $email, $uid, $token)
+    public function __construct($id, $name, $email, $token)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->email = $email;
-        $this->uid = $uid;
         $this->token = $token;
+    }
+
+    /**
+     * Get the user's id.
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -84,16 +94,6 @@ class LoginCommand
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * Get the user's uid.
-     *
-     * @return string
-     */
-    public function getUid()
-    {
-        return $this->uid;
     }
 
     /**

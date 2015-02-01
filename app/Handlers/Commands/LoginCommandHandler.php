@@ -32,17 +32,20 @@ class LoginCommandHandler
      */
     public function handle(LoginCommand $command)
     {
-        $user = User::where('uid', '=', $command->getUid())->first();
+        $user = User::find($command->getId());
 
         if (!$user) {
             $user = new User();
         }
 
+        $user->id = $command->getId();
         $user->name = $command->getName();
         $user->email = $command->getEmail();
-        $user->api_key = str_random(20);
-        $user->uid = $command->getUid();
         $user->access_token = $command->getToken();
+
+        if (!$user->api_key) {
+            $user->api_key = str_random(40);
+        }
 
         $user->save();
 

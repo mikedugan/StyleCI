@@ -29,12 +29,11 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigInteger('id')->unsigned()->primary();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('api_key')->unique();
-            $table->string('uid')->unique();
-            $table->string('access_token')->unique();
+            $table->string('access_token', 40)->unique();
+            $table->char('api_key', 40)->unique();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

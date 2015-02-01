@@ -82,7 +82,7 @@ class AuthController extends AbstractController
     {
         $socialiteUser = $socialite->driver('github')->user();
 
-        $user = $this->dispatch(new LoginCommand($socialiteUser->name, $socialiteUser->email, $socialiteUser->id, $socialiteUser->token));
+        $user = $this->dispatch(new LoginCommand($socialiteUser->id, $socialiteUser->name, $socialiteUser->email, $socialiteUser->token));
 
         $this->auth->login($user, true);
 
