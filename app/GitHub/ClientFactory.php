@@ -63,7 +63,7 @@ class ClientFactory
                 $token = $model->user->access_token;
                 break;
             default:
-                throw new InvalidArgumentException('You must provide a user or repo model.')''
+                throw new InvalidArgumentException('You must provide a user or repo model.');
         }
 
         return $this->factory->make(compact('token'));
