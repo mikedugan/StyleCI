@@ -12,7 +12,7 @@
 
 namespace StyleCI\StyleCI\GitHub;
 
-use StyleCI\StyleCI\Model\Commit;
+use StyleCI\StyleCI\Models\Commit;
 
 /**
  * This is the github status class.
@@ -52,7 +52,7 @@ class Status
     /**
      * Push the status on the github commit.
      *
-     * @param \StyleCI\StyleCI\Model\Commit $commit
+     * @param \StyleCI\StyleCI\Models\Commit $commit
      *
      * @return void
      */

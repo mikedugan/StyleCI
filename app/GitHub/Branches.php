@@ -13,7 +13,7 @@
 namespace StyleCI\StyleCI\GitHub;
 
 use Github\ResultPager;
-use StyleCI\StyleCI\Model\Repo;
+use StyleCI\StyleCI\Models\Repo;
 
 /**
  * This is the github branches class.
@@ -44,7 +44,7 @@ class Branches
     /**
      * Get the branches from a github repo.
      *
-     * @param \StyleCI\StyleCI\Model\Repo $repo
+     * @param \StyleCI\StyleCI\Models\Repo $repo
      *
      * @return array
      */
