@@ -12,35 +12,34 @@
 
 namespace StyleCI\StyleCI\Handlers\Commands;
 
-use StyleCI\StyleCI\Commands\DeleteRepoCommand;
+use StyleCI\StyleCI\Commands\EnableRepoCommand;
 use StyleCI\StyleCI\Models\Repo;
 
 /**
- * This is the delete repo command handler class.
+ * This is the enable repo command handler class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class DeleteRepoCommandHandler
+class EnableRepoCommandHandler
 {
     /**
-     * Handle the delete repo command.
+     * Handle the enable repo command.
      *
-     * @param \StyleCI\StyleCI\Commands\DeleteRepoCommand $command
+     * @param \StyleCI\StyleCI\Commands\EnableRepoCommand $command
      *
      * @return void
      */
-    public function handle(DeleteRepoCommand $command)
+    public function handle(EnableRepoCommand $command)
     {
         $repo = new Repo();
 
-        foreach ($repo->commits as $commit) {
-            $commit->delete();
-        }
+        $name = $command->getName();
 
-        foreach ($repo->forks as $fork) {
-            $fork->delete();
-        }
+        $repo->id = sha1($name);
+        $repo->name = $name;
 
-        $repo->delete();
+        $repo->user_id = $command->getUser()->id;
+
+        $repo->save();
     }
 }

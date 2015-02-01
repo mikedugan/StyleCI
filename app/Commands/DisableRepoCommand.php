@@ -13,11 +13,11 @@
 namespace StyleCI\StyleCI\Commands;
 
 /**
- * This is the delete repo command class.
+ * This is the disable repo command class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class DeleteRepoCommand
+class DisableRepoCommand
 {
     /**
      * The repository to delete.
@@ -27,7 +27,7 @@ class DeleteRepoCommand
     protected $repo;
 
     /**
-     * Create a new delete repo command instance.
+     * Create a new disable repo command instance.
      *
      * @param string $name
      *

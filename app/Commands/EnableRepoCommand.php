@@ -15,11 +15,11 @@ namespace StyleCI\StyleCI\Commands;
 use StyleCI\StyleCI\Models\User;
 
 /**
- * This is the create repo command class.
+ * This is the enable repo command class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class CreateRepoCommand
+class EnableRepoCommand
 {
     /**
      * The repository name.
@@ -36,7 +36,7 @@ class CreateRepoCommand
     protected $user;
 
     /**
-     * Create a new create repo command instance.
+     * Create a new enable repo command instance.
      *
      * @param string                       $name
      * @param \StyleCI\StyleCI\Models\User $user
