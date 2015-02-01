@@ -59,7 +59,7 @@ class Repos
         $list = [];
 
         foreach ($repos as $repo) {
-            if ($repo['private'] || $repo['fork']) {
+            if ($repo['private']) {
                 continue;
             }
 
