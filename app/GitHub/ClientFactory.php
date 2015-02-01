@@ -55,7 +55,7 @@ class ClientFactory
      */
     public function make(Model $model)
     {
-        switch get_class($model) {
+        switch (get_class($model)) {
             case User::class:
                 $token = $model->access_token;
                 break;
