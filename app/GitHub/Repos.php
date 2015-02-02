@@ -61,9 +61,7 @@ class Repos
                 continue;
             }
 
-            $id = $repo['id'];
-
-            $list[$id] = ['name' => $repo['full_name'], 'enabled' => false];
+            $list[$repo['id']] = ['name' => $repo['full_name'], 'enabled' => false];
         }
 
         foreach (Repo::whereIn('id', array_keys($list))->get(['id']) as $repo) {
