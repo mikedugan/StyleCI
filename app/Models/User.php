@@ -56,4 +56,16 @@ class User extends Model implements AuthenticatableContract
     {
         return $this->hasMany(Repo::class);
     }
+
+    /**
+     * Returns a Gravatar URL for the users email address.
+     *
+     * @param int $size
+     *
+     * @return string
+     */
+    public function gravatar($size = 200)
+    {
+        return sprintf('https://www.gravatar.com/avatar/%s?size=%d', md5($this->email), $size);
+    }
 }
