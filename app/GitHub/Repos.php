@@ -54,18 +54,20 @@ class Repos
         $client = $this->factory->make($user);
         $paginator = new ResultPager($client);
 
-        $repos = $paginator->fetchAll($client->me(), 'repositories');
-
         $list = [];
 
-        foreach ($repos as $repo) {
+        foreach ($paginator->fetchAll($client->me(), 'repositories') as $repo) {
             if ($repo['private']) {
                 continue;
             }
 
             $id = $repo['id'];
 
-            $list[$id] = ['name' => $repo['full_name'], 'enabled' => (Repo::find($id) !== null)];
+            $list[$id] = ['name' => $repo['full_name'], 'enabled' => false];
+        }
+
+        foreach (Repo::whereIn('id', array_keys($list))->get(['id']) as $repo) {
+            $list[$repo->id]['enabled'] = true;
         }
 
         return $list;
