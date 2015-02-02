@@ -35,6 +35,13 @@ class LoginCommand
     protected $name;
 
     /**
+     * The user's username.
+     *
+     * @var string
+     */
+    protected $username;
+
+    /**
      * The user's email address.
      *
      * @var string
@@ -53,15 +60,17 @@ class LoginCommand
      *
      * @param string $id
      * @param string $name
+     * @param string $username
      * @param string $email
      * @param string $token
      *
      * @return void
      */
-    public function __construct($id, $name, $email, $token)
+    public function __construct($id, $name, $username, $email, $token)
     {
         $this->id = $id;
         $this->name = $name;
+        $this->username = $username;
         $this->email = $email;
         $this->token = $token;
     }
@@ -84,6 +93,16 @@ class LoginCommand
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Get the user's username.
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
     }
 
     /**

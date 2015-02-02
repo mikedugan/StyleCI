@@ -41,6 +41,7 @@ class LoginCommandHandler
         $user->id = $command->getId();
         $user->name = $command->getName();
         $user->email = $command->getEmail();
+        $user->username = $command->getUsername();
         $user->access_token = $command->getToken();
 
         if (!$user->api_key) {

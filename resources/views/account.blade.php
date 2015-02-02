@@ -14,29 +14,73 @@ Your Account
 @stop
 
 @section('content')
-<h2>Notifications</h2>
-<p class="lead">TODO</p>
-<hr>
-<h2>Repositories</h2>
-@forelse($repos as $id => $repo)
-<div class="row">
-    <div class="col-sm-12">
-        <h4>{{ $repo['name'] }}</h4>
-        @if($repo['enabled'])
-        <h5>StyleCI is currently enabled on this repo.</h5>
-        <a class="btn btn-primary" href="{{ route('repo_path', $id) }}"><i class="fa fa-history"></i> Show Commits</a> <a class="btn btn-danger" href="{{ route('disable_repo_path', $id) }}"><i class="fa fa-times"></i> Disable StyleCI</a>
-        @else
-        <h5>StyleCI is currently disabled on this repo.</h5>
-        <a class="btn btn-success" href="{{ route('enable_repo_path', $id) }}"><i class="fa fa-check"></i> Enable StyleCI</a>
-        @endif
+<div role="tabpanel">
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#repositories" aria-controls="repositories" role="tab" data-toggle="tab">Repositories</a>
+        </li>
+        <li role="presentation">
+            <a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab">Notifications</a>
+        </li>
+        <li role="presentation">
+            <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="repositories">
+            <h2>Repositories</h2>
+            <p>We're only showing your public repositories below</p>
+            <hr>
+            @forelse($repos as $id => $repo)
+            <div class="row">
+                <div class="col-sm-8">
+                    <h4>{{ $repo['name'] }}</h4>
+                    @if($repo['enabled'])
+                    <h5>StyleCI is currently enabled on this repo.</h5>
+                    @else
+                    <h5>StyleCI is currently disabled on this repo.</h5>
+                    @endif
+                </div>
+                <div class="col-sm-4 list-vcenter">
+                    @if($repo['enabled'])
+                    <a class="btn btn-primary" href="{{ route('repo_path', $id) }}"><i class="fa fa-history"></i> Show Commits</a> <a class="btn btn-danger" href="{{ route('disable_repo_path', $id) }}"><i class="fa fa-times"></i> Disable StyleCI</a>
+                    @else
+                    <a class="btn btn-success" href="{{ route('enable_repo_path', $id) }}"><i class="fa fa-check"></i> Enable StyleCI</a>
+                    @endif
+                </div>
+            </div>
+            <hr>
+            @empty
+            <p class="lead">You have no public repositories we can access.</p>
+            @endforelse
+        </div>
+        <div role="tabpanel" class="tab-pane" id="notifications">
+            <h2>Notifications</h2>
+            <p class="lead">TODO</p>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">
+            <h2>Profile</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{{ $loggedUser->gravatar() }}" alt="{{ $loggedUser->name }}" />
+                </div>
+                <div class="col-md-9">
+                    <dl class="profile">
+                        <dt>GitHub</dt>
+                        <dd>{{ $loggedUser->username }}</dd>
+                        <dt>Email</dt>
+                        <dd>{{ $loggedUser->email }}</dd>
+                        <dt>API Key</dt>
+                        <dd>{{ $loggedUser->api_key }}</dd>
+                    </dl>
+                </div>
+            </div>
+            <hr>
+            <h2>Delete Account</h2>
+            <p class="lead">You may delete your account here.</p>
+            <p>Note that account deletion will remove all your data from our servers, so if you create a new account in the future, all your current analyses will be missing.</p>
+            <p class="lead">TODO</p>
+        </div>
     </div>
 </div>
-@empty
-<p class="lead">You have no public repositories we can access.</p>
-@endforelse
-<hr>
-<h2>Delete Account</h2>
-<p class="lead">You may delete your account here.</p>
-<p>Note that account deletion will remove all your data from our servers, so if you create a new account in the future, all your current analyses will be missing.</p>
-<p class="lead">TODO</p>
 @stop
