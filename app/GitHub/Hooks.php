@@ -31,7 +31,7 @@ class Hooks
     protected $factory;
 
     /**
-     * Create a github branches instance.
+     * Create a github hooks instance.
      *
      * @param \StyleCI\StyleCI\GitHub\ClientFactory $factory
      *
