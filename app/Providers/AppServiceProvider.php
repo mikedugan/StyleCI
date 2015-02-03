@@ -99,8 +99,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton('styleci.repos', function ($app) {
             $factory = $app['styleci.clientfactory'];
+            $cache = $app['cache.store'];
 
-            return new Repos($factory);
+            return new Repos($factory, $cache);
         });
 
         $this->app->alias('styleci.repos', 'StyleCI\StyleCI\GitHub\Repos');
