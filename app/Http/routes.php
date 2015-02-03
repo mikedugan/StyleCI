@@ -80,6 +80,11 @@ $router->get('account', [
     'uses' => 'AccountController@handleShow',
 ]);
 
+$router->get('account/repos', [
+    'as'   => 'account_repos_path',
+    'uses' => 'AccountController@handleListRepos',
+]);
+
 $router->get('account/enable/{id}', [
     'as'   => 'enable_repo_path',
     'uses' => 'AccountController@handleEnable',

@@ -2,6 +2,8 @@
 <meta name="description" content="StyleCI Is A PHP Coding Style Continuous Integration Service">
 <meta name="author" content="Graham Campbell">
 
+<meta name="token" content="{{ csrf_token() }}">
+
 <link href="//fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="{{ elixir('dist/css/app.css') }}">
 

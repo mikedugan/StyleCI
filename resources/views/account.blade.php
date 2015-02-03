@@ -31,28 +31,44 @@ Your Account
             <h2>Repositories</h2>
             <p>We're only showing your public repositories below</p>
             <hr>
-            @forelse($repos as $id => $repo)
-            <div class="row">
-                <div class="col-sm-8">
-                    <h4>{{ $repo['name'] }}</h4>
-                    @if($repo['enabled'])
-                    <h5>StyleCI is currently enabled on this repo.</h5>
-                    @else
-                    <h5>StyleCI is currently disabled on this repo.</h5>
-                    @endif
-                </div>
-                <div class="col-sm-4 list-vcenter">
-                    @if($repo['enabled'])
-                    <a class="btn btn-primary" href="{{ route('repo_path', $id) }}"><i class="fa fa-history"></i> Show Commits</a> <a class="btn btn-danger" href="{{ route('disable_repo_path', $id) }}"><i class="fa fa-times"></i> Disable StyleCI</a>
-                    @else
-                    <a class="btn btn-success" href="{{ route('enable_repo_path', $id) }}"><i class="fa fa-check"></i> Enable StyleCI</a>
-                    @endif
-                </div>
+            <div class="loading text-center hidden">
+                <h3><i class="fa fa-spinner fa-spin"></i> Fetching you repositories...</h3>
             </div>
-            <hr>
-            @empty
-            <p class="lead">You have no public repositories we can access.</p>
-            @endforelse
+            <div class="repos">
+                @if (isset($repos))
+                    @forelse($repos as $id => $repo)
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h4>{{ $repo['name'] }}</h4>
+                            @if($repo['enabled'])
+                            <h5>StyleCI is currently enabled on this repo.</h5>
+                            @else
+                            <h5>StyleCI is currently disabled on this repo.</h5>
+                            @endif
+                        </div>
+                        <div class="col-sm-4 list-vcenter">
+                            <div class="repo-controls">
+                                @if($repo['enabled'])
+                                <a class="btn btn-primary" href="{{ route('repo_path', $id) }}">
+                                    <i class="fa fa-history"></i> Show Commits
+                                </a>
+                                <a class="btn btn-danger" href="{{ route('disable_repo_path', $id) }}" data-id="{{ $id }}" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Disabling...">
+                                    <i class="fa fa-times"></i> Disable StyleCI
+                                </a>
+                                @else
+                                <a class="btn btn-success" href="{{ route('enable_repo_path', $id) }}" data-id="{{ $id }}" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Enabling...">
+                                    <i class="fa fa-check"></i> Enable StyleCI
+                                </a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    @empty
+                    <p class="lead">You have no public repositories we can access.</p>
+                    @endforelse
+                @endif
+            </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="notifications">
             <h2>Notifications</h2>
@@ -83,4 +99,65 @@ Your Account
         </div>
     </div>
 </div>
+@stop
+
+@section('bottom')
+<script id="repos-template" type="text/x-lodash-template">
+    <% if (_.size(repos) > 0) { %>
+        <% _.forEach(repos, function(repo) { %>
+        <div class="row">
+            <div class="col-sm-8">
+                <h4><%= repo.name %></h4>
+                <% if (repo.enabled) { %>
+                <h5>StyleCI is currently enabled on this repo.</h5>
+                <% } else { %>
+                <h5>StyleCI is currently disabled on this repo.</h5>
+                <% } %>
+            </div>
+            <div class="col-sm-4 list-vcenter">
+                <div class="repo-controls">
+                    <% if (repo.enabled) { %>
+                    <a class="btn btn-primary" href="{{ route('repo_path', '') }}/<%= repo.id %>">
+                        <i class="fa fa-history"></i> Show Commits
+                    </a>
+                    <a class="btn btn-danger js-disable-repo" href="{{ route('disable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Disabling...">
+                        <i class="fa fa-times"></i> Disable StyleCI
+                    </a>
+                    <% } else { %>
+                    <a class="btn btn-success js-enable-repo" href="{{ route('enable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Enabling...">
+                        <i class="fa fa-check"></i> Enable StyleCI
+                    </a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <% }); %>
+    <% } else { %>
+        <p class="lead">You have no public repositories we can access.</p>
+    <% } %>
+</script>
+
+<script id="enabled-repo-template" type="text/x-lodash-template">
+    <a class="btn btn-primary" href="{{ route('repo_path', '') }}/<%= repo.id %>">
+        <i class="fa fa-history"></i> Show Commits
+    </a>
+    <a class="btn btn-danger js-disable-repo" href="{{ route('disable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Disabling...">
+        <i class="fa fa-times"></i> Disable StyleCI
+    </a>
+</script>
+
+<script id="disabled-repo-template" type="text/x-lodash-template">
+    <a class="btn btn-success js-enable-repo" href="{{ route('enable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Enabling...">
+        <i class="fa fa-check"></i> Enable StyleCI
+    </a>
+</script>
+
+@if (!isset($repos))
+<script charset="utf-8">
+    $(function() {
+        StyleCI.Account.getRepos('{{ route('account_repos_path') }}');
+    });
+</script>
+@endif
 @stop

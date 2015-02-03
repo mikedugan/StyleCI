@@ -13,7 +13,9 @@
 namespace StyleCI\StyleCI\Http\Controllers;
 
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 use StyleCI\StyleCI\Commands\DisableRepoCommand;
 use StyleCI\StyleCI\Commands\EnableRepoCommand;
@@ -64,7 +66,21 @@ class AccountController extends AbstractController
      */
     public function handleShow()
     {
+        return View::make('account');
+    }
+
+    /**
+     * Show the user's public repositories.
+     *
+     * @return \Illuminate\View\View|\Illuminate\Http\JsonResponse
+     */
+    public function handleListRepos()
+    {
         $repos = $this->repos->get($this->auth->user());
+
+        if (Request::ajax()) {
+            return new JsonResponse(['data' => $repos]);
+        }
 
         return View::make('account')->withRepos($repos);
     }
@@ -74,13 +90,17 @@ class AccountController extends AbstractController
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function handleEnable($id)
     {
         $name = $this->repos->get($this->auth->user())[$id]['name'];
 
         $this->dispatch(new EnableRepoCommand($id, $name, $this->auth->user()));
+
+        if (Request::ajax()) {
+            return new JsonResponse(['enabled' => true]);
+        }
 
         return Redirect::route('account_path');
     }
@@ -90,11 +110,15 @@ class AccountController extends AbstractController
      *
      * @param \StyleCI\StyleCI\Models\Repo $repo
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function handleDisable(Repo $repo)
     {
         $this->dispatch(new DisableRepoCommand($repo));
+
+        if (Request::ajax()) {
+            return new JsonResponse(['enabled' => false]);
+        }
 
         return Redirect::route('account_path');
     }
