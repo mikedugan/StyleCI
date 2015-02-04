@@ -24,7 +24,7 @@ class DeleteAccountCommand
     /**
      * The user to delete.
      *
-     * @var string
+     * @var \StyleCI\StyleCI\Models\User
      */
     protected $user;
 
@@ -43,7 +43,7 @@ class DeleteAccountCommand
     /**
      * Get the user to delete.
      *
-     * @return string
+     * @return \StyleCI\StyleCI\Models\User
      */
     public function getUser()
     {
