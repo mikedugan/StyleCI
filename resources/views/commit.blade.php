@@ -56,6 +56,7 @@ Commit - {{ $commit->message }}
 @section('bottom')
 <script type="text/javascript">
     SyntaxHighlighter.defaults['toolbar'] = false;
+    SyntaxHighlighter.defaults['gutter'] = false;
     SyntaxHighlighter.all();
 </script>
 @stop
