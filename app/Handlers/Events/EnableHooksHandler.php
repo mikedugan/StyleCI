@@ -50,6 +50,8 @@ class EnableHooksHandler
      */
     public function handle(RepoWasEnabledEvent $event)
     {
+        $repo = $event->getRepo();
+
         // cleanup existing hooks first
         $this->hooks->disable($repo);
 
