@@ -86,8 +86,6 @@ Your Account
                         <dd>{{ $loggedUser->username }}</dd>
                         <dt>Email</dt>
                         <dd>{{ $loggedUser->email }}</dd>
-                        <dt>API Key</dt>
-                        <dd>{{ $loggedUser->api_key }}</dd>
                     </dl>
                 </div>
             </div>

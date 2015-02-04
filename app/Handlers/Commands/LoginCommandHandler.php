@@ -44,10 +44,6 @@ class LoginCommandHandler
         $user->username = $command->getUsername();
         $user->access_token = $command->getToken();
 
-        if (!$user->api_key) {
-            $user->api_key = str_random(40);
-        }
-
         $user->save();
 
         return $user;
