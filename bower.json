@@ -5,6 +5,7 @@
         "font-awesome": "~4.3.0",
         "animate-sass": "~0.6.2",
         "jquery-timeago": "~1.4.1",
-        "SyntaxHighlighter": "3.0.9"
+        "SyntaxHighlighter": "3.0.9",
+        "lodash": "~3.0.1"
     }
 }
