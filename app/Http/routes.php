@@ -45,21 +45,6 @@ $router->get('commits/{commit}/diff/download', [
     'uses' => 'CommitController@handleDiffDownload',
 ]);
 
-$router->group(['prefix' => 'api'], function (Illuminate\Contracts\Routing\Registrar $router) {
-    $router->get('repo/{account}/{repository}', function ($account, $repository) {
-        // TODO: Update this to actually work...
-        if ($repo = StyleCI\StyleCI\Models\Repo::find(sha1("$account/$repository"))) {
-            if ($commit = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->first()) {
-                return new Illuminate\Http\JsonResponse(['message' => $commit->description().'.', 'status' => $commit->status()], 200, [], JSON_PRETTY_PRINT);
-            } else {
-                return new Illuminate\Http\JsonResponse(['message' => 'StyleCI has not analysed the master branch of the requested repository yet.'], 400, [], JSON_PRETTY_PRINT);
-            }
-        } else {
-            return new Illuminate\Http\JsonResponse(['message' => 'StyleCI does not have the requested repository on record.'], 404, [], JSON_PRETTY_PRINT);
-        }
-    });
-});
-
 $router->get('auth/login', [
     'as'   => 'auth_login_path',
     'uses' => 'AuthController@handleLogin',
