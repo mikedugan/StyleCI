@@ -1,4 +1,7 @@
 $(function() {
+    // App setup
+    window.StyleCI = {};
+
     // Global Ajax Setup
     $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
         var token;
@@ -13,16 +16,33 @@ $(function() {
     $.ajaxSetup({
         statusCode: {
             401: function () {
-                window.location.href = '/';
+                (new StyleCI.Notifier()).notify('Your session has expired, please login.');
             },
             403: function () {
-                window.location.href = '/';
+                (new StyleCI.Notifier()).notify('Your session has expired, please login.');
             }
         }
     });
 
-    // App setup
-    window.StyleCI = {};
+    StyleCI.Notifier = function () {
+        this.notify = function (message, type, options) {
+            type = (typeof type === 'undefined' || type === 'error') ? 'danger' : type;
+            var $alertsHolder = $('.alerts');
+
+            var defaultOptions = {
+                dismiss: false,
+            };
+
+            options = _.extend(defaultOptions, options);
+
+            var alertTpl = _.template('<div class="alert alert-<%= type %> styleci-alert"><div class="container"><a class="close" data-dismiss="alert">×</a><%= message %></div></div>');
+            $alertsHolder.html(alertTpl({message: message, type: type}));
+
+            $('html, body').animate({
+                scrollTop: $('body').offset().top
+            }, 500);
+        };
+    };
 
     StyleCI.Account = {
         getRepos: function(url) {
@@ -42,7 +62,7 @@ $(function() {
                     $reposHolder.html(reposTpl({repos: sortedData}));
                 })
                 .fail(function(response) {
-                    alert(response.responseJSON.msg);
+                    (new StyleCI.Notifier()).notify(response.responseJSON.msg);
                 })
                 .always(function() {
                     $loading.hide();
@@ -67,7 +87,7 @@ $(function() {
                     }
                 })
                 .fail(function(response) {
-                    alert(response.responseJSON.msg);
+                    (new StyleCI.Notifier()).notify(response.responseJSON.msg);
                 })
                 .always(function() {
                     btn.button('reset');

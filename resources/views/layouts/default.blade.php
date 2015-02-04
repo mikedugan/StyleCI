@@ -10,9 +10,9 @@
 <body>
 <div id="wrap">
 @include('partials.navbar')
+@include('partials.notifications')
 @section('top')
 @show
-@include('partials.notifications')
 <div class="container">
 @section('content')
 @show

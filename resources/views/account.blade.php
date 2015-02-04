@@ -32,7 +32,7 @@ Your Account
             <p>We're only showing your public repositories below</p>
             <hr>
             <div class="loading text-center hidden">
-                <h3><i class="fa fa-spinner fa-spin"></i> Fetching you repositories...</h3>
+                <h3><i class="fa fa-circle-o-notch fa-spin"></i> Fetching you repositories...</h3>
             </div>
             <div class="repos">
                 @if (isset($repos))
@@ -52,11 +52,11 @@ Your Account
                                 <a class="btn btn-primary" href="{{ route('repo_path', $id) }}">
                                     <i class="fa fa-history"></i> Show Commits
                                 </a>
-                                <a class="btn btn-danger" href="{{ route('disable_repo_path', $id) }}" data-id="{{ $id }}" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Disabling...">
+                                <a class="btn btn-danger" href="{{ route('disable_repo_path', $id) }}" data-id="{{ $id }}" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Disabling...">
                                     <i class="fa fa-times"></i> Disable StyleCI
                                 </a>
                                 @else
-                                <a class="btn btn-success" href="{{ route('enable_repo_path', $id) }}" data-id="{{ $id }}" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Enabling...">
+                                <a class="btn btn-success" href="{{ route('enable_repo_path', $id) }}" data-id="{{ $id }}" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Enabling...">
                                     <i class="fa fa-check"></i> Enable StyleCI
                                 </a>
                                 @endif
@@ -120,11 +120,11 @@ Your Account
                     <a class="btn btn-primary" href="{{ route('repo_path', '') }}/<%= repo.id %>">
                         <i class="fa fa-history"></i> Show Commits
                     </a>
-                    <a class="btn btn-danger js-disable-repo" href="{{ route('disable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Disabling...">
+                    <a class="btn btn-danger js-disable-repo" href="{{ route('disable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Disabling...">
                         <i class="fa fa-times"></i> Disable StyleCI
                     </a>
                     <% } else { %>
-                    <a class="btn btn-success js-enable-repo" href="{{ route('enable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Enabling...">
+                    <a class="btn btn-success js-enable-repo" href="{{ route('enable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Enabling...">
                         <i class="fa fa-check"></i> Enable StyleCI
                     </a>
                     <% } %>
@@ -142,13 +142,13 @@ Your Account
     <a class="btn btn-primary" href="{{ route('repo_path', '') }}/<%= repo.id %>">
         <i class="fa fa-history"></i> Show Commits
     </a>
-    <a class="btn btn-danger js-disable-repo" href="{{ route('disable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Disabling...">
+    <a class="btn btn-danger js-disable-repo" href="{{ route('disable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Disabling...">
         <i class="fa fa-times"></i> Disable StyleCI
     </a>
 </script>
 
 <script id="disabled-repo-template" type="text/x-lodash-template">
-    <a class="btn btn-success js-enable-repo" href="{{ route('enable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Enabling...">
+    <a class="btn btn-success js-enable-repo" href="{{ route('enable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Enabling...">
         <i class="fa fa-check"></i> Enable StyleCI
     </a>
 </script>

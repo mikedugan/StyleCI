@@ -1,3 +1,4 @@
+<div class="alerts">
 @if (isset($errors) && count($errors->all()) > 0)
 <div class="alert alert-danger styleci-alert">
     <a class="close" data-dismiss="alert">×</a>
@@ -20,3 +21,4 @@
     </div>
     @endif
 @endforeach
+</div>
