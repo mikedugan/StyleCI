@@ -50,6 +50,8 @@ class DisableHooksHandler
      */
     public function handle(RepoWasDisabledEvent $event)
     {
+        $repo = $event->getRepo();
+
         $this->hooks->disable($repo);
     }
 }
