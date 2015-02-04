@@ -13,8 +13,7 @@
 namespace StyleCI\StyleCI\Handlers\Commands;
 
 use StyleCI\StyleCI\Commands\DisableRepoCommand;
-use StyleCI\StyleCI\GitHub\Hooks;
-use StyleCI\StyleCI\Models\Repo;
+use StyleCI\StyleCI\Events\RepoWasDisabledEvent;
 
 /**
  * This is the disable repo command handler class.
@@ -23,25 +22,6 @@ use StyleCI\StyleCI\Models\Repo;
  */
 class DisableRepoCommandHandler
 {
-    /**
-     * The hooks instance.
-     *
-     * @var \StyleCI\StyleCI\GitHub\Hooks
-     */
-    protected $hooks;
-
-    /**
-     * Create a new enable repo command handler instance.
-     *
-     * @param \StyleCI\StyleCI\GitHub\Hooks $hooks
-     *
-     * @return void
-     */
-    public function __construct(Hooks $hooks)
-    {
-        $this->hooks = $hooks;
-    }
-
     /**
      * Handle the disable repo command.
      *
@@ -53,8 +33,6 @@ class DisableRepoCommandHandler
     {
         $repo = $command->getRepo();
 
-        $this->hooks->disable($repo);
-
         foreach ($repo->commits as $commit) {
             $commit->delete();
         }
@@ -62,6 +40,8 @@ class DisableRepoCommandHandler
         foreach ($repo->forks as $fork) {
             $fork->delete();
         }
+
+        event(new RepoWasDisabledEvent($repo));
 
         $repo->delete();
     }

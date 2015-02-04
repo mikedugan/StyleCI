@@ -13,6 +13,7 @@
 namespace StyleCI\StyleCI\Handlers\Commands;
 
 use StyleCI\StyleCI\Commands\LoginCommand;
+use StyleCI\StyleCI\Events\UserHasSignedUpEvent;
 use StyleCI\StyleCI\Models\User;
 
 /**
@@ -35,6 +36,7 @@ class LoginCommandHandler
         $user = User::find($command->getId());
 
         if (!$user) {
+            $new = true;
             $user = new User();
         }
 
@@ -45,6 +47,10 @@ class LoginCommandHandler
         $user->access_token = $command->getToken();
 
         $user->save();
+
+        if (isset($new)) {
+            event(new UserHasSignedUpEvent($user));
+        }
 
         return $user;
     }

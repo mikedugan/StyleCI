@@ -15,7 +15,7 @@ namespace StyleCI\StyleCI\Handlers\Commands;
 use StyleCI\Fixer\Report;
 use StyleCI\Fixer\ReportBuilder;
 use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
-use StyleCI\StyleCI\GitHub\Status;
+use StyleCI\StyleCI\Events\AnalysisHasCompletedEvent;
 use StyleCI\StyleCI\Models\Commit;
 
 /**
@@ -33,28 +33,19 @@ class AnalyseCommitCommandHandler
     protected $builder;
 
     /**
-     * The status instance.
-     *
-     * @var \StyleCI\StyleCI\GitHub\Status
-     */
-    protected $status;
-
-    /**
      * Create a new analyse commit command handler instance.
      *
-     * @param \StyleCI\Fixer\ReportBuilder   $builder
-     * @param \StyleCI\StyleCI\GitHub\Status $status
+     * @param \StyleCI\Fixer\ReportBuilder $builder
      *
      * @return void
      */
-    public function __construct(ReportBuilder $builder, Status $status)
+    public function __construct(ReportBuilder $builder)
     {
         $this->builder = $builder;
-        $this->status = $status;
     }
 
     /**
-     * Handle the command.
+     * Handle the analyse commit command.
      *
      * @param \StyleCI\StyleCI\Commands\AnalyseCommitCommand $command
      *
@@ -68,7 +59,7 @@ class AnalyseCommitCommandHandler
 
         $this->saveReport($report, $commit);
 
-        $this->status->push($commit);
+        event(new AnalysisHasCompletedEvent($commit));
     }
 
     /**
