@@ -13,7 +13,7 @@
 namespace StyleCI\StyleCI\Handlers\Commands;
 
 use StyleCI\StyleCI\Commands\EnableRepoCommand;
-use StyleCI\StyleCI\GitHub\Hooks;
+use StyleCI\StyleCI\Events\RepoWasEnabledEvent;
 use StyleCI\StyleCI\Models\Repo;
 
 /**
@@ -23,25 +23,6 @@ use StyleCI\StyleCI\Models\Repo;
  */
 class EnableRepoCommandHandler
 {
-    /**
-     * The hooks instance.
-     *
-     * @var \StyleCI\StyleCI\GitHub\Hooks
-     */
-    protected $hooks;
-
-    /**
-     * Create a new enable repo command handler instance.
-     *
-     * @param \StyleCI\StyleCI\GitHub\Hooks $hooks
-     *
-     * @return void
-     */
-    public function __construct(Hooks $hooks)
-    {
-        $this->hooks = $hooks;
-    }
-
     /**
      * Handle the enable repo command.
      *
@@ -59,9 +40,6 @@ class EnableRepoCommandHandler
 
         $repo->save();
 
-        // disable all styleci hooks before adding the new one in case any old
-        // conflicting ones are left over, then add the new webhook
-        $this->hooks->disable($repo);
-        $this->hooks->enable($repo);
+        event(new RepoWasEnabledEvent($repo));
     }
 }

@@ -15,6 +15,7 @@ namespace StyleCI\StyleCI\Handlers\Commands;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use StyleCI\StyleCI\Commands\DeleteAccountCommand;
 use StyleCI\StyleCI\Commands\DisableRepoCommand;
+use StyleCI\StyleCI\Events\UserHasRageQuitEvent;
 
 /**
  * This is the delete account command handler class.
@@ -39,6 +40,8 @@ class DeleteAccountCommandHandler
         foreach ($user->repos as $repo) {
             $this->dispatch(new DisableRepoCommand($repo));
         }
+
+        event(new UserHasRageQuitEvent($user));
 
         $user->delete();
     }

@@ -26,5 +26,16 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $listen = [];
+    protected $listen = [
+        'StyleCI\StyleCI\Events\AnalysisHasCompletedEvent' => [
+            'StyleCI\StyleCI\Handlers\Events\CommitStatusHandler',
+            'StyleCI\StyleCI\Handlers\Events\AnalysisNotificationsHandler',
+        ],
+        'StyleCI\StyleCI\Events\RepoWasDisabledEvent' => [
+            'StyleCI\StyleCI\Handlers\Events\DisableHooksHandler',
+        ],
+        'StyleCI\StyleCI\Events\RepoWasEnabledEvent' => [
+            'StyleCI\StyleCI\Handlers\Events\EnableHooksHandler',
+        ],
+    ];
 }
