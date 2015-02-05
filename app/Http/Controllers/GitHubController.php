@@ -115,6 +115,7 @@ class GitHubController extends AbstractController
 
             if (!$fork) {
                 $fork = new Fork(['id' => $forkId, 'repo_id' => $repo->id, 'name' => $forkName]);
+                $fork->save();
             }
 
             $commitId = $input['pull_request']['head']['sha'];
