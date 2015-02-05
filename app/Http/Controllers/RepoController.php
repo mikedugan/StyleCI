@@ -12,7 +12,9 @@
 
 namespace StyleCI\StyleCI\Http\Controllers;
 
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\View;
+use StyleCI\StyleCI\GitHub\Repos;
 use StyleCI\StyleCI\Models\Repo;
 
 /**
@@ -23,12 +25,32 @@ use StyleCI\StyleCI\Models\Repo;
 class RepoController extends AbstractController
 {
     /**
+     * The authentication guard instance.
+     *
+     * @var \Illuminate\Contracts\Auth\Guard
+     */
+    protected $auth;
+
+    /**
+     * The github repos instance.
+     *
+     * @var \StyleCI\StyleCI\GitHub\Repos
+     */
+    protected $repos;
+
+    /**
      * Create a new account controller instance.
+     *
+     * @param \Illuminate\Contracts\Auth\Guard $auth
+     * @param \StyleCI\StyleCI\GitHub\Repos    $repos
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Guard $auth, Repos $repos)
     {
+        $this->auth = $auth;
+        $this->repos = $repos;
+
         $this->middleware('auth', ['only' => 'handleList']);
     }
 
@@ -39,7 +61,7 @@ class RepoController extends AbstractController
      */
     public function handleList()
     {
-        $repos = Repo::orderBy('name', 'asc')->take(50)->get();
+        $repos = Repo::whereIn('id', array_keys($this->repos->get($this->auth->user)))->orderBy('name', 'asc')->get();
 
         return View::make('repos', compact('repos'));
     }
