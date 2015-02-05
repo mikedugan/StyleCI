@@ -57,7 +57,7 @@ class CommitController extends AbstractController
     public function handleDiffDownload(Commit $commit)
     {
         return Response::make($commit->diff)
-        ->header('Content-Type', 'text/plain; charset=UTF-8')
-        ->header('Content-Disposition', 'attachment; filename=patch.txt');
+            ->header('Content-Type', 'text/plain; charset=UTF-8')
+            ->header('Content-Disposition', 'attachment; filename=patch.txt');
     }
 }
