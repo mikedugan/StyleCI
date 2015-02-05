@@ -61,7 +61,7 @@ class RepoController extends AbstractController
      */
     public function handleList()
     {
-        $repos = Repo::whereIn('id', array_keys($this->repos->get($this->auth->user)))->orderBy('name', 'asc')->get();
+        $repos = Repo::whereIn('id', array_keys($this->repos->get($this->auth->user())))->orderBy('name', 'asc')->get();
 
         return View::make('repos', compact('repos'));
     }
