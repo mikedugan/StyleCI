@@ -27,6 +27,7 @@ class Kernel extends HttpKernel
      * @var string[]
      */
     protected $middleware = [
+        'Fideloper\Proxy\TrustProxies',
         'StyleCI\StyleCI\Http\Middleware\CheckForMaintenanceMode',
         'Illuminate\Cookie\Middleware\EncryptCookies',
         'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
