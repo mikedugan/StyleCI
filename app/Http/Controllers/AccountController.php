@@ -125,7 +125,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * Delete a StyleCI account.
+     * Delete the user's account and all their repos.
      *
      * @return \Illuminate\Http\Response
      */
