@@ -60,8 +60,8 @@ class Repos
      */
     public function get(User $user)
     {
-        // cache the repo info from github for 24 hours
-        $list = $this->cache->remember($user->id.'repos', 1440, function () use ($user) {
+        // cache the repo info from github for 12 hours
+        $list = $this->cache->remember($user->id.'repos', 720, function () use ($user) {
             return $this->fetchFromGitHub($user);
         });
 
