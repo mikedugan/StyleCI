@@ -14,6 +14,20 @@ Your Account
 @stop
 
 @section('content')
+<div class="modal fade" id="delete_account" tabindex="-1" role="dialog" aria-labelledby="delete_account" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Hey! <small>We don't take those actions lightly around here...</small></h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete your account?</p>
+                <a href="{{ route('account_delete_path') }}" class="btn btn-danger">Delete Account</a>
+            </div>
+        </div>
+    </div>
+</div>
 <div role="tabpanel">
     <ul class="nav nav-tabs nav-justified" role="tablist">
         <li role="presentation" class="active">
@@ -93,7 +107,7 @@ Your Account
             <h2>Delete Account</h2>
             <p class="lead">You may delete your account here.</p>
             <p>Note that account deletion will remove all your data from our servers, so if you create a new account in the future, all your current analyses will be missing.</p>
-            <p class="lead">TODO</p>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_account"><i class="fa fa-times"></i> Delete Account</button>
         </div>
     </div>
 </div>
