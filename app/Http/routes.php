@@ -65,6 +65,11 @@ $router->get('account', [
     'uses' => 'AccountController@handleShow',
 ]);
 
+$router->get('account/delete', [
+    'as'   => 'account_delete_path',
+    'uses' => 'AccountController@handleDelete',
+]);
+
 $router->get('account/repos', [
     'as'   => 'account_repos_path',
     'uses' => 'AccountController@handleListRepos',

@@ -17,6 +17,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
+use StyleCI\StyleCI\Commands\DeleteAccountCommand;
 use StyleCI\StyleCI\Commands\DisableRepoCommand;
 use StyleCI\StyleCI\Commands\EnableRepoCommand;
 use StyleCI\StyleCI\GitHub\Repos;
@@ -121,5 +122,17 @@ class AccountController extends AbstractController
         }
 
         return Redirect::route('account_path');
+    }
+
+    /**
+     * Delete the user's account and all their repos.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleDelete()
+    {
+        $this->dispatch(new DeleteAccountCommand($this->auth->user()));
+
+        return Redirect::route('home')->with('delete_account', 'Your account has been successfully deleted!');
     }
 }
