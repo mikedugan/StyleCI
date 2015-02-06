@@ -19,11 +19,15 @@ Your Account
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Hey! <small>We don't take those actions lightly around here...</small></h4>
+                <h4 class="modal-title" id="myModalLabel">Delete Account</h4>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to delete your account?</p>
-                <a href="{{ route('account_delete_path') }}" class="btn btn-danger">Delete Account</a>
+                <p>You are about to delete your account and your repos from StyleCI. This process cannot be reverted, however you may still sign up again in the future should you change your mind.</p>
+                <p>Are you sure you wish to continue?</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-success" href="{{ route('account_delete_path') }}">Yes</a>
+                <button class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
         </div>
     </div>
@@ -107,6 +111,7 @@ Your Account
             <h2>Delete Account</h2>
             <p class="lead">You may delete your account here.</p>
             <p>Note that account deletion will remove all your data from our servers, so if you create a new account in the future, all your current analyses will be missing.</p>
+            <br>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_account"><i class="fa fa-times"></i> Delete Account</button>
         </div>
     </div>
