@@ -62,9 +62,8 @@ class AuthController extends AbstractController
         $response = $socialite->driver('github');
 
         $response->scopes([
+            'repo',
             'user:email',
-            'repo:status',
-            'read:org',
             'admin:repo_hook',
         ]);
 
