@@ -7,8 +7,13 @@
 @section('top')
 <div class="page-heading">
     <div class="container">
-        <h1>{{ $repo->name }}</h1>
-        <p>Here you can see all the analysed commits</p>
+        <div class="left">
+            <h1>{{ $repo->name }}</h1>
+            <p>Here you can see all the analysed commits</p>
+        </div>
+        <div class="right">
+            <a href="{{ route('repo_analyse_path', $repo->id) }}" class="btn btn-success" data-id="{{ $repo->id }}" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Analysing..."><i class="fa fa-eye"></i> Analyse Now</a>
+        </div>
     </div>
 </div>
 @stop
