@@ -94,4 +94,18 @@ class Commit extends Model implements HasPresenter
                 return 'The StyleCI checks are pending';
         }
     }
+
+    /**
+     * Get the commit's repo name.
+     *
+     * @return string
+     */
+    public function name()
+    {
+        if (empty($this->wrappedObject->fork_id)) {
+            return $this->wrappedObject->repo->name;
+        } else {
+            return $this->wrappedObject->fork->name;
+        }
+    }
 }

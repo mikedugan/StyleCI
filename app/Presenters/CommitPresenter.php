@@ -39,20 +39,6 @@ class CommitPresenter extends BasePresenter
     }
 
     /**
-     * Get the commit's repo name.
-     *
-     * @return string
-     */
-    public function name()
-    {
-        if (empty($this->wrappedObject->fork_id)) {
-            return $this->wrappedObject->repo->name;
-        } else {
-            return $this->wrappedObject->fork->name;
-        }
-    }
-
-    /**
      * Get the commit's repo shorthand id.
      *
      * @return string
