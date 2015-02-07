@@ -11,7 +11,7 @@ elixir(function(mix) {
             'vendor/bower_components/SyntaxHighlighter/src/js/shCore.js',
             'resources/assets/js/**/*.js',
             'resources/assets/js/app.js',
-        ], './', 'public/dist/js/app.js')
+        ], 'public/dist/js/app.js', './')
         .version(['dist/css/app.css', 'dist/js/app.js'])
         .copy("vendor/bower_components/font-awesome/fonts/", "public/fonts/");
 });
