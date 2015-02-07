@@ -41,7 +41,8 @@ class Repos
     /**
      * Create a github repos instance.
      *
-     * @param \StyleCI\StyleCI\GitHub\ClientFactory $factory
+     * @param \StyleCI\StyleCI\GitHub\ClientFactory  $factory
+     * @param \Illuminate\Contracts\Cache\Repository $cache
      *
      * @return void
      */
