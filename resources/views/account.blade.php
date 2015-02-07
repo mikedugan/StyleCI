@@ -50,7 +50,7 @@ Your Account
             <p>We're only showing your public repositories below</p>
             <hr>
             <div class="loading text-center hidden">
-                <h3><i class="fa fa-circle-o-notch fa-spin"></i> Fetching you repositories...</h3>
+                <h3><i class="fa fa-circle-o-notch fa-spin"></i> Fetching your repositories...</h3>
             </div>
             <div class="repos">
                 @if (isset($repos))
