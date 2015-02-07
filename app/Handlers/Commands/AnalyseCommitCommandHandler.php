@@ -55,7 +55,7 @@ class AnalyseCommitCommandHandler
     {
         $commit = $command->getCommit();
 
-        $report = $this->builder->analyse($commit->name(), $commit->id);
+        $report = $this->builder->analyse($commit->name, $commit->id);
 
         $this->saveReport($report, $commit);
 

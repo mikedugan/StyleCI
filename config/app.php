@@ -145,6 +145,7 @@ return [
         'Illuminate\View\ViewServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
         'Fideloper\Proxy\TrustedProxyServiceProvider',
+        'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
         'GrahamCampbell\Binput\BinputServiceProvider',
         'GrahamCampbell\Core\CoreServiceProvider',
         'GrahamCampbell\GitHub\GitHubServiceProvider',

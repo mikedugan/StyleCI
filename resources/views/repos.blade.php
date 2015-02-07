@@ -26,7 +26,7 @@ Repos
         @else
         <p style="color:grey">
         @endif
-            <strong>{{ $commit->summary() }}</strong>
+            <strong>{{ $commit->summary }}</strong>
         </p>
         </div>
         <div class="col-sm-4 list-vcenter">

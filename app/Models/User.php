@@ -15,6 +15,8 @@ namespace StyleCI\StyleCI\Models;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Model;
+use McCool\LaravelAutoPresenter\HasPresenter;
+use StyleCI\StyleCI\Presenters\UserPresenter;
 
 /**
  * This is the user model class.
@@ -22,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @author Graham Campbell <graham@mineuk.com>
  * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
-class User extends Model implements AuthenticatableContract
+class User extends Model implements AuthenticatableContract, HasPresenter
 {
     use Authenticatable;
 
@@ -58,14 +60,12 @@ class User extends Model implements AuthenticatableContract
     }
 
     /**
-     * Returns a Gravatar URL for the users email address.
-     *
-     * @param int $size
+     * Get the presenter class.
      *
      * @return string
      */
-    public function gravatar($size = 200)
+    public function getPresenterClass()
     {
-        return sprintf('https://www.gravatar.com/avatar/%s?size=%d', md5($this->email), $size);
+        return UserPresenter::class;
     }
 }

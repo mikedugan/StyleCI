@@ -38,6 +38,7 @@
         "graham-campbell/core": "~2.0",
         "graham-campbell/github": "~2.0",
         "graham-campbell/htmlmin": "~3.0",
+        "mccool/laravel-auto-presenter": "~3.0",
         "styleci/fixer": "0.1.*",
         "knplabs/github-api": "~1.5"
     },
