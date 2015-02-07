@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace StyleCI\StyleCI\Console\Commands;
+namespace StyleCI\StyleCI;
 
 use StyleCI\StyleCI\Models\Commit;
 
@@ -30,9 +30,9 @@ trait GetCommitTrait
      *
      * @return \StyleCI\StyleCI\Models\Commit
      */
-    protected function getCommit($branch, $repo, $id)
+    protected static function getCommit($branch, $repo, $id)
     {
-        $commit = Commit::Find($id);
+        $commit = Commit::find($id);
 
         if (!$commit) {
             $commit = new Commit(['id' => $id, 'repo_id' => $repo]);

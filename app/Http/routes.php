@@ -30,6 +30,11 @@ $router->get('repos/{repo}', [
     'uses' => 'RepoController@handleShow'
 ]);
 
+$router->get('repos/{repo}/analyse', [
+    'as'   => 'repo_analyse_path',
+    'uses' => 'RepoController@handleAnalyse'
+]);
+
 $router->get('commits/{commit}', [
     'as'   => 'commit_path',
     'uses' => 'CommitController@handleShow'
