@@ -96,7 +96,7 @@ Your Account
             <h2>Profile</h2>
             <div class="row">
                 <div class="col-md-3">
-                    <img src="{{ $currentUser->gravatar() }}" alt="{{ $currentUser->name }}" />
+                    <img src="{{ $currentUser->gravatar }}" alt="{{ $currentUser->name }}" />
                 </div>
                 <div class="col-md-9">
                     <dl class="profile">

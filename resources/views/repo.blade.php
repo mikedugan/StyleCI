@@ -38,7 +38,7 @@
             <small>{{ $commit->created_at->diffForHumans() }}</small>
         </div>
         <div class="col-sm-1">
-            <small>{{ $commit->excecutedTime() }}</small>
+            <small>{{ $commit->excecutedTime }}</small>
         </div>
         <div class="col-sm-1">
             @if ($commit->status() === 1)
@@ -48,12 +48,12 @@
             @else
             <p style="color:grey">
             @endif
-            <strong>{{ $commit->summary() }}</strong>
+            <strong>{{ $commit->summary }}</strong>
             </p>
         </div>
         <div class="col-sm-4 repo-buttons">
             <a class="badge-id" href="https://github.com/{{ $repo->name }}/commit/{{ $commit->id }}">
-                {{ $commit->shorthandId() }}
+                {{ $commit->shorthandId }}
             </a>
             <a class="btn btn-sm btn-default" href="{{ route('commit_path', $commit->id) }}">Show Details</a>
         </div>
