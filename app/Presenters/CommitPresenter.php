@@ -28,7 +28,7 @@ class CommitPresenter extends BasePresenter
      */
     public function summary()
     {
-        switch ($this->wrappedObject->status)) {
+        switch ($this->wrappedObject->status) {
             case 1:
                 return 'PASSED';
             case 2:
