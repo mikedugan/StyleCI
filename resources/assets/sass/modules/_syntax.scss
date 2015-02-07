@@ -8,6 +8,12 @@ $code_color3:					$styleci-dark-primary !default;
 
 @import "./vendor/bower_components/SyntaxHighlighter/src/sass/shCoreDefault";
 
+.syntaxhighlighter {
+    overflow: hidden !important;    /* reset the overflow property to hidden */
+    overflow-x: scroll !important;  /* reset the previous property to scroll only for x */
+    overflow-y: hidden !important;  /* just to make sure it WONT SCROLL */
+}
+
 .syntaxhighlighter table td.code .line {
     padding: 2px 1em !important;
 }
