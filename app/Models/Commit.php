@@ -102,10 +102,10 @@ class Commit extends Model implements HasPresenter
      */
     public function name()
     {
-        if (empty($this->wrappedObject->fork_id)) {
-            return $this->wrappedObject->repo->name;
+        if (empty($this->fork_id)) {
+            return $this->repo->name;
         } else {
-            return $this->wrappedObject->fork->name;
+            return $this->fork->name;
         }
     }
 }

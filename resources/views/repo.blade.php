@@ -31,7 +31,7 @@
         </div>
     </div>
     @foreach($commits as $commit)
-    <div class="row @if($commit->status() === 1) bg-success @elseif ($commit->status() === 2) bg-danger @else bg-active @endif">
+    <div class="row @if($commit->status === 1) bg-success @elseif ($commit->status === 2) bg-danger @else bg-active @endif">
         <div class="col-sm-6">
             <strong>{{ $commit->message }}</strong>
             <br>
@@ -41,9 +41,9 @@
             <small>{{ $commit->excecutedTime }}</small>
         </div>
         <div class="col-sm-1">
-            @if ($commit->status() === 1)
+            @if ($commit->status === 1)
             <p style="color:green">
-            @elseif ($commit->status() === 2)
+            @elseif ($commit->status === 2)
             <p style="color:red">
             @else
             <p style="color:grey">

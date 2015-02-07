@@ -15,9 +15,9 @@ Commit - {{ $commit->message }}
 
 @section('content')
 <div class="commit">
-    @if ($commit->status() === 1)
+    @if ($commit->status === 1)
     <p class="lead" style="color:green">
-    @elseif ($commit->status() === 2)
+    @elseif ($commit->status === 2)
     <p class="lead" style="color:red">
     @else
     <p class="lead" style="color:grey">
@@ -32,7 +32,7 @@ Commit - {{ $commit->message }}
             <h5>{{ $commit->id }}</h5>
         </div>
         <div class="col-sm-4">
-            @if ($commit->status() === 2)
+            @if ($commit->status === 2)
             <ul class="list-group">
                 <a class="list-group-item" href="{{ route('commit_download_path', $commit->id) }}">
                     <i class="fa fa-cloud-download"></i> Download patch
@@ -44,7 +44,7 @@ Commit - {{ $commit->message }}
             @endif
         </div>
     </div>
-    @if ($commit->status() === 2)
+    @if ($commit->status === 2)
     <hr>
     <pre class="brush: diff">
         {{ $commit->diff }}

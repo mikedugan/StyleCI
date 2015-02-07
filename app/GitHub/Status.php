@@ -63,7 +63,7 @@ class Status
         $args = explode('/', $repo->name);
 
         $data = [
-            'state'       => $this->getState($commit->status()),
+            'state'       => $this->getState($commit->status),
             'description' => $commit->description(),
             'target_url'  => $this->url.'/'.$commit->id,
             'context'     => 'StyleCI',
