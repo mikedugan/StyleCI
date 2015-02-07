@@ -42,7 +42,7 @@ class UseDatabaseTransaction
     }
 
     /**
-     * Handle a the command.
+     * Handle the command.
      *
      * @param object   $command
      * @param \Closure $next
