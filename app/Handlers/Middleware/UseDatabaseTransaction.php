@@ -16,21 +16,21 @@ use Closure;
 use Illuminate\Database\DatabaseManager;
 
 /**
- * This is the use database transactions middleware class.
+ * This is the use database transaction middleware class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
 class UseDatabaseTransaction
 {
     /**
-     * The database connection resolver.
+     * The database manager.
      *
      * @var \Illuminate\Database\DatabaseManager
      */
     protected $app;
 
     /**
-     * Create a use database transactions middleware instance.
+     * Create a use database transaction middleware instance.
      *
      * @param \Illuminate\Database\DatabaseManager $db
      *
