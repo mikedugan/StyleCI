@@ -14,8 +14,8 @@ namespace StyleCI\StyleCI\Http\Controllers;
 
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 use StyleCI\StyleCI\Commands\DeleteAccountCommand;
 use StyleCI\StyleCI\Commands\DisableRepoCommand;
@@ -73,13 +73,15 @@ class AccountController extends AbstractController
     /**
      * Show the user's public repositories.
      *
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\View\View|\Illuminate\Http\JsonResponse
      */
-    public function handleListRepos()
+    public function handleListRepos(Request $request)
     {
         $repos = $this->repos->get($this->auth->user());
 
-        if (Request::ajax()) {
+        if ($request->ajax()) {
             return new JsonResponse(['data' => $repos]);
         }
 
@@ -89,13 +91,15 @@ class AccountController extends AbstractController
     /**
      * Sync the user's public repositories.
      *
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
-    public function handleSync()
+    public function handleSync(Request $request)
     {
         $this->repos->flush($this->auth->user());
 
-        if (Request::ajax()) {
+        if ($request->ajax()) {
             return new JsonResponse(['flushed' => true]);
         }
 
@@ -105,17 +109,18 @@ class AccountController extends AbstractController
     /**
      * Enable StyleCI for a repo.
      *
-     * @param int $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
      *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
-    public function handleEnable($id)
+    public function handleEnable(Request $request, $id)
     {
         $name = $this->repos->get($this->auth->user())[$id]['name'];
 
         $this->dispatch(new EnableRepoCommand($id, $name, $this->auth->user()));
 
-        if (Request::ajax()) {
+        if ($request->ajax()) {
             return new JsonResponse(['enabled' => true]);
         }
 
@@ -125,15 +130,16 @@ class AccountController extends AbstractController
     /**
      * Disable StyleCI for a repo.
      *
+     * @param \Illuminate\Http\Request     $request
      * @param \StyleCI\StyleCI\Models\Repo $repo
      *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
-    public function handleDisable(Repo $repo)
+    public function handleDisable(Request $request, Repo $repo)
     {
         $this->dispatch(new DisableRepoCommand($repo));
 
-        if (Request::ajax()) {
+        if ($request->ajax()) {
             return new JsonResponse(['enabled' => false]);
         }
 

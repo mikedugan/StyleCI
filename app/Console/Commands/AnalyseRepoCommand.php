@@ -15,6 +15,7 @@ namespace StyleCI\StyleCI\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
+use StyleCI\StyleCI\GetCommitTrait;
 use StyleCI\StyleCI\Models\Repo;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -55,7 +56,7 @@ class AnalyseRepoCommand extends Command
         $branches = $this->laravel['styleci.branches']->get($repo);
 
         foreach ($branches as $branch) {
-            $commit = $this->getCommit($branch['name'], $repo->id, $branch['commit']);
+            $commit = static::getCommit($branch['name'], $repo->id, $branch['commit']);
             $this->dispatch(new AnalyseCommitCommand($commit));
             $this->info('Analysis of the "'.$branch['name'].'" branch has been scheduled.');
         }
