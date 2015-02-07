@@ -12,6 +12,7 @@
 
 namespace StyleCI\StyleCI\Events;
 
+use Illuminate\Queue\SerializesModels;
 use StyleCI\StyleCI\Models\Repo;
 
 /**
@@ -21,6 +22,8 @@ use StyleCI\StyleCI\Models\Repo;
  */
 class RepoWasEnabledEvent
 {
+    use SerializesModels;
+
     /**
      * The repo that was enabled.
      *

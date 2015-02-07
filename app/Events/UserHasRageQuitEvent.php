@@ -12,6 +12,7 @@
 
 namespace StyleCI\StyleCI\Events;
 
+use Illuminate\Queue\SerializesModels;
 use StyleCI\StyleCI\Models\User;
 
 /**
@@ -21,6 +22,8 @@ use StyleCI\StyleCI\Models\User;
  */
 class UserHasRageQuitEvent
 {
+    use SerializesModels;
+
     /**
      * The user that has rage quit.
      *

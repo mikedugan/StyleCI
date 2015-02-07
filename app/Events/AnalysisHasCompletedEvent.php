@@ -12,6 +12,7 @@
 
 namespace StyleCI\StyleCI\Events;
 
+use Illuminate\Queue\SerializesModels;
 use StyleCI\StyleCI\Models\Commit;
 
 /**
@@ -21,6 +22,8 @@ use StyleCI\StyleCI\Models\Commit;
  */
 class AnalysisHasCompletedEvent
 {
+    use SerializesModels;
+
     /**
      * The commit that was analysed.
      *
