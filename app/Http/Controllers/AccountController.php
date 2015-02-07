@@ -87,6 +87,22 @@ class AccountController extends AbstractController
     }
 
     /**
+     * Sync the user's public repositories.
+     *
+     * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
+     */
+    public function handleSync()
+    {
+        $this->repos->flush($this->auth->user());
+
+        if (Request::ajax()) {
+            return new JsonResponse(['flushed' => true]);
+        }
+
+        return Redirect::route('account_path');
+    }
+
+    /**
      * Enable StyleCI for a repo.
      *
      * @param int $id

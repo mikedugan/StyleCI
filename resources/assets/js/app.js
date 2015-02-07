@@ -24,6 +24,12 @@ $(function() {
         }
     });
 
+    StyleCI.globals = {
+        host: window.location.host,
+        base_url: window.location.protocol + "//" + window.location.host,
+        url: document.URL
+    };
+
     StyleCI.Notifier = function () {
         this.notify = function (message, type, options) {
             type = (typeof type === 'undefined' || type === 'error') ? 'danger' : type;
@@ -50,9 +56,12 @@ $(function() {
                 $reposHolder = $('.repos'),
                 $loading = $('.loading');
 
-            $loading = $('.loading').removeClass('hidden');
+            $loading.show();
+            $reposHolder.hide();
 
-            $.get(url)
+            var requestUrl = (typeof url !== 'undefined') ? url : StyleCI.globals.base_url + '/account/repos';
+
+            return $.get(requestUrl)
                 .done(function(response) {
                     var reposTpl = _.template($tpl.html());
                     var sortedData = _.sortBy(response.data, function(repo, key) {
@@ -60,12 +69,33 @@ $(function() {
                         return repo.name.toLowerCase();
                     });
                     $reposHolder.html(reposTpl({repos: sortedData}));
+                    $reposHolder.show();
                 })
                 .fail(function(response) {
                     (new StyleCI.Notifier()).notify(response.responseJSON.msg);
                 })
                 .always(function() {
                     $loading.hide();
+                });
+        },
+        syncRepos: function(btn) {
+            var self = this,
+                $reposHolder = $('.repos'),
+                $loading = $('.loading');
+
+            btn.button('loading');
+
+            $loading.show();
+            $reposHolder.hide();
+
+            return $.get(btn.attr('href'))
+                .done(function(response) {
+                    $.when(self.getRepos()).then(function() {
+                        btn.button('reset').blur();
+                    });
+                })
+                .fail(function(response) {
+                    (new StyleCI.Notifier()).notify(response.responseJSON.msg);
                 });
         },
         enableOrDisableRepo: function(btn) {
@@ -98,6 +128,12 @@ $(function() {
     $(document.body).on('click', '.js-enable-repo, .js-disable-repo', function(e) {
         e.preventDefault();
         StyleCI.Account.enableOrDisableRepo($(this));
+        return false;
+    });
+
+    $('.js-sync-repos').on('click', function(e) {
+        e.preventDefault();
+        StyleCI.Account.syncRepos($(this));
         return false;
     });
 });

@@ -46,10 +46,14 @@ Your Account
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="repositories">
+            <a class="btn btn-default pull-right js-sync-repos" href="{{ route('account_repos_sync_path') }}" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Loading...">
+                <i class="fa fa-github"></i>
+                Sync with GitHub
+            </a>
             <h2>Repositories</h2>
             <p>We're only showing your public repositories below</p>
             <hr>
-            <div class="loading text-center hidden">
+            <div class="loading text-center">
                 <h3><i class="fa fa-circle-o-notch fa-spin"></i> Fetching your repositories...</h3>
             </div>
             <div class="repos">
@@ -173,7 +177,7 @@ Your Account
 @if (!isset($repos))
 <script charset="utf-8">
     $(function() {
-        StyleCI.Account.getRepos('{{ route('account_repos_path') }}');
+        StyleCI.Account.getRepos();
     });
 </script>
 @endif
