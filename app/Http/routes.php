@@ -75,6 +75,11 @@ $router->get('account/repos', [
     'uses' => 'AccountController@handleListRepos',
 ]);
 
+$router->get('account/repos/sync', [
+    'as'   => 'account_repos_sync_path',
+    'uses' => 'AccountController@handleSync',
+]);
+
 $router->get('account/enable/{id}', [
     'as'   => 'enable_repo_path',
     'uses' => 'AccountController@handleEnable',
