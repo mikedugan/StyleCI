@@ -12,16 +12,36 @@
 
 namespace StyleCI\StyleCI\Composers;
 
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Auth;
 
 /**
- * This is the logged user composer class.
+ * This is the current user composer class.
  *
+ * @author Graham Campbell <graham@mineuk.com>
  * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
-class LoggedUserComposer
+class CurrentUserComposer
 {
+    /**
+     * The authentication guard instance.
+     *
+     * @var \Illuminate\Contracts\Auth\Guard
+     */
+    protected $auth;
+
+    /**
+     * Create a new current user composer instance.
+     *
+     * @param \Illuminate\Contracts\Auth\Guard $auth
+     *
+     * @return void
+     */
+    public function __construct(Guard $auth)
+    {
+        $this->auth = $auth;
+    }
+
     /**
      * Bind data to the view.
      *
@@ -31,6 +51,6 @@ class LoggedUserComposer
      */
     public function compose(View $view)
     {
-        $view->with('loggedUser', Auth::user());
+        $view->with('currentUser', $this->auth->user());
     }
 }

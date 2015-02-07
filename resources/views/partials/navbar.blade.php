@@ -11,11 +11,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="@if($loggedUser) {{ route('repos_path') }} @else {{ route('auth_login_path') }} @endif">Repositories</a></li>
+                <li><a href="@if($currentUser) {{ route('repos_path') }} @else {{ route('auth_login_path') }} @endif">Repositories</a></li>
             </ul>
-            @if($loggedUser)
+            @if($currentUser)
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('account_path') }}">{{ $loggedUser->name }}</a></li>
+                <li><a href="{{ route('account_path') }}">{{ $currentUser->name }}</a></li>
                 <li><a href="{{ route('auth_logout_path') }}">Logout <span class="sr-only">(current)</span></a></li>
             </ul>
             @else

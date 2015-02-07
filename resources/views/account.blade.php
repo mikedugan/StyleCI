@@ -96,14 +96,14 @@ Your Account
             <h2>Profile</h2>
             <div class="row">
                 <div class="col-md-3">
-                    <img src="{{ $loggedUser->gravatar() }}" alt="{{ $loggedUser->name }}" />
+                    <img src="{{ $currentUser->gravatar() }}" alt="{{ $currentUser->name }}" />
                 </div>
                 <div class="col-md-9">
                     <dl class="profile">
                         <dt>GitHub</dt>
-                        <dd>{{ $loggedUser->username }}</dd>
+                        <dd>{{ $currentUser->username }}</dd>
                         <dt>Email</dt>
-                        <dd>{{ $loggedUser->email }}</dd>
+                        <dd>{{ $currentUser->email }}</dd>
                     </dl>
                 </div>
             </div>
