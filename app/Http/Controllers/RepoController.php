@@ -13,6 +13,7 @@
 namespace StyleCI\StyleCI\Http\Controllers;
 
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\View;
 use StyleCI\StyleCI\GitHub\Repos;
 use StyleCI\StyleCI\Models\Repo;
@@ -63,7 +64,13 @@ class RepoController extends AbstractController
     {
         $repos = Repo::whereIn('id', array_keys($this->repos->get($this->auth->user())))->orderBy('name', 'asc')->get();
 
-        return View::make('repos', compact('repos'));
+        $commits = new Collection();
+
+        foreach ($repos as $repo) {
+            $commits->put($repo->id, $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->first());
+        }
+
+        return View::make('repos', compact('repos', 'commits'));
     }
 
     /**

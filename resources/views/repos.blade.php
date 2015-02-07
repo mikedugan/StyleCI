@@ -18,7 +18,7 @@ Repos
 <div class="row">
     <div class="col-sm-8">
     <h3>{{ $repo->name }}</h3>
-    @if ($commit = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->first())
+    @if ($commit = $commits->get($repo->id))
         @if ($commit->status === 1)
         <p style="color:green">
         @elseif ($commit->status === 2)
