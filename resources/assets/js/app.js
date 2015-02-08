@@ -24,6 +24,10 @@ $(function() {
         }
     });
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
     StyleCI.globals = {
         host: window.location.host,
         base_url: window.location.protocol + "//" + window.location.host,
