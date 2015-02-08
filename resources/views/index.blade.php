@@ -1,8 +1,6 @@
 @extends(Config::get('core.default'))
 
-@section('title')
-Landing
-@stop
+@section('title', 'Coding Style Continuous Integration Service')
 
 @section('content')
 <header id="top" class="header">

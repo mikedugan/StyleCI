@@ -1,8 +1,6 @@
 @extends(Config::get('core.default'))
 
-@section('title')
-Your Account
-@stop
+@section('title', 'Your Account')
 
 @section('top')
 <div class="page-heading">

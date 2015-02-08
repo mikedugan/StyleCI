@@ -39,5 +39,6 @@ class ComposerServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->view->composer('*', 'StyleCI\StyleCI\Composers\CurrentUserComposer');
+        $this->app->view->composer('*', 'StyleCI\StyleCI\Composers\CurrentUrlComposer');
     }
 }

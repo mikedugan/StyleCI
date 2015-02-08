@@ -1,8 +1,7 @@
 @extends(Config::get('core.default'))
 
-@section('title')
-Commit - {{ $commit->message }}
-@stop
+@section('title', 'Commit - '.$commit->message)
+@section('description', $commit->message)
 
 @section('top')
 <div class="page-heading">
