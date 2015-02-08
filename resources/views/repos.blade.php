@@ -1,8 +1,6 @@
 @extends(Config::get('core.default'))
 
-@section('title')
-Repos
-@stop
+@section('title', 'Repositories')
 
 @section('top')
 <div class="page-heading">

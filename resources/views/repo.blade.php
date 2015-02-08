@@ -1,8 +1,6 @@
 @extends(Config::get('core.default'))
 
-@section('title')
-{{ $repo->name }}
-@stop
+@section('title', $repo->name)
 
 @section('top')
 <div class="page-heading">
