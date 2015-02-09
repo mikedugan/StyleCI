@@ -16,7 +16,12 @@ StyleCI was created by, and is maintained by [Graham Campbell](https://github.co
 
 ## Documentation
 
-This project is at a very early stage, and there is no documentation as yet. StyleCI This is currently being used to analyse all my open source Laravel repos, so check it out at https://styleci.grahamjcampbell.co.uk/.
+We currently have essentially no documentation at the moment, but are working on it.
+
+
+## Free Hosted Service
+
+StyleCI will go live on https://styleci.io/ on Tuesday 17th Feruary.
 
 
 ## License
