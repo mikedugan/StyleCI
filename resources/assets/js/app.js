@@ -25,7 +25,7 @@ $(function() {
     });
 
     $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
+        $('[data-toggle="tooltip"]').tooltip();
     });
 
     StyleCI.globals = {
@@ -33,6 +33,9 @@ $(function() {
         base_url: window.location.protocol + "//" + window.location.host,
         url: document.URL
     };
+
+    StyleCI.Events = {};
+    StyleCI.Listeners = {};
 
     StyleCI.Notifier = function () {
         this.notify = function (message, type, options) {
@@ -52,6 +55,99 @@ $(function() {
                 scrollTop: $('body').offset().top
             }, 500);
         };
+    };
+
+    StyleCI.Events.RealTime = (function () {
+        var instance;
+
+        function createInstance() {
+            return new Pusher($('meta[name="pusher"]').attr('content'));
+        }
+
+        return {
+            getInstance: function () {
+                if (! instance) {
+                    instance = createInstance();
+                }
+                return instance;
+            },
+            getChannel: function(ch) {
+                return this.getInstance().subscribe("ch-" + ch);
+            }
+        };
+    })();
+
+    StyleCI.Listeners.Repo = {
+        CommitsStatusChangeEventHandler: function(data) {
+            var $commit = $("#js-commit-" + data.event.shorthandId);
+
+            if ($commit.length) {
+                var $status = $commit.find('p.js-status'),
+                    $timeAgo = $commit.find('.js-time-ago'),
+                    $time = $commit.find('.js-excecuted-time');
+
+                $status.html("<strong>" + data.event.summary + "</strong>");
+                $timeAgo.html(data.event.timeAgo);
+                $time.html(data.event.excecutedTime);
+
+                $commit.removeClass("bg-success")
+                    .removeClass("bg-danger")
+                    .removeClass("bg-active");
+
+                if (data.event.status === 1) {
+                    $status.css("color", "green");
+                    $commit.addClass("bg-success");
+                } else if (data.event.status === 2) {
+                    $status.css("color", "red");
+                    $commit.addClass("bg-danger");
+                } else {
+                    $status.css("color", "grey");
+                    $commit.addClass("bg-active");
+                }
+            } else {
+                var $tpl = $('#commit-template'),
+                    $commitsHolder = $('.commits');
+
+                var commitsTpl = _.template($tpl.html());
+                $commitsHolder.prepend(commitsTpl({commit: data.event}));
+            }
+        },
+    };
+
+    StyleCI.Listeners.Commit = {
+        CommitStatusChangeEventHandler: function(data) {
+            var $status = $('p.js-status'),
+                $time = $('.js-time-ago');
+
+            $status.html(data.event.description);
+            $time.html(data.event.timeAgo);
+
+            if (data.event.status === 1) {
+                $status.css("color", "green");
+            } else if (data.event.status === 2) {
+                $status.css("color", "red");
+            } else {
+                $status.css("color", "grey");
+            }
+        }
+    };
+
+    StyleCI.Repo = {
+        RealTimeStatus: function() {
+            StyleCI.Events.RealTime.getChannel($(".js-channel").data('channel')).bind(
+                "AnalysisHasCompletedEvent",
+                StyleCI.Listeners.Repo.CommitsStatusChangeEventHandler
+            );
+        }
+    };
+
+    StyleCI.Commit = {
+        RealTimeStatus: function() {
+            StyleCI.Events.RealTime.getChannel($(".js-channel").data('channel')).bind(
+                "AnalysisHasCompletedEvent",
+                StyleCI.Listeners.Commit.CommitStatusChangeEventHandler
+            );
+        }
     };
 
     StyleCI.Account = {

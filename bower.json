@@ -1,11 +1,12 @@
 {
     "name": "StyleCI",
     "dependencies": {
+        "animate-sass": "~0.6.2",
         "bootstrap-sass-official": "~3.3.3",
         "font-awesome": "~4.3.0",
-        "animate-sass": "~0.6.2",
         "jquery-timeago": "~1.4.1",
-        "SyntaxHighlighter": "3.0.9",
-        "lodash": "~3.0.1"
+        "lodash": "~3.0.1",
+        "pusher": "~2.2.3",
+        "SyntaxHighlighter": "3.0.9"
     }
 }

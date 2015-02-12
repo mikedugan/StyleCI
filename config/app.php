@@ -146,6 +146,7 @@ return [
         'Laravel\Socialite\SocialiteServiceProvider',
         'Fideloper\Proxy\TrustedProxyServiceProvider',
         'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
+        'Vinkla\Pusher\PusherServiceProvider',
         'GrahamCampbell\Binput\BinputServiceProvider',
         'GrahamCampbell\Core\CoreServiceProvider',
         'GrahamCampbell\GitHub\GitHubServiceProvider',

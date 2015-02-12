@@ -75,4 +75,14 @@ class CommitPresenter extends BasePresenter
         // display the time to nearest minute otherwise
         return number_format(round($time / 60, 0)).' min';
     }
+
+    /**
+     * Get the commit's time ago.
+     *
+     * @return string
+     */
+    public function timeAgo()
+    {
+        return $this->wrappedObject->created_at->diffForHumans();
+    }
 }

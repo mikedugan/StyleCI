@@ -13,21 +13,15 @@
 @stop
 
 @section('content')
-<div class="commit">
-    @if ($commit->status === 1)
-    <p class="lead" style="color:green">
-    @elseif ($commit->status === 2)
-    <p class="lead" style="color:red">
-    @else
-    <p class="lead" style="color:grey">
-    @endif
+<div class="commit js-channel" data-channel="{{ $commit->repo->id }}">
+    <p class="js-status" style="@if ($commit->status === 1) color:green; @elseif ($commit->status === 2) color:red; @else color:grey; @endif">
         {{ $commit->description() }}
     </p>
     <hr>
     <div class="row">
         <div class="col-sm-8">
             <h2>{{ $commit->message }}</h2>
-            {{ $commit->created_at->diffForHumans() }}
+            <span class="js-time-ago">{{ $commit->timeAgo }}</span>
             <h5>{{ $commit->id }}</h5>
         </div>
         <div class="col-sm-4">
@@ -52,10 +46,13 @@
 </div>
 @stop
 
-@section('bottom')
+@section('js')
 <script type="text/javascript">
     SyntaxHighlighter.defaults['toolbar'] = false;
     SyntaxHighlighter.defaults['gutter'] = false;
     SyntaxHighlighter.all();
+    $(function() {
+        StyleCI.Commit.RealTimeStatus();
+    });
 </script>
 @stop

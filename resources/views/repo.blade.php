@@ -16,7 +16,7 @@
     <i class="fa fa-undo"></i>
 </a>
 @if($commits->count() > 0)
-<div class="repo-table">
+<div class="repo-table js-channel" data-channel="{{ $repo->id }}">
     <div class="row hidden-xs">
         <div class="col-sm-6">
             <strong>Commit</strong>
@@ -28,38 +28,34 @@
             <strong>Status</strong>
         </div>
         <div class="col-sm-4">
-
+            <!-- Actions -->
         </div>
     </div>
-    @foreach($commits as $commit)
-    <div class="row @if($commit->status === 1) bg-success @elseif ($commit->status === 2) bg-danger @else bg-active @endif">
-        <div class="col-sm-6">
-            <strong>{{ $commit->message }}</strong>
-            <br>
-            <small>{{ $commit->created_at->diffForHumans() }}</small>
+    <div class="commits">
+        @foreach($commits as $commit)
+        <div id="js-commit-{{ $commit->shorthandId }}" class="row @if($commit->status === 1) bg-success @elseif ($commit->status === 2) bg-danger @else bg-active @endif">
+            <div class="col-sm-6">
+                <strong>{{ $commit->message }}</strong>
+                <br>
+                <small class="js-time-ago">{{ $commit->timeAgo }}</small>
+            </div>
+            <div class="col-sm-1">
+                <small class="js-excecuted-time">{{ $commit->excecutedTime }}</small>
+            </div>
+            <div class="col-sm-1">
+                <p class="js-status" style="@if ($commit->status === 1) color:green; @elseif ($commit->status === 2) color:red; @else color:grey; @endif">
+                    <strong>{{ $commit->summary }}</strong>
+                </p>
+            </div>
+            <div class="col-sm-4 repo-buttons">
+                <a class="badge-id" href="https://github.com/{{ $repo->name }}/commit/{{ $commit->id }}">
+                    {{ $commit->shorthandId }}
+                </a>
+                <a class="btn btn-sm btn-default" href="{{ route('commit_path', $commit->id) }}">Show Details</a>
+            </div>
         </div>
-        <div class="col-sm-1">
-            <small>{{ $commit->excecutedTime }}</small>
-        </div>
-        <div class="col-sm-1">
-            @if ($commit->status === 1)
-            <p style="color:green">
-            @elseif ($commit->status === 2)
-            <p style="color:red">
-            @else
-            <p style="color:grey">
-            @endif
-            <strong>{{ $commit->summary }}</strong>
-            </p>
-        </div>
-        <div class="col-sm-4 repo-buttons">
-            <a class="badge-id" href="https://github.com/{{ $repo->name }}/commit/{{ $commit->id }}">
-                {{ $commit->shorthandId }}
-            </a>
-            <a class="btn btn-sm btn-default" href="{{ route('commit_path', $commit->id) }}">Show Details</a>
-        </div>
+        @endforeach
     </div>
-    @endforeach
 </div>
 <div class="text-center">
     {!! $commits->render() !!}
@@ -67,4 +63,36 @@
 @else
 <p class="lead">We haven't analysed anything yet.</p>
 @endif
+@stop
+
+@section('js')
+<script id="commit-template" type="text/x-lodash-template">
+    <div id="js-commit-<%= commit.shorthandId %>" class="row <% if (commit.status) { %> bg-success <% } else if (commit.status === 2) { %> bg-danger <% } else { %> bg-active <% } %>">
+        <div class="col-sm-6">
+            <strong><%= commit.message %></strong>
+            <br>
+            <small class="js-time-ago"><%= commit.timeAgo %></small>
+        </div>
+        <div class="col-sm-1">
+            <small class="js-excecuted-time"><%= commit.excecutedTime %></small>
+        </div>
+        <div class="col-sm-1">
+            <p class="js-status" style="<% if (commit.status === 1) { %> color:green; <% } else if (commit.status === 2) { %> color:red; <% } else { %> color:grey; <% } %>">
+                <strong><%= commit.summary %></strong>
+            </p>
+        </div>
+        <div class="col-sm-4 repo-buttons">
+            <a class="badge-id" href="https://github.com/<%= commit.repo_name %>/commit/<%= commit.id %>">
+                <%= commit.shorthandId %>
+            </a>
+            <a class="btn btn-sm btn-default" href="<%= commit.link %>">Show Details</a>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    $(function() {
+        StyleCI.Repo.RealTimeStatus();
+    });
+</script>
 @stop

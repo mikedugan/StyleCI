@@ -120,7 +120,7 @@
 </div>
 @stop
 
-@section('bottom')
+@section('js')
 <script id="repos-template" type="text/x-lodash-template">
     <% if (_.size(repos) > 0) { %>
         <% _.forEach(repos, function(repo) { %>
@@ -173,7 +173,7 @@
 </script>
 
 @if (!isset($repos))
-<script charset="utf-8">
+<script type="text/javascript">
     $(function() {
         StyleCI.Account.getRepos();
     });
