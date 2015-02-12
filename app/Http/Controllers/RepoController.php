@@ -73,7 +73,7 @@ class RepoController extends AbstractController
      */
     public function handleShow(Repo $repo)
     {
-        $commits = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->take(50)->get();
+        $commits = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->paginate(50);
 
         return View::make('repo', compact('repo', 'commits'));
     }

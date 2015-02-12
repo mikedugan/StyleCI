@@ -61,6 +61,9 @@
     </div>
     @endforeach
 </div>
+<div class="text-center">
+    {!! $commits->render() !!}
+</div>
 @else
 <p class="lead">We haven't analysed anything yet.</p>
 @endif
