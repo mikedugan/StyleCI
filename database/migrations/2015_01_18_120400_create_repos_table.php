@@ -30,7 +30,7 @@ class CreateReposTable extends Migration
     {
         Schema::create('repos', function (Blueprint $table) {
             $table->bigInteger('id')->unsigned()->primary();
-            $table->string('user_id');
+            $table->string('user_id')->index();
             $table->string('name', 128)->unique();
             $table->timestamps();
         });
