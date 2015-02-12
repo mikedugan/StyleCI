@@ -15,7 +15,7 @@ namespace StyleCI\StyleCI\Handlers\Events;
 use McCool\LaravelAutoPresenter\PresenterDecorator;
 use StyleCI\StyleCI\Events\AnalysisHasCompletedEvent;
 use StyleCI\StyleCI\Models\Commit;
-use Vinkla\Pusher\PusherManager as Pusher;
+use Vinkla\Pusher\PusherManager;
 
 /**
  * This is the real time status handler class.
@@ -46,7 +46,7 @@ class RealTimeStatusHandler
      *
      * @return void
      */
-    public function __construct(Pusher $pusher, PresenterDecorator $presenter)
+    public function __construct(PusherManager $pusher, PresenterDecorator $presenter)
     {
         $this->pusher = $pusher;
         $this->presenter = $presenter;
