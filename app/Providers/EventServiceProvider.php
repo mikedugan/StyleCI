@@ -30,6 +30,7 @@ class EventServiceProvider extends ServiceProvider
         'StyleCI\StyleCI\Events\AnalysisHasCompletedEvent' => [
             'StyleCI\StyleCI\Handlers\Events\CommitStatusHandler',
             'StyleCI\StyleCI\Handlers\Events\AnalysisNotificationsHandler',
+            'StyleCI\StyleCI\Handlers\Events\RealTimeStatusHandler',
         ],
         'StyleCI\StyleCI\Events\RepoWasDisabledEvent' => [
             'StyleCI\StyleCI\Handlers\Events\DisableHooksHandler',

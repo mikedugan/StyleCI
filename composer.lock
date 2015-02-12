@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9fbf9970e16c575d8e0f247fe9b3f556",
+    "hash": "aa0e9c6d23ae7ab979247cde782c426b",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1366,16 +1366,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.0.2",
+            "version": "v5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "30391aa20874c30725f653bea1ea5b895a5217cf"
+                "reference": "b5eafda7dba3d1367a63095b83a068a73d32d97f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/30391aa20874c30725f653bea1ea5b895a5217cf",
-                "reference": "30391aa20874c30725f653bea1ea5b895a5217cf",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b5eafda7dba3d1367a63095b83a068a73d32d97f",
+                "reference": "b5eafda7dba3d1367a63095b83a068a73d32d97f",
                 "shasum": ""
             },
             "require": {
@@ -1487,7 +1487,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-02-06 23:14:12"
+            "time": "2015-02-11 20:37:48"
         },
         {
             "name": "laravel/socialite",
@@ -1980,16 +1980,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.3.3",
+            "version": "v0.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "0355cecab0591c83fed019a9572c510b0da29174"
+                "reference": "218ea9e49c9fe21e28fce6cf77f22615af92daef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/0355cecab0591c83fed019a9572c510b0da29174",
-                "reference": "0355cecab0591c83fed019a9572c510b0da29174",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/218ea9e49c9fe21e28fce6cf77f22615af92daef",
+                "reference": "218ea9e49c9fe21e28fce6cf77f22615af92daef",
                 "shasum": ""
             },
             "require": {
@@ -2046,7 +2046,51 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2015-01-20 21:18:03"
+            "time": "2015-02-12 05:21:32"
+        },
+        {
+            "name": "pusher/pusher-php-server",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pusher/pusher-php-server.git",
+                "reference": "64ac86e757ed3349bc172b4069b972d99ba47400"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pusher/pusher-php-server/zipball/64ac86e757ed3349bc172b4069b972d99ba47400",
+                "reference": "64ac86e757ed3349bc172b4069b972d99ba47400",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Library for interacting with the Pusher REST API",
+            "homepage": "https://github.com/pusher/pusher-php-server",
+            "keywords": [
+                "events",
+                "php-pusher-server",
+                "publish",
+                "pusher",
+                "realtime",
+                "rest",
+                "trigger"
+            ],
+            "time": "2015-01-26 10:56:45"
         },
         {
             "name": "react/promise",
@@ -3047,6 +3091,68 @@
             "time": "2015-02-02 16:32:08"
         },
         {
+            "name": "vinkla/pusher",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vinkla/pusher.git",
+                "reference": "32c9431a47fe6083acfbd2353c21431f1307bedf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vinkla/pusher/zipball/32c9431a47fe6083acfbd2353c21431f1307bedf",
+                "reference": "32c9431a47fe6083acfbd2353c21431f1307bedf",
+                "shasum": ""
+            },
+            "require": {
+                "graham-campbell/manager": "~2.0",
+                "illuminate/contracts": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.7",
+                "pusher/pusher-php-server": "~2.0"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vinkla\\Pusher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Klaiber",
+                    "email": "me@vinkla.com",
+                    "homepage": "http://vinkla.com"
+                }
+            ],
+            "description": "Laravel 5 wrapper for the Pusher HTTP API.",
+            "homepage": "https://github.com/vinkla/pusher",
+            "keywords": [
+                "api",
+                "events",
+                "http",
+                "laravel",
+                "php-pusher-server",
+                "publish",
+                "pusher",
+                "realtime",
+                "rest",
+                "trigger"
+            ],
+            "time": "2015-02-09 20:17:19"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v1.1.0",
             "source": {
@@ -3155,23 +3261,23 @@
         },
         {
             "name": "graham-campbell/testbench",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "23cb2b8df66a6493ca08752b502ca1a42504fea9"
+                "reference": "9bb6d0c478669df0d944032d4425e33d5fcaa6b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/23cb2b8df66a6493ca08752b502ca1a42504fea9",
-                "reference": "23cb2b8df66a6493ca08752b502ca1a42504fea9",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/9bb6d0c478669df0d944032d4425e33d5fcaa6b7",
+                "reference": "9bb6d0c478669df0d944032d4425e33d5fcaa6b7",
                 "shasum": ""
             },
             "require": {
                 "mockery/mockery": "~0.9.3",
                 "orchestra/testbench": "3.0.*",
                 "php": ">=5.4.7",
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "~4.5"
             },
             "type": "library",
             "extra": {
@@ -3205,7 +3311,7 @@
                 "laravel",
                 "testing"
             ],
-            "time": "2015-02-04 19:39:07"
+            "time": "2015-02-12 19:18:14"
         },
         {
             "name": "mockery/mockery",
@@ -3274,21 +3380,71 @@
             "time": "2014-12-22 10:06:19"
         },
         {
-            "name": "orchestra/testbench",
-            "version": "v3.0.1",
+            "name": "orchestra/database",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/orchestral/testbench.git",
-                "reference": "94e9e4a52027aee2eb97d985c544604399ab6f92"
+                "url": "https://github.com/orchestral/database.git",
+                "reference": "2232c9d5750894acf70153cc1a3d4f85b04836c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/94e9e4a52027aee2eb97d985c544604399ab6f92",
-                "reference": "94e9e4a52027aee2eb97d985c544604399ab6f92",
+                "url": "https://api.github.com/repos/orchestral/database/zipball/2232c9d5750894acf70153cc1a3d4f85b04836c6",
+                "reference": "2232c9d5750894acf70153cc1a3d4f85b04836c6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.0.*",
+                "illuminate/database": "5.0.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Orchestra\\Database\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mior Muhammad Zaki",
+                    "email": "crynobone@gmail.com",
+                    "homepage": "https://github.com/crynobone"
+                },
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com",
+                    "homepage": "https://github.com/taylorotwell"
+                }
+            ],
+            "description": "Database Component for Orchestra Platform",
+            "time": "2015-02-10 09:20:46"
+        },
+        {
+            "name": "orchestra/testbench",
+            "version": "v3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orchestral/testbench.git",
+                "reference": "86b631415d442582b434db38f598da51144e539c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/86b631415d442582b434db38f598da51144e539c",
+                "reference": "86b631415d442582b434db38f598da51144e539c",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "5.0.*",
+                "orchestra/database": "3.0.*",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -3332,7 +3488,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2015-02-05 00:26:32"
+            "time": "2015-02-10 23:31:50"
         },
         {
             "name": "phpdocumentor/reflection-docblock",

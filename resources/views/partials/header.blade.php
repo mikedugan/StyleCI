@@ -3,6 +3,7 @@
 <meta name="author" content="Graham Campbell">
 
 <meta name="token" content="{{ csrf_token() }}">
+<meta name="pusher" content="{{ env('PUSHER_APP_KEY') }}">
 
 <meta content="summary" name="twitter:card" />
 <meta content="@yield('title', 'StyleCI')" name="twitter:title" />
