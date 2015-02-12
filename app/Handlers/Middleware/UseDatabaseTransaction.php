@@ -27,7 +27,7 @@ class UseDatabaseTransaction
      *
      * @var \Illuminate\Database\DatabaseManager
      */
-    protected $app;
+    protected $db;
 
     /**
      * Create a use database transaction middleware instance.
