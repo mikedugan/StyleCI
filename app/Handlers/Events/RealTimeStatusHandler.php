@@ -55,7 +55,7 @@ class RealTimeStatusHandler
     /**
      * Handle the analysis has completed event.
      *
-     * @param \StyleCI\StyleCI\Events\AnalysisHasCompletedEvent $events
+     * @param \StyleCI\StyleCI\Events\AnalysisHasCompletedEvent $event
      *
      * @return void
      */
