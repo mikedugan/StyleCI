@@ -20,7 +20,8 @@ use Vinkla\Pusher\PusherManager;
 /**
  * This is the real time status handler class.
  *
- * @author Joseph Cohen <joseph.cohen>
+ * @author Graham Campbell <graham@mineuk.com>
+ * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
 class RealTimeStatusHandler
 {
@@ -55,11 +56,11 @@ class RealTimeStatusHandler
     /**
      * Handle the analysis has completed event.
      *
-     * @param \StyleCI\StyleCI\Events\AnalysisHasCompletedEvent $event
+     * @param \StyleCI\StyleCI\Events\AnalysisHasCompletedEvent|\StyleCI\StyleCI\Events\AnalysisWasQueuedEvent $event
      *
      * @return void
      */
-    public function handle(AnalysisHasCompletedEvent $event)
+    public function handle($event)
     {
         $commit = $this->presenter->decorate($event->getCommit());
 
@@ -81,6 +82,6 @@ class RealTimeStatusHandler
             'link'          => route('commit_path', $commit->id),
         ];
 
-        $this->pusher->trigger('ch-'.$commit->repo_id, 'AnalysisHasCompletedEvent', compact('event'));
+        $this->pusher->trigger('ch-'.$commit->repo_id, 'CommitStatusUpdatedEvent', compact('event'));
     }
 }
