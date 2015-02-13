@@ -21,7 +21,7 @@ We currently have essentially no documentation at the moment, but are working on
 
 ## Free Hosted Service
 
-StyleCI will go live on https://styleci.io/ on Tuesday 17th Feruary.
+StyleCI will go live on https://styleci.io/ on Tuesday 17th February.
 
 
 ## License
