@@ -1366,16 +1366,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.0.4",
+            "version": "v5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b5eafda7dba3d1367a63095b83a068a73d32d97f"
+                "reference": "b1aea041cbc0cd54563e2d3709a54a71eed57653"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b5eafda7dba3d1367a63095b83a068a73d32d97f",
-                "reference": "b5eafda7dba3d1367a63095b83a068a73d32d97f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b1aea041cbc0cd54563e2d3709a54a71eed57653",
+                "reference": "b1aea041cbc0cd54563e2d3709a54a71eed57653",
                 "shasum": ""
             },
             "require": {
@@ -1487,7 +1487,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-02-11 20:37:48"
+            "time": "2015-02-13 19:10:59"
         },
         {
             "name": "laravel/socialite",
@@ -2194,12 +2194,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "c45a9267ce61bd6346be9081cdf8308c22696a6c"
+                "reference": "9ece460d9f919dfa76902ab20d1ddcbad7f4ccab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/c45a9267ce61bd6346be9081cdf8308c22696a6c",
-                "reference": "c45a9267ce61bd6346be9081cdf8308c22696a6c",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/9ece460d9f919dfa76902ab20d1ddcbad7f4ccab",
+                "reference": "9ece460d9f919dfa76902ab20d1ddcbad7f4ccab",
                 "shasum": ""
             },
             "require": {
@@ -2243,7 +2243,7 @@
                 "fixer",
                 "report"
             ],
-            "time": "2015-01-31 12:21:41"
+            "time": "2015-02-13 18:03:54"
         },
         {
             "name": "styleci/git",
@@ -2251,12 +2251,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Git.git",
-                "reference": "7c7a5223ec0bddd1e5ae8d7b2bb8fadfc81ca28b"
+                "reference": "8bd2cabbc6479f014c1d6a556668add147e2aaae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Git/zipball/7c7a5223ec0bddd1e5ae8d7b2bb8fadfc81ca28b",
-                "reference": "7c7a5223ec0bddd1e5ae8d7b2bb8fadfc81ca28b",
+                "url": "https://api.github.com/repos/StyleCI/Git/zipball/8bd2cabbc6479f014c1d6a556668add147e2aaae",
+                "reference": "8bd2cabbc6479f014c1d6a556668add147e2aaae",
                 "shasum": ""
             },
             "require": {
@@ -2297,7 +2297,7 @@
                 "repo",
                 "repository"
             ],
-            "time": "2015-01-25 23:40:16"
+            "time": "2015-02-13 18:04:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3381,16 +3381,16 @@
         },
         {
             "name": "orchestra/database",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/database.git",
-                "reference": "2232c9d5750894acf70153cc1a3d4f85b04836c6"
+                "reference": "53a888207ea12e2295f916020ac58eea05c9182e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/database/zipball/2232c9d5750894acf70153cc1a3d4f85b04836c6",
-                "reference": "2232c9d5750894acf70153cc1a3d4f85b04836c6",
+                "url": "https://api.github.com/repos/orchestral/database/zipball/53a888207ea12e2295f916020ac58eea05c9182e",
+                "reference": "53a888207ea12e2295f916020ac58eea05c9182e",
                 "shasum": ""
             },
             "require": {
@@ -3426,7 +3426,7 @@
                 }
             ],
             "description": "Database Component for Orchestra Platform",
-            "time": "2015-02-10 09:20:46"
+            "time": "2015-02-13 16:01:38"
         },
         {
             "name": "orchestra/testbench",
