@@ -10,31 +10,29 @@
  * file that was distributed with this source code.
  */
 
-namespace StyleCI\StyleCI\Commands;
+namespace StyleCI\StyleCI\Events;
 
-use Illuminate\Contracts\Queue\ShouldBeQueued;
 use Illuminate\Queue\SerializesModels;
-use StyleCI\StyleCI\Events\AnalysisWasQueuedEvent;
 use StyleCI\StyleCI\Models\Commit;
 
 /**
- * This is the analyse commit command.
+ * This is the analysis was queued event class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class AnalyseCommitCommand implements ShouldBeQueued
+class AnalysisWasQueuedEvent
 {
     use SerializesModels;
 
     /**
-     * The commit to analyse.
+     * The commit that will be analysed.
      *
      * @var \StyleCI\StyleCI\Models\Commit
      */
     protected $commit;
 
     /**
-     * Create a new analyse commit command instance.
+     * Create a new analysis was queued event instance.
      *
      * @param \StyleCI\StyleCI\Models\Commit $commit
      *
@@ -43,12 +41,10 @@ class AnalyseCommitCommand implements ShouldBeQueued
     public function __construct(Commit $commit)
     {
         $this->commit = $commit;
-
-        event(new AnalysisWasQueuedEvent($commit));
     }
 
     /**
-     * Get the commit to analyse.
+     * Get the commit that will be analysed.
      *
      * @return \StyleCI\StyleCI\Models\Commit
      */

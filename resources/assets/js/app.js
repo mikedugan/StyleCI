@@ -135,7 +135,7 @@ $(function() {
     StyleCI.Repo = {
         RealTimeStatus: function() {
             StyleCI.Events.RealTime.getChannel($(".js-channel").data('channel')).bind(
-                "AnalysisHasCompletedEvent",
+                "CommitStatusUpdatedEvent",
                 StyleCI.Listeners.Repo.CommitsStatusChangeEventHandler
             );
         }
@@ -144,7 +144,7 @@ $(function() {
     StyleCI.Commit = {
         RealTimeStatus: function() {
             StyleCI.Events.RealTime.getChannel($(".js-channel").data('channel')).bind(
-                "AnalysisHasCompletedEvent",
+                "CommitStatusUpdatedEvent",
                 StyleCI.Listeners.Commit.CommitStatusChangeEventHandler
             );
         }
