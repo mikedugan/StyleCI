@@ -63,6 +63,10 @@ class RealTimeStatusHandler
     {
         $commit = $this->presenter->decorate($event->getCommit());
 
+        if ($commit->ref !== 'refs/heads/master') {
+            return;
+        }
+
         $event = [
             'id'            => $commit->id,
             'repo_id'       => $commit->repo_id,
