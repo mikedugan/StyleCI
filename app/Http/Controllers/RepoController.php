@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
+use McCool\LaravelAutoPresenter\Facades\AutoPresenter;
 use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
 use StyleCI\StyleCI\GetCommitTrait;
 use StyleCI\StyleCI\GitHub\Branches;
@@ -68,12 +69,23 @@ class RepoController extends AbstractController
      * Handles the request to show a repo.
      *
      * @param \StyleCI\StyleCI\Models\Repo $repo
+     * @param \Illuminate\Http\Request     $request
      *
      * @return \Illuminate\View\View
      */
-    public function handleShow(Repo $repo)
+    public function handleShow(Repo $repo, Request $request)
     {
         $commits = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->paginate(50);
+
+        if ($request->ajax()) {
+            $response = [];
+
+            foreach ($commits->getCollection() as $commit) {
+                $response[] = AutoPresenter::decorate($commit)->present;
+            }
+
+            return new JsonResponse(['data' => $response]);
+        }
 
         return View::make('repo', compact('repo', 'commits'));
     }

@@ -40,7 +40,7 @@ class RepoRoutes
             'uses' => 'RepoController@handleShow'
         ]);
 
-        $router->get('repos/{repo}/analyse', [
+        $router->post('repos/{repo}/analyse', [
             'as'   => 'repo_analyse_path',
             'uses' => 'RepoController@handleAnalyse'
         ]);

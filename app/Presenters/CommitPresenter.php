@@ -18,6 +18,7 @@ use McCool\LaravelAutoPresenter\BasePresenter;
  * This is the commit presenter class.
  *
  * @author Graham Campbell <graham@mineuk.com>
+ * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
 class CommitPresenter extends BasePresenter
 {
@@ -84,5 +85,27 @@ class CommitPresenter extends BasePresenter
     public function timeAgo()
     {
         return $this->wrappedObject->created_at->diffForHumans();
+    }
+
+    /**
+     * Get the commit's presented array.
+     *
+     * @return array
+     */
+    public function present()
+    {
+        return [
+            'id'            => $this->wrappedObject->id,
+            'repo_id'       => $this->wrappedObject->repo_id,
+            'repo_name'     => $this->wrappedObject->repo->name,
+            'message'       => $this->wrappedObject->message,
+            'description'   => $this->wrappedObject->description(),
+            'status'        => $this->wrappedObject->status,
+            'summary'       => $this->summary(),
+            'timeAgo'       => $this->timeAgo(),
+            'shorthandId'   => $this->shorthandId().'12',
+            'excecutedTime' => $this->excecutedTime(),
+            'link'          => route('commit_path', $this->wrappedObject->id),
+        ];
     }
 }
