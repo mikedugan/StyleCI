@@ -68,6 +68,6 @@ class RealTimeStatusHandler
             return;
         }
 
-        $this->pusher->trigger('ch-'.$commit->repo_id, 'CommitStatusUpdatedEvent', ['event' => $commit->present]);
+        $this->pusher->trigger('ch-'.$commit->repo_id, 'CommitStatusUpdatedEvent', ['event' => $commit->toArray()]);
     }
 }

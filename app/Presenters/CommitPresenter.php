@@ -12,6 +12,7 @@
 
 namespace StyleCI\StyleCI\Presenters;
 
+use Illuminate\Contracts\Support\Arrayable;
 use McCool\LaravelAutoPresenter\BasePresenter;
 
 /**
@@ -20,7 +21,7 @@ use McCool\LaravelAutoPresenter\BasePresenter;
  * @author Graham Campbell <graham@mineuk.com>
  * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
-class CommitPresenter extends BasePresenter
+class CommitPresenter extends BasePresenter implements Arrayable
 {
     /**
      * Get the commit status summary.
@@ -88,11 +89,11 @@ class CommitPresenter extends BasePresenter
     }
 
     /**
-     * Get the commit's presented array.
+     * Convert presented commit to an array.
      *
      * @return array
      */
-    public function present()
+    public function toArray()
     {
         return [
             'id'            => $this->wrappedObject->id,

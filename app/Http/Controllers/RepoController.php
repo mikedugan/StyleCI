@@ -78,13 +78,7 @@ class RepoController extends AbstractController
         $commits = $repo->commits()->where('ref', 'refs/heads/master')->orderBy('created_at', 'desc')->paginate(50);
 
         if ($request->ajax()) {
-            $response = [];
-
-            foreach ($commits->getCollection() as $commit) {
-                $response[] = AutoPresenter::decorate($commit)->present;
-            }
-
-            return new JsonResponse(['data' => $response]);
+            return new JsonResponse(['data' => AutoPresenter::decorate($commits->getCollection())->toArray()]);
         }
 
         return View::make('repo', compact('repo', 'commits'));
