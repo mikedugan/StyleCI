@@ -32,7 +32,7 @@ class UserHasSignedUpEvent
     protected $user;
 
     /**
-     * Create a new account was created event instance.
+     * Create a new user has signed up event instance.
      *
      * @param \StyleCI\StyleCI\Models\User $user
      *
