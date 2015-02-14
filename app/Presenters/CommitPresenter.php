@@ -12,14 +12,16 @@
 
 namespace StyleCI\StyleCI\Presenters;
 
+use Illuminate\Contracts\Support\Arrayable;
 use McCool\LaravelAutoPresenter\BasePresenter;
 
 /**
  * This is the commit presenter class.
  *
  * @author Graham Campbell <graham@mineuk.com>
+ * @author Joseph Cohen <joseph.cohen@dinkbit.com>
  */
-class CommitPresenter extends BasePresenter
+class CommitPresenter extends BasePresenter implements Arrayable
 {
     /**
      * Get the commit status summary.
@@ -84,5 +86,27 @@ class CommitPresenter extends BasePresenter
     public function timeAgo()
     {
         return $this->wrappedObject->created_at->diffForHumans();
+    }
+
+    /**
+     * Convert presented commit to an array.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return [
+            'id'            => $this->wrappedObject->id,
+            'repo_id'       => $this->wrappedObject->repo_id,
+            'repo_name'     => $this->wrappedObject->repo->name,
+            'message'       => $this->wrappedObject->message,
+            'description'   => $this->wrappedObject->description(),
+            'status'        => $this->wrappedObject->status,
+            'summary'       => $this->summary(),
+            'timeAgo'       => $this->timeAgo(),
+            'shorthandId'   => $this->shorthandId().'12',
+            'excecutedTime' => $this->excecutedTime(),
+            'link'          => route('commit_path', $this->wrappedObject->id),
+        ];
     }
 }

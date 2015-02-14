@@ -12,7 +12,7 @@
 @stop
 
 @section('content')
-<a href="{{ route('repo_analyse_path', $repo->id) }}" class="btn btn-lg btn-danger btn-circle btn-float pull-right" data-id="{{ $repo->id }}" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Analysing..." data-toggle="tooltip" data-placement="left" title="Analyse Now">
+<a class="btn btn-lg btn-danger btn-circle btn-float pull-right js-analyse-repo" href="{{ route('repo_analyse_path', $repo->id) }}" data-id="{{ $repo->id }}" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i>" data-toggle="tooltip" data-placement="left" title="Analyse Now">
     <i class="fa fa-undo"></i>
 </a>
 @if($commits->count() > 0)

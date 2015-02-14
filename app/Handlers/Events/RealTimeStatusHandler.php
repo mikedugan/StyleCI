@@ -68,20 +68,6 @@ class RealTimeStatusHandler
             return;
         }
 
-        $event = [
-            'id'            => $commit->id,
-            'repo_id'       => $commit->repo_id,
-            'repo_name'     => $commit->repo->name,
-            'message'       => $commit->message,
-            'summary'       => $commit->summary,
-            'status'        => $commit->status,
-            'timeAgo'       => $commit->timeAgo,
-            'description'   => $commit->description(),
-            'shorthandId'   => $commit->shorthandId,
-            'excecutedTime' => $commit->excecutedTime,
-            'link'          => route('commit_path', $commit->id),
-        ];
-
-        $this->pusher->trigger('ch-'.$commit->repo_id, 'CommitStatusUpdatedEvent', compact('event'));
+        $this->pusher->trigger('ch-'.$commit->repo_id, 'CommitStatusUpdatedEvent', ['event' => $commit->toArray()]);
     }
 }

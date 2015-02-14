@@ -24,7 +24,7 @@
                 <p>Are you sure you wish to continue?</p>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-success" href="{{ route('account_delete_path') }}">Yes</a>
+                <a class="btn btn-success" href="{{ route('account_delete_path') }}" data-method="DELETE">Yes</a>
                 <button class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
         </div>
@@ -72,11 +72,11 @@
                                 <a class="btn btn-primary" href="{{ route('repo_path', $id) }}">
                                     <i class="fa fa-history"></i> Show Commits
                                 </a>
-                                <a class="btn btn-danger" href="{{ route('disable_repo_path', $id) }}" data-id="{{ $id }}" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Disabling...">
+                                <a class="btn btn-danger js-confirm-action" href="{{ route('disable_repo_path', $id) }}" data-method="POST" data-id="{{ $id }}" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Disabling...">
                                     <i class="fa fa-times"></i> Disable StyleCI
                                 </a>
                                 @else
-                                <a class="btn btn-success" href="{{ route('enable_repo_path', $id) }}" data-id="{{ $id }}" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Enabling...">
+                                <a class="btn btn-success" href="{{ route('enable_repo_path', $id) }}" data-method="POST" data-id="{{ $id }}" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Enabling...">
                                     <i class="fa fa-check"></i> Enable StyleCI
                                 </a>
                                 @endif
@@ -139,7 +139,7 @@
                     <a class="btn btn-primary" href="{{ route('repo_path', '') }}/<%= repo.id %>">
                         <i class="fa fa-history"></i> Show Commits
                     </a>
-                    <a class="btn btn-danger js-disable-repo" href="{{ route('disable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Disabling...">
+                    <a class="btn btn-danger js-disable-repo js-confirm-action" href="{{ route('disable_repo_path', '') }}/<%= repo.id %>" data-id="<%= repo.id %>" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Disabling...">
                         <i class="fa fa-times"></i> Disable StyleCI
                     </a>
                     <% } else { %>

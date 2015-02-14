@@ -30,7 +30,7 @@ class AccountRoutes
      */
     public function map(Registrar $router)
     {
-        $router->get('auth/login', [
+        $router->post('auth/login', [
             'as'   => 'auth_login_path',
             'uses' => 'AuthController@handleLogin',
         ]);
@@ -40,7 +40,7 @@ class AccountRoutes
             'uses' => 'AuthController@handleCallback',
         ]);
 
-        $router->get('auth/logout', [
+        $router->post('auth/logout', [
             'as'   => 'auth_logout_path',
             'uses' => 'AuthController@handleLogout',
         ]);
@@ -50,7 +50,7 @@ class AccountRoutes
             'uses' => 'AccountController@handleShow',
         ]);
 
-        $router->get('account/delete', [
+        $router->delete('account/delete', [
             'as'   => 'account_delete_path',
             'uses' => 'AccountController@handleDelete',
         ]);
@@ -60,17 +60,17 @@ class AccountRoutes
             'uses' => 'AccountController@handleListRepos',
         ]);
 
-        $router->get('account/repos/sync', [
+        $router->post('account/repos/sync', [
             'as'   => 'account_repos_sync_path',
             'uses' => 'AccountController@handleSync',
         ]);
 
-        $router->get('account/enable/{id}', [
+        $router->post('account/enable/{id}', [
             'as'   => 'enable_repo_path',
             'uses' => 'AccountController@handleEnable',
         ]);
 
-        $router->get('account/disable/{repo}', [
+        $router->post('account/disable/{repo}', [
             'as'   => 'disable_repo_path',
             'uses' => 'AccountController@handleDisable',
         ]);
