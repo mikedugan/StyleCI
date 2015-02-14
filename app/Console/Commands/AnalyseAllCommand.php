@@ -15,7 +15,6 @@ namespace StyleCI\StyleCI\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
-use StyleCI\StyleCI\GetCommitTrait;
 use StyleCI\StyleCI\Models\Repo;
 
 /**
@@ -25,7 +24,7 @@ use StyleCI\StyleCI\Models\Repo;
  */
 class AnalyseAllCommand extends Command
 {
-    use DispatchesCommands, GetCommitTrait;
+    use DispatchesCommands;
 
     /**
      * The console command name.
@@ -48,9 +47,7 @@ class AnalyseAllCommand extends Command
      */
     public function handle()
     {
-        $repos = Repo::orderBy('name', 'asc')->get();
-
-        foreach ($repos as $repo) {
+        foreach ($this->laravel['styleci.reporepository']->all() as $repo) {
             $this->analyse($repo);
         }
     }
@@ -69,7 +66,7 @@ class AnalyseAllCommand extends Command
         $branches = $this->laravel['styleci.branches']->get($repo);
 
         foreach ($branches as $branch) {
-            $commit = static::getCommit($branch['name'], $repo->id, $branch['commit']);
+            $commit = $this->laravel['styleci.commitrepository']->findForAnalysis($branch['commit'], $repo->id, $branch['name']);
             $this->dispatch(new AnalyseCommitCommand($commit));
             $this->info('Analysis of the "'.$branch['name'].'" branch has been scheduled.');
         }

@@ -157,6 +157,8 @@ return [
         'StyleCI\StyleCI\Providers\BusServiceProvider',
         'StyleCI\StyleCI\Providers\ComposerServiceProvider',
         'StyleCI\StyleCI\Providers\EventServiceProvider',
+        'StyleCI\StyleCI\Providers\GitHubServiceProvider',
+        'StyleCI\StyleCI\Providers\RepositoryServiceProvider',
         'StyleCI\StyleCI\Providers\RouteServiceProvider',
 
     ],

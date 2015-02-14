@@ -15,6 +15,7 @@ namespace StyleCI\StyleCI\Handlers\Commands;
 use StyleCI\StyleCI\Commands\LoginCommand;
 use StyleCI\StyleCI\Events\UserHasSignedUpEvent;
 use StyleCI\StyleCI\Models\User;
+use StyleCI\StyleCI\Repositories\UserRepository;
 
 /**
  * This is the login command handler class.
@@ -25,6 +26,25 @@ use StyleCI\StyleCI\Models\User;
 class LoginCommandHandler
 {
     /**
+     * The user repository instance.
+     *
+     * @var \StyleCI\StyleCI\Repositories\UserRepository
+     */
+    protected $userRepository;
+
+    /**
+     * Create a new login command handler instance.
+     *
+     * @param \StyleCI\StyleCI\Repositories\UserRepository $userRepository
+     *
+     * @return void
+     */
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
+    /**
      * Handle the login command.
      *
      * @param \StyleCI\StyleCI\Commands\LoginCommand $command
@@ -33,14 +53,10 @@ class LoginCommandHandler
      */
     public function handle(LoginCommand $command)
     {
-        $user = User::find($command->getId());
+        $user = $this->userRepository->findOrGenerate($command->getId());
 
-        if (!$user) {
-            $new = true;
-            $user = new User();
-        }
+        $new = $user->exists === false;
 
-        $user->id = $command->getId();
         $user->name = $command->getName();
         $user->email = $command->getEmail();
         $user->username = $command->getUsername();
@@ -48,7 +64,7 @@ class LoginCommandHandler
 
         $user->save();
 
-        if (isset($new)) {
+        if ($new) {
             event(new UserHasSignedUpEvent($user));
         }
 

@@ -15,9 +15,8 @@ namespace StyleCI\StyleCI\Handlers\Events;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Mail\Message;
 use StyleCI\StyleCI\Events\AnalysisHasCompletedEvent;
-use StyleCI\StyleCI\GitHub\Collaborators;
 use StyleCI\StyleCI\Models\Commit;
-use StyleCI\StyleCI\Models\User;
+use StyleCI\StyleCI\Repositories\UserRepository;
 
 /**
  * This is the analysis notification handler class.
@@ -27,11 +26,11 @@ use StyleCI\StyleCI\Models\User;
 class AnalysisNotificationsHandler
 {
     /**
-     * The collaborators instance.
+     * The user repository instance.
      *
-     * @var \StyleCI\StyleCI\GitHub\Collaborators
+     * @var \StyleCI\StyleCI\Repositories\UserRepository
      */
-    protected $collaborators;
+    protected $userRepository;
 
     /**
      * The mailer instance.
@@ -43,14 +42,14 @@ class AnalysisNotificationsHandler
     /**
      * Create a new analysis notifications handler instance.
      *
-     * @param \StyleCI\StyleCI\GitHub\Collaborators $collaborators
-     * @param \Illuminate\Contracts\Mail\Mailer     $mailer
+     * @param \StyleCI\StyleCI\Repositories\UserRepository $userRepository
+     * @param \Illuminate\Contracts\Mail\Mailer            $mailer
      *
      * @return void
      */
-    public function __construct(Collaborators $collaborators, Mailer $mailer)
+    public function __construct(UserRepository $userRepository, Mailer $mailer)
     {
-        $this->collaborators = $collaborators;
+        $this->userRepository = $userRepository;
         $this->mailer = $mailer;
     }
 
@@ -94,7 +93,7 @@ class AnalysisNotificationsHandler
             'subject' => 'Failed Analysis',
         ];
 
-        foreach (User::whereIn('id', $this->collaborators->get($commit))->get() as $user) {
+        foreach ($this->userRepository->collaborators($commit) as $user) {
             $mail['email'] = $user->email;
             $this->mailer->send('emails.failed', $mail, function (Message $message) use ($mail) {
                 $message->to($mail['email'])->subject($mail['subject']);
