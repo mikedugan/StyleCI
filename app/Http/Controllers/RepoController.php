@@ -20,10 +20,10 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use McCool\LaravelAutoPresenter\Facades\AutoPresenter;
 use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
-use StyleCI\StyleCI\GetCommitTrait;
 use StyleCI\StyleCI\GitHub\Branches;
-use StyleCI\StyleCI\GitHub\Repos;
 use StyleCI\StyleCI\Models\Repo;
+use StyleCI\StyleCI\Repositories\CommitRepository;
+use StyleCI\StyleCI\Repositories\RepoRepository;
 
 /**
  * This is the repo controller class.
@@ -32,8 +32,6 @@ use StyleCI\StyleCI\Models\Repo;
  */
 class RepoController extends AbstractController
 {
-    use GetCommitTrait;
-
     /**
      * Create a new account controller instance.
      *
@@ -47,14 +45,14 @@ class RepoController extends AbstractController
     /**
      * Handles the request to list the repos.
      *
-     * @param \Illuminate\Contracts\Auth\Guard $auth
-     * @param \StyleCI\StyleCI\GitHub\Repos    $repos
+     * @param \Illuminate\Contracts\Auth\Guard             $auth
+     * @param \StyleCI\StyleCI\Repositories\RepoRepository $repos
      *
      * @return \Illuminate\View\View
      */
-    public function handleList(Guard $auth, Repos $repos)
+    public function handleList(Guard $auth, RepoRepository $repoRepository)
     {
-        $repos = Repo::whereIn('id', array_keys($repos->get($auth->user())))->orderBy('name', 'asc')->get();
+        $repos = $repoRepository->allByUser($auth->user());
 
         $commits = new Collection();
 
@@ -87,13 +85,14 @@ class RepoController extends AbstractController
     /**
      * Handles the request to analyse a repo.
      *
-     * @param \Illuminate\Http\Request         $request
-     * @param \StyleCI\StyleCI\GitHub\Branches $branches
-     * @param \StyleCI\StyleCI\Models\Repo     $repo
+     * @param \Illuminate\Http\Request                       $request
+     * @param \StyleCI\StyleCI\GitHub\Branches               $branches
+     * @param \StyleCI\StyleCI\Models\Repo                   $repo
+     * @param \StyleCI\StyleCI\Repositories\CommitRepository $commitRepository
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleAnalyse(Request $request, Repo $repo, Branches $branches)
+    public function handleAnalyse(Request $request, Repo $repo, Branches $branches, CommitRepository $commitRepository)
     {
         $branches = $branches->get($repo);
 
@@ -102,7 +101,7 @@ class RepoController extends AbstractController
                 continue;
             }
 
-            $commit = static::getCommit($branch['name'], $repo->id, $branch['commit']);
+            $commit = $commitRepository->findForAnalysis($branch['commit'], $repo->id, $branch['name']);
             $this->dispatch(new AnalyseCommitCommand($commit));
             break;
         }

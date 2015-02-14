@@ -15,9 +15,9 @@ namespace StyleCI\StyleCI\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use StyleCI\StyleCI\Commands\AnalyseCommitCommand;
-use StyleCI\StyleCI\Models\Commit;
-use StyleCI\StyleCI\Models\Fork;
-use StyleCI\StyleCI\Models\Repo;
+use StyleCI\StyleCI\Repositories\CommitRepository;
+use StyleCI\StyleCI\Repositories\ForkRepository;
+use StyleCI\StyleCI\Repositories\RepoRepository;
 
 /**
  * This is the github controller class.
@@ -26,6 +26,43 @@ use StyleCI\StyleCI\Models\Repo;
  */
 class GitHubController extends AbstractController
 {
+    /**
+     * The commit repository instance.
+     *
+     * @var \StyleCI\StyleCI\Repositories\CommitRepository
+     */
+    protected $commitRepository;
+
+    /**
+     * The fork repository instance.
+     *
+     * @var \StyleCI\StyleCI\Repositories\ForkRepository
+     */
+    protected $forkRepository;
+
+    /**
+     * The repo repository instance.
+     *
+     * @var \StyleCI\StyleCI\Repositories\RepoRepository
+     */
+    protected $repoRepository;
+
+    /**
+     * Create a new github controller instance.
+     *
+     * @param \StyleCI\StyleCI\Repositories\CommitRepository $commitRepository
+     * @param \StyleCI\StyleCI\Repositories\ForkRepository   $forkRepository
+     * @param \StyleCI\StyleCI\Repositories\RepoRepository   $repoRepository
+     *
+     * @return void
+     */
+    public function __construct(CommitRepository $commitRepository, ForkRepository $forkRepository, RepoRepository $repoRepository)
+    {
+        $this->commitRepository = $commitRepository;
+        $this->forkRepository = $forkRepository;
+        $this->repoRepository = $repoRepository;
+    }
+
     /**
      * Handles the request made to StyleCI by the GitHub API.
      *
@@ -60,18 +97,13 @@ class GitHubController extends AbstractController
     protected function handlePush(array $input)
     {
         if ($input['head_commit'] && strpos($input['ref'], 'gh-pages') === false) {
-            $repo = Repo::find($input['repository']['id']);
+            $repo = $this->repoRepository->find($input['repository']['id']);
 
             if (!$repo) {
                 return new JsonResponse(['message' => 'StyleCI cannot analyse this repo because it\'s not enabled on our system.'], 403, [], JSON_PRETTY_PRINT);
             }
 
-            $commitId = $input['head_commit']['id'];
-            $commit = Commit::find($commitId);
-
-            if (!$commit) {
-                $commit = new Commit(['id' => $commitId, 'repo_id' => $repo->id]);
-            }
+            $commit = $this->commitRepository->findOrGenerate($input['head_commit']['id'], ['repo_id' => $repo->id]);
 
             if (empty($commit->ref)) {
                 $commit->ref = $input['ref'];
@@ -103,27 +135,17 @@ class GitHubController extends AbstractController
     protected function handlePullRequest(array $input)
     {
         if (($input['action'] === 'opened' || $input['action'] === 'reopened' || $input['action'] === 'synchronize') && $input['pull_request']['head']['repo']['full_name'] !== $input['pull_request']['base']['repo']['full_name'] && strpos($input['pull_request']['head']['ref'], 'gh-pages') === false) {
-            $repo = Repo::find($input['pull_request']['base']['repo']['id']);
+            $repo = $this->repoRepository->find($input['pull_request']['base']['repo']['id']);
 
             if (!$repo) {
                 return new JsonResponse(['message' => 'StyleCI cannot analyse this repo because it\'s not enabled on our system.'], 403, [], JSON_PRETTY_PRINT);
             }
 
-            $forkId = $input['pull_request']['head']['repo']['id'];
-            $forkName = $input['pull_request']['head']['repo']['full_name'];
-            $fork = Fork::find($forkId);
+            $fork = $this->forkRepository->findOrGenerate($input['pull_request']['head']['repo']['id'], ['repo_id' => $repo->id, 'name' => $input['pull_request']['head']['repo']['full_name']]);
 
-            if (!$fork) {
-                $fork = new Fork(['id' => $forkId, 'repo_id' => $repo->id, 'name' => $forkName]);
-                $fork->save();
-            }
+            $fork->save();
 
-            $commitId = $input['pull_request']['head']['sha'];
-            $commit = Commit::find($commitId);
-
-            if (!$commit) {
-                $commit = new Commit(['id' => $commitId, 'repo_id' => $repo->id, 'fork_id' => $fork->id]);
-            }
+            $commit = $this->commitRepository->findOrGenerate($input['pull_request']['head']['sha'], ['repo_id' => $repo->id, 'fork_id' => $fork->id]);
 
             if (empty($commit->ref)) {
                 $commit->ref = $input['pull_request']['head']['ref'];
