@@ -13,6 +13,7 @@
 namespace StyleCI\StyleCI\Handlers\Commands;
 
 use StyleCI\StyleCI\Commands\LoginCommand;
+use StyleCI\StyleCI\Events\UserHasLoggedInEvent;
 use StyleCI\StyleCI\Events\UserHasSignedUpEvent;
 use StyleCI\StyleCI\Models\User;
 use StyleCI\StyleCI\Repositories\UserRepository;
@@ -67,6 +68,8 @@ class LoginCommandHandler
         if ($new) {
             event(new UserHasSignedUpEvent($user));
         }
+
+        event(new UserHasLoggedInEvent($user));
 
         return $user;
     }
