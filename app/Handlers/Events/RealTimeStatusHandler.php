@@ -14,7 +14,6 @@ namespace StyleCI\StyleCI\Handlers\Events;
 
 use McCool\LaravelAutoPresenter\PresenterDecorator;
 use StyleCI\StyleCI\Events\AnalysisHasCompletedEvent;
-use StyleCI\StyleCI\Models\Commit;
 use Vinkla\Pusher\PusherManager;
 
 /**
