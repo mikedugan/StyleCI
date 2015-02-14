@@ -50,7 +50,7 @@ class LoginCommandHandler
      *
      * @param \StyleCI\StyleCI\Commands\LoginCommand $command
      *
-     * @return \StyleCI\StyleCI\Models\User
+     * @return void
      */
     public function handle(LoginCommand $command)
     {
@@ -70,7 +70,5 @@ class LoginCommandHandler
         }
 
         event(new UserHasLoggedInEvent($user));
-
-        return $user;
     }
 }

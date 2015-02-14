@@ -42,6 +42,7 @@ class EventServiceProvider extends ServiceProvider
             'StyleCI\StyleCI\Handlers\Events\EnableHooksHandler',
         ],
         'StyleCI\StyleCI\Events\UserHasLoggedInEvent' => [
+            'StyleCI\StyleCI\Handlers\Events\AuthenticationHandler',
             'StyleCI\StyleCI\Handlers\Events\RepoCacheFlushHandler',
         ],
     ];
