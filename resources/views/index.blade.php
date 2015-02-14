@@ -15,7 +15,6 @@
 
 @section('css')
 <style>
-
 .text-vertical-center {
     display: table-cell;
     text-align: center;
