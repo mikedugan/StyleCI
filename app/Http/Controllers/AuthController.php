@@ -16,8 +16,6 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use StyleCI\StyleCI\Commands\LoginCommand;
-use StyleCI\StyleCI\Models\User;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * This is the auth controller class.
@@ -52,8 +50,6 @@ class AuthController extends AbstractController
      * Connect to the GitHub provider using OAuth.
      *
      * @param \Laravel\Socialite\Contracts\Factory $socialite
-     *
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      *
      * @return \Illuminate\Http\RedirectResponse
      */
