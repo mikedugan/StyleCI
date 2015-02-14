@@ -26,23 +26,12 @@ use StyleCI\StyleCI\Commands\LoginCommand;
 class AuthController extends AbstractController
 {
     /**
-     * The authentication guard instance.
-     *
-     * @var \Illuminate\Contracts\Auth\Guard
-     */
-    protected $auth;
-
-    /**
      * Create a new authentication controller instance.
-     *
-     * @param \Illuminate\Contracts\Auth\Guard $auth
      *
      * @return void
      */
-    public function __construct(Guard $auth)
+    public function __construct()
     {
-        $this->auth = $auth;
-
         $this->middleware('guest', ['except' => 'handleLogout']);
     }
 
@@ -77,9 +66,7 @@ class AuthController extends AbstractController
     {
         $socialiteUser = $socialite->driver('github')->user();
 
-        $user = $this->dispatch(new LoginCommand($socialiteUser->id, $socialiteUser->name, $socialiteUser->nickname, $socialiteUser->email, $socialiteUser->token));
-
-        $this->auth->login($user, true);
+        $this->dispatch(new LoginCommand($socialiteUser->id, $socialiteUser->name, $socialiteUser->nickname, $socialiteUser->email, $socialiteUser->token));
 
         return Redirect::route('repos_path');
     }
@@ -87,11 +74,13 @@ class AuthController extends AbstractController
     /**
      * Logout a user account.
      *
+     * @param \Illuminate\Contracts\Auth\Guard $auth
+     *
      * @return \Illuminate\Http\Response
      */
-    public function handleLogout()
+    public function handleLogout(Guard $auth)
     {
-        $this->auth->logout();
+        $auth->logout();
 
         return Redirect::route('home');
     }
