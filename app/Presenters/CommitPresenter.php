@@ -104,7 +104,7 @@ class CommitPresenter extends BasePresenter implements Arrayable
             'status'        => $this->wrappedObject->status,
             'summary'       => $this->summary(),
             'timeAgo'       => $this->timeAgo(),
-            'shorthandId'   => $this->shorthandId().'12',
+            'shorthandId'   => $this->shorthandId(),
             'excecutedTime' => $this->excecutedTime(),
             'link'          => route('commit_path', $this->wrappedObject->id),
         ];
