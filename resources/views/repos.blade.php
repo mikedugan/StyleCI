@@ -16,18 +16,19 @@
 <div class="row">
     <div class="col-sm-8">
     <h3>{{ $repo->name }}</h3>
-    @if ($commit = $commits->get($repo->id))
+        @if ($commit = $commits->get($repo->id))
         <p class="js-status" style="@if ($commit->status === 1) color:green; @elseif ($commit->status === 2) color:red; @else color:grey; @endif">
             <strong>{{ $commit->summary }}</strong>
         </p>
-        </div>
-        <div class="col-sm-4 list-vcenter">
-            <a class="btn btn-primary" href="{{ route('repo_path', $repo->id) }}"><i class="fa fa-history"></i> Show Commits</a>
-        </div>
-    @else
-        <p><strong>No commits have been pushed to the master yet.</strong></p>
-        </div>
-    @endif
+        @else
+        <p class="js-status">
+            <strong>No commits have been pushed to the master yet.</strong>
+        </p>
+        @endif
+    </div>
+    <div class="col-sm-4 list-vcenter">
+        <a class="btn btn-primary" href="{{ route('repo_path', $repo->id) }}"><i class="fa fa-history"></i> Show Commits</a>
+    </div>
 </div>
 <hr>
 @empty
