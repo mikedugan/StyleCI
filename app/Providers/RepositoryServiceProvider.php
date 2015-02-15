@@ -45,8 +45,10 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     protected function registerCommitRepository()
     {
-        $this->app->singleton('styleci.commitrepository', function () {
-            return new CommitRepository();
+        $this->app->singleton('styleci.commitrepository', function ($app) {
+            $commits = $app['styleci.commits'];
+
+            return new CommitRepository($commits);
         });
 
         $this->app->alias('styleci.commitrepository', CommitRepository::class);
