@@ -140,7 +140,6 @@ $(function() {
                     $commit.addClass('bg-active');
                 }
             } else {
-                console.log(data.event);
                 // We should reload all data again if not found
                 var $tpl = $('#commit-template'),
                     $commitsHolder = $('.commits');
@@ -192,6 +191,23 @@ $(function() {
                 .done(function(response) {
                     if (response.queued) {
                         (new StyleCI.Notifier()).notify('The repository has been queued for analysis.', 'success');
+                        var $tpl = $('#commit-template'),
+                            $tableHeaders = $('.repo-table-headers'),
+                            $commitsHolder = $('.commits');
+                        
+                        $tableHeaders.removeClass('hidden');
+
+                        $.get(StyleCI.globals.url)
+                            .done(function(response) {
+                                var commitsTpl = _.template($tpl.html());
+                                $commitsHolder.empty();
+                                _.forEach(response.data, function(item) {
+                                    $commitsHolder.append(commitsTpl({commit: item}));
+                                });
+                            })
+                            .fail(function(response) {
+                                (new StyleCI.Notifier()).notify(response.responseJSON.msg);
+                            });
                     }
                 })
                 .fail(function(response) {
