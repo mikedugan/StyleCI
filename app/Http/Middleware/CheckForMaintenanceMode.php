@@ -15,6 +15,7 @@ namespace StyleCI\StyleCI\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory as View;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 /**
@@ -60,7 +61,7 @@ class CheckForMaintenanceMode
      *
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         if ($this->app->isDownForMaintenance()) {
             return new Response($this->view->make('maintenance')->render(), 503);

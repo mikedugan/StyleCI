@@ -14,6 +14,7 @@ namespace StyleCI\StyleCI\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
@@ -62,7 +63,7 @@ class Authenticate
      *
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         if ($this->auth->guest()) {
             throw new HttpException(401);
