@@ -32,7 +32,8 @@ class AuthController extends AbstractController
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'handleLogout']);
+        $this->middleware('guest', ['except' => ['handleLogout']]);
+        $this->middleware('csrf', ['except' => ['handleCallback']]);
     }
 
     /**

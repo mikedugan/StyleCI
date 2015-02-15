@@ -58,6 +58,7 @@ class AccountController extends AbstractController
         $this->repos = $repos;
 
         $this->middleware('auth');
+        $this->middleware('csrf', ['except' => ['handleShow', 'handleListRepos']]);
     }
 
     /**
