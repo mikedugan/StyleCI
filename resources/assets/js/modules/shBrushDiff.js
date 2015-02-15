@@ -15,8 +15,8 @@
             ];
     };
 
-    Brush.prototype	= new SyntaxHighlighter.Highlighter();
-    Brush.aliases	= ['diff', 'patch'];
+    Brush.prototype = new SyntaxHighlighter.Highlighter();
+    Brush.aliases = ['diff', 'patch'];
 
     SyntaxHighlighter.brushes.Diff = Brush;
 
