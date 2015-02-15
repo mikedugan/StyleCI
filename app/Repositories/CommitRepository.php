@@ -12,6 +12,7 @@
 
 namespace StyleCI\StyleCI\Repositories;
 
+use StyleCI\StyleCI\GitHub\Commits;
 use StyleCI\StyleCI\Models\Commit;
 
 /**
@@ -21,6 +22,25 @@ use StyleCI\StyleCI\Models\Commit;
  */
 class CommitRepository
 {
+    /**
+     * The commits instance.
+     *
+     * @var \StyleCI\StyleCI\GitHub\Commits
+     */
+    protected $commits;
+
+    /**
+     * Create a new commit repository instance.
+     *
+     * @param \StyleCI\StyleCI\GitHub\Commits $commits
+     *
+     * @return void
+     */
+    public function __construct(Commits $commits)
+    {
+        $this->commits = $commits;
+    }
+
     /**
      * Find a commit by its id.
      *
@@ -68,7 +88,7 @@ class CommitRepository
         $commit = $this->findOrGenerate($id, ['repo_id' => $repo]);
 
         if (empty($commit->message)) {
-            $commit->message = 'Manually run analysis';
+            $commit->message = $this->commits->get($commit)['commit']['message'];
         }
 
         if (empty($commit->ref)) {

@@ -16,6 +16,7 @@ use Illuminate\Support\ServiceProvider;
 use StyleCI\StyleCI\GitHub\Branches;
 use StyleCI\StyleCI\GitHub\ClientFactory;
 use StyleCI\StyleCI\GitHub\Collaborators;
+use StyleCI\StyleCI\GitHub\Commits;
 use StyleCI\StyleCI\GitHub\Hooks;
 use StyleCI\StyleCI\GitHub\Repos;
 use StyleCI\StyleCI\GitHub\Status;
@@ -37,6 +38,7 @@ class GitHubServiceProvider extends ServiceProvider
         $this->registerBranches();
         $this->registerClientFactory();
         $this->registerCollaborators();
+        $this->registerCommits();
         $this->registerHooks();
         $this->registerRepos();
         $this->registerStatus();
@@ -89,6 +91,22 @@ class GitHubServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('styleci.collaborators', Collaborators::class);
+    }
+
+    /**
+     * Register the commits class.
+     *
+     * @return void
+     */
+    protected function registerCommits()
+    {
+        $this->app->singleton('styleci.commits', function ($app) {
+            $factory = $app['styleci.clientfactory'];
+
+            return new Commits($factory);
+        });
+
+        $this->app->alias('styleci.commits', Commits::class);
     }
 
     /**
