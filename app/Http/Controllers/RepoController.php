@@ -40,7 +40,6 @@ class RepoController extends AbstractController
     public function __construct()
     {
         $this->middleware('auth', ['except' => 'handleShow']);
-        $this->middleware('csrf', ['only' => ['handleAnalyse']]);
     }
 
     /**
