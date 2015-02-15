@@ -2194,12 +2194,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Fixer.git",
-                "reference": "9ece460d9f919dfa76902ab20d1ddcbad7f4ccab"
+                "reference": "8293ac5865f22a7829c9ba5d9ada4e95ba79b2d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/9ece460d9f919dfa76902ab20d1ddcbad7f4ccab",
-                "reference": "9ece460d9f919dfa76902ab20d1ddcbad7f4ccab",
+                "url": "https://api.github.com/repos/StyleCI/Fixer/zipball/8293ac5865f22a7829c9ba5d9ada4e95ba79b2d4",
+                "reference": "8293ac5865f22a7829c9ba5d9ada4e95ba79b2d4",
                 "shasum": ""
             },
             "require": {
@@ -2243,7 +2243,7 @@
                 "fixer",
                 "report"
             ],
-            "time": "2015-02-13 18:03:54"
+            "time": "2015-02-15 00:23:23"
         },
         {
             "name": "styleci/git",
@@ -2251,12 +2251,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/Git.git",
-                "reference": "8bd2cabbc6479f014c1d6a556668add147e2aaae"
+                "reference": "ce9b19f6579c3c45ea89e7b0263b0770012c7f64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/Git/zipball/8bd2cabbc6479f014c1d6a556668add147e2aaae",
-                "reference": "8bd2cabbc6479f014c1d6a556668add147e2aaae",
+                "url": "https://api.github.com/repos/StyleCI/Git/zipball/ce9b19f6579c3c45ea89e7b0263b0770012c7f64",
+                "reference": "ce9b19f6579c3c45ea89e7b0263b0770012c7f64",
                 "shasum": ""
             },
             "require": {
@@ -2265,7 +2265,10 @@
                 "symfony/filesystem": "~2.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.4"
+                "graham-campbell/testbench": "~2.0"
+            },
+            "suggest": {
+                "illuminate/support": "Enables Laravel support (~5.0)."
             },
             "type": "library",
             "extra": {
@@ -2297,7 +2300,7 @@
                 "repo",
                 "repository"
             ],
-            "time": "2015-02-13 18:04:00"
+            "time": "2015-02-15 00:20:23"
         },
         {
             "name": "swiftmailer/swiftmailer",

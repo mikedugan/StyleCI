@@ -153,6 +153,7 @@ return [
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
         'GrahamCampbell\Security\SecurityServiceProvider',
         'StyleCI\Fixer\FixerServiceProvider',
+        'StyleCI\Git\GitServiceProvider',
         'StyleCI\StyleCI\Providers\AppServiceProvider',
         'StyleCI\StyleCI\Providers\BusServiceProvider',
         'StyleCI\StyleCI\Providers\ComposerServiceProvider',
