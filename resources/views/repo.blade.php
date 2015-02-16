@@ -65,7 +65,7 @@
 
 @section('js')
 <script id="commit-template" type="text/x-lodash-template">
-    <div id="js-commit-<%= commit.shorthandId %>" class="row <% if (commit.status) { %> bg-success <% } else if (commit.status === 2) { %> bg-danger <% } else { %> bg-active <% } %>">
+    <div id="js-commit-<%= commit.shorthandId %>" class="row <% if (commit.status === 1) { %> bg-success <% } else if (commit.status === 2) { %> bg-danger <% } else { %> bg-active <% } %>">
         <div class="col-sm-6">
             <strong><%= commit.message %></strong>
             <br>
