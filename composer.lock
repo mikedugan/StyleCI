@@ -1307,12 +1307,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StyleCI/php-github-api.git",
-                "reference": "44105eabd22e5b40766712beb4c494469d7d3fcd"
+                "reference": "8225ef19fac862d6cdf31cab774562c364b2891d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StyleCI/php-github-api/zipball/44105eabd22e5b40766712beb4c494469d7d3fcd",
-                "reference": "44105eabd22e5b40766712beb4c494469d7d3fcd",
+                "url": "https://api.github.com/repos/StyleCI/php-github-api/zipball/8225ef19fac862d6cdf31cab774562c364b2891d",
+                "reference": "8225ef19fac862d6cdf31cab774562c364b2891d",
                 "shasum": ""
             },
             "require": {
@@ -1362,7 +1362,7 @@
             "support": {
                 "source": "https://github.com/StyleCI/php-github-api/tree/master"
             },
-            "time": "2015-02-01 19:23:32"
+            "time": "2015-02-17 12:27:16"
         },
         {
             "name": "laravel/framework",
