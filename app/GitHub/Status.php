@@ -36,7 +36,7 @@ class Status
     protected $url;
 
     /**
-     * Create a github status instance.
+     * Create a new github status instance.
      *
      * @param \StyleCI\StyleCI\GitHub\ClientFactory $factory
      * @param string                                $url

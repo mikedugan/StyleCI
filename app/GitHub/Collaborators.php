@@ -42,7 +42,7 @@ class Collaborators
     protected $cache;
 
     /**
-     * Create a github collaborators instance.
+     * Create a new github collaborators instance.
      *
      * @param \StyleCI\StyleCI\GitHub\ClientFactory  $factory
      * @param \Illuminate\Contracts\Cache\Repository $cache

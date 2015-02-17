@@ -30,7 +30,7 @@ class Branches
     protected $factory;
 
     /**
-     * Create a github branches instance.
+     * Create a new github branches instance.
      *
      * @param \StyleCI\StyleCI\GitHub\ClientFactory $factory
      *

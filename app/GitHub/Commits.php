@@ -29,7 +29,7 @@ class Commits
     protected $factory;
 
     /**
-     * Create a github commits instance.
+     * Create a new github commits instance.
      *
      * @param \StyleCI\StyleCI\GitHub\ClientFactory $factory
      *
