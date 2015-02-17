@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "aa0e9c6d23ae7ab979247cde782c426b",
+    "hash": "5a3b84445d8b8286abd43fc56d306b56",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -630,16 +630,16 @@
         },
         {
             "name": "graham-campbell/github",
-            "version": "v2.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-GitHub.git",
-                "reference": "157f2ec1d272911c8700ef84e01954b74dcbe460"
+                "reference": "0fd9c7d2f3e33f8834f96afec10de326b4a7e44a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-GitHub/zipball/157f2ec1d272911c8700ef84e01954b74dcbe460",
-                "reference": "157f2ec1d272911c8700ef84e01954b74dcbe460",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-GitHub/zipball/0fd9c7d2f3e33f8834f96afec10de326b4a7e44a",
+                "reference": "0fd9c7d2f3e33f8834f96afec10de326b4a7e44a",
                 "shasum": ""
             },
             "require": {
@@ -655,7 +655,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -687,7 +687,7 @@
                 "laravel",
                 "php-github-api"
             ],
-            "time": "2015-02-05 20:54:01"
+            "time": "2015-02-15 22:34:20"
         },
         {
             "name": "graham-campbell/htmlmin",

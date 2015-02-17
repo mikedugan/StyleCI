@@ -36,7 +36,7 @@
         "graham-campbell/binput": "~3.0",
         "graham-campbell/exceptions": "~1.0",
         "graham-campbell/core": "~2.0",
-        "graham-campbell/github": "~2.0",
+        "graham-campbell/github": "~3.0",
         "graham-campbell/htmlmin": "~3.0",
         "knplabs/github-api": "~1.5",
         "mccool/laravel-auto-presenter": "~3.0",

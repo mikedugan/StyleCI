@@ -45,5 +45,8 @@ class EventServiceProvider extends ServiceProvider
             'StyleCI\StyleCI\Handlers\Events\AuthenticationHandler',
             'StyleCI\StyleCI\Handlers\Events\RepoCacheFlushHandler',
         ],
+        'StyleCI\StyleCI\Events\UserHasRageQuitEvent' => [
+            'StyleCI\StyleCI\Handlers\Events\RevokeTokenHandler',
+        ],
     ];
 }

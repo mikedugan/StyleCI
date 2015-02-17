@@ -66,6 +66,6 @@ class ClientFactory
                 throw new InvalidArgumentException('You must provide a user or repo model.');
         }
 
-        return $this->factory->make(compact('token'));
+        return $this->factory->make(['token' => $token, 'method' => 'token']);
     }
 }
