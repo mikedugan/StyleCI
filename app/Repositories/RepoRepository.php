@@ -58,12 +58,13 @@ class RepoRepository
      * Find all repos a user can view.
      *
      * @param \StyleCI\StyleCI\Models\User $user
+     * @param bool                         $admin
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function allByUser(User $user)
+    public function allByUser(User $user, $admin = false)
     {
-        return Repo::whereIn('id', array_keys($this->repos->get($user)))->orderBy('name', 'asc')->get();
+        return Repo::whereIn('id', array_keys($this->repos->get($user, $admin)))->orderBy('name', 'asc')->get();
     }
 
     /**

@@ -56,15 +56,22 @@ class Repos
      * Get a user's public repos.
      *
      * @param \StyleCI\StyleCI\Models\User $user
+     * @param bool                         $admin
      *
      * @return array
      */
-    public function get(User $user)
+    public function get(User $user, $admin = false)
     {
         // cache the repo info from github for 12 hours
         $list = $this->cache->remember($user->id.'repos', 720, function () use ($user) {
             return $this->fetchFromGitHub($user);
         });
+
+        if ($admin) {
+            $list = array_filter($list, function ($item) {
+                return $item['admin'];
+            });
+        }
 
         foreach (Repo::whereIn('id', array_keys($list))->get(['id']) as $repo) {
             $list[$repo->id]['enabled'] = true;
@@ -94,7 +101,7 @@ class Repos
 
             // set enabled to false by default
             // we'll mark those that are enabled at a later point
-            $list[$repo['id']] = ['name' => $repo['full_name'], 'enabled' => false];
+            $list[$repo['id']] = ['name' => $repo['full_name'], 'admin' => $repo['permissions']['admin'], 'enabled' => false];
         }
 
         return $list;

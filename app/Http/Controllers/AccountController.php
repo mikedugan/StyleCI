@@ -22,6 +22,7 @@ use StyleCI\StyleCI\Commands\DisableRepoCommand;
 use StyleCI\StyleCI\Commands\EnableRepoCommand;
 use StyleCI\StyleCI\GitHub\Repos;
 use StyleCI\StyleCI\Models\Repo;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * This is the account controller class.
@@ -79,7 +80,7 @@ class AccountController extends AbstractController
      */
     public function handleListRepos(Request $request)
     {
-        $repos = $this->repos->get($this->auth->user());
+        $repos = $this->repos->get($this->auth->user(), true);
 
         if ($request->ajax()) {
             return new JsonResponse(['data' => $repos]);
@@ -112,13 +113,19 @@ class AccountController extends AbstractController
      * @param \Illuminate\Http\Request $request
      * @param int                      $id
      *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function handleEnable(Request $request, $id)
     {
-        $name = $this->repos->get($this->auth->user())[$id]['name'];
+        $repo = array_get($this->repos->get($this->auth->user(), true), $id);
 
-        $this->dispatch(new EnableRepoCommand($id, $name, $this->auth->user()));
+        if (!$repo) {
+            throw new NotFoundHttpException('Repo not found in your list of repos from GitHub.');
+        }
+
+        $this->dispatch(new EnableRepoCommand($id, $repo['name'], $this->auth->user()));
 
         if ($request->ajax()) {
             return new JsonResponse(['enabled' => true]);
@@ -137,6 +144,10 @@ class AccountController extends AbstractController
      */
     public function handleDisable(Request $request, Repo $repo)
     {
+        if (!array_get($this->repos->get($this->auth->user(), true), $repo->id)) {
+            throw new NotFoundHttpException('Repo not found in your list of repos from GitHub.');
+        }
+
         $this->dispatch(new DisableRepoCommand($repo));
 
         if ($request->ajax()) {
