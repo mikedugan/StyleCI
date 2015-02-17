@@ -32,18 +32,17 @@ return [
     |
     | Here are each of the connections setup for your application. Example
     | configuration has been included, but you may add as many connections as
-    | you would like.
+    | you would like. Note that the 3 supported authentication methods are:
+    | "application", "password", and "token".
     |
     */
 
     'connections' => [
 
         'main' => [
-            'token'   => 'your-token',
-        ],
-
-        'alternative' => [
-            'token'   => 'your-token',
+            'username' => env('GITHUB_CLIENT_ID'),
+            'password' => env('GITHUB_CLIENT_SECRET'),
+            'method'   => 'password',
         ],
 
     ],

@@ -20,6 +20,7 @@ use StyleCI\StyleCI\GitHub\Commits;
 use StyleCI\StyleCI\GitHub\Hooks;
 use StyleCI\StyleCI\GitHub\Repos;
 use StyleCI\StyleCI\GitHub\Status;
+use StyleCI\StyleCI\GitHub\Tokens;
 
 /**
  * This is the github service provider class.
@@ -42,6 +43,7 @@ class GitHubServiceProvider extends ServiceProvider
         $this->registerHooks();
         $this->registerRepos();
         $this->registerStatus();
+        $this->registerTokens();
     }
 
     /**
@@ -157,5 +159,22 @@ class GitHubServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('styleci.status', Status::class);
+    }
+
+    /**
+     * Register the tokens class.
+     *
+     * @return void
+     */
+    protected function registerTokens()
+    {
+        $this->app->singleton('styleci.tokens', function ($app) {
+            $auth = $app->github->authorizations();
+            $clientId = $app->github->getConnectionConfig($app->github->getDefaultConnection())['username'];
+
+            return new Tokens($auth, $clientId);
+        });
+
+        $this->app->alias('styleci.tokens', Tokens::class);
     }
 }
