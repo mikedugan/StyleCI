@@ -68,7 +68,7 @@ class Repos
         });
 
         if ($admin) {
-            $list = array_filter($list, function($item) {
+            $list = array_filter($list, function ($item) {
                 return $item['admin'];
             });
         }
